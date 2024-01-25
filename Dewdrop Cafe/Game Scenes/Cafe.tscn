@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://eqh0swwnn4ot"]
+
+[ext_resource type="Texture2D" uid="uid://dme2ba2ryhn7m" path="res://Images/istockphoto-1428737062-170667a.webp" id="1_nudxk"]
+
+[node name="Cafe" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575.403, 292.875)
+scale = Vector2(2.19588, 2.19588)
+texture = ExtResource("1_nudxk")
