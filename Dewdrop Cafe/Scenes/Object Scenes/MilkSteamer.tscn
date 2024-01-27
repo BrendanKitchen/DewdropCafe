@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://defpgditauti4"]
 
-[ext_resource type="Texture2D" uid="uid://h4gf3pf1jm34" path="res://Images/MilkSteamer.png" id="1_cp17m"]
+[ext_resource type="Texture2D" uid="uid://h4gf3pf1jm34" path="res://Assets/Images/MilkSteamer.png" id="1_cp17m"]
 
 [node name="MilkSteamer" type="Node2D"]
 

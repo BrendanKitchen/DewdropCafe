@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rsm1a563xwnb"
-path="res://.godot/imported/hand-drawn-coffee-shop-pattern-background_23-2150849907.png-8365a01ec9e85a42a061996d0a64ee41.ctex"
+uid="uid://h4gf3pf1jm34"
+path="res://.godot/imported/MilkSteamer.png-77daa36012fc1e256597331fd614a2dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/hand-drawn-coffee-shop-pattern-background_23-2150849907.png"
-dest_files=["res://.godot/imported/hand-drawn-coffee-shop-pattern-background_23-2150849907.png-8365a01ec9e85a42a061996d0a64ee41.ctex"]
+source_file="res://Assets/Images/MilkSteamer.png"
+dest_files=["res://.godot/imported/MilkSteamer.png-77daa36012fc1e256597331fd614a2dc.ctex"]
 
 [params]
 

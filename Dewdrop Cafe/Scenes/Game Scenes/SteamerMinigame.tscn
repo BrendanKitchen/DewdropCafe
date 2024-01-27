@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds4lks10tftc3"]
+
+[ext_resource type="Texture2D" uid="uid://dme2ba2ryhn7m" path="res://Assets/Images/istockphoto-1428737062-170667a.webp" id="1_5r0n6"]
+[ext_resource type="Script" path="res://Scripts/Play.gd" id="2_ifnvf"]
+
+[node name="SteamerMinigame" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575.403, 292.875)
+scale = Vector2(2.19588, 2.19588)
+texture = ExtResource("1_5r0n6")
+
+[node name="Back Button" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 511.0
+offset_right = 285.0
+offset_bottom = 619.0
+text = "Back"
+script = ExtResource("2_ifnvf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 307.0
+offset_top = 549.0
+offset_right = 498.0
+offset_bottom = 595.0
+text = "Steamer Minigame
+"
+
+[connection signal="pressed" from="Back Button" to="Back Button" method="_on_pressed"]
