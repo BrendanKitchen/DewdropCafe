@@ -66,10 +66,10 @@ define gui.name_text_font = "Vintage Culture.ttf"
 define gui.interface_text_font = "Oliciy.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 28
+define gui.text_size = 35
 
 ## The size of character names.
-define gui.name_text_size = 48
+define gui.name_text_size = 40
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 33
