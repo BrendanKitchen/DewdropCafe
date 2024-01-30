@@ -1,0 +1,24 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 8, in script
+    image mc_neutral = ("mc_neutral.png", 732, 1035)
+Exception: Not a displayable: ('mc_neutral.png', 732, 1035)
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 8, in script
+    image mc_neutral = ("mc_neutral.png", 732, 1035)
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\ast.py", line 926, in execute
+    renpy.exports.image(self.imgname, img)
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\exports.py", line 341, in image
+    d = renpy.easy.displayable(d)
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\easy.py", line 145, in displayable
+    raise Exception("Not a displayable: %r" % (d,))
+Exception: Not a displayable: ('mc_neutral.png', 732, 1035)
+
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.2.0.24012702
+Dewdrop Cafe 1.0
+Tue Jan 30 00:38:49 2024

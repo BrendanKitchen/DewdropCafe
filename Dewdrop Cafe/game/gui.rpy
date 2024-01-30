@@ -180,9 +180,9 @@ define gui.button_text_xalign = 0.0
 ##
 ## These customizations are used by the default interface:
 
-define gui.radio_button_borders = Borders(60, 15, 10, 15)
+define gui.radio_button_borders = Borders(60, 5, 10, 10)
 
-define gui.check_button_borders = Borders(60, 15, 10, 15)
+define gui.check_button_borders = Borders(60, 5, 10, 10)
 
 define gui.confirm_button_text_xalign = 0.5
 
@@ -440,10 +440,11 @@ init python:
         gui.label_text_size = 51
 
         ## Adjust the location of the textbox.
-        gui.textbox_height = 360
-        gui.name_xpos = 120
-        gui.dialogue_xpos = 135
-        gui.dialogue_width = 1650
+        gui.textbox_height = 735
+        gui.name_xpos = 20
+        gui.name_ypos = 20
+        gui.dialogue_xpos = 0
+        gui.dialogue_width = 1478
 
         ## Change the size and spacing of various things.
         gui.slider_size = 54
