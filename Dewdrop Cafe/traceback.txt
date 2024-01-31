@@ -1,24 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 8, in script
-    image mc_neutral = ("mc_neutral.png", 732, 1035)
-Exception: Not a displayable: ('mc_neutral.png', 732, 1035)
+  File "game/script.rpy", line 40, in script
+    show betta fish neutral at pos(429, 408)
+  File "game/script.rpy", line 40, in <module>
+    show betta fish neutral at pos(429, 408)
+NameError: name 'pos' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 8, in script
-    image mc_neutral = ("mc_neutral.png", 732, 1035)
-  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\ast.py", line 926, in execute
-    renpy.exports.image(self.imgname, img)
-  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\exports.py", line 341, in image
-    d = renpy.easy.displayable(d)
-  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\easy.py", line 145, in displayable
-    raise Exception("Not a displayable: %r" % (d,))
-Exception: Not a displayable: ('mc_neutral.png', 732, 1035)
+  File "game/script.rpy", line 40, in script
+    show betta fish neutral at pos(429, 408)
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\ast.py", line 1072, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\ast.py", line 1072, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\artis\Downloads\renpy-8.2.0-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 40, in <module>
+    show betta fish neutral at pos(429, 408)
+NameError: name 'pos' is not defined
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.2.0.24012702
 Dewdrop Cafe 1.0
-Tue Jan 30 00:38:49 2024
+Tue Jan 30 23:51:09 2024

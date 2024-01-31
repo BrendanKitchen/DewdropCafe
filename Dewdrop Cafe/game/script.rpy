@@ -5,11 +5,15 @@
 
 define e = Character("Eileen")
 
-image mc_neutral = im.Scale("mc_neutral.png", 732, 1035)
+image mc neutral = im.Scale("mc_neutral.png", 732, 1035)
 
-image night_bg = im.Scale("night_background.png", 1920, 1080)
 
-image inside_bg = im.Scale("inside_background.png", 1920, 1080)
+image betta fish neutral:
+    im.Scale("betta_fish_neutral.png", 1061, 1501)
+    pos (960, 1350)
+
+image night bg = im.Scale("night_background.png", 1920, 1080)
+image inside bg = im.Scale("inside_background.png", 1920, 1080)
 
 # The game starts here.
 
@@ -19,13 +23,13 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene night_bg
+    scene night bg
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show mc_neutral
+    show mc neutral
 
     # These display lines of dialogue.
 
@@ -33,11 +37,18 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
-    scene inside_bg
+    scene inside bg
 
-    show mc_neutral
+    show betta fish neutral
 
     e "Come in for some tea!"
+
+    menu:
+        "Yes":
+            pass
+
+        "no":
+            pass
 
     # This ends the game.
 
