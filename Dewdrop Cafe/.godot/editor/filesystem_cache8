@@ -1,0 +1,26 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1706847537
+::res://Assets/::1706397892
+::res://Assets/Images/::1706397892
+DaytimeDewdrop.png::CompressedTexture2D::4710267751176627390::1706397892::1706397892::1::::<><>::
+hand-drawn-coffee-shop-pattern-background_23-2150849907.png::CompressedTexture2D::1231144223765329259::1706397892::1706397892::1::::<><>::
+icon.svg::CompressedTexture2D::8838516724345943013::1706397892::1706397892::1::::<><>::
+istockphoto-1428737062-170667a.webp::CompressedTexture2D::8011426872865015064::1706397892::1706397892::1::::<><>::
+MilkSteamer.png::CompressedTexture2D::551563585348244173::1706397892::1706397892::1::::<><>::
+::res://Scenes/::1706405684
+::res://Scenes/Game Scenes/::1706405698
+Cafe.tscn::PackedScene::314256062837570011::1706404311::0::1::::<><>::uid://dme2ba2ryhn7m::::res://Assets/Images/istockphoto-1428737062-170667a.webp<>res://Scripts/ToShakeMinigame.gd<>res://Scripts/ToCustomers.gd<>res://Scripts/ToSteamerMinigame.gd<>res://Scripts/ToMenu.gd
+CafeCustomers.tscn::PackedScene::8450213086978464835::1706404311::0::1::::<><>::uid://dme2ba2ryhn7m::::res://Assets/Images/istockphoto-1428737062-170667a.webp<>res://Scripts/Play.gd
+GameScenes.tscn::PackedScene::1544934351792285094::1706404311::0::1::::<><>::
+Menu.tscn::PackedScene::5559963202820249202::1706404311::0::1::::<><>::uid://b8dxolp3mviwk::::res://Assets/Images/DaytimeDewdrop.png<>res://Scripts/Play.gd<>res://Scripts/Quit.gd<>res://Scripts/SettingsButton.gd<>uid://cx44jkd56i7lo::::res://Scenes/Game Scenes/SettingsMenu.tscn
+SettingsMenu.tscn::PackedScene::6448829122136807604::1706404311::0::1::::<><>::
+ShakeMinigame.tscn::PackedScene::6965319331353863673::1706404311::0::1::::<><>::uid://dme2ba2ryhn7m::::res://Assets/Images/istockphoto-1428737062-170667a.webp<>res://Scripts/Play.gd
+SteamerMinigame.tscn::PackedScene::8483214923037811620::1706405698::0::1::::<><>::uid://dme2ba2ryhn7m::::res://Assets/Images/istockphoto-1428737062-170667a.webp<>res://Scripts/Play.gd<>uid://h4gf3pf1jm34::::res://Assets/Images/MilkSteamer.png
+::res://Scripts/::1706398398
+Play.gd::GDScript::-1::1706397892::0::1::::<>Node<>::
+Quit.gd::GDScript::-1::1706146978::0::1::::<>Button<>::
+SettingsButton.gd::GDScript::-1::1706397892::0::1::::<>Node<>::
+ToCustomers.gd::GDScript::-1::1706397892::0::1::::<>Node<>::
+ToMenu.gd::GDScript::-1::1706398398::0::1::::<>Node<>::
+ToShakeMinigame.gd::GDScript::-1::1706397892::0::1::::<>Node<>::
+ToSteamerMinigame.gd::GDScript::-1::1706397892::0::1::::<>Node<>::
