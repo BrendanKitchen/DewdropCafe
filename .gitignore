@@ -39,3 +39,6 @@ Dewdrop Cafe/game/saves/navigation.json
 Dewdrop Cafe/game/cache/shaders.txt
 *.json
 *.txt
+*.txt
+*.json
+*.save
