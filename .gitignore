@@ -29,3 +29,6 @@ log.txt
 errors.txt 
 traceback.txt
 Dewdrop Cafe/log.txt
+Dewdrop Cafe/game/saves/persistent
+Dewdrop Cafe/game/saves/navigation.json
+Dewdrop Cafe/game/cache/shaders.txt
