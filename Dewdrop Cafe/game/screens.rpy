@@ -287,11 +287,16 @@ style quick_button_text:
 
 screen navigation():
 
+    add "gui/logo.png" zoom 0.5 xpos 40 ypos 128
+        
+
     vbox:
+
         style_prefix "navigation"
 
         xpos gui.navigation_xpos
-        yalign 0.5
+
+        yalign 0.75 # where menu items are placed along y
 
         spacing gui.navigation_spacing
 
@@ -368,11 +373,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            #text "[config.name!t]":
+            #    style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            #text "[config.version]":
+            #    style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -641,7 +646,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                        text FileTime(slot, format=_("{#file_time}%a, %b %d %Y, %H:%M"), empty=_("empty")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -670,7 +675,7 @@ screen file_slots(title):
                         textbutton _("{#quick_page}Q") action FilePage("quick")
 
                     ## range(1, 10) gives the numbers from 1 to 9.
-                    for page in range(1, 10):
+                    for page in range(1, 6):
                         textbutton "[page]" action FilePage(page)
 
                     textbutton _(">") action FilePageNext()
@@ -732,6 +737,7 @@ screen preferences():
     use game_menu(_("Preferences"), scroll="viewport"):
 
         vbox:
+            xpos 120
 
             hbox:
                 box_wrap True
@@ -833,8 +839,8 @@ style mute_all_button is check_button
 style mute_all_button_text is check_button_text
 
 style pref_label:
-    top_margin gui.pref_spacing
-    bottom_margin 3
+    top_margin 50
+    bottom_margin 10
 
 style pref_label_text:
     yalign 1.0
@@ -863,7 +869,8 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
-    xsize 525
+    xsize 597
+    ysize 9
 
 style slider_button:
     properties gui.button_properties("slider_button")
@@ -874,7 +881,7 @@ style slider_button_text:
     properties gui.text_properties("slider_button")
 
 style slider_vbox:
-    xsize 675
+    xsize 630
 
 
 ## History screen ##############################################################

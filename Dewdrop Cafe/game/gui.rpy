@@ -28,7 +28,7 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#B6F9C4'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#FFF7E8'
+define gui.idle_color = '#D85D7F'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
@@ -39,7 +39,7 @@ define gui.hover_color = '#48B5A1'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#FFF7E8'
+define gui.selected_color = '#934264'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#839494'
@@ -51,19 +51,19 @@ define gui.hover_muted_color = '#5b7a99'
 
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#D85D7F'
-define gui.interface_text_color = '#ffffff'
+define gui.interface_text_color = '#D85D7F'
 
 
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "Oliciy.ttf"
+define gui.text_font = "fonts/Oliciy.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "Vintage Culture.ttf"
+define gui.name_text_font = "fonts/Vintage Culture.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "Oliciy.ttf"
+define gui.interface_text_font = "fonts/Oliciy.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 35
@@ -180,9 +180,9 @@ define gui.button_text_xalign = 0.0
 ##
 ## These customizations are used by the default interface:
 
-define gui.radio_button_borders = Borders(60, 5, 10, 10)
+define gui.radio_button_borders = Borders(60, 10, 10, 20)
 
-define gui.check_button_borders = Borders(60, 5, 10, 10)
+define gui.check_button_borders = Borders(60, 10, 10, 20)
 
 define gui.confirm_button_text_xalign = 0.5
 
@@ -223,18 +223,19 @@ define gui.choice_button_text_insensitive_color = '#839494'
 ## image files in gui/button, like the other kinds of buttons.
 
 ## The save slot button.
-define gui.slot_button_width = 414
-define gui.slot_button_height = 309
-define gui.slot_button_borders = Borders(15, 15, 15, 15)
-define gui.slot_button_text_size = 21
+define gui.slot_button_width = 416
+define gui.slot_button_height = 278
+define gui.slot_button_borders = Borders(50, 50, 50, 40)
+define gui.slot_button_text_size = 18
 define gui.slot_button_text_xalign = 0.5
-define gui.slot_button_text_idle_color = gui.idle_small_color
+define gui.slot_button_text_idle_color = "#D85D7F"
+define gui.slot_button_text_hover_color = "#D85D7F"
 define gui.slot_button_text_selected_idle_color = gui.selected_color
-define gui.slot_button_text_selected_hover_color = gui.hover_color
+define gui.slot_button_text_selected_hover_color = "#D85D7F"
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = 384
-define config.thumbnail_height = 216
+define config.thumbnail_width = 375
+define config.thumbnail_height = 211
 
 ## The number of columns and rows in the grid of save slots.
 define gui.file_slot_cols = 3
@@ -248,7 +249,7 @@ define gui.file_slot_rows = 2
 
 ## The position of the left side of the navigation buttons, relative to the left
 ## side of the screen.
-define gui.navigation_xpos = 60
+define gui.navigation_xpos = 100
 
 ## The vertical position of the skip indicator.
 define gui.skip_ypos = 15
@@ -260,19 +261,19 @@ define gui.notify_ypos = 68
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 10
 
 ## Controls the amount of spacing between preferences.
-define gui.pref_spacing = 15
+define gui.pref_spacing = 0
 
 ## Controls the amount of spacing between preference buttons.
-define gui.pref_button_spacing = 0
+define gui.pref_button_spacing = 10
 
 ## The spacing between file page buttons.
-define gui.page_spacing = 0
+define gui.page_spacing = 20
 
 ## The spacing between file slots.
-define gui.slot_spacing = 15
+define gui.slot_spacing = 30
 
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0
@@ -284,10 +285,10 @@ define gui.main_menu_text_xalign = 1.0
 ## components when an overlay or window is not present.
 
 ## Generic frames.
-define gui.frame_borders = Borders(6, 6, 6, 6)
+define gui.frame_borders = Borders(100, 100, 100, 100)
 
 ## The frame that is used as part of the confirm screen.
-define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+define gui.confirm_frame_borders = Borders(90, 120, 90, 120)
 
 ## The frame that is used as part of the skip screen.
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)
@@ -309,8 +310,8 @@ define gui.frame_tile = False
 ## The height of horizontal bars, scrollbars, and sliders. The width of vertical
 ## bars, scrollbars, and sliders.
 define gui.bar_size = 38
-define gui.scrollbar_size = 18
-define gui.slider_size = 38
+define gui.scrollbar_size = 20
+define gui.slider_size = 9
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False
@@ -320,12 +321,12 @@ define gui.slider_tile = False
 ## Horizontal borders.
 define gui.bar_borders = Borders(6, 6, 6, 6)
 define gui.scrollbar_borders = Borders(6, 6, 6, 6)
-define gui.slider_borders = Borders(6, 6, 6, 6)
+define gui.slider_borders = Borders(10, 30, 30, 30)
 
 ## Vertical borders.
 define gui.vbar_borders = Borders(6, 6, 6, 6)
-define gui.vscrollbar_borders = Borders(6, 6, 6, 6)
-define gui.vslider_borders = Borders(6, 6, 6, 6)
+define gui.vscrollbar_borders = Borders(0, 0, 0, 0)
+define gui.vslider_borders = Borders(0, 20, 0, 0)
 
 ## What to do with unscrollable scrollbars in the gui. "hide" hides them, while
 ## None shows them.
