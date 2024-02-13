@@ -136,7 +136,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("gui/textboxes/textbox_kari.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos 235
@@ -246,17 +246,18 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
+            spacing 20
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            imagebutton auto "gui/quick_menu_buttons/back_%s.png" action Rollback()
+            imagebutton auto "gui/quick_menu_buttons/history_%s.png" action ShowMenu('history')
+            imagebutton auto "gui/quick_menu_buttons/save_%s.png"  action ShowMenu('save')
+            imagebutton auto "gui/quick_menu_buttons/quicksave_%s.png"  action QuickSave()
+            imagebutton auto "gui/quick_menu_buttons/quickload_%s.png"  action QuickLoad()
+            imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
+            imagebutton auto "gui/quick_menu_buttons/auto_%s.png" action Preference("auto-forward", "toggle")
+            imagebutton auto "gui/quick_menu_buttons/skip_%s.png" action Skip() alternate Skip(fast=True, confirm=True)
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -271,6 +272,7 @@ style quick_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
+    size 20
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -287,7 +289,7 @@ style quick_button_text:
 
 screen navigation():
 
-    add "gui/logo.png" zoom 0.5 xpos 40 ypos 128
+    add "gui/logo.png" zoom 0.5 xpos 40 ypos 128 
         
 
     vbox:
@@ -322,7 +324,9 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        if main_menu:
+
+            textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -373,11 +377,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            #text "[config.name!t]":
-            #    style "main_menu_title"
+            text "[config.name!t]":
+                style "main_menu_title"
 
-            #text "[config.version]":
-            #    style "main_menu_version"
+            text "[config.version]":
+                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -478,7 +482,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Return"):
+    imagebutton auto "gui/quick_menu_buttons/back_%s.png":
         style "return_button"
 
         action Return()
@@ -496,16 +500,23 @@ style game_menu_viewport is gui_viewport
 style game_menu_side is gui_side
 style game_menu_scrollbar is gui_vscrollbar
 
-style game_menu_label is gui_label
-style game_menu_label_text is gui_label_text
+style game_menu_label:
+    color "#FFF7E8"
+    ypos 51
+style game_menu_label_text:
+    color "#FFF7E8"
+    font "fonts/Vintage Culture.ttf"
+    xpos 1150
+    xalign 0.5
+    size 96
+    
 
 style return_button is navigation_button
 style return_button_text is navigation_button_text
 
 style game_menu_outer_frame:
     bottom_padding 45
-    top_padding 180
-
+    top_padding 220
     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
@@ -531,8 +542,8 @@ style game_menu_label:
     ysize 180
 
 style game_menu_label_text:
-    size gui.title_text_size
-    color gui.accent_color
+    # size gui.title_text_size
+    # color gui.accent_color
     yalign 0.5
 
 style return_button:
@@ -560,6 +571,8 @@ screen about():
         style_prefix "about"
 
         vbox:
+            xpos 130
+            xmaximum 1190
 
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
@@ -573,7 +586,8 @@ screen about():
 
 style about_label is gui_label
 style about_label_text is gui_label_text
-style about_text is gui_text
+style about_text is gui_text:
+    color "#CFFFD9"
 
 style about_label_text:
     size gui.label_text_size
@@ -619,7 +633,7 @@ screen file_slots(title):
                 style "page_label"
 
                 key_events True
-                xalign 0.5
+                xalign 0.54
                 action page_name_value.Toggle()
 
                 input:
@@ -630,8 +644,8 @@ screen file_slots(title):
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
-                xalign 0.5
-                yalign 0.5
+                xalign 0.99 # modifies horizontal alignment of slots
+                yalign 0.35
 
                 spacing gui.slot_spacing
 
@@ -658,12 +672,11 @@ screen file_slots(title):
             vbox:
                 style_prefix "page"
 
-                xalign 0.5
-                yalign 1.0
+                xalign 0.5 # modifies page controls
+                yalign 1.0 # modifies page controls
 
                 hbox:
                     xalign 0.5
-
                     spacing gui.page_spacing
 
                     textbutton _("<") action FilePagePrevious()
@@ -691,11 +704,11 @@ screen file_slots(title):
                             xalign 0.5
 
 
-style page_label is gui_label
+style page_label is gui_label:
+    xpos 1150
 style page_label_text is gui_label_text
 style page_button is gui_button
 style page_button_text is gui_button_text
-
 style slot_button is gui_button
 style slot_button_text is gui_button_text
 style slot_time_text is slot_button_text
@@ -704,6 +717,7 @@ style slot_name_text is slot_button_text
 style page_label:
     xpadding 75
     ypadding 5
+    xpos 1150
 
 style page_label_text:
     textalign 0.5
@@ -715,6 +729,9 @@ style page_button:
 
 style page_button_text:
     properties gui.text_properties("page_button")
+    color "#CFFFD9"
+    hover_color gui.hover_color
+    selected_color "#D85D7F"
 
 style slot_button:
     properties gui.button_properties("slot_button")
@@ -736,10 +753,10 @@ screen preferences():
 
     use game_menu(_("Preferences"), scroll="viewport"):
 
-        vbox:
-            xpos 120
+        hbox:
+            xpos 200
 
-            hbox:
+            vbox:
                 box_wrap True
 
                 if renpy.variant("pc") or renpy.variant("web"):
@@ -813,30 +830,35 @@ screen preferences():
 
 
 style pref_label is gui_label
-style pref_label_text is gui_label_text
+style pref_label_text is gui_label_text:
+    color "#4DE5BA"
 style pref_vbox is vbox
 
 style radio_label is pref_label
 style radio_label_text is pref_label_text
 style radio_button is gui_button
-style radio_button_text is gui_button_text
+style radio_button_text is gui_button_text:
+    color "#CFFFD9"
 style radio_vbox is pref_vbox
 
 style check_label is pref_label
 style check_label_text is pref_label_text
 style check_button is gui_button
-style check_button_text is gui_button_text
+style check_button_text is gui_button_text:
+    color "#CFFFD9"
 style check_vbox is pref_vbox
 
 style slider_label is pref_label
-style slider_label_text is pref_label_text
+style slider_label_text is pref_label_text:
+    color "#CFFFD9"
 style slider_slider is gui_slider
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
 
 style mute_all_button is check_button
-style mute_all_button_text is check_button_text
+style mute_all_button_text is check_button_text:
+    color "#4DE5BA"
 
 style pref_label:
     top_margin 50
@@ -844,6 +866,7 @@ style pref_label:
 
 style pref_label_text:
     yalign 1.0
+    
 
 style pref_vbox:
     xsize 338
@@ -937,11 +960,24 @@ define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
 style history_window is empty
 
-style history_name is gui_label
-style history_name_text is gui_label_text
-style history_text is gui_text
+style history_name:
+    color "#FFF7E8"
+    font "fonts/Vintage Culture.ttf"
+    xpos 1150
+    xalign 0.5
+    size 96
+
+style history_name_text is gui_label_text:
+    color "#CFFFD9"
+    font "fonts/Vintage Culture.ttf"
+
+style history_text is gui_text:
+    color "#FFF7E8"
+    size 30
+    yalign 1
 
 style history_label is gui_label
+    
 style history_label_text is gui_label_text
 
 style history_window:
@@ -992,6 +1028,7 @@ screen help():
 
         vbox:
             spacing 23
+            xpos 120
 
             hbox:
 
@@ -1113,10 +1150,15 @@ screen gamepad_help():
 
 
 style help_button is gui_button
-style help_button_text is gui_button_text
+style help_button_text is gui_button_text:
+    color "#48B5A1"
+    hover_color "#4DE5BA"
+    selected_color "#4DE5BA"
 style help_label is gui_label
-style help_label_text is gui_label_text
-style help_text is gui_text
+style help_label_text is gui_label_text:
+    color "#FFB772"
+style help_text is gui_text:
+    color "#CFFFD9"
 
 style help_button:
     properties gui.button_properties("help_button")

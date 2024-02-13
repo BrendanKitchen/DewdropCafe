@@ -25,7 +25,7 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#B6F9C4'
+define gui.accent_color = '#FFB772'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#D85D7F'
@@ -39,7 +39,7 @@ define gui.hover_color = '#48B5A1'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#934264'
+define gui.selected_color = '#48B5A1'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#839494'
@@ -188,7 +188,7 @@ define gui.confirm_button_text_xalign = 0.5
 
 define gui.page_button_borders = Borders(15, 6, 15, 6)
 
-define gui.quick_button_borders = Borders(15, 6, 15, 0)
+define gui.quick_button_borders = Borders(0, 10, 0, 10)
 define gui.quick_button_text_size = 21
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
@@ -338,26 +338,26 @@ define gui.unscrollable = "hide"
 ## The history screen displays dialogue that the player has already dismissed.
 
 ## The number of blocks of dialogue history Ren'Py will keep.
-define config.history_length = 250
+define config.history_length = 100
 
 ## The height of a history screen entry, or None to make the height variable at
 ## the cost of performance.
-define gui.history_height = 210
+define gui.history_height = None
 
 ## Additional space to add between history screen entries.
-define gui.history_spacing = 0
+define gui.history_spacing = 10
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
-define gui.history_name_xpos = 233
+define gui.history_name_xpos = 300
 define gui.history_name_ypos = 0
-define gui.history_name_width = 233
+define gui.history_name_width = 250
 define gui.history_name_xalign = 1.0
 
 ## The position, width, and alignment of the dialogue text.
-define gui.history_text_xpos = 255
-define gui.history_text_ypos = 3
-define gui.history_text_width = 1110
+define gui.history_text_xpos = 330
+define gui.history_text_ypos = 13
+define gui.history_text_width = 900
 define gui.history_text_xalign = 0.0
 
 
@@ -459,7 +459,7 @@ init python:
         gui.history_height = 285
         gui.history_text_width = 1035
 
-        gui.quick_button_text_size = 30
+        gui.quick_button_text_size = 10
 
         ## File button layout.
         gui.file_slot_cols = 2

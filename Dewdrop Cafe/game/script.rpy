@@ -1,8 +1,8 @@
 ﻿# Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define mc = Character("Kari")
-define b = Character("Princess Betta")
+define mc = Character("Ka\u0072i", color="#B6F9C4", window_background=Image("gui/textboxes/textbox_kari.png", style="window"))
+define b = Character("Princess  Kannika", color="#FFB772", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
 
 #Kari portraits
 image mc neutral = im.Scale("mc_neutral.png", 732, 1035)
@@ -38,7 +38,7 @@ label start:
     mc "..."
     mc "And now I wait."
 
-    show betta fish neutral
+    show betta fish neutral with easeinleft
 
     b "Kari! It's been so long since I last saw you!"
     mc "Oh! Hello Princess Betta Fish!"
