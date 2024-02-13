@@ -2,7 +2,7 @@
 # name of the character.
 
 define mc = Character("Ka\u0072i", color="#B6F9C4", window_background=Image("gui/textboxes/textbox_kari.png", style="window"))
-define b = Character("Princess  Kannika", color="#FFB772", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
+define b = Character("Princess  Kannika", color="#FFA3CA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
 
 #Kari portraits
 image mc neutral = im.Scale("mc_neutral.png", 732, 1035)
