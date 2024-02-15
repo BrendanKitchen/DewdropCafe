@@ -1,16 +1,21 @@
-﻿# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define mc = Character("Ka\u0072i", color="#B6F9C4", window_background=Image("gui/textboxes/textbox_kari.png", style="window"))
+﻿define mc = Character("Ka\u0072i", color="#B6F9C4", window_background=Image("gui/textboxes/textbox_kari.png", style="window"))
 define b = Character("Princess  Kannika", color="#FFA3CA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
+define bquestionmark = Character("???")
+define g = Character("Guard")
 
 #Kari portraits
-image mc neutral = im.Scale("mc_neutral.png", 732, 1035)
+image mc neutral: 
+    im.Scale("mc_neutral.png", 732, 1035)
 
 #Betta Fish portraits
 image betta fish neutral:
     im.Scale("betta_fish_neutral.png", 1061, 1501)
-    pos (480, 1350)
+    yoffset(300)
+
+#Guard portraits
+image guard neutral:
+    im.Scale("kingdom_guard.png", 944, 1334)
+    yoffset(300)
 
 #Food images
 image betta drink = im.Scale("BettaDrink.png", 960, 540)
@@ -19,48 +24,114 @@ image betta drink = im.Scale("BettaDrink.png", 960, 540)
 image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
 
-# The game starts here.
 label start:
-    #call variables --> uncomment to use variables
-    scene night bg
-    show mc neutral
+    #FIRST SCENE
+    pause 0.25
 
-    mc "Okay... I think I've finished gathering ingredients for the day."
-    mc "I can't believe it's already so late. It's almost time to open the cafe!"
-    mc "I wonder who will stop by tonight..."
+    mc "There we go, that should do it!"
 
-    scene inside bg
+    window hide
+    pause 0.25
+    show night bg with fade
+    pause 2.5
     show mc neutral at right
-    with fade
+    with easeinright
+    pause 0.25
+    window show
 
-    mc "Just some finishing touches..."
-    mc "Aaaaand it's ready! We're open for business!"
+    mc "I think a change of scenery is just what I needed."
+    mc "Oh, I almost forgot..."
+
+    "{i}Kari reaches into her pocket and pulls out a framed picture of her family, then places it on the counter.{/i}"
+
+    mc "{i}...sigh...{/i}"
+    mc "Things have been rough since I left home, but I'm doing well now."
+    mc "The last place I set up shop was quite busy. I had to serve over a dozen drinks at once!"
+    
+    "{i}The framed picture rests silently on the counter.{/i}"
+
+    mc "...I miss you guys. I promise I'll come back someday... just not today."
+
+    "{i}Suddenly, a loud splashing sound comes from the swamp behind the cafe.{/i}"
+
+    bquestionmark "{i}Huff... huff...{/i}"
+    bquestionmark "...I think I lost them for now."
+
+    mc "Uhhh... what was that?"
+
+    "{i}Kari walks towards the back of the cafe to check out the noise.{/i}"
+
+    mc "Um, hello? Is anyone there?"
+
+    "{i}After rounding the corner, Kari sees a collapsed Nagai breathing heavily.{/i}"
+    "{i}She quickly runs over to check on them.{/i}"
+
+    mc "Oh my god, are you okay?"
+
+    "{i}Kari lifts the stranger up on their tail.{/i}"
+
+    pause 0.25
+    show betta fish neutral at left
+    with easeinbottom
+
+    bquestionmark "...quickly, do you have a place we can hide?"
+
+    menu:
+        "Hide?! Are you a criminal?!":
+            bquestionmark "I can assure you I am anything BUT a criminal."
+            bquestionmark "...however, I could really use your help."
+            "{i}Kari ponders the circumstances for a moment.{/i}"
+            mc "You can hide behind the counter in my cafe."
+            bquestionmark "Excellent!"
+        "You can hide behind the counter in my cafe!":
+            bquestionmark "Excellent!"
+
+    "{i}Kari shuffles the stranger into the cafe behind the counter. {/i}"
+
+    show betta fish neutral at offscreenleft
+    with easeoutleft
+
+    "{i}Only a few seconds later, there's some loud splashing coming from behind the cafe.{/i}"
+
+    g "Hurry! I think she went this way!"
+
+    show guard neutral at left
+    with easeinleft
+
+    g "You there! Have you seen a lady around here? Pink hair, blue tail, holding a parasol?"
+
+    menu:
+        "What's it to ya?":
+            g "We mean no harm but it is vital we find her."
+            mc "I haven't seen her."
+        "No, I just got here.":
+            pass
+        "I don't know who you're talking about.":
+            pass
+
+    g "If you see someone matching her description, please alert us as soon as possible."
+    g "It's too dangerous for her to be out here alone."
+    mc "Will do."
+    g "Move out, men!"
+
+    show guard neutral at offscreenleft
+    with easeoutleft
+
     mc "..."
-    mc "And now I wait."
+    mc "I think they left, you can come out now."
 
-    show betta fish neutral with easeinleft
+    show betta fish neutral at left
+    with easeinbottom
 
-    b "Kari! It's been so long since I last saw you!"
-    mc "Oh! Hello Princess Betta Fish!"
-    b "It's so nice to see you again. Your smile can brighten up even the worst of days."
-    mc "Thank you Princess, but is something wrong?"
-    b "It's nothing worth talking about while you're busy working."
-    mc "It's not nothing to me! I consider making conversation part of the job."
-    b "..."
-    b "I've always known since I was younger that one day I would have to take the throne."
-    b "The high elders are very attached to old traditions. Everything was decided for me. My clothes, my hobbies, my duties... everything."
-    b "I had to fit the image that the high elders created for me... it feels as if I'm just a block of clay made to be molded and shaped by them."
-    mc "Could you talk to your parents about this? Maybe they could help."
-    b "I never knew my parents. After I hatched from my egg, I was taken away by the high elders because of my tail color."
-    b "It's foretold that an heir is born with a blue tail once the current monarch grows close to their end."
-    b "Sometimes, I worry that I'm only the princess because I was born lucky... or unlucky? I feel so conflicted."
-    mc "I know it's not much, but how about I make you something sweet to cheer you up?"
-    b "That would be lovely. Thank you Kari."
-
-    show betta drink at truecenter
-    with fade
-
-    mc "Tada!"
+    bquestionmark "Thank you. I'm not sure what I would have done without your help."
+    mc "If you're on the run, shouldn't you be wearing something less flashy?"
+    bquestionmark "Less flashy? These are my casual clothes."
+    mc "...Right. But why the parasol?"
+    bquestionmark "Is that even a question? It completes the fit!"
+    mc "...Okay. Most importantly, why were you running from them?"
+    bquestionmark "Let me sit for a moment and catch my breath, then I'll explain everything."
+    mc "Fine. While you're here, why don't I make you something?"
+    
 
 # label menuexample:
         # menu:
