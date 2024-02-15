@@ -87,7 +87,7 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.jpg"
+define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
@@ -311,7 +311,7 @@ define gui.frame_tile = False
 ## bars, scrollbars, and sliders.
 define gui.bar_size = 38
 define gui.scrollbar_size = 20
-define gui.slider_size = 9
+define gui.slider_size = 30
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False

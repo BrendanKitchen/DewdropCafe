@@ -851,12 +851,15 @@ style check_vbox is pref_vbox
 style slider_label is pref_label
 style slider_label_text is pref_label_text:
     color "#CFFFD9"
-style slider_slider is gui_slider
+style slider_slider is gui_slider:
+    thumb_offset 38
+    top_margin 20
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
 
-style mute_all_button is check_button
+style mute_all_button is check_button:
+    top_margin 30
 style mute_all_button_text is check_button_text:
     color "#4DE5BA"
 
@@ -892,18 +895,18 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
-    xsize 597
-    ysize 9
+    # xsize 585
+    top_margin -40
+    ysize 20
 
 style slider_button:
     properties gui.button_properties("slider_button")
-    yalign 0.5
-    left_margin 15
+    top_padding -29
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
 
-style slider_vbox:
+style slider_vbox: # width of the vbox containing all sliders
     xsize 630
 
 

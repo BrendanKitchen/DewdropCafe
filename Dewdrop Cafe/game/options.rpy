@@ -153,6 +153,14 @@ define config.save_directory = "DewdropCafe-1706590536"
 
 define config.window_icon = "gui/window_icon.png"
 
+## Cursor ########################################################################
+##
+## Custom Cursor
+
+define config.mouse = {}
+define config.mouse['default'] = [ ( "gui/arrow.png", 0, 0) ]
+define config.mouse['pressed_default'] = [ ( "gui/arrow_pressed.png", 0, 0) ]
+
 
 ## Build configuration #########################################################
 ##
