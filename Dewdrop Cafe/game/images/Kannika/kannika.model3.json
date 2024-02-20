@@ -1,0 +1,42 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Kannika.moc3",
+		"Textures": [
+			"Kannika.2048/texture_00.png"
+		],
+		"Physics": "Kannika.physics3.json",
+		"DisplayInfo": "Kannika.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "frown",
+				"File": "frown.exp3.json"
+			},
+			{
+				"Name": "smile",
+				"File": "smile.exp3.json"
+			},
+			{
+				"Name": "angry",
+				"File": "angry.exp3.json"
+			},
+			{
+				"Name": "surprised",
+				"File": "surprised.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}
