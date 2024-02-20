@@ -41,4 +41,13 @@ Dewdrop Cafe/game/cache/shaders.txt
 *.txt
 *.txt
 *.json
+!DewdropCafe/
+DewdropCafe/*
+!DewdropCafe/DewdropCafe/
+DewdropCafe/DewdropCafe/*
+!DewdropCafe/DewdropCafe/game/
+DewdropCafe/DewdropCafe/game/*
+!DewdropCafe/DewdropCafe/game/images/
+DewdropCafe/DewdropCafe/game/images/*
+!DewdropCafe/DewdropCafe/game/images/*.json
 *.save
