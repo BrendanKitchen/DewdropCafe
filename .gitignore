@@ -45,5 +45,4 @@ Dewdrop Cafe/game/cache/shaders.txt
 !*.motion3.json
 !*.cdi3.json
 !*.model3.json
-!*physics3.json
 *.save
