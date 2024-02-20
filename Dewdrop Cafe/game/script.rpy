@@ -13,6 +13,7 @@ image mc = Live2D("images/Kari", top=-0.037, base=1.0, default_fade=0.0, loop=Tr
 #     im.Scale("betta_fish_neutral.png", 1061, 1501)
 #     yoffset(300)
 image b = Live2D("images/Kannika", top=0.075, base=0.825, default_fade=0.0, loop=True)
+#test
 
 #Guard portraits
 image guard neutral:
