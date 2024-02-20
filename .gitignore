@@ -42,9 +42,8 @@ Dewdrop Cafe/game/cache/shaders.txt
 *.txt
 *.json
 !*.exp3.json
-!angry.exp3.json
-!smile.exp3.json
-!surprised.exp3.json
-!Kannika_neutral.motion3.json
-
+!*.motion3.json
+!*.cdi3.json
+!*.model3.json
+!*physics3.json
 *.save
