@@ -1,0 +1,42 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Kari.moc3",
+		"Textures": [
+			"Kari.2048/texture_00.png"
+		],
+		"Physics": "Kari.physics3.json",
+		"DisplayInfo": "Kari.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "smile",
+				"File": "smile.exp3.json"
+			},
+			{
+				"Name": "angry",
+				"File": "angry.exp3.json"
+			},
+			{
+				"Name": "expression1",
+				"File": "frown.exp3.json"
+			},
+			{
+				"Name": "surprised",
+				"File": "surprised.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}
