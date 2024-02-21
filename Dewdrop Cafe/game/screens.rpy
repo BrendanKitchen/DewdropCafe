@@ -136,7 +136,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textboxes/textbox_kari.png", xalign=0.5, yalign=1.0)
+    background Image("gui/textboxes/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos 235
@@ -272,7 +272,6 @@ style quick_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
-    size 20
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -289,22 +288,31 @@ style quick_button_text:
 
 screen navigation():
 
-    add "gui/logo.png" zoom 0.5 xpos 40 ypos 128 
-        
+    if main_menu:
+        add "gui/logo.png" zoom 0.60 xpos 100 ypos 120
+    else:
+        add "gui/logo.png" zoom 0.50 xpos 20 ypos 120
 
     vbox:
 
         style_prefix "navigation"
+        if main_menu:
+            xpos 130
+            spacing 15
+            yalign 0.80 # where menu items are placed along y axis
+        else:
+            xpos 150
+            spacing 2
+            yalign 0.75
 
-        xpos gui.navigation_xpos
-
-        yalign 0.75 # where menu items are placed along y
-
-        spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            imagebutton auto "gui/main_menu_buttons/start_%s.png" action Start()
+
+            imagebutton auto "gui/main_menu_buttons/load_%s.png" action ShowMenu("load")
+
+            imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
         else:
 
@@ -312,9 +320,10 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        if not main_menu:
+            textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("Preferences") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -326,19 +335,25 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("About") action ShowMenu("about")
+            imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            if main_menu:
+                imagebutton auto "gui/main_menu_buttons/help_%s.png" action ShowMenu("help")
+            else:
+                textbutton _("Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
 
+            if main_menu:
+                imagebutton auto "gui/main_menu_buttons/quit_%s.png" action Quit(confirm=not main_menu)
+            else:
+                textbutton _("Quit") action Quit(confirm=not main_menu)
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -349,6 +364,8 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    xalign 0.5
+        
 
 
 ## Main Menu screen ############################################################
@@ -362,7 +379,9 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "gui/menu_bg.png"
+    add "gui/menu_kari.png"
+    add "gui/menu_decor.png"
 
     ## This empty frame darkens the main menu.
     frame:
@@ -394,7 +413,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -517,7 +536,7 @@ style return_button_text is navigation_button_text
 style game_menu_outer_frame:
     bottom_padding 45
     top_padding 220
-    background "gui/overlay/game_menu.png"
+    background ["gui/overlay/game_menu.png", "gui/main_menu.png"]
 
 style game_menu_navigation_frame:
     xsize 420
@@ -571,7 +590,7 @@ screen about():
         style_prefix "about"
 
         vbox:
-            xpos 130
+            xpos 250
             xmaximum 1190
 
             label "[config.name!t]"
@@ -623,7 +642,6 @@ screen file_slots(title):
     use game_menu(title):
 
         fixed:
-
             ## This ensures the input will get the enter event before any of the
             ## buttons do.
             order_reverse True
@@ -754,7 +772,7 @@ screen preferences():
     use game_menu(_("Preferences"), scroll="viewport"):
 
         hbox:
-            xpos 200
+            xpos 250
 
             vbox:
                 box_wrap True
@@ -852,8 +870,8 @@ style slider_label is pref_label
 style slider_label_text is pref_label_text:
     color "#CFFFD9"
 style slider_slider is gui_slider:
-    thumb_offset 38
-    top_margin 20
+    thumb_offset 20
+    # top_margin 20
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
@@ -906,8 +924,9 @@ style slider_button:
 style slider_button_text:
     properties gui.text_properties("slider_button")
 
-style slider_vbox: # width of the vbox containing all sliders
+style slider_hbox: # width of the vbox containing all sliders
     xsize 630
+    xpadding 40
 
 
 ## History screen ##############################################################
@@ -921,7 +940,6 @@ style slider_vbox: # width of the vbox containing all sliders
 screen history():
 
     tag menu
-
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
@@ -1031,7 +1049,7 @@ screen help():
 
         vbox:
             spacing 23
-            xpos 120
+            xpos 230
 
             hbox:
 
