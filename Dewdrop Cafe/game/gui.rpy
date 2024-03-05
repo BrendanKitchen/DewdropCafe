@@ -35,11 +35,11 @@ define gui.idle_color = '#D85D7F'
 define gui.idle_small_color = '#D7C39E'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#48B5A1'
+define gui.hover_color = '#4DE5BA'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#48B5A1'
+define gui.selected_color = '#4DE5BA'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#839494'
@@ -223,19 +223,19 @@ define gui.choice_button_text_insensitive_color = '#839494'
 ## image files in gui/button, like the other kinds of buttons.
 
 ## The save slot button.
-define gui.slot_button_width = 416
-define gui.slot_button_height = 278
-define gui.slot_button_borders = Borders(50, 50, 50, 40)
+define gui.slot_button_width = 365
+define gui.slot_button_height = 244
+define gui.slot_button_borders = Borders(50, 40, 50, 50)
 define gui.slot_button_text_size = 18
 define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = "#D85D7F"
 define gui.slot_button_text_hover_color = "#D85D7F"
-define gui.slot_button_text_selected_idle_color = gui.selected_color
+define gui.slot_button_text_selected_idle_color = "#3E827A"
 define gui.slot_button_text_selected_hover_color = "#D85D7F"
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = 375
-define config.thumbnail_height = 211
+define config.thumbnail_width = 267
+define config.thumbnail_height = 155
 
 ## The number of columns and rows in the grid of save slots.
 define gui.file_slot_cols = 3
@@ -325,8 +325,8 @@ define gui.slider_borders = Borders(6, 6, 6, 6)
 
 ## Vertical borders.
 define gui.vbar_borders = Borders(6, 6, 6, 6)
-define gui.vscrollbar_borders = Borders(0, 0, 0, 0)
-define gui.vslider_borders = Borders(0, 20, 0, 0)
+define gui.vscrollbar_borders = Borders(6, 6, 6, 6)
+define gui.vslider_borders = Borders(6, 6, 6, 6)
 
 ## What to do with unscrollable scrollbars in the gui. "hide" hides them, while
 ## None shows them.
@@ -349,13 +349,13 @@ define gui.history_spacing = 10
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
-define gui.history_name_xpos = 300
+define gui.history_name_xpos = 230
 define gui.history_name_ypos = 0
 define gui.history_name_width = 250
 define gui.history_name_xalign = 1.0
 
 ## The position, width, and alignment of the dialogue text.
-define gui.history_text_xpos = 330
+define gui.history_text_xpos = 260
 define gui.history_text_ypos = 13
 define gui.history_text_width = 900
 define gui.history_text_xalign = 0.0
