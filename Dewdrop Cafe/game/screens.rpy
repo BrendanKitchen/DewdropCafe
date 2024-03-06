@@ -255,7 +255,7 @@ screen quick_menu():
             imagebutton auto "gui/quick_menu_buttons/back_%s.png" action Rollback()
             imagebutton auto "gui/quick_menu_buttons/history_%s.png" action ShowMenu('history')
             imagebutton auto "gui/quick_menu_buttons/save_%s.png"  action ShowMenu('save')
-            textbutton _("Hide") action [HideInterface(), Hide("in_game_menu")] # code reference: https://www.reddit.com/r/RenPy/comments/rs3f6n/how_do_i_hide_my_ui_ingame/
+            imagebutton auto "gui/quick_menu_buttons/hide_%s.png"  action [HideInterface(), Hide("in_game_menu")] # code reference: https://www.reddit.com/r/RenPy/comments/rs3f6n/how_do_i_hide_my_ui_ingame/
             imagebutton auto "gui/quick_menu_buttons/quicksave_%s.png"  action QuickSave()
             imagebutton auto "gui/quick_menu_buttons/quickload_%s.png"  action QuickLoad()
             imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
@@ -606,11 +606,18 @@ screen credits():
             hbox:
                 label _("Elizabeth Liao")
                 text _("Art Lead, Character Artist, Programmer, Assistant Producer")
-            
+
+            hbox:
+                label _("Talia Yaser")
+                text _("Background Artist")
+
+            hbox:
+                label _("Nicholas Chong")
+                text _("Narrative Writer")
 
             hbox:
                 label _("Ashley Lu")
-                text _("UI Artist & Designer")
+                text _("UI Artist & Designer, Programmer")
             
             # label "[config.name!t]"
             # text _("Version [config.version!t]\n")
@@ -899,8 +906,7 @@ style slider_label is pref_label
 style slider_label_text is pref_label_text:
     color "#CFFFD9"
 style slider_slider is gui_slider:
-    thumb_offset 20
-    # top_margin 20
+    thumb_offset 25
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
@@ -911,7 +917,7 @@ style mute_all_button_text is check_button_text:
     color "#4DE5BA"
 
 style pref_label:
-    top_margin 50
+    top_margin 20
     bottom_margin 10
 
 style pref_label_text:
@@ -941,14 +947,11 @@ style check_button:
 style check_button_text:
     properties gui.text_properties("check_button")
 
-style slider_slider:
-    # xsize 585
-    top_margin -40
-    ysize 20
+style slider_slider
 
 style slider_button:
     properties gui.button_properties("slider_button")
-    top_padding -29
+    
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
