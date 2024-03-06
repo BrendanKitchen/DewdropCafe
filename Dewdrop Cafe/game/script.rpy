@@ -137,9 +137,10 @@ label start:
     with easeinleft
 
     g "You there! Have you seen a lady around here? Pink hair, blue tail, holding a parasol?"
-
+    window hide
     menu:
         "What's it to ya?":
+            window show
             show kari angry
             g "We mean no harm, but it is absolutely vital we find her."
             show kari -angry
@@ -149,6 +150,7 @@ label start:
         "I don't know who you're talking about.":
             pass
         "Yeah, she's right there, behind my counter.":
+            window show
             g "Thank you for your service, citizen."
             show guard neutral:
                 xzoom -1.0
@@ -160,8 +162,10 @@ label start:
             "{i}Perhaps if she had reached out a helping hand to the poor girl instead, things may have turned out differently.{/i}"
             "{i}Maybe the two of them could've even become friends... or really good friends... maybe even roommates.{/i}"
             "{i}But alas, the world will never know.{/i}"
+            window hide
             $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
+    window show
     g "If you see someone matching her description, please alert us as soon as possible."
     g "It's too dangerous for her to be out here alone."
     mc "Will do."
