@@ -31,7 +31,6 @@ image inside bg = im.Scale("inside_background.png", 1920, 1080)
 label start:
     #FIRST SCENE
     pause 0.25
-
     mc "There we go, that should do it!"
 
     window hide
@@ -59,7 +58,7 @@ label start:
     show kari frown
 
     mc "...I miss you guys. I promise I'll come back someday... just not today."
-
+    play sound "Dewdrop_Splash.mp3" volume 0.7
     "{i}Suddenly, a loud splashing sound comes from the swamp behind the cafe.{/i}"
     show kari -frown
     show kari surprised
@@ -104,6 +103,7 @@ label start:
 
     menu:
         "Hide?! Are you a criminal?!":
+            #play sound "Dewdrop_ClickDuller.mp3" volume 0.8
             show kari surprised
             show kannika angry
             window show
@@ -128,7 +128,7 @@ label start:
     show kannika -smile at offscreenleft
     with easeoutleft
     window show
-
+    play sound "Dewdrop_Splash.mp3" volume 0.7
     "{i}Only a few seconds later, there's some loud splashing coming from behind the cafe.{/i}"
 
     g "Hurry! I think she went this way!"
@@ -206,7 +206,7 @@ label start:
     mc "Fine."
     mc "I don't think the guards are going to come back anytime soon."
     mc "So while you're here, why don't I make you something?"
-
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
     with Fade(0.5, 0.5, 0.5)
 
     show betta drink:
@@ -249,7 +249,7 @@ label start:
         xzoom -1.0
     show kari surprised
     mc "Wait! You forgot your-"
-
+    play sound "Dewdrop_Fwip.mp3" volume 0.9
     #Kannika leaves the scene
     window hide
     show kannika -smile
@@ -285,9 +285,11 @@ label start:
     show kari smile
     mc "14! Not too bad for the first day."
 
+    play sound "Dewdrop_Splash.mp3" volume 0.7 # FUTURE CONNOR MAKE A DOUBLE SPLASH SOUND
     "{i}As she finished counting, splashing noises resounded from behind the cafe and a sense of deja vu washes over her.{/i}"
     show kari -smile
     show kari surprised
+    play sound "Dewdrop_Bell.mp3" #IDK IF THIS IS WHERE THE BELL GOES 
     bquestionmark "Excuse me, is anyone there?"
     show kari -surprised
     show kari smile
@@ -360,6 +362,7 @@ label start:
         align (1.1, 0.5)
     with move
     pause 0.25
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
     with Fade(0.5, 0.5, 0.5)
     
     window show
@@ -413,7 +416,7 @@ label start:
     mc "May I ask what all of that commotion yesterday was about?"
     show kannika -frown
     b "Ah yes, I suppose I should properly introduce myself."
-
+    play sound "Dewdrop_SmoothSkirt.mp3" 
     "{i}Kannika smooths out her skirt and straightens her back.{/i}"
     "{i}Clearing her throat, she spoke out in a clear, sharp voice, {/i}"
 
@@ -466,6 +469,7 @@ label start:
     show kannika frown
     pb "I just needed a bit of a breather, but of course, the guards were stationed right outside."
     show kannika -frown
+    play sound "Dewdrop_BushRustling.mp3" volume 0.8 #maybe lower volume here?
     "{i}A faint rustling was heard coming from the nearby bushes, interrupting the conversation.{/i}"
     pb "Ah, it seems they're back."
     pb "I do hate to cut our conversation short."
@@ -497,13 +501,13 @@ label start:
         align (1.1, 0.5)
     with move
     pause 0.25
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
     with Fade(0.5, 0.5, 0.5)
     pause 0.25
     show kari:
         xzoom 1.0
         align (1.0, 0.5)
     with move
-
 
     show betta drink 2 zorder 3:
         align (0.5, 0.4)
