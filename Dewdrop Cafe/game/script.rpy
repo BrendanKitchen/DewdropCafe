@@ -27,6 +27,7 @@ image betta drink 2= im.Scale("BettaDrink2.png", 960, 540)
 #Backgrounds
 image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
+image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
 
 label start:
     #FIRST SCENE
@@ -270,7 +271,7 @@ label start:
 
     window hide
     hide kari
-    show night bg with Fade(0.5,0.5,0.5)
+    show day bg with Fade(0.5,0.5,0.5)
 
     # SCENE TWO
     "{i}The following day...{/i}"
