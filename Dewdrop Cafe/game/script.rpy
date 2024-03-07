@@ -2,7 +2,7 @@
 define b = Character("Kannika", color="#FFA3CA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
 define pb = Character("Princess Kannika", color="#FFA3CA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
 define bquestionmark = Character("???", color="#FFA3CA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
-define g = Character("Guard", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
+define g = Character("Guard", color="#4DE5BA", window_background=Image("gui/textboxes/textbox_pbf.png", style="window"))
 
 #Kari portraits
 # image mc neutral: 
