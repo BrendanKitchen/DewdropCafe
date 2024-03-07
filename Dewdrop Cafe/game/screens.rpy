@@ -602,10 +602,6 @@ screen credits():
                 text _("Producer, Programmer")
 
             hbox:
-                label _("Connor Green")
-                text _("Music, SFX")
-
-            hbox:
                 label _("Elizabeth Liao")
                 text _("Art Lead, Character Artist, Programmer, Assistant Producer")
 
@@ -614,8 +610,16 @@ screen credits():
                 text _("Background Artist")
 
             hbox:
+                label _("Connor Green")
+                text _("Music, SFX")
+
+            hbox:
                 label _("Nicholas Chong")
                 text _("Narrative Writer")
+
+            hbox:
+                label _("Michael Rhee")
+                text _("Dialogue Editor")
 
             hbox:
                 label _("Ashley Lu")
