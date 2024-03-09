@@ -319,8 +319,7 @@ screen navigation():
 
 
         if main_menu:
-
-            imagebutton auto "gui/main_menu_buttons/start_%s.png" action Start()
+            imagebutton auto "gui/main_menu_buttons/start_%s.png" action [Play("sound", "Dewdrop_StartGame.mp3"), Start()]
 
 
         else:

@@ -286,7 +286,7 @@ label start:
     show kari smile
     mc "14! Not too bad for the first day."
 
-    play sound "Dewdrop_Splash.mp3" volume 0.7 # FUTURE CONNOR MAKE A DOUBLE SPLASH SOUND
+    play sound "Dewdrop_DoubleSplash.mp3" volume 0.9
     "{i}As she finished counting, splashing noises resounded from behind the cafe and a sense of deja vu washes over her.{/i}"
     show kari -smile
     show kari surprised
@@ -396,7 +396,7 @@ label start:
     g "Yes Milady, we will see to it."
     show kannika -angry
     b "Good. Now off you go."
-
+    play sound "Dewdrop_Slither.mp3" volume 0.7
     # guard leaves 
     window hide
     show guard neutral:
