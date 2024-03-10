@@ -63,7 +63,7 @@ label start:
     "{i}Suddenly, a loud splashing sound comes from the swamp behind the cafe.{/i}"
     show kari -frown
     show kari surprised
-
+    play sound "Dewdrop_KannikaPanting.mp3" volume 0.7
     bquestionmark "{i}Huff... huff...{/i}"
     bquestionmark "...I think I lost them for now."
 
@@ -83,7 +83,6 @@ label start:
 
     show kari:
         xzoom 1.0
-
     "{i}After rounding the corner, Kari sees a collapsed Nagai breathing heavily.{/i}"
     show kari surprised
     "{i}She quickly runs over to check on them.{/i}"
