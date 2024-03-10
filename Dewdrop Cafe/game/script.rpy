@@ -47,7 +47,7 @@ label start:
     mc "Oh, I almost forgot..."
 
     "{i}Kari reaches into her pocket and pulls out a framed picture of her family, then places it on the counter.{/i}"
-
+    play sound "Dewdrop_KariSigh.mp3" volume 0.7
     mc "{i}...sigh...{/i}"
     mc "Things have been rough since I left home, but I'm doing well now."
     show kari smile
@@ -213,6 +213,7 @@ label start:
     show betta drink:
         align (0.5, 0.4)
     "{i}Kari makes a cup of tea and sets it down in front of her mysterious, on-the-run, guest.{/i}"
+    play sound "Dewdrop_Sip.mp3" volume 0.8 
     "{i}With grace, she picks up the cup and takes a sip.{/i}"
     "{i}And before long, the contents of the drink were gone.{/i}"
 
@@ -257,7 +258,7 @@ label start:
     show kannika at offscreenleft
     with easeoutleft
     window show
-
+    play sound "Dewdrop_Splash.mp3" volume 0.7
     mc "..."
     mc "parasol..."
     "{i}And with that, she was gone -- leaving just as abruptly as she came.{/i}"
@@ -290,7 +291,7 @@ label start:
     "{i}As she finished counting, splashing noises resounded from behind the cafe and a sense of deja vu washes over her.{/i}"
     show kari -smile
     show kari surprised
-    play sound "Dewdrop_Bell.mp3" #IDK IF THIS IS WHERE THE BELL GOES 
+    play sound "Dewdrop_Bell.mp3" 
     bquestionmark "Excuse me, is anyone there?"
     show kari -surprised
     show kari smile
@@ -470,7 +471,7 @@ label start:
     show kannika frown
     pb "I just needed a bit of a breather, but of course, the guards were stationed right outside."
     show kannika -frown
-    play sound "Dewdrop_BushRustling.mp3" volume 0.8 #maybe lower volume here?
+    play sound "Dewdrop_BushRustling.mp3" volume 0.8
     "{i}A faint rustling was heard coming from the nearby bushes, interrupting the conversation.{/i}"
     pb "Ah, it seems they're back."
     pb "I do hate to cut our conversation short."
@@ -515,6 +516,7 @@ label start:
     window show
     mc "And here you go, one Starfruit Sunset."
     pb "Thank you."
+    play sound "Dewdrop_Sip.mp3" volume 0.8
     "{i}Like the day before, the Nagai elegantly brings the glass to her lips and takes a slow sip.{/i}"
     "{i}Taking a closer look at the princess, Kari now notices the way Princess Kannika held her cup. Fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
     "{i}If the guards were not proof enough, this certainly was. Only somebody who has done this all their life, somebody of noble upbringing, would be able to carry themselves with such grace.{/i}"
