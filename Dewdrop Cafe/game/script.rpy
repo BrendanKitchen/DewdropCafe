@@ -57,7 +57,7 @@ label start:
     play sound "Dewdrop_KariSigh.mp3" volume 0.7
     mc "{i}...sigh...{/i}"
     mc "Things have been rough since I left home, but I'm doing well now."
-    mc "The last place I set up shop at was quite busy. I had to serve over a dozen lattes at once!"
+    mc "The last place I set up shop was quite busy. I had to serve over a dozen lattes at once!"
     window hide 
     pause 0.5
     hide photo frame with dissolve
@@ -98,7 +98,7 @@ label start:
     mc "Oh my Lanta, are you okay?"
     
     show kari -surprised
-    "{i}Kari lifts panting stranger up on their tail.{/i}"
+    "{i}Kari lifts the panting stranger up on their tail.{/i}"
 
     window hide
     pause 0.25
@@ -111,7 +111,6 @@ label start:
 
     menu:
         "Hide?! Are you a criminal?!":
-            #play sound "Dewdrop_ClickDuller.mp3" volume 0.8
             show kari surprised
             show kannika angry
             window show
@@ -129,7 +128,7 @@ label start:
             bquestionmark "Excellent!"
 
     play sound "Dewdrop_Splash.mp3" volume 0.7
-    "{i}Only a few seconds later, there's some loud splashing coming from behind the cafe.{/i}"
+    "{i}Only a few seconds later, there's more loud splashing coming from behind the cafe.{/i}"
 
     g "She must have gone this way."
 
@@ -149,7 +148,7 @@ label start:
     show luan neutral at left
     with easeinleft
 
-    "{i}Kari just managed to shove the woman's folded parasol out of sight before another Nagai slithered up to the table just outside the cafe.{i}"
+    "{i}Kari just manages to shove the woman's folded parasol out of sight before another Nagai slithers up to the table just outside the cafe.{i}"
     "{i}Seemingly a guard based on their attire, they look around frantically before turning their attention to Kari.{i}"
 
     window show
@@ -233,7 +232,7 @@ label start:
     "{i}Kari makes a cup of tea and sets it down in front of her mysterious, on-the-run, guest.{/i}"
     play sound "Dewdrop_Sip.mp3" volume 0.8 
     "{i}With grace, she picks up the cup and takes a sip.{/i}"
-    "{i}And before long, the contents of the drink were gone.{/i}"
+    "{i}And before long, the contents of the drink are gone.{/i}"
 
     hide betta drink
     bquestionmark "Thank you, that was quite refreshing."
@@ -242,7 +241,7 @@ label start:
 
     mc "Now, you feel like telling me what all that fuss earlier was about?"
     bquestionmark "Ah, well you see-"
-    "{i}Before the Nagai could even begin to tell her story, they heard a familiar voice, sounding slightly distressed, and not too far in the distance.{/i}"
+    "{i}Before the Nagai can even begin to tell her story, they hear a familiar voice, sounding slightly distressed, and not too far in the distance.{/i}"
     g "Where is she?... I can't rest until I find her."
     show kannika surprised
     bquestionmark  "Dammit, he's back already!?"
@@ -313,7 +312,7 @@ label start:
     mc "14! Not too bad for the first day."
 
     play sound "Dewdrop_DoubleSplash.mp3" volume 0.9
-    "{i}As she finished counting, splashing noises resounded from behind the cafe and a sense of deja vu washes over her.{/i}"
+    "{i}As she finishes counting, splashing noises resound from behind the cafe, and a sense of deja vu washes over her.{/i}"
     show kari -smile
     show kari surprised
     play sound "Dewdrop_Bell.mp3" 
@@ -368,7 +367,7 @@ label start:
             show kari surprised
             bquestionmark "I was looking for my night-time parasol. The coloring is different!"
             "{i}Kari blinks at her, visibly confused.{/i}"
-            "{i}In her eyes, the two parasols had absolutely zero difference in color. Perhaps the Nagai simply had more color receptors?{/i}"
+            "{i}In her eyes, the two parasols have absolutely zero difference in color. Perhaps the Nagai simply have more color receptors?{/i}"
             mc "Right..."
             show kari -surprised
             mc "Anyways, I do have your parasol, let me get it for you."
@@ -412,7 +411,7 @@ label start:
     mc "Yeah, I'm sorry, Miss, but it looks like I am out of starfruits."
     mc "I didn't expect the Starfruit Sunset to be so popular."
     mc "I was supposed to go find some last night, I guess it slipped my mind."
-    b "Oh, don't worry about that, I'll just have my guards go get them for you."
+    b "Oh, don't worry about that, I'll just have my guard go get them for you."
     show kari -frown
     show kari surprised
     mc "Are you sure? It's no big deal, I could always-"
@@ -461,7 +460,7 @@ label start:
     b "Ah yes, I suppose I should properly introduce myself."
     play sound "Dewdrop_SmoothSkirt.mp3" 
     "{i}Kannika smooths out her skirt and straightens her back.{/i}"
-    "{i}Clearing her throat, she spoke out in a clear, sharp voice, {/i}"
+    "{i}Clearing her throat, she speaks out in a clear, sharp voice, {/i}"
 
     pb "I am Princess Kannika of the Naga Kingdom, the reigning dynasty in these lands."
     show kari surprised
@@ -479,7 +478,7 @@ label start:
             pb "Yes. Unfortunately, I am required to have him with me at all times."
             mc "That sounds very annoying."
             show kannika frown
-            pb "It truly is, especially since he always try to speak up for me."
+            pb "It truly is, especially since he always tries to speak up for me."
     
     pb "But yes, I am next in line for the throne."
     pb "The High Elders have always been very strict about my life."
@@ -516,7 +515,7 @@ label start:
     show kannika -frown
 
     play sound "Dewdrop_BushRustling.mp3" volume 0.8
-    "{i}A faint rustling was heard coming from the nearby bushes, interrupting the conversation.{/i}"
+    "{i}A faint rustling is heard coming from the nearby bushes, interrupting the conversation.{/i}"
     pb "Ah, it seems Luan is back."
     pb "I do hate to cut our conversation short."
 
@@ -569,10 +568,10 @@ label start:
     play sound "Dewdrop_Sip.mp3" volume 0.8
     hide starfruit sunset
     "{i}Like the day before, the Nagai elegantly brings the glass to her lips and takes a slow sip.{/i}"
-    "{i}Taking a closer look at the princess, Kari now notices the way Princess Kannika held her cup. Fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
+    "{i}Taking a closer look at the princess, Kari now notices the way Princess Kannika holds her cup. Fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
     "{i}If the guards were not proof enough, this certainly was. Only somebody who has done this all their life, somebody of noble upbringing, would be able to carry themselves with such grace.{/i}"
     
-    "{i}Placing down her cup, Kannika began to speak, snapping Kari out of her trance.{/i}"
+    "{i}Placing down her cup, Kannika begins to speak, snapping Kari out of her trance.{/i}"
     pb "You know, we rarely see new people here, especially one such as yourself."
     pb "May I ask what you're doing around here?"
 
@@ -593,7 +592,7 @@ label start:
     # fade to black for the passing of time
     with Fade(0.5, 0.5, 0.5)
 
-    "{i}After some idle chit-chat, Kannika finished her drink, causing Luan to gently nudge her and let her know that it was time to leave.{/i}"
+    "{i}After some idle chit-chat, Kannika finishes her drink, causing Luan to gently nudge her and let her know that it is time to leave.{/i}"
     show kannika -smile
     pb "Ah, it seems I must leave now to return to the kingdom."
     show kannika smile
@@ -760,8 +759,8 @@ label start:
             mc "I want to give my parents some time before I decide to face them again."
             pb "That's brave of you. Admirable."
             mc "Thank you, but I promise it's not that brave."
-            mc "It just felt like the right thing to do."
-            mc "I'm just hoping that when I return the tension between me and my parents will dissipate."
+            mc "It just feels like the right thing to do."
+            mc "I'm just hoping that when I return, the tension between me and my parents will dissipate."
         "I'm not quite sure yet.":
             window show
             mc "My original plan was to leave for a bit and then return."
@@ -796,13 +795,13 @@ label start:
 
     show kannika -frown
     show kannika smile
-    "{i}Kannika rolls her eyes at Kari's playful jab. While not the best attempt, she could tell that the blue haired Purrson was doing her best to lighten the heavy mood.{/i}"
+    "{i}Kannika rolls her eyes at Kari's playful jab. While not the best attempt, she can tell that the blue haired Purrson is doing her best to lighten the heavy mood.{/i}"
 
     pb "You know I despise everything about that."
 
     mc "I kid, I kid."
 
-    "{i}Looking up from the glasses she was cleaning, Kari noticed that the sky had gotten considerably darker.{/i}"
+    "{i}Looking up from the glasses she is cleaning, Kari notices that the sky has gotten considerably darker.{/i}"
     show kari -smile
 
     mc "Isn't it getting late now? Don't you have to go back to your kingdom?"
@@ -842,13 +841,13 @@ label start:
         xzoom 1
     show kannika at left
     with MoveTransition(1.5)
-    # [ASSET] bell ring sfx here
+    play sound "Dewdrop_Bell.mp3" volume 0.8
 
     show kari:
         xzoom 1
 
     show kari smile
-    mc "Ah Kannika, always nice to see you."
+    mc "Ah, Kannika! Always nice to see you."
     show kannika smile
     pb "Well, aren't you the charmer?"
     show kari -smile
@@ -865,27 +864,27 @@ label start:
             pb "That sounds intriguing, what kind of drink is it?"
             mc "It's a tea that can be served hot or cold -- it's citrus fruit infused in cattail tea."
             mc "It's a bit on the medicinal side because the tea helps soothe the stomach and the citrus helps with digestion, making it easy for the body to consume, which is is why it's popular amongst the older folks."
-            mc "I do warn you, however, that the tea is quite strong, which is why the citrus is added, to help reduce the bold flavor of the tea."
+            mc "I will warn you, however, that the tea is quite strong, which is why the citrus is added, to help reduce the bold flavor of the tea."
             show kannika -smile
             pb "Ooh, that sounds interesting... and healthy."
             pb "How did you come up with such a concoction?"
             show kari smile
-            "{i}At the question, Kari smiled fondly, reminiscing about her childhood.{/i}"
+            "{i}At the question, Kari smiles fondly, reminiscing about her childhood.{/i}"
             mc "This is something that my mother used to make for me a lot when I was a child."
             mc "Every morning, she'd have me drink cattail tea because, in her words, 'It's good for your body.'"
             mc "I despised the taste of it so much that sometimes I would run away from her whenever she tried to make me drink it."
             show kannika smile
-            # [ASSET] kannika laugh sfx:
+            play sound "Dewdrop_KannikaLaugh.mp3" 
 
             pb "Oh my, that is hilarious."
             pb "Just imagining baby Kari running around."
-            "{i}Kari shot a playful glare at Kannika{/i}."
+            "{i}Kari shoots a playful glare at Kannika{/i}."
             mc "Yeah, yeah, laugh all you want, but it was traumatizing for me as a kid."
             mc "I'd have to hold my breath while I drank it just so I wouldn't have to deal with the taste of it."
             mc "And even then, it was still strong enough for me to taste!"
             mc "Though I will say, she was indeed correct about it being good for you."
             mc "I don't recall ever getting sick for a large portion of my childhood."
-            mc "Eventually, my mother started addign citrus fruit to it because citrus fruit is good for your body as well."
+            mc "Eventually, my mother started adding citrus fruit to it because citrus fruit is good for your body as well."
             show kari -smile
             mc "{i}And also because she wanted me to drink the tea without the hassle of trying to get me to drink it."
             pb "That's sweet that you decided to keep the drink that tormented you as a child."
@@ -893,12 +892,12 @@ label start:
             mc "Though, I was very surprised by the amount of elderly folks that ordered it."
             mc "Definitely something I was not expecting."
             show kannika -smile
-            # [ASSET] drink making sfx: 
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
             # with Fade(0.5, 0.5, 0.5)
             # [ASSET] show Cattail Citrus:
 
-            "{i}Finished making the drink, Kari places it in on the counter, in front of Kannika who was seated in her usual spot.{/i}"
+            "{i}Finished making the drink, Kari places it on the counter in front of Kannika, who is seated in her usual spot.{/i}"
             mc "Well, here you go."
             mc "I'm curious to see what you think of it."
             # [ASSET] hide Cattail Citrus:
@@ -908,11 +907,11 @@ label start:
             pb "..."
             "{i}Bringing the glass to her lips, she takes a cautious sip.{/i}"
             show kari smile
-            "{i}To Kari's delight, once the liquid hit her tongue, the princess's face quickly scrunched up from the sourness of the beverage.{/i}"
+            "{i}To Kari's delight, once the liquid hits her tongue, the princess's face quickly scrunches up from the sourness of the beverage.{/i}"
             pb "Well, that is... quite the taste."
-            mc "Haha, I told you it was strong."
+            mc "Haha! I told you it was strong."
             pb "Yes, I can see why you would despise this as a kid."
-            mc "It defintiely takes some getting used to."
+            mc "It definitely takes some getting used to."
             pb "The more you drink it, the more you'll get accustomed to it."
             show kari -smile
         "The Pink Lady is quite popular with the customers.":
@@ -921,7 +920,7 @@ label start:
             mc "It's a wapple-infused, lotus iced tea with wapple slices."
             pb "Sounds delicious."
             show kannika -smile
-            # [ASSET] drink making sfx: 
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.8 
 
             # with Fade(0.5, 0.5, 0.5)
             # [ASSET] show Pink Lady:
@@ -947,7 +946,7 @@ label start:
             pb "Well, my usual it is then."
             show kari -frown
             mc "Coming right up!"
-            # [ASSET] drink making sfx:
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
             with Fade(0.5, 0.5, 0.5)
             show starfruit sunset zorder 3:
@@ -962,13 +961,13 @@ label start:
             show kari smile
             mc "Well, it was just as I was beginning to close the shop for the day."
             mc "One of my regulars came with her child trotting behind her."
-            mc "Cute littel guy he was."
+            mc "Cute little guy he was."
             mc "She handed me a basket of starfruit as a thank-you gift."
             mc "She told me that starfruits were their native fruits and she thought that they would make for a good drink."
-            mc "I think in total I Tried about... seven? eight? different recipes."
+            mc "I think in total I tried about... seven? eight? different recipes."
             mc "Amongst all of them, the one you're drinking was the most liked."
             mc "A starfruit puree with a hint of mint, combined with cream soda, and topped with starfruit slices, blueberries, and mint leaf garnish."
-            mc "The next time I Saw her, I let her name the drink and she called it 'Starfruit Sunset' because of the coloring."
+            mc "The next time I saw her, I let her name the drink and she called it 'Starfruit Sunset' because of the coloring."
             pb "Aw, that's such a lovely story."
             show kannika -smile
             show kari -smile
@@ -1012,7 +1011,7 @@ label start:
 
     mc "Oh my Lanta, they're ginormous!"
     show kari -surprised
-    mc "What are they??"
+    mc "What are they!?"
 
     pb "They're seamelons, my kingdom's native fruit!"
     pb "They're also one of my favorite fruits."
@@ -1036,9 +1035,9 @@ label start:
     show kari -surprised
     show kari smile
     mc "This will be perfect for my menu!"
-    mc "Would you like to help me mmake a drink?"
+    mc "Would you like to help me make a drink?"
 
-    "{i}Kannika's fins perked up from the suggestion as she quickly slid out of her seat.{/i}"
+    "{i}Kannika's fins perk up from the suggestion as she quickly slides out of her seat.{/i}"
 
     pb "I would love to!"
 
@@ -1046,8 +1045,8 @@ label start:
 
     show kari -smile
     show kannika -smile
-    "{i}Kannika made her way around the counter and stood by Kari.{/i}"
-    "{i}Kari hands Kannika the knife and moved to stand behind her, grasping one of the princess's hands in each of her own as she guided her through the motion.{/i}"
+    "{i}Kannika makes her way around the counter and stands beside Kari.{/i}"
+    "{i}Kari hands Kannika the knife and moves to stand behind her, grasping one of the princess' hands in each of her own as she guides her through the motion.{/i}"
     show kannika surprised
     mc "Once you cut them into sections, you'll run the knife along the edge to separate the flesh from the rind."
     show kannika -surprised
@@ -1144,7 +1143,7 @@ label start:
             "{i}Kari adds the starfruit to the bowl of the cream soda and seamelon mixture.{/i}"
             mc "Theoretically, this should be fine because I use the same cream soda in Starfruit Sunsets."
             "{i}Kari and Kannika each take a bite of the new concoction, but their faces quickly scrunch up in disgust.{/i}"
-            pb "{i}Blegh{/i}"
+            pb "{i}Blegh!{/i}"
             pb "That did not taste nearly as good as it was when they were separated."
             mc "That's so weird that they don't go together."
             mc "I think it's because the two fruits have such a different taste that they clash with each other."
@@ -1210,7 +1209,7 @@ label start:
     with easeinleft
     show kannika neutral
 
-    # [ASSET] angry bell ringing sfx:
+    play sound "Dewdrop_Bell_Mashing.mp3" volume 0.8
 
 
     show kari surprised
@@ -1240,12 +1239,12 @@ label start:
             pb "Thank you."
             pb "I would very much like something after what just happened."
 
-    # [ASSET] drink making sfx: 
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
     with Fade (0.5, 0.5, 0.5)
     show betta drink:
         align (0.5, 0.4)
-    "{i}Kari quickly mixed up a calming cup of tea and set it down in front of a sulking Kannika.{/i}"
+    "{i}Kari quickly mixes up a calming cup of tea and sets it down in front of the sulking Kannika.{/i}"
     hide betta drink
     mc "So, why don't you start from the beginning? What exactly happened?"
 
@@ -1290,7 +1289,7 @@ label start:
                     jump conflict_menu
                 "What happens in the arenas?":
                     window show
-                    pb "A bloodbath for a lack of better terms."
+                    pb "A bloodbath, for lack of a better term."
                     pb "All candidates are put into matches against each other in front of the whole society, including the High Elders."
                     show kari surprised
                     pb "It's a big event that lasts over a week, sometimes even a month of brawls."
@@ -1332,8 +1331,8 @@ label start:
         "Politics" if not conflict_topics["politics"]:
             $ conflict_topics["politics"] = True
             window show 
-            pb "Don't even get me started on that"
-            pb "I could go on for hours and I doubt you'd want to listen to me ranble about every single issue with that."
+            pb "Don't even get me started on that."
+            pb "I could go on for hours, and I doubt you'd want to listen to me ramble about every single issue with that."
             window hide
             menu:
                 "What if I want you to?":
@@ -1377,9 +1376,9 @@ label start:
     window hide 
 
     menu:
-        "That makes sense":
+        "That makes sense.":
             window show
-            mc "That makes sense, I mean, I wouldn't want to be with a total stranger."
+            mc "That makes sense. I mean, I wouldn't want to be with a total stranger."
             show kannika -frown
             pb "Exactly!"
             show kannika frown
@@ -1406,7 +1405,7 @@ label start:
     pb "Trust me, they've said worse."
     pb "My mother isn't any better considering she keeps following their orders like a dogfish."
     pb "You'd think that during her reign, she'd have used her voice to do something, yet she always cedes to the High Elders."
-    # [ASSET] Kannika sigh (IS THERE AN AGGRESSIVE ONE IDR, EITHER ONE WORKS) sfx:
+    play sound "Dewdrop_KannikaAggressiveSigh.mp3" volume 0.8
 
     "{i}Kannika lets out a heavy sigh before continuing.{/i}"
     pb "I want to leave -- swim away from my kingdom and not look back."
@@ -1422,7 +1421,7 @@ label start:
     
     show kari -surprised
     show kari frown
-    mc "I don't know where you got that idea from, but that is certainly not what happened nor is it what I consdier being brave."
+    mc "I don't know where you got that idea from, but that is certainly not what happened, nor is it what I consider being brave."
     mc "I couldn't bear to keep arguing with my parents, which is why I left."
 
     pb "Which is what I admire about you."
@@ -1438,9 +1437,9 @@ label start:
             mc "I'm not ready to see the look on my parents' faces or imagine what they would say if I were to show up after how I left."
         "I didn't leave because I wanted to.":
             window show
-            mc "I left because I kenw that they weren't going to be able to process what I told them."
-            mc "I left because I feared that I had broken the already strained relationship that I had with them."
-            mc "Sure I learned a lot being on my own, but that's because I couldn't stand to face the disappointment and jdugement that my parents had on their faces."
+            mc "I left because I knew that they weren't going to be able to process what I told them."
+            mc "I left because I feared that I had broken the already-strained relationship that I had with them."
+            mc "Sure, I learned a lot being on my own, but that's because I couldn't stand to face the disappointment and judgement that my parents had on their faces."
 
     show kari -frown
     mc "At least you have the potential to change your society from the old traditions that the High Elders set in place."
@@ -1481,9 +1480,9 @@ label start:
             pb "What are you, a High Elder?"
         
     show kari frown
-    pb "I get that I was bron with my status and that I must live up to it, but what about {i}my{/i} needs?"
+    pb "I get that I was born with my status and that I must live up to it, but what about {i}my{/i} needs?"
     pb "What about how {i}I{/i} feel?"
-    pb "I mean, out of everyone, I thought that you would be the one who udnerstands the most, considering your relationship with your family."
+    pb "I mean, out of everyone, I thought that you would be the one who understands the most, considering your relationship with your family."
     window hide
 
     menu:
@@ -1505,9 +1504,9 @@ label start:
             mc "You still have a good enough relationship with your mother as well as a direct connection to the High Elders that you can make an influence."
         
     pb "And what I'm trying to tell you is that I don't have as much power as you think I do!"
-    mc "Even if you don't, you are still an important part of the kingdom! Even if your purpose is a bridge betwen the High Elders and the population."
+    mc "Even if you don't, you are still an important part of the kingdom! Even if your purpose is to be a bridge between the High Elders and the population."
     mc "So why can't you do something about that?"
-
+    play sound "Dewdrop_KannikaAggressiveSigh.mp3" volume 0.8
     "{i}Kannika sighs aggressively, running her hand through her hair and grabbing it, as if wanting to pull her hair out.{/i}"
     pb "We are just going in circles with this and I am getting tired of it."
 
@@ -1522,7 +1521,8 @@ label start:
     pb "Goodbye, Kari."
     show kannika -smile at offscreenleft
     with easeoutleft 
-    "{i}With her mouth full of venom, Kannika bitterly spat out a farewell before quickly slithering away, leaving behind a speechless Kari.{/i}"
+    play sound "Dewdrop_Slither.mp3" volume 0.8
+    "{i}With her mouth full of venom, Kannika bitterly spits out a farewell before quickly slithering away, leaving behind a speechless Kari.{/i}"
     window hide
     show kari -surprised
     show kari frown
