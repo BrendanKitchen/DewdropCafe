@@ -51,7 +51,6 @@ label start:
 
     "{i}Kari reaches into her pocket and pulls out a framed picture of her family, looking at it with a somber gaze.{/i}"
     window hide
-    # hide kari
     show photo frame with dissolve
     pause 1.0
     window show
@@ -843,7 +842,7 @@ label start:
         xzoom 1
     show kannika at left
     with MoveTransition(1.5)
-    # bell ring sfx here
+    # [ASSET] bell ring sfx here
 
     show kari:
         xzoom 1
@@ -876,7 +875,7 @@ label start:
             mc "Every morning, she'd have me drink cattail tea because, in her words, 'It's good for your body.'"
             mc "I despised the taste of it so much that sometimes I would run away from her whenever she tried to make me drink it."
             show kannika smile
-            # kannika laugh sfx:
+            # [ASSET] kannika laugh sfx:
 
             pb "Oh my, that is hilarious."
             pb "Just imagining baby Kari running around."
@@ -894,15 +893,15 @@ label start:
             mc "Though, I was very surprised by the amount of elderly folks that ordered it."
             mc "Definitely something I was not expecting."
             show kannika -smile
-            # drink making sfx: 
+            # [ASSET] drink making sfx: 
 
             # with Fade(0.5, 0.5, 0.5)
-            # show Cattail Citrus:
+            # [ASSET] show Cattail Citrus:
 
             "{i}Finished making the drink, Kari places it in on the counter, in front of Kannika who was seated in her usual spot.{/i}"
             mc "Well, here you go."
             mc "I'm curious to see what you think of it."
-            # hide Cattail Citrus:
+            # [ASSET] hide Cattail Citrus:
 
             "{i}Kannika picks up the glass and inspects the drink from different angles.{/i}"
             pb "Well, it certainly doesn't look daunting and it smells quite delectable."
@@ -922,13 +921,13 @@ label start:
             mc "It's a wapple-infused, lotus iced tea with wapple slices."
             pb "Sounds delicious."
             show kannika -smile
-            # drink making sfx: 
+            # [ASSET] drink making sfx: 
 
             # with Fade(0.5, 0.5, 0.5)
-            # show Pink Lady:
+            # [ASSET] show Pink Lady:
             
             # "{i}Kari quickly makes a Pink Lady and sets in in front of Kannika.{/i}"
-            # hide Pink Lady: 
+            # [ASSET] hide Pink Lady: 
 
             pb "Where did this drink come from?"
             mc "I want to say it was one of the original drinks I made when I was first starting my cafe."
@@ -948,7 +947,7 @@ label start:
             pb "Well, my usual it is then."
             show kari -frown
             mc "Coming right up!"
-            # drink making sfx:
+            # [ASSET] drink making sfx:
 
             with Fade(0.5, 0.5, 0.5)
             show starfruit sunset zorder 3:
@@ -1004,12 +1003,12 @@ label start:
     show kannika at left
     with MoveTransition (1.0)
 
-    # show fruits
+    # [ASSET] show fruits
 
     show kannika smile
     window show
     pb "Here! I think these should work!"
-    # hide fruits
+    # [ASSET] hide fruits
 
     mc "Oh my Lanta, they're ginormous!"
     show kari -surprised
@@ -1211,7 +1210,7 @@ label start:
     with easeinleft
     show kannika neutral
 
-    # angry bell ringing sfx:
+    # [ASSET] angry bell ringing sfx:
 
 
     show kari surprised
@@ -1241,7 +1240,7 @@ label start:
             pb "Thank you."
             pb "I would very much like something after what just happened."
 
-    # drink making sfx: 
+    # [ASSET] drink making sfx: 
 
     with Fade (0.5, 0.5, 0.5)
     show betta drink:
@@ -1407,7 +1406,7 @@ label start:
     pb "Trust me, they've said worse."
     pb "My mother isn't any better considering she keeps following their orders like a dogfish."
     pb "You'd think that during her reign, she'd have used her voice to do something, yet she always cedes to the High Elders."
-    # Kannika sigh sfx:
+    # [ASSET] Kannika sigh (IS THERE AN AGGRESSIVE ONE IDR, EITHER ONE WORKS) sfx:
 
     "{i}Kannika lets out a heavy sigh before continuing.{/i}"
     pb "I want to leave -- swim away from my kingdom and not look back."
