@@ -1,0 +1,46 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Luan.moc3",
+		"Textures": [
+			"Luan.2048/texture_00.png"
+		],
+		"Physics": "Luan.physics3.json",
+		"DisplayInfo": "Luan.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "smile",
+				"File": "smile.exp3.json"
+			},
+			{
+				"Name": "surprised",
+				"File": "surprised.exp3.json"
+			},
+			{
+				"Name": "angry",
+				"File": "angry.exp3.json"
+			},
+			{
+				"Name": "sad",
+				"File": "sad.exp3.json"
+			},
+			{
+				"Name": "frown",
+				"File": "frown.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

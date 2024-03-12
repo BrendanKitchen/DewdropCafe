@@ -16,6 +16,7 @@ style default:
 style input:
     properties gui.text_properties("input", accent=True)
     adjust_spacing False
+    color "#3AC8A0"
 
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
@@ -23,7 +24,6 @@ style hyperlink_text:
 
 style gui_text:
     properties gui.text_properties("interface")
-
 
 style button:
     properties gui.button_properties("button")
@@ -39,7 +39,6 @@ style label_text is gui_text:
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
 
-
 style bar:
     ysize gui.bar_size
     left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
@@ -54,11 +53,13 @@ style scrollbar:
     ysize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+    thumb_offset 6
 
 style vscrollbar:
     xsize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+    thumb_offset 6
 
 style slider:
     ysize gui.slider_size
@@ -156,8 +157,8 @@ style say_label:
 style say_dialogue:
     properties gui.text_properties("dialogue")
 
-    xpos 200
-    xsize 1650
+    xpos 225
+    xsize 1500
     ypos -10
 
     adjust_spacing False
@@ -178,10 +179,10 @@ screen input(prompt):
     window:
 
         vbox:
-            xanchor gui.dialogue_text_xalign
-            xpos gui.dialogue_xpos
-            xsize gui.dialogue_width
-            ypos gui.dialogue_ypos
+            # xanchor gui.dialogue_text_xalign
+            xpos 225
+            xsize 1500
+            ypos -10
 
             text prompt style "input_prompt"
             input id "input"
@@ -190,7 +191,10 @@ style input_prompt is default
 
 style input_prompt:
     xalign gui.dialogue_text_xalign
-    properties gui.text_properties("input_prompt")
+    properties gui.text_properties("dialogue")
+
+
+    
 
 style input:
     xalign gui.dialogue_text_xalign
@@ -226,9 +230,12 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    activate_sound "Dewdrop_ClickDuller.mp3" 
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    yalign 0.1
+    size 27
 
 
 ## Quick Menu screen ###########################################################
@@ -253,12 +260,12 @@ screen quick_menu():
             imagebutton auto "gui/quick_menu_buttons/back_%s.png" action Rollback()
             imagebutton auto "gui/quick_menu_buttons/history_%s.png" action ShowMenu('history')
             imagebutton auto "gui/quick_menu_buttons/save_%s.png"  action ShowMenu('save')
+            imagebutton auto "gui/quick_menu_buttons/hide_%s.png"  action [HideInterface(), Hide("in_game_menu")] # code reference: https://www.reddit.com/r/RenPy/comments/rs3f6n/how_do_i_hide_my_ui_ingame/
             imagebutton auto "gui/quick_menu_buttons/quicksave_%s.png"  action QuickSave()
             imagebutton auto "gui/quick_menu_buttons/quickload_%s.png"  action QuickLoad()
             imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
             imagebutton auto "gui/quick_menu_buttons/auto_%s.png" action Preference("auto-forward", "toggle")
             imagebutton auto "gui/quick_menu_buttons/skip_%s.png" action Skip() alternate Skip(fast=True, confirm=True)
-
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
@@ -272,6 +279,8 @@ style quick_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
+    padding (20,20)
+
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -288,50 +297,50 @@ style quick_button_text:
 
 screen navigation():
 
-    if main_menu:
-        add "gui/logo.png" zoom 0.60 xpos 100 ypos 120
-    else:
-        add "gui/logo.png" zoom 0.50 xpos 20 ypos 120
+    # if main_menu:
+    #     add "gui/logo.png" zoom 0.60 xpos 100 ypos 120
+    # else:
+    #     add "gui/logo.png" zoom 0.50 xpos 20 ypos 120
+    # originally had different styling depending on if main menu or in game
+
+    add "gui/logo.png" zoom 0.55 xpos 100 ypos 120
 
     vbox:
 
         style_prefix "navigation"
+        xpos 130
+        spacing 15
+
         if main_menu:
-            xpos 130
-            spacing 15
-            yalign 0.80 # where menu items are placed along y axis
+            yalign 0.80 
         else:
-            xpos 150
-            spacing 2
-            yalign 0.75
+            yalign 0.85
+        # xpos 150
+        # spacing 2
+        # yalign 0.75
 
 
         if main_menu:
+            imagebutton auto "gui/main_menu_buttons/start_%s.png" action [Play("sound", "Dewdrop_StartGame.mp3"), Start()]
 
-            imagebutton auto "gui/main_menu_buttons/start_%s.png" action Start()
-
-            imagebutton auto "gui/main_menu_buttons/load_%s.png" action ShowMenu("load")
-
-            imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            imagebutton auto "gui/main_menu_buttons/history_%s.png" action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            imagebutton auto "gui/main_menu_buttons/save_%s.png" action ShowMenu("save")
 
-        if not main_menu:
-            textbutton _("Load") action ShowMenu("load")
+        imagebutton auto "gui/main_menu_buttons/load_%s.png" action ShowMenu("load")
 
-            textbutton _("Preferences") action ShowMenu("preferences")
+        imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)
 
         elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu()
+            
+            imagebutton auto "gui/main_menu_buttons/main_menu_%s.png" action MainMenu()
 
         if main_menu:
 
@@ -340,20 +349,13 @@ screen navigation():
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            if main_menu:
                 imagebutton auto "gui/main_menu_buttons/help_%s.png" action ShowMenu("help")
-            else:
-                textbutton _("Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-
-            if main_menu:
                 imagebutton auto "gui/main_menu_buttons/quit_%s.png" action Quit(confirm=not main_menu)
-            else:
-                textbutton _("Quit") action Quit(confirm=not main_menu)
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -446,9 +448,9 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add "gui/main_menu.png"
     else:
-        add gui.game_menu_background
+        add "gui/game_menu.png"
 
     frame:
         style "game_menu_outer_frame"
@@ -503,7 +505,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     imagebutton auto "gui/quick_menu_buttons/back_%s.png":
         style "return_button"
-
+        yalign 0.04
+        xalign 0.02
         action Return()
 
     label title
@@ -528,7 +531,6 @@ style game_menu_label_text:
     xpos 1150
     xalign 0.5
     size 96
-    
 
 style return_button is navigation_button
 style return_button_text is navigation_button_text
@@ -536,7 +538,7 @@ style return_button_text is navigation_button_text
 style game_menu_outer_frame:
     bottom_padding 45
     top_padding 220
-    background ["gui/overlay/game_menu.png", "gui/main_menu.png"]
+    background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
@@ -565,10 +567,10 @@ style game_menu_label_text:
     # color gui.accent_color
     yalign 0.5
 
-style return_button:
-    xpos gui.navigation_xpos
-    yalign 1.0
-    yoffset -45
+# style return_button:
+#     xpos gui.navigation_xpos
+#     yalign 1.0
+#     yoffset -45
 
 
 ## About screen ################################################################
@@ -588,28 +590,93 @@ screen about():
     use game_menu(_("About"), scroll="viewport"):
 
         style_prefix "about"
+        text _("A short and sweet fantasy visual novel about a wandering barista who meets a mysterious girl in a magical swamp.")
+
+        label _("Credits")
 
         vbox:
+            style_prefix "credits"
             xpos 250
-            xmaximum 1190
+            xmaximum 1000
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+            hbox:
+                label _("Issy Wong")
+                text _("Creative Lead, Food & Cutscene Art, Voice Actor")
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+            hbox:
+                label _("Brendan Kitchen")
+                text _("Producer, Programmer")
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            hbox:
+                label _("Elizabeth Liao")
+                text _("Art Lead, Character Artist, Programmer, Assistant Producer")
 
+            hbox:
+                label _("Talia Yaser")
+                text _("Background Artist")
 
-style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text:
+            hbox:
+                label _("Connor Green")
+                text _("Music, SFX")
+
+            hbox:
+                label _("Nicholas Chong")
+                text _("Narrative Writer")
+
+            hbox:
+                label _("Michael Rhee")
+                text _("Dialogue Editor")
+
+            hbox:
+                label _("Ashley Lu")
+                text _("UI Artist & Designer, Programmer, Voice Actor")
+            
+            # label "[config.name!t]"
+            # text _("Version [config.version!t]\n")
+
+            # ## gui.about is usually set in options.rpy.
+            # if gui.about:
+            #     text "[gui.about!t]\n"
+
+            # text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+
+style about_text:
+    xpos 250
+    xmaximum 1100
     color "#CFFFD9"
+    size 30
+    textalign 0.5
+
+style about_label:
+    top_padding 50
 
 style about_label_text:
-    size gui.label_text_size
+    color "#FFF7E8"
+    font "fonts/Vintage Culture.ttf"
+    xpos 600
+    size 75
+
+
+style credits_hbox:
+    top_padding 20
+
+style credits_label is gui_label:
+    xsize 500
+    right_padding 30
+    bottom_padding 30
+style credits_label_text is gui_label_text:
+    size 35
+    xalign 1.0
+    textalign 0.5
+    left_padding 30
+    color "#4DE5BA"
+style credits_text is gui_text:
+    color "#CFFFD9"
+    size 30
+    yalign 0.2
+
+    
+
 
 
 ## Load and Save screens #######################################################
@@ -624,7 +691,7 @@ style about_label_text:
 screen save():
 
     tag menu
-
+    
     use file_slots(_("Save"))
 
 
@@ -642,6 +709,8 @@ screen file_slots(title):
     use game_menu(title):
 
         fixed:
+            xpos 210
+            xmaximum 1000
             ## This ensures the input will get the enter event before any of the
             ## buttons do.
             order_reverse True
@@ -662,10 +731,8 @@ screen file_slots(title):
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
-                xalign 0.99 # modifies horizontal alignment of slots
                 yalign 0.35
-
-                spacing gui.slot_spacing
+                spacing 16
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
 
@@ -870,8 +937,7 @@ style slider_label is pref_label
 style slider_label_text is pref_label_text:
     color "#CFFFD9"
 style slider_slider is gui_slider:
-    thumb_offset 20
-    # top_margin 20
+    thumb_offset 25
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
@@ -882,7 +948,7 @@ style mute_all_button_text is check_button_text:
     color "#4DE5BA"
 
 style pref_label:
-    top_margin 50
+    top_margin 20
     bottom_margin 10
 
 style pref_label_text:
@@ -912,14 +978,11 @@ style check_button:
 style check_button_text:
     properties gui.text_properties("check_button")
 
-style slider_slider:
-    # xsize 585
-    top_margin -40
-    ysize 20
+style slider_slider
 
 style slider_button:
     properties gui.button_properties("slider_button")
-    top_padding -29
+    
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
@@ -955,6 +1018,9 @@ screen history():
                 has fixed:
                     yfit True
 
+                xpos 230
+                xmaximum 1000
+
                 if h.who:
 
                     label h.who:
@@ -984,7 +1050,6 @@ style history_window is empty
 style history_name:
     color "#FFF7E8"
     font "fonts/Vintage Culture.ttf"
-    xpos 1150
     xalign 0.5
     size 96
 
@@ -1050,9 +1115,10 @@ screen help():
         vbox:
             spacing 23
             xpos 230
+            xmaximum 1000
 
             hbox:
-
+                xpos 250
                 textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
@@ -1177,7 +1243,7 @@ style help_button_text is gui_button_text:
     selected_color "#4DE5BA"
 style help_label is gui_label
 style help_label_text is gui_label_text:
-    color "#FFB772"
+    color "#FFC68E"
 style help_text is gui_text:
     color "#CFFFD9"
 
@@ -1354,7 +1420,7 @@ style notify_text is gui_text
 
 style notify_frame:
     ypos gui.notify_ypos
-
+    xalign 0
     background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding
 

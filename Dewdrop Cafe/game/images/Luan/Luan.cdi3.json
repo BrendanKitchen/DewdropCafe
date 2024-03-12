@@ -1,0 +1,187 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "Angle X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "Angle Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "Angle Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "EyeL Open"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "EyeL Smile"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "EyeR Open"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "EyeR Smile"
+		},
+		{
+			"Id": "EyeRSize",
+			"GroupId": "",
+			"Name": "EyeR Size"
+		},
+		{
+			"Id": "ParamEyeLSize",
+			"GroupId": "",
+			"Name": "EyeL Size"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "Eyeball X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "Eyeball Y"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "BrowL Y"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "BrowR Y"
+		},
+		{
+			"Id": "ParamBrowLX",
+			"GroupId": "",
+			"Name": "BrowL X"
+		},
+		{
+			"Id": "ParamBrowRX",
+			"GroupId": "",
+			"Name": "BrowR X"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "",
+			"Name": "BrowR Form"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "BrowR Angle"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "BrowL Form"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "BrowL Angle"
+		},
+		{
+			"Id": "ParamFinPhysics",
+			"GroupId": "",
+			"Name": "Fin Physics"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "Mouth Form"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "Mouth Open"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "",
+			"Name": "Body X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "",
+			"Name": "Body Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "Body Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "Breath"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "Hair Move Front"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "Hair Move Back"
+		},
+		{
+			"Id": "ParamArmorShine",
+			"GroupId": "",
+			"Name": "Armor Shine"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "character",
+			"Name": "character"
+		},
+		{
+			"Id": "bangs",
+			"Name": "bangs"
+		},
+		{
+			"Id": "head",
+			"Name": "head"
+		},
+		{
+			"Id": "R_eye",
+			"Name": "R_eye"
+		},
+		{
+			"Id": "L_eye",
+			"Name": "L_eye"
+		},
+		{
+			"Id": "mouth",
+			"Name": "mouth"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamBrowRForm",
+			"ParamBrowRAngle"
+		],
+		[
+			"ParamBrowLForm",
+			"ParamBrowLAngle"
+		]
+	]
+}

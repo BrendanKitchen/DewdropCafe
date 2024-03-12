@@ -2,9 +2,9 @@
 	"Version": 3,
 	"Meta": {
 		"PhysicsSettingCount": 2,
-		"TotalInputCount": 2,
+		"TotalInputCount": 3,
 		"TotalOutputCount": 3,
-		"VertexCount": 4,
+		"VertexCount": 5,
 		"Fps": 60,
 		"EffectiveForces": {
 			"Gravity": {
@@ -19,11 +19,11 @@
 		"PhysicsDictionary": [
 			{
 				"Id": "PhysicsSetting1",
-				"Name": "hair"
+				"Name": "breathing"
 			},
 			{
 				"Id": "PhysicsSetting2",
-				"Name": "fin"
+				"Name": "fins"
 			}
 		]
 	},
@@ -38,7 +38,7 @@
 					},
 					"Weight": 100,
 					"Type": "X",
-					"Reflect": true
+					"Reflect": false
 				}
 			],
 			"Output": [
@@ -48,7 +48,7 @@
 						"Id": "ParamHairFront"
 					},
 					"VertexIndex": 1,
-					"Scale": 1.238,
+					"Scale": 1.5,
 					"Weight": 100,
 					"Type": "Angle",
 					"Reflect": false
@@ -59,7 +59,7 @@
 						"Id": "ParamHairBack"
 					},
 					"VertexIndex": 1,
-					"Scale": 1,
+					"Scale": 1.5,
 					"Weight": 100,
 					"Type": "Angle",
 					"Reflect": false
@@ -79,12 +79,22 @@
 				{
 					"Position": {
 						"X": 0,
-						"Y": 10
+						"Y": 27.9
+					},
+					"Mobility": 0.89,
+					"Delay": 1,
+					"Acceleration": 0.62,
+					"Radius": 27.9
+				},
+				{
+					"Position": {
+						"X": 0,
+						"Y": 45.6
 					},
 					"Mobility": 0.95,
-					"Delay": 0.64,
-					"Acceleration": 0.65,
-					"Radius": 10
+					"Delay": 1,
+					"Acceleration": 0.26,
+					"Radius": 17.7
 				}
 			],
 			"Normalization": {
@@ -108,7 +118,16 @@
 						"Target": "Parameter",
 						"Id": "ParamEyeLOpen"
 					},
-					"Weight": 76,
+					"Weight": 50,
+					"Type": "X",
+					"Reflect": false
+				},
+				{
+					"Source": {
+						"Target": "Parameter",
+						"Id": "ParamEyeROpen"
+					},
+					"Weight": 50,
 					"Type": "X",
 					"Reflect": false
 				}
@@ -121,9 +140,9 @@
 					},
 					"VertexIndex": 1,
 					"Scale": 1,
-					"Weight": 44,
+					"Weight": 100,
 					"Type": "Angle",
-					"Reflect": true
+					"Reflect": false
 				}
 			],
 			"Vertices": [
@@ -143,8 +162,8 @@
 						"Y": 10
 					},
 					"Mobility": 0.95,
-					"Delay": 0.74,
-					"Acceleration": 3.66,
+					"Delay": 1,
+					"Acceleration": 1,
 					"Radius": 10
 				}
 			],
