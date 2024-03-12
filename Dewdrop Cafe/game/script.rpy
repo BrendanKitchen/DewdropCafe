@@ -24,7 +24,8 @@ image luan = Live2D("images/Luan", top=-0.01, base=0.75, default_fade=0.0, loop=
 
 #Food images
 image betta drink = im.Scale("BettaDrink.png", 960, 540)
-image starfruit sunset= im.Scale("BettaDrink2.png", 960, 540)
+image starfruit sunset = im.Scale("BettaDrink2.png", 960, 540)
+image cattail citrus = im.Scale("BettaDrink3.png", 960, 540)
 image drink bg = "drink_bg.png"
 
 #Backgrounds
@@ -906,17 +907,19 @@ label start:
             show kannika -smile
             play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
-            # with Fade(0.5, 0.5, 0.5)
-            # show drink bg:
-            # [ASSET] show Cattail Citrus:
-            # with dissolve
+            with Fade(0.5, 0.5, 0.5)
+            show drink bg zorder 3:
+                align (0.5, 0.4)
+            show cattail citrus zorder 3:
+                align (0.5, 0.4)
+            with dissolve
 
             "{i}Finished making the drink, Kari places it on the counter in front of Kannika, who is seated in her usual spot.{/i}"
             mc "Well, here you go."
             mc "I'm curious to see what you think of it."
-            # hide drink bg
-            # [ASSET] hide Cattail Citrus:
-            # with dissolve
+            hide drink bg
+            hide cattail citrus
+            with dissolve
 
             "{i}Kannika picks up the glass and inspects the drink from different angles.{/i}"
             pb "Well, it certainly doesn't look daunting and it smells quite delectable."
