@@ -16,6 +16,7 @@ style default:
 style input:
     properties gui.text_properties("input", accent=True)
     adjust_spacing False
+    color "#3AC8A0"
 
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
@@ -23,7 +24,6 @@ style hyperlink_text:
 
 style gui_text:
     properties gui.text_properties("interface")
-
 
 style button:
     properties gui.button_properties("button")
@@ -38,7 +38,6 @@ style label_text is gui_text:
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
-
 
 style bar:
     ysize gui.bar_size
@@ -158,8 +157,8 @@ style say_label:
 style say_dialogue:
     properties gui.text_properties("dialogue")
 
-    xpos 200
-    xsize 1650
+    xpos 225
+    xsize 1500
     ypos -10
 
     adjust_spacing False
@@ -180,10 +179,10 @@ screen input(prompt):
     window:
 
         vbox:
-            xanchor gui.dialogue_text_xalign
-            xpos gui.dialogue_xpos
-            xsize gui.dialogue_width
-            ypos gui.dialogue_ypos
+            # xanchor gui.dialogue_text_xalign
+            xpos 225
+            xsize 1500
+            ypos -10
 
             text prompt style "input_prompt"
             input id "input"
@@ -192,7 +191,10 @@ style input_prompt is default
 
 style input_prompt:
     xalign gui.dialogue_text_xalign
-    properties gui.text_properties("input_prompt")
+    properties gui.text_properties("dialogue")
+
+
+    
 
 style input:
     xalign gui.dialogue_text_xalign
@@ -233,7 +235,7 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
     yalign 0.1
-    size 30
+    size 27
 
 
 ## Quick Menu screen ###########################################################
@@ -342,7 +344,7 @@ screen navigation():
 
         if main_menu:
 
-            imagebutton auto "gui/main_menu_buttons/credits_%s.png" action ShowMenu("credits")
+            imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -578,24 +580,28 @@ style game_menu_label_text:
 ## There's nothing special about this screen, and hence it also serves as an
 ## example of how to make a custom screen.
 
-screen credits():
+screen about():
 
     tag menu
 
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("Credits"), scroll="viewport"):
+    use game_menu(_("About"), scroll="viewport"):
 
-        style_prefix "credits"
+        style_prefix "about"
+        text _("A short and sweet fantasy visual novel about a wandering barista who meets a mysterious girl in a magical swamp.")
+
+        label _("Credits")
 
         vbox:
+            style_prefix "credits"
             xpos 250
             xmaximum 1000
 
             hbox:
                 label _("Issy Wong")
-                text _("Creative Lead, Food & Cutscene Art")
+                text _("Creative Lead, Food & Cutscene Art, Voice Actor")
 
             hbox:
                 label _("Brendan Kitchen")
@@ -623,7 +629,7 @@ screen credits():
 
             hbox:
                 label _("Ashley Lu")
-                text _("UI Artist & Designer, Programmer")
+                text _("UI Artist & Designer, Programmer, Voice Actor")
             
             # label "[config.name!t]"
             # text _("Version [config.version!t]\n")
@@ -634,20 +640,39 @@ screen credits():
 
             # text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
+style about_text:
+    xpos 250
+    xmaximum 1100
+    color "#CFFFD9"
+    size 30
+    textalign 0.5
+
+style about_label:
+    top_padding 50
+
+style about_label_text:
+    color "#FFF7E8"
+    font "fonts/Vintage Culture.ttf"
+    xpos 600
+    size 75
+
+
+style credits_hbox:
+    top_padding 20
 
 style credits_label is gui_label:
     xsize 500
     right_padding 30
     bottom_padding 30
 style credits_label_text is gui_label_text:
-    size 40
+    size 35
     xalign 1.0
     textalign 0.5
     left_padding 30
     color "#4DE5BA"
 style credits_text is gui_text:
     color "#CFFFD9"
-    size gui.text_size
+    size 30
     yalign 0.2
 
     
@@ -1395,7 +1420,7 @@ style notify_text is gui_text
 
 style notify_frame:
     ypos gui.notify_ypos
-    xalign 1.0
+    xalign 0
     background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding
 

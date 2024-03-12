@@ -25,6 +25,7 @@ image luan = Live2D("images/Luan", top=-0.01, base=0.75, default_fade=0.0, loop=
 #Food images
 image betta drink = im.Scale("BettaDrink.png", 960, 540)
 image starfruit sunset= im.Scale("BettaDrink2.png", 960, 540)
+image drink bg = "drink_bg.png"
 
 #Backgrounds
 image night bg = im.Scale("night_background.png", 1920, 1080)
@@ -34,6 +35,7 @@ image photo frame = im.Scale("s1_photo_frame.png", 1920, 1080)
 
 label start:
     # ----------------------------- SCENE ONE -----------------------------
+    play music "pas_de_deuxdrop.mp3"
     pause 0.25
     mc "There we go, that should do it!"
 
@@ -227,14 +229,19 @@ label start:
     play sound "Dewdrop_MakeDrink.mp3" volume 0.7
     with Fade(0.5, 0.5, 0.5)
 
+    show drink bg:
+        align (0.5, 0.4)
     show betta drink:
         align (0.5, 0.4)
+    with dissolve
     "{i}Kari makes a cup of tea and sets it down in front of her mysterious, on-the-run, guest.{/i}"
     play sound "Dewdrop_Sip.mp3" volume 0.8 
     "{i}With grace, she picks up the cup and takes a sip.{/i}"
     "{i}And before long, the contents of the drink are gone.{/i}"
 
+    hide drink bg
     hide betta drink
+    with dissolve
     bquestionmark "Thank you, that was quite refreshing."
     mc "Glad to see it calmed you down."
     "{i}Kari takes the empty cup and places it in the sink before turning her attention back to the girl.{/i}"
@@ -472,7 +479,7 @@ label start:
             window show
             pb "Oh please, I'm here to speak to you, not watch you grovel at my feet."
             show kari -surprised
-        "Ah, so that's what the guard were about.":
+        "Ah, so that's what the guard was about.":
             show kari -surprised
             window show
             pb "Yes. Unfortunately, I am required to have him with me at all times."
@@ -560,13 +567,18 @@ label start:
         align (1.0, 0.5)
     with move
 
+    show drink bg:
+        align (0.5, 0.4)
     show starfruit sunset zorder 3:
         align (0.5, 0.4)
+    with dissolve
     window show
     mc "And here you go, one Starfruit Sunset."
     pb "Thank you."
     play sound "Dewdrop_Sip.mp3" volume 0.8
+    hide drink bg
     hide starfruit sunset
+    with dissolve
     "{i}Like the day before, the Nagai elegantly brings the glass to her lips and takes a slow sip.{/i}"
     "{i}Taking a closer look at the princess, Kari now notices the way Princess Kannika holds her cup. Fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
     "{i}If the guards were not proof enough, this certainly was. Only somebody who has done this all their life, somebody of noble upbringing, would be able to carry themselves with such grace.{/i}"
@@ -895,12 +907,16 @@ label start:
             play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
             # with Fade(0.5, 0.5, 0.5)
+            # show drink bg:
             # [ASSET] show Cattail Citrus:
+            # with dissolve
 
             "{i}Finished making the drink, Kari places it on the counter in front of Kannika, who is seated in her usual spot.{/i}"
             mc "Well, here you go."
             mc "I'm curious to see what you think of it."
+            # hide drink bg
             # [ASSET] hide Cattail Citrus:
+            # with dissolve
 
             "{i}Kannika picks up the glass and inspects the drink from different angles.{/i}"
             pb "Well, it certainly doesn't look daunting and it smells quite delectable."
@@ -923,10 +939,14 @@ label start:
             play sound "Dewdrop_MakeDrink.mp3" volume 0.8 
 
             # with Fade(0.5, 0.5, 0.5)
+            # show drink bg:
             # [ASSET] show Pink Lady:
+            # with dissolve
             
             # "{i}Kari quickly makes a Pink Lady and sets in in front of Kannika.{/i}"
+            # hide drink bg
             # [ASSET] hide Pink Lady: 
+            # with dissolve
 
             pb "Where did this drink come from?"
             mc "I want to say it was one of the original drinks I made when I was first starting my cafe."
@@ -1003,11 +1023,13 @@ label start:
     with MoveTransition (1.0)
 
     # [ASSET] show fruits
+    # with dissolve
 
     show kannika smile
     window show
     pb "Here! I think these should work!"
     # [ASSET] hide fruits
+    # with dissolve
 
     mc "Oh my Lanta, they're ginormous!"
     show kari -surprised
@@ -1186,7 +1208,7 @@ label start:
             seamelon_item = "WHY DIDN'T YOU NAME THE THING"
     
     show kari smile
-    mc "[seamelon_item] is now the newest addition to Dewdrop Cafe!"
+    mc "{color=#3AC8A0}[seamelon_item]{/color} is now the newest addition to Dewdrop Cafe!"
     window hide
     pause 1.0
     hide kari
@@ -1232,7 +1254,7 @@ label start:
             pb "Bad doesn't even begin to cover it."
             mc "Why don't you go sit down and I'll make you something while we talk about it?"
             pb "I'd very much appreciate that."
-            pb "{i}Unlike a certain caretaker{/i}"
+            pb "{i}Unlike a certain caretaker.{/i}"
         "Let's not get too hasty here":
             window show
             mc "Why don't you go and sit down and I'll make you something while we talk about it?"
@@ -1242,10 +1264,15 @@ label start:
     play sound "Dewdrop_MakeDrink.mp3" volume 0.8
 
     with Fade (0.5, 0.5, 0.5)
+    show drink bg:
+        align (0.5, 0.4)
     show betta drink:
         align (0.5, 0.4)
+    with dissolve
     "{i}Kari quickly mixes up a calming cup of tea and sets it down in front of the sulking Kannika.{/i}"
+    hide drink bg
     hide betta drink
+    with dissolve
     mc "So, why don't you start from the beginning? What exactly happened?"
 
     pb "As you know already, I am next in line for the throne after my mother is no longer able to rule."

@@ -66,13 +66,13 @@ define gui.name_text_font = "fonts/Vintage Culture.ttf"
 define gui.interface_text_font = "fonts/Oliciy.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 35
+define gui.text_size = 32
 
 ## The size of character names.
-define gui.name_text_size = 40
+define gui.name_text_size = 37
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 32
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 36
@@ -294,7 +294,7 @@ define gui.confirm_frame_borders = Borders(90, 120, 90, 120)
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)
 
 ## The frame that is used as part of the notify screen.
-define gui.notify_frame_borders = Borders(24, 8, 60, 8)
+define gui.notify_frame_borders = Borders(24, 8, 75, 8)
 
 ## Should frame backgrounds be tiled?
 define gui.frame_tile = False
@@ -451,7 +451,7 @@ init python:
         gui.slider_size = 54
 
         gui.choice_button_width = 1860
-        gui.choice_button_text_size = 45
+        gui.choice_button_text_size = 40
 
         gui.navigation_spacing = 30
         gui.pref_button_spacing = 15
