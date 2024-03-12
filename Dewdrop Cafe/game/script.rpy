@@ -25,7 +25,9 @@ image luan = Live2D("images/Luan", top=-0.01, base=0.75, default_fade=0.0, loop=
 #Food images
 image betta drink = im.Scale("BettaDrink.png", 960, 540)
 image starfruit sunset = im.Scale("BettaDrink2.png", 960, 540)
-image cattail citrus = im.Scale("BettaDrink3.png", 960, 540)
+image cattail citrus = im.Scale("cattail_citrus.png", 960, 540)
+image pink lady = im.Scale("pink_lady.png", 960, 540)
+image seamelon = im.Scale("seamelon.png", 960, 540)
 image drink bg = "drink_bg.png"
 
 #Backgrounds
@@ -581,8 +583,8 @@ label start:
     hide starfruit sunset
     with dissolve
     "{i}Like the day before, the Nagai elegantly brings the glass to her lips and takes a slow sip.{/i}"
-    "{i}Taking a closer look at the princess, Kari now notices the way Princess Kannika holds her cup. Fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
-    "{i}If the guards were not proof enough, this certainly was. Only somebody who has done this all their life, somebody of noble upbringing, would be able to carry themselves with such grace.{/i}"
+    "{i}Taking a closer look at the princess, Kari now notices the way she holds her cup: fingers poised in the most perfect angle, and drinking the beverage in carefully, calculated amounts.{/i}"
+    "{i}If the guard was not proof enough, this certainly was. Only somebody who has done this all their life, somebody of noble upbringing, would be able to carry themselves with such grace.{/i}"
     
     "{i}Placing down her cup, Kannika begins to speak, snapping Kari out of her trance.{/i}"
     pb "You know, we rarely see new people here, especially one such as yourself."
@@ -921,10 +923,10 @@ label start:
             hide cattail citrus
             with dissolve
 
-            "{i}Kannika picks up the glass and inspects the drink from different angles.{/i}"
+            "{i}Kannika picks up the cup and inspects the drink from different angles.{/i}"
             pb "Well, it certainly doesn't look daunting and it smells quite delectable."
             pb "..."
-            "{i}Bringing the glass to her lips, she takes a cautious sip.{/i}"
+            "{i}Bringing the cup to her lips, she takes a cautious sip.{/i}"
             show kari smile
             "{i}To Kari's delight, once the liquid hits her tongue, the princess's face quickly scrunches up from the sourness of the beverage.{/i}"
             pb "Well, that is... quite the taste."
@@ -941,15 +943,17 @@ label start:
             show kannika -smile
             play sound "Dewdrop_MakeDrink.mp3" volume 0.8 
 
-            # with Fade(0.5, 0.5, 0.5)
-            # show drink bg:
-            # [ASSET] show Pink Lady:
-            # with dissolve
+            with Fade(0.5, 0.5, 0.5)
+            show drink bg zorder 3:
+                align (0.5, 0.4)
+            show pink lady zorder 3:
+                align (0.5, 0.4)
+            with dissolve
             
-            # "{i}Kari quickly makes a Pink Lady and sets in in front of Kannika.{/i}"
-            # hide drink bg
-            # [ASSET] hide Pink Lady: 
-            # with dissolve
+            "{i}Kari quickly makes a Pink Lady and sets in in front of Kannika.{/i}"
+            hide drink bg
+            hide pink lady
+            with dissolve
 
             pb "Where did this drink come from?"
             mc "I want to say it was one of the original drinks I made when I was first starting my cafe."
@@ -1025,14 +1029,18 @@ label start:
     show kannika at left
     with MoveTransition (1.0)
 
-    # [ASSET] show fruits
-    # with dissolve
+    show drink bg zorder 3:
+        align (0.5, 0.4)
+    show seamelon zorder 3:
+        align (0.5, 0.4)
+    with dissolve
 
     show kannika smile
     window show
     pb "Here! I think these should work!"
-    # [ASSET] hide fruits
-    # with dissolve
+    hide drink bg
+    hide seamelon
+    with dissolve
 
     mc "Oh my Lanta, they're ginormous!"
     show kari -surprised
@@ -1203,7 +1211,7 @@ label start:
 
     # PLAYER NAMES THE ITEM WITH USER INPUT
     python:
-        seamelon_item = renpy.input("How about we name it...", length=64)
+        seamelon_item = renpy.input("{i}Enter a name for the new menu item:", length=64)
         seamelon_item = seamelon_item.strip()
 
         # IF THE PLAYER DOESN'T NAME THE THING, HERE'S A DEFAULT NAME TO USE 
@@ -1217,7 +1225,7 @@ label start:
     hide kari
     hide kannika 
     with dissolve
-    with Fade (0.5, 0.5, 0.5)
+    with Fade (0.5, 1.0, 0.5)
 
     # ---------------------------- SCENE FOUR -----------------------------
     # ---------------------------------------------------------------------
@@ -1235,10 +1243,9 @@ label start:
     show kannika neutral
 
     play sound "Dewdrop_Bell_Mashing.mp3" volume 0.8
-
-
+    
     show kari surprised
-    pause 0.5
+    pause 3.0
     show kari -surprised
     mc "Well, hello to you too. What's got you all worked up?"
 
