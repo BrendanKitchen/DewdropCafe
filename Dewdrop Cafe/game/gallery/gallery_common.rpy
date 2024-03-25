@@ -2,6 +2,7 @@ screen gallery_common:
     tag menu
 
     add "../gui/menu_bg.png" 
+    
     hbox:
         xalign 0.5
         yalign 0.5
