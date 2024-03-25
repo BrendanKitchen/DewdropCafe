@@ -334,6 +334,10 @@ screen navigation():
 
         imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
+        # GALLERY MENU
+        if renpy.get_screen("main_menu"):
+            textbutton _("Gallery (ashley send help, can you make an image button for this lol)") action ShowMenu("gallery_common")
+
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)
