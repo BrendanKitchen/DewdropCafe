@@ -21,7 +21,7 @@ label start:
 
     "{i}Kari reaches into her pocket and pulls out a framed picture of her family, looking at it with a somber gaze.{/i}"
     window hide
-    show photo frame with dissolve
+    show cg_ch1_1 with dissolve
     pause 1.0
     window show
     play sound "Dewdrop_KariSigh.mp3" volume 0.7
@@ -30,7 +30,7 @@ label start:
     mc "The last place I set up shop was quite busy. I had to serve over a dozen lattes at once!"
     window hide 
     pause 0.5
-    hide photo frame with dissolve
+    hide cg_ch1_1 with dissolve
     window show
     "{i}Placing it down, the framed picture now rests silently on the counter.{/i}"
 

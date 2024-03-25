@@ -29,4 +29,4 @@ image drink bg = "drink_bg.png"
 image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
 image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
-image photo frame = im.Scale("s1_photo_frame.png", 1920, 1080)
+image cg_ch1_1 = im.Scale("CG/chapter1/photo_frame.png", 1920, 1080)
