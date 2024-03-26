@@ -1,10 +1,7 @@
 label chapter5:
-    # ---------------------------- SCENE FOUR -----------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-
+    $ persistent.ch5 = True
+    show night bg
+    with dissolve
     show kari neutral at right
     with dissolve
     "{i}A few days later, Kari is cleaning up her station, when an annoyed Kannika slithers up to the counter and angrily rings the bell.{/i}"
@@ -336,8 +333,10 @@ label chapter5:
     show kari -surprised
     show kari frown
     pause 1.0
-    hide kari with dissolve
-    scene black with dissolve
+    scene black
+    with fade
+    # hide kari with dissolve
+    # scene black with dissolve
 
     # jump chapter6
 

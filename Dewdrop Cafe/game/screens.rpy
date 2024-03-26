@@ -334,9 +334,12 @@ screen navigation():
 
         imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
-        # GALLERY MENU
+        # CHAPTER SELECT AND GALLERY MENU
         if renpy.get_screen("main_menu"):
-            textbutton _("Gallery (ashley send help, can you make an image button for this lol)") action ShowMenu("gallery_common")
+            textbutton _("Chapter Select (ashley pls send help, can you make an image button for this lol)") action ShowMenu("chapter_select")
+
+        if renpy.get_screen("main_menu"):
+            textbutton _("Gallery (and this T-T)") action ShowMenu("gallery_common")
 
         if _in_replay:
 

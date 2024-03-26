@@ -1,10 +1,7 @@
 label chapter4:
-    # ---------------------------- SCENE THREE ----------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-    # ---------------------------------------------------------------------
-
+    $ persistent.ch4 = True
+    show night bg
+    with dissolve
     show kari neutral:
         xzoom -1
         align (1.0, 0.5)
@@ -381,9 +378,11 @@ label chapter4:
     mc "{color=#3AC8A0}[seamelon_item]{/color} is now the newest addition to Dewdrop Cafe!"
     window hide
     pause 1.0
-    hide kari
-    hide kannika 
-    with dissolve
-    with Fade (0.5, 1.0, 0.5)
+    scene black
+    with fade
+    # hide kari
+    # hide kannika 
+    # with dissolve
+    # with Fade (0.5, 1.0, 0.5)
     
     jump chapter5
