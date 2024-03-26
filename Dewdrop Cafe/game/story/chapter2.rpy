@@ -1,4 +1,7 @@
 label chapter2: 
+    $ persistent.ch2 = True
+    show day bg
+    with dissolve
     "{i}The following day...{/i}"
     show kari neutral at center
     show kari smile 
@@ -324,8 +327,10 @@ label chapter2:
     mc "..."
     window hide
 
-    hide kari with dissolve 
-    hide day bg with Fade(0.5, 0.5, 0.5)
+    scene black
+    with fade
+    # hide kari with dissolve 
+    # hide day bg with Fade(0.5, 0.5, 0.5)
 
     jump chapter3
     

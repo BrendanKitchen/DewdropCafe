@@ -1,4 +1,7 @@
 label chapter3:
+    $ persistent.ch3 = True
+    show night bg
+    with dissolve
     "{i}A few days later...{/i}"
     show kari neutral at right
     with dissolve
@@ -192,7 +195,9 @@ label chapter3:
     show kannika at offscreenleft
     with MoveTransition(2.0)
 
-    hide kari with dissolve
-    with Fade(0.5, 0.5, 0.5)
-
+    scene black
+    with fade
+    # hide kari with dissolve
+    # with Fade(0.5, 0.5, 0.5)
+    
     jump chapter4

@@ -1,8 +1,17 @@
 ﻿# starts with chapter 1
 # remaining chapters are in separate .rpy files under the story folder 
-# WHEN CREATING NEW CHAPTERS: make sure to add a jump
+# WHEN CREATING NEW CHAPTERS: make sure to add a chapter variable here and mark it false w persistent
+# this is for the chapter select
+
+
+define persistent.ch1 = False 
+define persistent.ch2 = False
+define persistent.ch3 = False
+define persistent.ch4 = False
+define persistent.ch5 = False
+
 label start:
-    # ----------------------------- SCENE ONE -----------------------------
+    $ persistent.ch1 = True
     play music "pas_de_deuxdrop.mp3"
     pause 0.25
     mc "There we go, that should do it!"
@@ -265,8 +274,9 @@ label start:
     mc "What a strange place I'm in."
 
     window hide
-    hide kari
-    show day bg with Fade(0.5,0.5,0.5)
+    scene black
+    with fade
+
 
     jump chapter2
 
