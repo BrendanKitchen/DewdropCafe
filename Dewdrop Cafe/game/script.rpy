@@ -1,4 +1,4 @@
-﻿# starts with chapter 1
+# starts with chapter 1
 # remaining chapters are in separate .rpy files under the story folder 
 # WHEN CREATING NEW CHAPTERS: make sure to add a chapter variable here and mark it false w persistent
 # this is for the chapter select
@@ -13,46 +13,53 @@ define persistent.ch5 = False
 label start:
     $ persistent.ch1 = True
     play music "pas_de_deuxdrop.mp3"
-    pause 0.25
-    mc "There we go, that should do it!"
+    pause 0.75
+    window show
+    mc "Phew!" 
+    mc "Alright, I think that looks good."
 
     window hide
-    pause 0.25
+    pause 0.5
     show night bg with fade
-    pause 2.5
+    pause 2.0
     show kari neutral at center
     with easeinright
     pause 0.25
     window show
 
-    mc "I think a change of scenery is just what I needed."
-    mc "Oh, I almost forgot..."
+    mc "It’s a little damp, but otherwise this is a great spot – right on the waterfront!"
+    mc "I hope the chairs don’t sink into the mud…"
+    mc "Still gotta finish unpacking... "
 
-    "{i}Kari reaches into her pocket and pulls out a framed picture of her family, looking at it with a somber gaze.{/i}"
     window hide
     show cg_ch1_1 with dissolve
-    pause 1.0
+    pause 2.0
     window show
     play sound "Dewdrop_KariSigh.mp3" volume 0.7
-    mc "{i}...sigh...{/i}"
-    mc "Things have been rough since I left home, but I'm doing well now."
-    mc "The last place I set up shop was quite busy. I had to serve over a dozen lattes at once!"
-    window hide 
+    mc "It’s been, what, two years now?"
+    mc "I’m sure you’d be happy to hear I’m doing well."
+    mc "The road’s as rough as always, but I think it’s all been going great."
+    mc "The cafe was really popular at the last place! At one point I think I was making twelve drinks at the same time."
+    mc "…"
+    mc "Even after everything, I still miss you guys."
+    mc "I’ll come back some day. Probably."
+
+    window hide
+    scene black
+    with fade
     pause 0.5
-    hide cg_ch1_1 with dissolve
-    window show
-    "{i}Placing it down, the framed picture now rests silently on the counter.{/i}"
-
-    show kari frown
-
-    mc "...I miss you guys. I promise I'll come back someday... just not today."
     play sound "Dewdrop_Splash.mp3" volume 0.7
-    "{i}Suddenly, a loud splashing sound comes from the swamp behind the cafe.{/i}"
-    show kari -frown
+    pause 1
+    "{i}You hear a splash in the darkness behind your cafe.{/i}"
+    pause 0.5
+    
+    show night bg with fade
     show kari surprised
+    window show
+
     play sound "Dewdrop_KannikaPanting.mp3" volume 0.7
-    bquestionmark "{i}Huff... huff...{/i}"
-    bquestionmark "...I think I lost them for now."
+    mc "...!"
+    mc "What was that?"
 
     mc "Uhhh... what was that?"
 
