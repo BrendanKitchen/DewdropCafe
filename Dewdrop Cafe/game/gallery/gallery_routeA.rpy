@@ -1,7 +1,8 @@
 screen gallery_routeA: 
     tag menu
 
-    add "../gui/menu_bg.png" 
+    add "../gui/main_menu.png"
+    add "../gui/overlay/main_menu.png" 
     
     hbox:
         xalign 0.5
