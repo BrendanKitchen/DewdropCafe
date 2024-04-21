@@ -2,8 +2,7 @@ screen gallery_cafe_menu:
     tag menu
     style_prefix "cafe_menu"
 
-    add "../gui/main_menu.png"
-    add "../gui/overlay/main_menu.png" 
+    add "../gui/overlay/plain_overlay.png" 
 
     label "Cafe Menu"
 

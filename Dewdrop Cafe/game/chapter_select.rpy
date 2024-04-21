@@ -2,13 +2,13 @@ screen chapter_select:
     tag menu
     style_prefix "chapter_select"
 
-    add "../gui/main_menu.png"
-    add "../gui/overlay/game_menu.png" 
+    # add "../gui/main_menu.png"
+    add "../gui/overlay/plain_overlay.png" 
 
     add "../images/betta_fish_neutral.png":
         xpos -50
     add "../images/mc_neutral.png":
-        xpos 1100
+        xpos 1120
         zoom 0.7
         ypos 100
         
@@ -20,7 +20,10 @@ screen chapter_select:
         style "return_button"
         yalign 0.04
         xalign 0.02
-        action Return()
+        if main_menu: 
+            action Return()
+        else:
+            action ShowMenu("preferences")
     frame:
         xalign 0.5
         yalign 0.5
@@ -48,7 +51,7 @@ screen chapter_select:
 
 
 style chapter_select_label:
-    ypos 51
+    ypos 65
     xalign 0.5
 style chapter_select_label_text:
     color "#FFF7E8"
