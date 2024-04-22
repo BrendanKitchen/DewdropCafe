@@ -31,8 +31,7 @@ screen chapter_select:
             spacing 30
             grid 1 5:
                 textbutton "Chapter 1":
-                    if persistent.ch1:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
                 textbutton "Chapter 2":
                     if persistent.ch2:
                         action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter2")]
