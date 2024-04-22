@@ -285,7 +285,7 @@ label start:
             with Fade(0.5, 0.5, 0.5)
             show drink bg:
                 align (0.5, 0.4)
-            show :
+            show betta drink:
                 align (0.5, 0.4)
             mc "Good, isn't it? My mom used to make it for me all the time."
             bquestionmark "..."
