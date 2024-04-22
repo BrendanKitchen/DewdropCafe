@@ -247,8 +247,12 @@ screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
-
     if quick_menu:
+        key "game_menu" action ShowMenu("preferences")
+        imagebutton auto "gui/quick_menu_buttons/menu_%s.png":
+            yalign 0.04
+            xalign 0.02
+            action ShowMenu("preferences")
 
         hbox:
             style_prefix "quick"
@@ -263,7 +267,7 @@ screen quick_menu():
             imagebutton auto "gui/quick_menu_buttons/hide_%s.png"  action [HideInterface(), Hide("in_game_menu")] # code reference: https://www.reddit.com/r/RenPy/comments/rs3f6n/how_do_i_hide_my_ui_ingame/
             imagebutton auto "gui/quick_menu_buttons/quicksave_%s.png"  action QuickSave()
             imagebutton auto "gui/quick_menu_buttons/quickload_%s.png"  action QuickLoad()
-            imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
+            # imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
             imagebutton auto "gui/quick_menu_buttons/auto_%s.png" action Preference("auto-forward", "toggle")
             imagebutton auto "gui/quick_menu_buttons/skip_%s.png" action Skip() alternate Skip(fast=True, confirm=True)
 
@@ -279,7 +283,7 @@ style quick_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
-    padding (20,20)
+    # padding (20,20)
 
 
 style quick_button_text:
@@ -297,14 +301,6 @@ style quick_button_text:
 
 screen navigation():
 
-    # if main_menu:
-    #     add "gui/logo.png" zoom 0.60 xpos 100 ypos 120
-    # else:
-    #     add "gui/logo.png" zoom 0.50 xpos 20 ypos 120
-    # originally had different styling depending on if main menu or in game
-
-    add "gui/logo.png" zoom 0.55 xpos 100 ypos 120
-
     vbox:
 
         style_prefix "navigation"
@@ -319,27 +315,18 @@ screen navigation():
         # spacing 2
         # yalign 0.75
 
-
         if main_menu:
-            imagebutton auto "gui/main_menu_buttons/start_%s.png" action [Play("sound", "Dewdrop_StartGame.mp3"), Start()]
-
-
-        else:
-
-            imagebutton auto "gui/main_menu_buttons/history_%s.png" action ShowMenu("history")
-
-            imagebutton auto "gui/main_menu_buttons/save_%s.png" action ShowMenu("save")
-
-        imagebutton auto "gui/main_menu_buttons/load_%s.png" action ShowMenu("load")
-
+            imagebutton auto "gui/main_menu_buttons/start_%s.png" action ShowMenu("chapter_select") # [Play("sound", "Dewdrop_StartGame.mp3"), Start()]
+            imagebutton auto "gui/main_menu_buttons/load_%s.png" action ShowMenu("load")
+            
         imagebutton auto "gui/main_menu_buttons/preferences_%s.png" action ShowMenu("preferences")
 
         # CHAPTER SELECT AND GALLERY MENU
-        if renpy.get_screen("main_menu"):
-            textbutton _("Chapter Select (ashley pls send help, can you make an image button for this lol)") action ShowMenu("chapter_select")
+        if not main_menu: 
+            imagebutton auto "gui/main_menu_buttons/chapter_select_%s.png" action ShowMenu("chapter_select")
 
-        if renpy.get_screen("main_menu"):
-            textbutton _("Gallery (and this T-T)") action ShowMenu("gallery_common")
+        imagebutton auto "gui/main_menu_buttons/gallery_%s.png" action ShowMenu("gallery_photos")
+        imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
 
         if _in_replay:
 
@@ -349,20 +336,34 @@ screen navigation():
             
             imagebutton auto "gui/main_menu_buttons/main_menu_%s.png" action MainMenu()
 
-        if main_menu:
 
-            imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-                imagebutton auto "gui/main_menu_buttons/help_%s.png" action ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #         imagebutton auto "gui/main_menu_buttons/controls_%s.png" action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
                 imagebutton auto "gui/main_menu_buttons/quit_%s.png" action Quit(confirm=not main_menu)
+
+    # quick menu icons to show in game pause menu
+    if not main_menu:
+        hbox: 
+            yalign 1.0
+            xalign 0.5
+            spacing 20
+            style_prefix "bottom_navigation"
+            add "gui/quick_menu_buttons/back_insensitive.png"
+            imagebutton auto "gui/quick_menu_buttons/history_%s.png" action ShowMenu('history')
+            imagebutton auto "gui/quick_menu_buttons/save_%s.png" action ShowMenu('save')
+            add "gui/quick_menu_buttons/hide_insensitive.png"
+            add "gui/quick_menu_buttons/quicksave_insensitive.png"
+            imagebutton auto "gui/quick_menu_buttons/load_%s.png" action ShowMenu('load')
+            # imagebutton auto "gui/quick_menu_buttons/preferences_%s.png" action ShowMenu('preferences')
+            add "gui/quick_menu_buttons/auto_insensitive.png"
+            add "gui/quick_menu_buttons/skip_insensitive.png"
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -421,7 +422,7 @@ style main_menu_version is main_menu_text
 style main_menu_frame:
     xsize 420
     yfill True
-
+    background Image("gui/logo.png", xpos=105, ypos=115)
     # background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
@@ -454,11 +455,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     style_prefix "game_menu"
 
-    if main_menu:
-        add "gui/main_menu.png"
-    else:
-        add "gui/game_menu.png"
-
     frame:
         style "game_menu_outer_frame"
 
@@ -479,7 +475,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
                         mousewheel True
                         draggable True
                         pagekeys True
-
+                        ymaximum 750
                         side_yfill True
 
                         vbox:
@@ -545,7 +541,7 @@ style return_button_text is navigation_button_text
 style game_menu_outer_frame:
     bottom_padding 45
     top_padding 220
-    background "gui/overlay/game_menu.png"
+    background "gui/overlay/main_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
@@ -595,9 +591,34 @@ screen about():
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
     use game_menu(_("About"), scroll="viewport"):
-
         style_prefix "about"
         text _("A short and sweet fantasy visual novel about a wandering barista who meets a mysterious girl in a magical swamp.")
+
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            label _("Controls")
+
+            default device = "keyboard"
+
+            vbox:
+                style_prefix "help"
+                spacing 23
+                xpos 230
+                xmaximum 1000
+
+                hbox:
+                    xpos 250
+                    textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
+                    textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+
+                    if GamepadExists():
+                        textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+
+                if device == "keyboard":
+                    use keyboard_help
+                elif device == "mouse":
+                    use mouse_help
+                elif device == "gamepad":
+                    use gamepad_help
 
         label _("Credits")
 
@@ -627,12 +648,12 @@ screen about():
                 text _("Music, SFX")
 
             hbox:
-                label _("Nicholas Chong")
-                text _("Narrative Writer")
+                label _("Michael Rhee")
+                text _("Lead Narrative Writer")
 
             hbox:
-                label _("Michael Rhee")
-                text _("Dialogue Editor")
+                label _("Nicholas Chong")
+                text _("Narrative Writer")
 
             hbox:
                 label _("Ashley Lu")
@@ -647,6 +668,137 @@ screen about():
 
             # text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
+
+screen keyboard_help():
+
+    hbox:
+        label _("Enter")
+        text _("Advances dialogue and activates the interface.")
+
+    hbox:
+        label _("Space")
+        text _("Advances dialogue without selecting choices.")
+
+    hbox:
+        label _("Arrow Keys")
+        text _("Navigate the interface.")
+
+    hbox:
+        label _("Escape")
+        text _("Accesses the game menu.")
+
+    hbox:
+        label _("Ctrl")
+        text _("Skips dialogue while held down.")
+
+    hbox:
+        label _("Tab")
+        text _("Toggles dialogue skipping.")
+
+    hbox:
+        label _("Page Up")
+        text _("Rolls back to earlier dialogue.")
+
+    hbox:
+        label _("Page Down")
+        text _("Rolls forward to later dialogue.")
+
+    hbox:
+        label "H"
+        text _("Hides the user interface.")
+
+    hbox:
+        label "S"
+        text _("Takes a screenshot.")
+
+    hbox:
+        label "V"
+        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
+
+    hbox:
+        label "Shift+A"
+        text _("Opens the accessibility menu.")
+
+
+screen mouse_help():
+
+    hbox:
+        label _("Left Click")
+        text _("Advances dialogue and activates the interface.")
+
+    hbox:
+        label _("Middle Click")
+        text _("Hides the user interface.")
+
+    hbox:
+        label _("Right Click")
+        text _("Accesses the game menu.")
+
+    hbox:
+        label _("Mouse Wheel Up")
+        text _("Rolls back to earlier dialogue.")
+
+    hbox:
+        label _("Mouse Wheel Down")
+        text _("Rolls forward to later dialogue.")
+
+
+screen gamepad_help():
+
+    hbox:
+        label _("Right Trigger\nA/Bottom Button")
+        text _("Advances dialogue and activates the interface.")
+
+    hbox:
+        label _("Left Trigger\nLeft Shoulder")
+        text _("Rolls back to earlier dialogue.")
+
+    hbox:
+        label _("Right Shoulder")
+        text _("Rolls forward to later dialogue.")
+
+    hbox:
+        label _("D-Pad, Sticks")
+        text _("Navigate the interface.")
+
+    hbox:
+        label _("Start, Guide, B/Right Button")
+        text _("Accesses the game menu.")
+
+    hbox:
+        label _("Y/Top Button")
+        text _("Hides the user interface.")
+
+    textbutton _("Calibrate") action GamepadCalibrate()
+
+
+style help_button is gui_button
+style help_button_text is gui_button_text:
+    color "#48B5A1"
+    hover_color "#4DE5BA"
+    selected_color "#4DE5BA"
+style help_label is gui_label
+style help_label_text is gui_label_text:
+    color "#FFC68E"
+style help_text is gui_text:
+    color "#CFFFD9"
+
+style help_button:
+    properties gui.button_properties("help_button")
+    xmargin 12
+
+style help_button_text:
+    properties gui.text_properties("help_button")
+
+style help_label:
+    xsize 375
+
+style help_label_text:
+    size gui.text_size
+    xalign 1.0
+    textalign 1.0
+
+
 style about_text:
     xpos 250
     xmaximum 1100
@@ -656,11 +808,11 @@ style about_text:
 
 style about_label:
     top_padding 50
+    xalign 0.9
 
 style about_label_text:
     color "#FFF7E8"
     font "fonts/Vintage Culture.ttf"
-    xpos 600
     size 75
 
 
@@ -764,8 +916,8 @@ screen file_slots(title):
             vbox:
                 style_prefix "page"
 
-                xalign 0.5 # modifies page controls
-                yalign 1.0 # modifies page controls
+                xalign 0.66 # modifies page controls
+                yalign 0.9 # modifies page controls
 
                 hbox:
                     xalign 0.5
@@ -848,7 +1000,7 @@ screen preferences():
         hbox:
             xpos 250
 
-            vbox:
+            vbox: # left side
                 box_wrap True
 
                 if renpy.variant("pc") or renpy.variant("web"):
@@ -871,7 +1023,7 @@ screen preferences():
 
             null height (4 * gui.pref_spacing)
 
-            hbox:
+            hbox: # right side?
                 style_prefix "slider"
                 box_wrap True
 
@@ -886,7 +1038,6 @@ screen preferences():
                     bar value Preference("auto-forward time")
 
                 vbox:
-
                     if config.has_music:
                         label _("Music Volume")
 
@@ -956,7 +1107,7 @@ style mute_all_button_text is check_button_text:
 
 style pref_label:
     top_margin 20
-    bottom_margin 10
+    # bottom_margin 10
 
 style pref_label_text:
     yalign 1.0
@@ -1115,7 +1266,7 @@ screen help():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Controls"), scroll="viewport"):
 
         style_prefix "help"
 
