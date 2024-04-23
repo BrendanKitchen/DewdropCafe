@@ -15,8 +15,20 @@ screen gallery_navigation:
         xalign 0
         yalign 0.3
         spacing 30
-        imagebutton auto "gui/gallery_buttons/gallery_%s.png" action ShowMenu("gallery_photos")
-        imagebutton auto "gui/gallery_buttons/fanart_%s.png" action ShowMenu("gallery_fanart")
         imagebutton auto "gui/gallery_buttons/menu_%s.png" action ShowMenu("gallery_cafe_menu")
         imagebutton auto "gui/gallery_buttons/playlist_%s.png" action ShowMenu("cafe_playlist")
+        imagebutton auto "gui/gallery_buttons/gallery_%s.png" action ShowMenu("gallery_photos")
+        imagebutton auto "gui/gallery_buttons/concept_art_%s.png" action ShowMenu("gallery_concept_art")
+        
         # textbutton "Chapter Select" action (ShowMenu("chapter_select"))
+
+    $ tooltip = GetTooltip()
+
+    if tooltip:
+        add "../gui/gallery_assets/tooltip_bg.png":
+            xalign 0.5
+            yalign 0.96
+        text "[tooltip]":
+            xalign 0.5
+            yalign 0.95
+            color "#FFF7E8"

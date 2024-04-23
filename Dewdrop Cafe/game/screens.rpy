@@ -254,6 +254,12 @@ screen quick_menu():
             xalign 0.02
             action ShowMenu("preferences")
 
+        imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+            style_prefix "sound"
+            yalign 0.04
+            xalign 0.98
+            action Preference("all mute", "toggle")
+
         hbox:
             style_prefix "quick"
 
@@ -278,13 +284,14 @@ init python:
 
 default quick_menu = True
 
+style sound_button is check_button
+
 style quick_button is default
 style quick_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
     # padding (20,20)
-
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -325,7 +332,7 @@ screen navigation():
         if not main_menu: 
             imagebutton auto "gui/main_menu_buttons/chapter_select_%s.png" action ShowMenu("chapter_select")
 
-        imagebutton auto "gui/main_menu_buttons/gallery_%s.png" action ShowMenu("gallery_photos")
+        imagebutton auto "gui/main_menu_buttons/gallery_%s.png" action ShowMenu("gallery_cafe_menu")
         imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
 
         if _in_replay:
