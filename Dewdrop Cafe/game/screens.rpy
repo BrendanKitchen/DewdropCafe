@@ -927,7 +927,7 @@ screen file_slots(title):
             vbox:
                 style_prefix "page"
 
-                xalign 0.66 # modifies page controls
+                xalign 0.55 # modifies page controls
                 yalign 0.9 # modifies page controls
 
                 hbox:
@@ -959,8 +959,7 @@ screen file_slots(title):
                             xalign 0.5
 
 
-style page_label is gui_label:
-    xpos 1150
+style page_label is gui_label
 style page_label_text is gui_label_text
 style page_button is gui_button
 style page_button_text is gui_button_text
