@@ -3,12 +3,12 @@
 # WHEN CREATING NEW CHAPTERS: make sure to add a chapter variable here and mark it false w persistent
 # this is for the chapter select
 
-
 define persistent.ch1 = False 
 define persistent.ch2 = False
 define persistent.ch3 = False
 define persistent.ch4 = False
 define persistent.ch5 = False
+define karihelpedkannika = False
 
 label start:
     $ persistent.ch1 = True
@@ -50,39 +50,42 @@ label start:
     pause 0.5
     play sound "Dewdrop_Splash.mp3" volume 0.7
     pause 1
+    window show
     "{i}You hear a splash in the darkness behind your cafe.{/i}"
+    window hide
     pause 0.5
     
     show night bg with fade
     show kari surprised
+    with easeinright
     window show
 
     play sound "Dewdrop_KannikaPanting.mp3" volume 0.7
     mc "...!"
     mc "What was that?"
 
+    window hide
     menu:
         "Hello? Is someone there?":
+            window show
             bquestionmark "Shhh! He'll hear you!"
         "(Stay quiet and listen)":
+            window show
             "{i}The night is abuzz with insects and the croaking of frogs. After a few moments, you hear another splash -{/i}"
             pause 0.25
             play sound "Dewdrop_Splash.mp3" volume 1.0
             pause 0.5
             "{i}- louder than the first.{/i}"
             mc "{i}Uh. That was definitely closer than the last one.{/i}"
-
     window hide
-    show kari:
+    show kari neutral:
         xzoom -1.0
         align (1.0, 0.5)
-    with MoveTransition(1.0)
-    pause 0.25
-    show kari:
+    with MoveTransition(0.75)
+    show kari neutral:
         xzoom 1.0
-    pause 0.25
-    show kannika neutral at left
-    with easeinbottom
+    show kannika surprised at left
+    with easeinleft
     window show
 
     bquestionmark "You need to help me. I need a place to hide."
@@ -91,26 +94,35 @@ label start:
     "{i}You watch, stunned, as the naga begins to pull herself over the counter and into your cafe.{/i}"
 
     show kari -surprised
-    show kari:
+    show kari neutral:
         xzoom 1.0
 
+    window hide
     menu:
         "Wh- Just hold on a second and tell me what's going on!":
+            window show
             bquestionmark "Later. Don't let him know I'm here."
             "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}"
             "{i}She meets your eyes and puts a finger to her lips.{/i}"
         "(Try and stop her from climbing over the counter)":
+            window show
             "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}"
             "{i}She smoothly redirects your shove and you end up spinning around in place as she curls her tail around herself and hides beneath the counter.{/i}"
         "(Help her climb over the counter)":
+            window show
             "{i}As soon as you make contact with the strange naga, you instantly know she doesn't even need your help. With just her arms, she pulls herself over the counter and curls up beneath it, wrapping her tail around herself."
             "{i}You see the trail of swamp water left behind and quickly grab a towel to blot it up. You glance down and smile reassuringly. She meets your eyes with a look of gratitude and smiles back. {/i}"
+            $ karihelpedkannika = True
         "Uh. Okay. Sure. Yeah.":
+            window show
             "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself. She meets your eyes and puts a finger to her lips.{/i}"
-        
+
+    window hide
     hide kannika with easeoutbottom
     pause 0.75
     play sound "Dewdrop_Splash.mp3" volume 0.7
+
+    window show
     "{i}Just as she does so, another figure emerges from the swamp.{/i}"
     show luan neutral at left
     with easeinleft
@@ -118,14 +130,19 @@ label start:
 
     g "You there. Foreigner. Have you seen a lady around here?"
     g "Pink hair, blue tail, holding a parasol..."
-    "{i}The guard glances down, noticing the swamp water still puddled on the countertop."
 
+    if karihelpedkannika == False:
+        "{i}The guard glances down, noticing the swamp water still puddled on the countertop.{/i}"
+
+    window hide
     menu:
         "Uh, nope! No sir, haven’t seen anyone like that.":
+            window show
             mc "I've actually been setting up all day. Welcome to the Dewdrop Cafe!"
             g "..."
 
         "(Distract him)":
+            window show
             mc "No, but I do have some drinks with little umbrellas in them!"
             mc "Welcome to the Dewdrop Cafe - tonight's our grand opening, and, uh, you're our first customer! Yay!"
             g "..."
@@ -135,38 +152,52 @@ label start:
             g "There are more pressing matters at hand."
 
         "Yep. She's hiding under my counter.":
-            show kannika with easeinbottom
+            pause 0.25
+            show kannika surprised with easeinbottom
+            pause 0.25
+            window show
             bquestionmark "Wh-?!"
             g "My lady. Enough of these games."
             g "You are far too old to be acting this childish."
             bquestionmark "..."
-            "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frstration, embarrassment, and betrayal.{/i}"
+            "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}"
+            show kannika angry:
+                xzoom 1.0
             "{i}She looks at you with an expression as cold as ice.{/i}"
             bquestionmark "It seems a little trust was too much to ask for."
             bquestionmark "Goodbye."
             "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
+            window hide
             show luan neutral:
                 xzoom -1.0
             show luan neutral at offscreenleft
-            with easeoutleft
-            show kari at center 
+            with MoveTransition(0.75)
+            pause 0.25
+            show kannika angry:
+                xzoom -1.0
+            show kannika angry at offscreenleft
+            with MoveTransition(0.75)
+            show kari neutral at center 
             with move
             pause 0.5
             scene black
             with fade
             pause 0.5
+            window show
             "{i}The rest of your stay in the Naga Kingdom is pleasant and uneventful, if a bit too humid for your tastes. Eventually, that old itch in the back of your mind returns – it’s time to move on.{/i}"
             "{i}You pack up your cafe and set off on the road once again. No one is waiting to see you off. No one begs for you to stay. You are alone, just as you have been since you left your home almost two years ago.{/i}"
-            "{i}Soon, your memories of this place will fade into pretty pastels and wistful impressions. The City of Swans, the Otterman Empire, the Naga Kingdom… all just names on a map, a blurred collection of faces and sounds and smells, bleeding together like watercolors in the rain.{/i}"
-            "{i}You never did see that naga woman again. You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently. Time moves ever-forward, however. You have little choice but to turn your thoughts to the road ahead, rather than linger on what you might have left by the wayside.{/i}"
-            "{i}Eventually, even she will evaporate into faint recollections of swamp water on a countertop. Your travels will have you meet many new people, experience many new things. This little kingdom will be just another chapter in your tales to tell when you’re sitting at a table with people who love you. {/i}"
+            "{i}Soon, your memories of this place will fade into pretty pastels and wistful impressions.{/i}"
+            "{i}The City of Swans, the Otterman Empire, the Naga Kingdom… all just names on a map, a blurred collection of faces and sounds and smells, bleeding together like watercolors in the rain.{/i}"
+            "{i}You never did see that naga woman again. You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently.{/i}"
+            "{i}Time moves ever-forward, however. You have little choice but to turn your thoughts to the road ahead, rather than linger on what you might have left by the wayside.{/i}"
+            "{i}Eventually, even she will evaporate into faint recollections of swamp water on a countertop.{/i}"
+            "{i}Your travels will have you meet many new people, experience many new things. This little kingdom will be just another chapter in your tales to tell when you’re sitting at a table with people who love you. {/i}"
             "{i}Right now, however, you are alone. Just you, the road, and whatever the future has in store for you.{/i}"
             "{i}Maybe it’s better this way.{/i}"
             window hide
             pause 1.0
             $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
-    window show
     show luan frown
     g "If you do see her, contact a member of the Halfmoon Guard as soon as you can. It’s dangerous for her to be out alone."
     mc "Yessir. I will definitely do that."
@@ -174,43 +205,41 @@ label start:
         xzoom -1.0
     window hide
     show luan neutral at offscreenleft
-    with easeoutleft
-    pause 1.0
+    with MoveTransition(0.75)
+    pause 0.5
+    
     window show
-
     mc "..."
     mc "I think he's gone. You can come out now."
-
     window hide
-    show kannika:
-        xzoom 1.0
-    show kannika at left
-    with MoveTransition(0.75)
-    with easeinleft
+
+    show kannika neutral at left
+    with easeinbottom
     window show 
 
     bquestionmark "Thank you. I’m glad you were here."
     mc "What was that about? Are you okay?"
     show kannika surprised
     bquestionmark "Yes, I am, it’s… somewhat complicated. I’m…"
+    show kannika -surprised
 
+    window hide
     menu:
         "...running away from home?":
-            bquestionmark "..."
-            bquestionmark "How did you know?"
-            mc "Just a hunch."
+            pass
         "...playing a really intense game of hide-and-seek?":
+            window show
             bquestionmark "Ha. I wish."
             bquestionmark "I guess it's somewhat similar, though it's much less exciting."
             bquestionmark "A futile game."
             mc "Well, I'm glad you're not in danger."
             mc "Okay are you actually..."
+            window hide
             menu:
                 "...running away from home?":
-                    bquestionmark "..."
-                    bquestionmark "How did you know?"
-                    mc "Just a hunch."
+                    pass
                 "...a foreign agent here to steal military secrets...":
+                    window show
                     bquestionmark "...what?"
                     mc "...and threaten the hegemonic authority of a glorious regime?"
                     mc "Sorry. When I was a kid we used to hear about that kind of stuff all the time."
@@ -220,12 +249,12 @@ label start:
                     bquestionmark "...Thank...you?"
                     mc "You're welcome!"
                     mc "Alright. Are you maybe..."
+                    window hide
                     menu:
                         "...running away from home?":
-                            bquestionmark "..."
-                            bquestionmark "How did you know?"
-                        mc "Just a hunch."
+                            pass
         "...a foreign agent here to steal military secrets...":
+            window show
             mc "...and threaten the hegemonic authority of a glorious regime?"
             bquestionmark "...what?"
             mc "Sorry. When I was a kid we used to hear about that kind of stuff all the time."
@@ -235,24 +264,26 @@ label start:
             bquestionmark "...Thank...you?"
             mc "You're welcome!"
             mc "Alright. Are you maybe..."
+            window hide
             menu:
                 "...running away from home?":
-                    bquestionmark "..."
-                    bquestionmark "How did you know?"
-                    mc "Just a hunch."
+                    pass
                 "...playing a really intense game of hide-and-seek?":
+                    window show
                     bquestionmark "Ha. I wish."
                     bquestionmark "I guess it's somewhat similar, though it's much less exciting."
                     bquestionmark "A futile game."
                     mc "Well, I'm glad you're not in danger."
                     mc "Okay are you actually..."
+                    window hide
                     menu:
                         "...running away from home?":
-                            bquestionmark "..."
-                            bquestionmark "How did you know?"
-                        mc "Just a hunch."
+                            pass
 
-
+    window show
+    bquestionmark "..."
+    bquestionmark "How did you know?"
+    mc "Just a hunch."
     mc "That's a pretty intense outfit to be running away from home in."
     bquestionmark "What do you mean?"
     mc "All that silk and ribbons and frills… Shouldn’t you have worn something, I dunno, less flashy?"
@@ -260,8 +291,12 @@ label start:
     bquestionmark "I’m not joking. My closet looks like a kelp forest made of lace and jewelry."
     mc "Okay, sure, but the parasol?"
     bquestionmark "...it completes the fit."
+    show kannika smile
+    show kari smile
     "{i}You and the naga dissolve into a fit of giggles.{/i}"
     "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
+    show kannika -smile
+    show kari -smile
     bquestionmark "So... a cafe."
     bquestionmark "It's quite charming."
     mc "Aw, thank you! It's the grand opening of the Dewdrop Cafe!"
@@ -277,103 +312,110 @@ label start:
     mc "As long as it’s tea."
     bquestionmark "Which one’s your favorite? I’ll have that one."
     mc "Excellent choice, madam."
-    "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night. The naga holds the cup between her hands, feeling its warmth. She takes her time as she sips it, savoring the taste."
+    "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night."
+    "{i}The naga holds the cup between her hands, feeling its warmth. She takes her time as she sips it, savoring the taste."
+    bquestionmark "What is this?"
 
+    window hide
     menu:
         "Cattail citrus.":
             play sound "Dewdrop_MakeDrink.mp3" volume 0.7
             with Fade(0.5, 0.5, 0.5)
             show drink bg:
                 align (0.5, 0.4)
-            show betta drink:
+            show cattail citrus:
                 align (0.5, 0.4)
+            with dissolve
+            pause 2.0
+            play sound "Dewdrop_Sip.mp3" volume 0.8
+            pause 2.0
+            hide cattail citrus with dissolve
+            hide drink bg with dissolve
+            window show
             mc "Good, isn't it? My mom used to make it for me all the time."
             bquestionmark "..."
             bquestionmark "It's very good. I can see why it's your favorite."
         "Humming lavender.":
             play sound "Dewdrop_MakeDrink.mp3" volume 0.7
             with Fade(0.5, 0.5, 0.5)
+            show drink bg:
+                align (0.5, 0.4)
+            show seamelon:
+                align (0.5, 0.4)
+            with dissolve
+            pause 2.0
+            play sound "Dewdrop_Sip.mp3" volume 0.8
+            pause 2.0
+            hide seamelon with dissolve
+            hide drink bg with dissolve
+            window show
             mc "This was the first drink I learned how to make after I left home. Drinking it is really relaxing, don't you think?"
             bquestionmark "..."
             bquestionmark "It's very good."
         "Moon jelly tea.":
             play sound "Dewdrop_MakeDrink.mp3" volume 0.7
             with Fade(0.5, 0.5, 0.5)
+            show drink bg:
+                align (0.5, 0.4)
+            show seamelon:
+                align (0.5, 0.4)
+            with dissolve
+            pause 2.0
+            play sound "Dewdrop_Sip.mp3" volume 0.8
+            pause 2.0
+            hide seamelon with dissolve
+            hide drink bg with dissolve
+            window show
             mc "Cute, right? I learned how to make it in the City of Swans, but I hear it first originated in this region."
             bquestionmark "..."
             bquestionmark "It's good."
+    bquestionmark "Thank you."
 
-    show drink bg:
-        align (0.5, 0.4)
-    show betta drink:
-        align (0.5, 0.4)
-    with dissolve
-    "{i}Kari makes a cup of tea and sets it down in front of her mysterious, on-the-run, guest.{/i}"
-    play sound "Dewdrop_Sip.mp3" volume 0.8 
-    "{i}With grace, she picks up the cup and takes a sip.{/i}"
-    "{i}And before long, the contents of the drink are gone.{/i}"
+    "{i}You watch contentedly as Kannika sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}"
+    "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
 
-    hide drink bg
-    hide betta drink
-    with dissolve
-    bquestionmark "Thank you, that was quite refreshing."
-    mc "Glad to see it calmed you down."
-    "{i}Kari takes the empty cup and places it in the sink before turning her attention back to the girl.{/i}"
+    bquestionmark "Hm. It seems that he's brought reinforcements."
+    bquestionmark "I should be going. I don’t want my own issues to bring you any more trouble."
+    "{i}The voices draw closer. The naga woman places her cup back on the counter – there’s still a little left – and glances back at you.{/i}" 
+    "{i}She holds your gaze for a heartbeat before pushing away from the counter and disappearing into the darkness.{/i}"
 
-    mc "Now, you feel like telling me what all that fuss earlier was about?"
-    bquestionmark "Ah, well you see-"
-    "{i}Before the Nagai can even begin to tell her story, they hear a familiar voice, sounding slightly distressed, and not too far in the distance.{/i}"
-    g "Where is she?... I can't rest until I find her."
-    show kannika surprised
-    bquestionmark  "Dammit, he's back already!?"
-    show kannika -surprised
-    bquestionmark "I'm sorry, but I really must go."
-
-    window hide
-    pause 0.25
-    show kannika:
-        xzoom -1.0
-    pause 0.25
-    show kannika:
-        align (-0.3, 0.5)
-    with move
-    pause 0.5
-    window show
-    bquestionmark "..."
-    show kannika:
-        xzoom 1.0
-        align (0.0, 0.5)
-    with move
-    show kannika smile
-    bquestionmark "Thank you for your service, the drink was delightful."
-    show kannika:
-        xzoom -1.0
     show kari surprised
-    mc "Wait! You forgot your-"
-    play sound "Dewdrop_Fwip.mp3" volume 0.9
     #Kannika leaves the scene
     window hide
     show kannika -smile
-    show kannika at offscreenleft
+    show kannika neutral:
+        xzoom -1.0
+    show kannika neutral at offscreenleft
     with easeoutleft
+    pause 0.25
+    show kari neutral at center
+    with MoveTransition(0.75)
     window show
+    mc "Wait, You forgot your-"
+    window hide
+    pause 0.5
     play sound "Dewdrop_Splash.mp3" volume 0.7
-    mc "..."
-    mc "parasol..."
-    "{i}And with that, she was gone -- leaving just as abruptly as she came.{/i}"
+    pause 1.0
+    window show
+    mc "...parasol."
+    "{i}Just as suddenly as she appeared, the naga is gone. The voices grow more distant until all you can hear are the sounds of the swamp around you.{/i}"
+    "{i}You can faintly smell the sea on the wind, but it’s a foreign one, nothing like the ocean of your childhood.{/i}"
+    "{i}Once again, you’re alone.{/i}"
     show kari -surprised
     mc "..."
-
-    show kari at center
-    with MoveTransition(0.75)
-    mc "Well, I hope she'll be alright..."
-    pause 0.5
-    mc "What a strange place I'm in."
+    mc "Running away from home, huh..."
+    mc "At least she has people looking after her."
+    mc "People who want her to come home."
+    "{i}You take the frilly parasol and run your fingers across it.{/i}"
+    "{i}It’s wonderfully made – the quality is far beyond anything you’ve seen before, even in your extensive travels.{/i}"
+    mc "..."
+    mc "Souvenirs! Aw, they’d love stuff like this. I’ve gotta get my hands on one of these…"
+    mc "Other than this one, I mean. I should probably give this back."
+    mc "I hope I get to give it back to her…"
 
     window hide
     scene black
     with fade
-
 
     jump chapter2
 
