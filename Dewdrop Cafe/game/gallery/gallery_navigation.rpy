@@ -11,6 +11,12 @@ screen gallery_navigation:
             action ShowMenu("preferences")
         else:
             action Return()
+    imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+        style_prefix "sound"
+        yalign 0.04
+        xalign 0.98
+        action Preference("all mute", "toggle")
+        
     vbox:
         xalign 0
         yalign 0.3

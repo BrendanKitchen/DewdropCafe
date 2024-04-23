@@ -223,10 +223,10 @@ define gui.choice_button_text_insensitive_color = '#839494'
 ## image files in gui/button, like the other kinds of buttons.
 
 ## The save slot button.
-define gui.slot_button_width = 365
-define gui.slot_button_height = 244
-define gui.slot_button_borders = Borders(50, 40, 50, 50)
-define gui.slot_button_text_size = 18
+define gui.slot_button_width = 310
+define gui.slot_button_height = 213
+define gui.slot_button_borders = Borders(8, 8, 8, 8)
+define gui.slot_button_text_size = 21
 define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = "#D85D7F"
 define gui.slot_button_text_hover_color = "#D85D7F"
@@ -234,8 +234,8 @@ define gui.slot_button_text_selected_idle_color = "#3E827A"
 define gui.slot_button_text_selected_hover_color = "#D85D7F"
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = 267
-define config.thumbnail_height = 155
+define config.thumbnail_width = 296
+define config.thumbnail_height = 167
 
 ## The number of columns and rows in the grid of save slots.
 define gui.file_slot_cols = 3

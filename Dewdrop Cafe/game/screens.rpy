@@ -284,8 +284,6 @@ init python:
 
 default quick_menu = True
 
-style sound_button is check_button
-
 style quick_button is default
 style quick_button_text is button_text
 
@@ -518,6 +516,12 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
         yalign 0.04
         xalign 0.02
         action Return()
+
+    imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+        style_prefix "sound"
+        yalign 0.04
+        xalign 0.98
+        action Preference("all mute", "toggle")
 
     label title
 
@@ -896,9 +900,9 @@ screen file_slots(title):
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
-
+                xalign 1.3
                 yalign 0.35
-                spacing 16
+                spacing 20
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
 

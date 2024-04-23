@@ -24,6 +24,12 @@ screen chapter_select:
             action Return()
         else:
             action ShowMenu("preferences")
+    imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+        style_prefix "sound"
+        yalign 0.04
+        xalign 0.98
+        action Preference("all mute", "toggle")
+        
     frame:
         xalign 0.5
         yalign 0.5
