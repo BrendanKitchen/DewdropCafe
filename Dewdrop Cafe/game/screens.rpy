@@ -254,6 +254,12 @@ screen quick_menu():
             xalign 0.02
             action ShowMenu("preferences")
 
+        imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+            style_prefix "sound"
+            yalign 0.04
+            xalign 0.98
+            action Preference("all mute", "toggle")
+
         hbox:
             style_prefix "quick"
 
@@ -284,7 +290,6 @@ style quick_button_text is button_text
 style quick_button:
     properties gui.button_properties("quick_button")
     # padding (20,20)
-
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -325,7 +330,7 @@ screen navigation():
         if not main_menu: 
             imagebutton auto "gui/main_menu_buttons/chapter_select_%s.png" action ShowMenu("chapter_select")
 
-        imagebutton auto "gui/main_menu_buttons/gallery_%s.png" action ShowMenu("gallery_photos")
+        imagebutton auto "gui/main_menu_buttons/gallery_%s.png" action ShowMenu("gallery_cafe_menu")
         imagebutton auto "gui/main_menu_buttons/about_%s.png" action ShowMenu("about")
 
         if _in_replay:
@@ -511,6 +516,12 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
         yalign 0.04
         xalign 0.02
         action Return()
+
+    imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+        style_prefix "sound"
+        yalign 0.04
+        xalign 0.98
+        action Preference("all mute", "toggle")
 
     label title
 
@@ -889,9 +900,9 @@ screen file_slots(title):
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
-
+                xalign 1.3
                 yalign 0.35
-                spacing 16
+                spacing 20
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
 
@@ -916,7 +927,7 @@ screen file_slots(title):
             vbox:
                 style_prefix "page"
 
-                xalign 0.66 # modifies page controls
+                xalign 0.55 # modifies page controls
                 yalign 0.9 # modifies page controls
 
                 hbox:
@@ -948,8 +959,7 @@ screen file_slots(title):
                             xalign 0.5
 
 
-style page_label is gui_label:
-    xpos 1150
+style page_label is gui_label
 style page_label_text is gui_label_text
 style page_button is gui_button
 style page_button_text is gui_button_text

@@ -24,6 +24,12 @@ screen chapter_select:
             action Return()
         else:
             action ShowMenu("preferences")
+    imagebutton auto "gui/quick_menu_buttons/sound_%s.png":
+        style_prefix "sound"
+        yalign 0.04
+        xalign 0.98
+        action Preference("all mute", "toggle")
+        
     frame:
         xalign 0.5
         yalign 0.5
@@ -31,8 +37,7 @@ screen chapter_select:
             spacing 30
             grid 1 5:
                 textbutton "Chapter 1":
-                    if persistent.ch1:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
                 textbutton "Chapter 2":
                     if persistent.ch2:
                         action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter2")]
