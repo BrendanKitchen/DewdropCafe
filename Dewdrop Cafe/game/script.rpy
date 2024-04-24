@@ -12,7 +12,7 @@ define karihelpedkannika = False
 
 label start:
     $ persistent.ch1 = True
-    play music "pas_de_deuxdrop.mp3"
+    play music "Pas de Deuxdrop.mp3"
     pause 0.75
     window show
     mc "Phew!" 
