@@ -6,9 +6,9 @@ screen cafe_playlist:
 
     add "gui/gallery_assets/music_chibis.png":
         zoom 0.5
-        xzoom -1.0
+        # xzoom -1.0
         yalign 1.0
-        xalign 0.2
+        xalign 1.06
 
     # hbox:
     #     xalign 0.5
@@ -26,16 +26,16 @@ screen cafe_playlist:
         xalign 0.66
         spacing 20
         # playlist
+        add "gui/gallery_assets/album_cover.png":
+            zoom 1.3
+            xalign 0.5
         vbox:
             style_prefix "playlist"
             xalign 0.0
-            box_reverse True
-            textbutton "Pas de Deuxdrop" action music.Play("pas_de_deuxdrop.mp3")
+            # box_reverse True
+            textbutton "Main Theme" action music.Play("Main Menu Theme.mp3")
+            textbutton "Pas de Deuxdrop" action music.Play("Pas de Deuxdrop.mp3")
             textbutton "Recollection" action music.Play("Recollection.mp3")
-            text "song 3"
-        add "gui/gallery_assets/album_cover.png":
-            zoom 1.4
-            xalign 0.5
         text "Connor Green"
         add "gui/gallery_assets/track_bar.png":
             xzoom 0.8
@@ -65,7 +65,7 @@ style track_text:
 style playlist_button_text:
     color "#FFF7E880"
     size 30
-    selected_color "#FFF7E8"
+    selected_color "#CFFFD9"
     selected_size 60
     selected_font "fonts/Vintage Culture.ttf"
     hover_color "#CFFFD980"
