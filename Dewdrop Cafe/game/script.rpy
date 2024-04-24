@@ -154,6 +154,7 @@ label start:
 
         "Yep. She's hiding under my counter.":
             pause 0.25
+            show kannika neutral
             show kannika surprised with easeinbottom
             pause 0.25
             window show
@@ -162,6 +163,7 @@ label start:
             g "You are far too old to be acting this childish."
             bquestionmark "..."
             "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}"
+            show kannika -surprised
             show kannika angry:
                 xzoom 1.0
             "{i}She looks at you with an expression as cold as ice.{/i}"
@@ -169,14 +171,14 @@ label start:
             bquestionmark "Goodbye."
             "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
             window hide
-            show luan neutral:
+            show luan:
                 xzoom -1.0
-            show luan neutral at offscreenleft
+            show luan at offscreenleft
             with MoveTransition(0.75)
             pause 0.25
-            show kannika angry:
+            show kannika:
                 xzoom -1.0
-            show kannika angry at offscreenleft
+            show kannika at offscreenleft
             with MoveTransition(0.75)
             show kari neutral at center 
             with move
