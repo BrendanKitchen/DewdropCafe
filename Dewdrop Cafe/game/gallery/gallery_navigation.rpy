@@ -5,8 +5,8 @@ screen gallery_navigation:
         else:
             action Return()
     imagebutton auto "gui/quick_menu_buttons/back_%s.png":
-        yalign 0.04
-        xalign 0.02
+        yalign 0.045
+        xalign 0.023
         if main_menu:
             action ShowMenu("preferences")
         else:
