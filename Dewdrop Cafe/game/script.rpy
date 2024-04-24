@@ -56,6 +56,7 @@ label start:
     pause 0.5
     
     show night bg with fade
+    show kari neutral
     show kari surprised
     with easeinright
     window show
@@ -78,12 +79,14 @@ label start:
             "{i}- louder than the first.{/i}"
             mc "{i}Uh. That was definitely closer than the last one.{/i}"
     window hide
-    show kari neutral:
+
+    show kari:
         xzoom -1.0
         align (1.0, 0.5)
     with MoveTransition(0.75)
-    show kari neutral:
+    show kari:
         xzoom 1.0
+    show kannika neutral
     show kannika surprised at left
     with easeinleft
     window show
@@ -94,8 +97,6 @@ label start:
     "{i}You watch, stunned, as the naga begins to pull herself over the counter and into your cafe.{/i}"
 
     show kari -surprised
-    show kari neutral:
-        xzoom 1.0
 
     window hide
     menu:
@@ -201,10 +202,10 @@ label start:
     show luan frown
     g "If you do see her, contact a member of the Halfmoon Guard as soon as you can. It’s dangerous for her to be out alone."
     mc "Yessir. I will definitely do that."
-    show luan neutral:
+    show luan:
         xzoom -1.0
     window hide
-    show luan neutral at offscreenleft
+    show luan at offscreenleft
     with MoveTransition(0.75)
     pause 0.5
     
@@ -256,6 +257,7 @@ label start:
         "...a foreign agent here to steal military secrets...":
             window show
             mc "...and threaten the hegemonic authority of a glorious regime?"
+            show kannika surprised
             bquestionmark "...what?"
             mc "Sorry. When I was a kid we used to hear about that kind of stuff all the time."
             mc "Everybody liked to guess which of our teachers were secretly spies, but I don't think I've ever actually met one."
@@ -263,6 +265,7 @@ label start:
             mc "I'm no snitch."
             bquestionmark "...Thank...you?"
             mc "You're welcome!"
+            show kannika -surprised
             mc "Alright. Are you maybe..."
             window hide
             menu:
@@ -281,7 +284,9 @@ label start:
                             pass
 
     window show
+    show kannika surprised
     bquestionmark "..."
+    show kannika -surprised
     bquestionmark "How did you know?"
     mc "Just a hunch."
     mc "That's a pretty intense outfit to be running away from home in."
@@ -383,12 +388,12 @@ label start:
     #Kannika leaves the scene
     window hide
     show kannika -smile
-    show kannika neutral:
+    show kannika:
         xzoom -1.0
-    show kannika neutral at offscreenleft
+    show kannika at offscreenleft
     with easeoutleft
     pause 0.25
-    show kari neutral at center
+    show kari at center
     with MoveTransition(0.75)
     window show
     mc "Wait, You forgot your-"
