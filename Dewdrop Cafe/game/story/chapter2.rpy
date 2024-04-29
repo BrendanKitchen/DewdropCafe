@@ -1,25 +1,47 @@
+#   "{i}{/i}"
 label chapter2: 
     $ persistent.ch2 = True
+
+    # Intro
+    pause 0.25
+    window show
+    "{i}The following day...{/i}"
+    window hide
+    pause 0.5
     show day bg
     with dissolve
-    "{i}The following day...{/i}"
     show kari neutral at center
+    with easeinright
     show kari smile 
+    window show
     mc "Thank you for coming! Have a nice day!"
     show kari -smile
     show kari:
         xzoom -1.0
-    mc "Whew, glad to see that I'm getting some customers here already."
-    mc "One, two, three, ..."
-    show kari smile
-    mc "14! Not too bad for the first day."
+    mc "Whew, glad to see the cafe's already pretty popular."
+    mc "Traveling can be fun, but talking to all these new people is just so nice after being on the road."
 
-    play sound "Dewdrop_DoubleSplash.mp3" volume 0.9
+    if karihelpedkannika == True:
+        "{i}It doesn’t take long before you’re all tidied up. You glance over the front of the shop, one last check before you go into the back and take inventory for tomorrow.{/i}"
+        "{i}As you pick your way through the stacks of boxes, you wonder when you’ll have the time to go to a market…{/i}"
+    else:
+        "{i}Out of the corner of your eye, you see that your counter’s suffered a particularly stubborn stain. Scrubbing it with a rag isn’t enough…{/i}"
+        "{i}Maybe you have some cleaning solution left over. You go into the back storage and start digging through boxes, trying to remember where you put it…{/i}"
+    
+    window hide
+    pause 0.25
+    play sound "Dewdrop_DoubleSplash.mp3" volume 0.8
+    with fade
+    pause 0.5
+    play sound "Dewdrop_DoubleSplash.mp3" volume 0.8
+    pause 0.5
+    window show
+    "{i}A pair of splashes announces the arrival of two more customers. It’s only moments before you hear the ring of the counter bell.{/i}"
     "{i}As she finishes counting, splashing noises resound from behind the cafe, and a sense of deja vu washes over her.{/i}"
     show kari -smile
     show kari surprised
     play sound "Dewdrop_Bell.mp3" 
-    bquestionmark "Excuse me, is anyone there?"
+    bquestionmark "Excuse me, are you still open?"
     show kari -surprised
     show kari smile
     show kari:
@@ -41,55 +63,100 @@ label chapter2:
 
     mc "Oh!"
     show kari -surprised
-    mc "Well, hello there."
     show luan neutral:
         align (0.04, 1.0)
     with move
-    g "Hello miss, my lady seems to have misplaced her parasol around here. Have you by chance seen it around?"
-    show kannika angry
-    bquestionmark "I am capable of speaking on my own, thank you very much."
-    show luan frown
-    g "..."
-    window hide
-    show luan -frown
     pause 1.0
     show luan:
         align (-0.1, 1.0)
     with move
-    show kannika -angry
 
     menu:
-        "Do you mean {i}this{/i} parasol?":
+        "…What can I get for you two tonight?":
             show kannika smile
-            window show
-            bquestionmark "Ah yes! Thank you very much!"
-        "Don't you have a parasol with you right now?":
-            window show
-            bquestionmark "Why, yes, indeed I do."
-            bquestionmark "However, this is my daytime parasol."
-            show kari surprised
-            bquestionmark "I was looking for my night-time parasol. The coloring is different!"
-            "{i}Kari blinks at her, visibly confused.{/i}"
-            "{i}In her eyes, the two parasols have absolutely zero difference in color. Perhaps the Nagai simply have more color receptors?{/i}"
-            mc "Right..."
-            show kari -surprised
-            mc "Anyways, I do have your parasol, let me get it for you."
+            "{i}The woman flashes you a quick smile.{/i}"
+            g "..."
+        "You came back!":
             show kannika smile
+            show luon angry
+            "{i}The woman smiles at you. The guard’s jaw clenches as he stares coldly at you, but he closes his eyes and takes a deep breath before he speaks.{/i}"
+            show luon -angry
+        "Uh, hello, strange woman whom I have never met before.":
+            "{i}The woman coughs into her hand. The guard just sighs, a look of mild disappointment on his face.{/i}"
+        "Officer, I think I found the person you're looking for.":
+            show kannika angry
+            "{i}The woman looks at you with an expression of mock outrage. The guard stares flatly at you, unamused.{/i}"
+            show kannika -angry
     
-    mc "Could I offer you -- well, you and your... friend? -- anything to drink or eat?"
-    bquestionmark "Oh, how I would love to!"
+    g "Drink-peddler. My lady says she misplaced her parasol somewhere around here last night."
     show kannika -smile
-    bquestionmark "So many options! Oh, what to choose?"
-    bquestionmark "..."
-    show kannika smile
-    bquestionmark "The Starfruit Sunset looks very appetizing. I'll gladly take one of those."
-    mc "Good choice. And for you, sir?"
-    show kannika -smile
-    bquestionmark "Oh, he can't, he's on a strict diet that forbids him from consuming anything that wasn't prepared specifically for him."
-    mc "Lovely... well, if I could have you wait over by the side, I'll have your drink out for you shortly, Miss..."
-    show kannika smile
-    b "Kannika. My name is Kannika."
-    mc "Thank you, Miss Kannika. I'll have it ready in a moment."
+    bquestionmark "Pancake, please. It’s past sundown, there’s no one else around – I can speak for myself."
+    pancake "Princess, it’s a miracle already that your mother is willing to, for the most part, overlook your escapades."
+    pancake "It is my duty to act as your sword and veil, so you do not have to stoop so low so as to speak to these commoners."
+    pancake "A foreigner, no less."
+    show kannika angry
+    princess "That is {i}enough{/i}, Luan."
+    princess "I already told you what she did for me last night."
+    princess "This woman was willing to offer aid to a complete stranger in an unfamiliar land. The least she deserves is respect."
+    lu "...Forgive me, your highness."
+    lu "..."
+    "Luan looks you up and down. After a moment, he gives you a very shallow bow – more of a nod, really – and moves back."
+
+    # luan leaves 
+    window hide
+    show luan neutral:
+        xzoom -1.0
+    show luan neutral at offscreenleft
+    with easeoutleft
+    play sound "Dewdrop_Slither.mp3" volume 0.7
+    pause 0.25
+
+    # princess discussion
+    $ princesstree = {"sorry": False, "wait": False, "foreigner": False}
+    princess "My apologies. Pancake is... very diligent. He means no personal offense."
+    mc "..."
+    window hide
+    menu princessdiscussion:
+        "Uh huh. Sorry, did he call you {i}princess{/i}??" if not princesstree["sorry"]:
+            $ princesstree["sorry"] = True
+            princess "Yes. He did."
+            mc "...And?"
+            princess "And what?"
+            mc "Are you? An actual princess, I mean."
+            princess "Yes. I am."
+            mc "..."
+            princess "..."
+            mc "Cool!"
+            jump princessdiscussion
+        "Wait, is his name Pancake or Luan?" if not princesstree["wait"]:
+            $ princesstree["wait"] = True
+            princess "It's Luan. Pancake is a nickname I gave him when I was a small child."
+            princess "You can call him Pancake too, if you want."
+            princess "I'm sure he wouldn't mind."
+            jump princessdiscussion
+        "Oh, the 'foreigner' stuff? It's okay, I get it." if not princesstree["foreigner"]:
+            $ princesstree["foreigner"] = True
+            mc "Honestly, I kinda expected him to be a little more intense."
+            princess "...More intense?"
+            mc "Yeah. He didn't ask for my identification papers. He didn’t accuse me of being an enemy of the state."
+            mc "He didn’t even search my cafe for any seditious writings or materials that would threaten the security or moral character of the nation."
+            mc "Not that I have anything like that in here."
+            mc "Nope. No siree."
+            princess "I'm not even going to try to unpack all of that right now."
+            jump princessdiscussion
+        "You know what, let's just start over.":
+            mc "Hi! I'm Kari."
+            princess "It's wonderful to meet you, Kari. My name is Kannika."
+            mc "Princess Kannika?"
+            b "Please, just Kannika."
+
+    # parasol discussion
+    mc "Oh! Right! Your parasol..."
+    mc "Wait a minute. You have a parasol right now."
+    b "..."
+    b "This is my backup parasol."
+    mc "Uh huh."
+    mc "Anyways, can I get you anything to drink?"
 
     # Kari goes to make the drink
     window hide
@@ -135,15 +202,6 @@ label chapter2:
     with move
     lu "Yes, Your Highness, I'll see to it."
     show kannika -angry
-
-    # luan leaves 
-    window hide
-    show luan neutral:
-        xzoom -1.0
-    show luan neutral at offscreenleft
-    with easeoutleft
-    play sound "Dewdrop_Slither.mp3" volume 0.7
-    pause 0.25
 
     window show
     "{i}...{/i}"
