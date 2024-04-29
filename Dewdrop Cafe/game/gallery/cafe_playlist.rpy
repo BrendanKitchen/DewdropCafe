@@ -2,6 +2,10 @@ screen cafe_playlist:
     tag menu
     style_prefix "cafe_playlist"
 
+    if main_menu:
+        add "gui/menu_bg.png"
+        add "gui/menu_kari.png"
+        add "gui/menu_decor.png" 
     add "gui/overlay/plain_overlay.png" 
 
     add "gui/gallery_assets/music_chibis.png":
@@ -74,10 +78,9 @@ style playlist_text is playlist_button_text
 
 style cafe_playlist_label:
     ypos 51
+    xalign 0.65
 style cafe_playlist_label_text:
     color "#FFF7E8"
     font "fonts/Vintage Culture.ttf"
-    xpos 1150
-    xalign 0.5
     size 96
     

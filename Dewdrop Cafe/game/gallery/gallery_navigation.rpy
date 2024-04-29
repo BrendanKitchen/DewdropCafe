@@ -1,9 +1,10 @@
 screen gallery_navigation:
-    key "game_menu":
-        if main_menu:
-            action ShowMenu("preferences")
-        else:
-            action Return()
+    # key "game_menu":
+    #     if main_menu:
+    #         action ShowMenu("preferences")
+    #     else:
+    #         action Return()
+    key "game_menu" action Return()
     imagebutton auto "gui/quick_menu_buttons/back_%s.png":
         yalign 0.045
         xalign 0.023

@@ -3,6 +3,10 @@ screen chapter_select:
     style_prefix "chapter_select"
 
     # add "../gui/main_menu.png"
+    if main_menu:
+        add "gui/menu_bg.png"
+        add "gui/menu_kari.png"
+        add "gui/menu_decor.png" 
     add "../gui/overlay/plain_overlay.png" 
 
     add "../images/betta_fish_neutral.png":
@@ -30,29 +34,30 @@ screen chapter_select:
         xalign 0.98
         action Preference("all mute", "toggle")
         
-    frame:
+    add "../gui/chapter_select_frame.png":
         xalign 0.5
-        yalign 0.5
-        vbox:
-            spacing 30
-            grid 1 5:
-                textbutton "Chapter 1":
-                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
-                textbutton "Chapter 2":
-                    if persistent.ch2:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter2")]
-                textbutton "Chapter 3":
-                    if persistent.ch3:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter3")]
-                textbutton "Chapter 4":
-                    if persistent.ch4:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter4")]
-                textbutton "Chapter 5":
-                    if persistent.ch5:
-                        action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter5")]
-                spacing 15
-            # textbutton "Return" action Return():
-                xalign 0.5
+        yalign 0.9
+    vbox:
+        xalign 0.5
+        yalign 0.65
+        grid 1 5:
+            textbutton "Chapter 1":
+                action [Play("sound", "Dewdrop_StartGame.mp3"), Start("start")]
+            textbutton "Chapter 2":
+                if persistent.ch2:
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter2")]
+            textbutton "Chapter 3":
+                if persistent.ch3:
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter3")]
+            textbutton "Chapter 4":
+                if persistent.ch4:
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter4")]
+            textbutton "Chapter 5":
+                if persistent.ch5:
+                    action [Play("sound", "Dewdrop_StartGame.mp3"), Start("chapter5")]
+            spacing 60
+        # textbutton "Return" action Return():
+            xalign 0.5
 
 
 style chapter_select_label:

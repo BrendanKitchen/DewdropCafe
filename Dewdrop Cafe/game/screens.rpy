@@ -397,6 +397,7 @@ screen main_menu():
     add "gui/menu_bg.png"
     add "gui/menu_kari.png"
     add "gui/menu_decor.png"
+    add Image("gui/logo.png", xpos=105, ypos=115)
 
     ## This empty frame darkens the main menu.
     frame:
@@ -427,7 +428,7 @@ style main_menu_version is main_menu_text
 style main_menu_frame:
     xsize 420
     yfill True
-    background Image("gui/logo.png", xpos=105, ypos=115)
+    # background Image("gui/logo.png", xpos=105, ypos=115)
     # background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
@@ -459,6 +460,12 @@ style main_menu_version:
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     style_prefix "game_menu"
+    if main_menu:
+        add "gui/menu_bg.png"
+        add "gui/menu_kari.png"
+        add "gui/menu_decor.png" 
+    add "gui/overlay/main_menu.png"
+    
 
     frame:
         style "game_menu_outer_frame"
@@ -552,7 +559,7 @@ style return_button_text is navigation_button_text
 style game_menu_outer_frame:
     bottom_padding 45
     top_padding 220
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/main_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
@@ -915,7 +922,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%a, %b %d %Y, %H:%M"), empty=_("empty")):
+                        text FileTime(slot, format=_("{#file_time}%b %d %Y, %H:%M"), empty=_("empty")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
