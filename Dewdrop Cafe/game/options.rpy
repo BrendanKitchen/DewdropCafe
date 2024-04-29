@@ -63,7 +63,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "Recollection.mp3"
+define config.main_menu_music = "Main Menu Theme.mp3"
 
 
 ## Transitions #################################################################
@@ -215,4 +215,4 @@ init python:
 ## The username and project name associated with an itch.io project, separated
 ## by a slash.
 
-# define build.itch_project = "renpytom/test-project"
+define build.itch_project = "yidelia/dewdrop-cafe-test"
