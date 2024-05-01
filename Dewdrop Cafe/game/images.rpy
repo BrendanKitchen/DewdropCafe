@@ -24,7 +24,7 @@ image cattail citrus = im.Scale("cattail_citrus.png", 960, 540)
 image pink lady = im.Scale("pink_lady.png", 960, 540)
 image seamelon = im.Scale("seamelon.png", 960, 540)
 image drink bg = "drink_bg.png"
-#image moon jelly = im.Scale("", 960, 540)
+image moon jelly = im.Scale("moonjelly.png", 960, 540)
 image humming lavender = im.Scale("humming_lavender.png", 960, 540)
 
 #Backgrounds

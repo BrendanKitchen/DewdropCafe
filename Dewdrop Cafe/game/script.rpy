@@ -301,7 +301,7 @@ label start:
             with Fade(0.5, 0.5, 0.5)
             show drink bg:
                 align (0.5, 0.4)
-            show seamelon:
+            show moon jelly:
                 align (0.5, 0.4)
             with dissolve
             pause 1.0
@@ -309,7 +309,7 @@ label start:
             mc "Cute, right? I learned how to make it in the City of Swans, but I hear it first originated in this region."
             bquestionmark "..."
             bquestionmark "It's good."
-            hide seamelon with dissolve
+            hide moon jelly with dissolve
             hide drink bg with dissolve
     bquestionmark "Thank you."
     "{i}You watch contentedly as Kannika sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}"
