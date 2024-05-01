@@ -153,6 +153,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    kerning 3
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -548,7 +549,7 @@ style game_menu_label:
     ypos 51
 style game_menu_label_text:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     xpos 1150
     xalign 0.5
     size 96
@@ -830,7 +831,7 @@ style about_label:
 
 style about_label_text:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     size 75
 
 
@@ -1224,13 +1225,13 @@ style history_window is empty
 
 style history_name:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     xalign 0.5
     size 96
 
 style history_name_text is gui_label_text:
     color "#CFFFD9"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
 
 style history_text is gui_text:
     color "#FFF7E8"

@@ -60,7 +60,7 @@ define gui.interface_text_color = '#D85D7F'
 define gui.text_font = "fonts/Oliciy.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "fonts/Vintage Culture.ttf"
+define gui.name_text_font = "fonts/Vintage Culture.otf"
 
 ## The font used for out-of-game text.
 define gui.interface_text_font = "fonts/Oliciy.ttf"

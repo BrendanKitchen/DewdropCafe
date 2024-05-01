@@ -60,7 +60,7 @@ style gallery_concept_art_label:
     xalign 0.65
 style gallery_concept_art_label_text:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     xalign 0.5
     size 96
 

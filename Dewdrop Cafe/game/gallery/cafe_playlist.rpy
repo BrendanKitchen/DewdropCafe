@@ -61,7 +61,7 @@ style track_text:
 
 # style track_label_text:
 #     color "#FFF7E8"
-#     font "fonts/Vintage Culture.ttf"
+#     font "fonts/Vintage Culture.otf"
 #     size 60
 #     spacing 0
 #     ypos 30
@@ -71,7 +71,7 @@ style playlist_button_text:
     size 30
     selected_color "#CFFFD9"
     selected_size 60
-    selected_font "fonts/Vintage Culture.ttf"
+    selected_font "fonts/Vintage Culture.otf"
     hover_color "#CFFFD980"
 
 style playlist_text is playlist_button_text
@@ -81,6 +81,6 @@ style cafe_playlist_label:
     xalign 0.65
 style cafe_playlist_label_text:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     size 96
     

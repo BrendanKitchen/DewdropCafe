@@ -65,6 +65,6 @@ style chapter_select_label:
     xalign 0.5
 style chapter_select_label_text:
     color "#FFF7E8"
-    font "fonts/Vintage Culture.ttf"
+    font "fonts/Vintage Culture.otf"
     size 96
     
