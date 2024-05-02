@@ -3,3 +3,5 @@
 default pickedcitrus = False
 default pickedlavender = False
 default pickedjelly = False
+default karihelpedkannika = False
+default askedaboutgovernment = False
