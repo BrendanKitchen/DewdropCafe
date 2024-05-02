@@ -3,12 +3,13 @@ label chapter2:
     $ persistent.ch2 = True
 
     # Intro - Kari's finishing up the day at the cafe
+    play music "Pas de Deuxdrop.mp3"
     pause 0.25
     window show
     "{i}The following day...{/i}"
     window hide
     pause 0.5
-    show day bg
+    show night bg
     with dissolve
     show kari neutral at center
     with easeinright
@@ -32,8 +33,6 @@ label chapter2:
     # More splashes
     window hide
     pause 0.25
-    play sound "Dewdrop_DoubleSplash.mp3" volume 0.8
-    pause 0.3
     play sound "Dewdrop_DoubleSplash.mp3" volume 0.8
     pause 0.5
     window show
@@ -104,17 +103,19 @@ label chapter2:
 
     # Luan leaves 
     window hide
-    show luan neutral:
-        xzoom -1.0
     show luan neutral at offscreenleft
     with easeoutleft
     play sound "Dewdrop_Slither.mp3" volume 0.7
-    pause 0.25
+
+    # Adjust Kannika placement
+
+    show kannika neutral at left
+    with MoveTransition(0.75)
 
     # Princess discussion
     $ princesstree = {"sorry": False, "wait": False, "foreigner": False}
+    window show
     princess "My apologies. Pancake is... very diligent. He means no personal offense."
-    mc "..."
     window hide
     menu princessdiscussion:
         "Uh huh. Sorry, did he call you {i}princess{/i}??" if not princesstree["sorry"]:
@@ -136,6 +137,7 @@ label chapter2:
             princess "It's Luan. Pancake is a nickname I gave him when I was a small child."
             princess "You can call him Pancake too, if you want."
             princess "I'm sure he wouldn't mind."
+            mc "If you say so..."
             window hide
             jump princessdiscussion
         "Oh, the 'foreigner' stuff? It's okay, I get it." if not princesstree["foreigner"]:
@@ -156,33 +158,47 @@ label chapter2:
             princess "It's wonderful to meet you, Kari. My name is Kannika."
             mc "Princess Kannika?"
             b "Please, just Kannika."
-            window hide
 
     # Parasol discussion
     mc "Oh! Right! Your parasol..."
     mc "Wait a minute. You have a parasol right now."
     b "..."
     b "This is my backup parasol."
-    mc "Uh huh."
+    mc "Uh huh..."
     mc "Anyways, can I get you anything to drink?"
 
     # Kari chooses whether or not to call Luan "Pancake"
     window hide
     menu:
         "Oh, and what about you, Luan? Would you like a drink?":
+            window hide
             show luan neutral zorder 2:
                 xzoom 1.0
                 align (-0.1, 1.0)
+            with MoveTransition(0.75)
+            pause 0.25
             window show
             lu "No, thank you."
-            show luan neutral:
-                xzoom -1.0
+            window hide
             show luan neutral at offscreenleft
-            with easeoutleft
+            with MoveTransition(0.75)
+            pause 0.25
+            window show
         "Oh, and what about you, Pancake? Would you like a drink?":
+            window hide
+            show luan neutral zorder 2:
+                xzoom 1.0
+                align (-0.1, 1.0)
+            with MoveTransition(0.75)
+            pause 0.25
             window show
             lu "..."
             lu "No."
+            window hide
+            show luan neutral at offscreenleft
+            with MoveTransition(0.75)
+            pause 0.25
+            window show
 
     # Check which drink player picked during scene 1
     if pickedcitrus == False and pickedlavender == False and pickedjelly == False:
@@ -213,12 +229,15 @@ label chapter2:
         call moonjellytree
     
     # Fade to black for the passing of time
+    window hide
     with Fade(0.5, 0.5, 0.5)
 
-    "{i}The moon crawls higher in the sky. The night sounds of the swamp have returned in full force, though they now must compete with the lively chatter and laughter emanating from the Dewdrop Cafe{/i}"
+    window show
+    "{i}The moon crawls higher in the sky. The night sounds of the swamp have returned in full force, though they now must compete with the lively chatter and laughter emanating from the Dewdrop Cafe.{/i}"
     "{i}Eventually, Luan clears his throat and steps (or rather, slithers) forward.{/i}"
 
     # Luan enters the scene
+    window hide
     show kannika zorder 1:
         align (0.2, 0.5)
     with move
@@ -226,26 +245,36 @@ label chapter2:
         xzoom 1
         align (-0.1, 1.0)
     with easeinleft
+    play sound "Dewdrop_Slither.mp3" volume 0.7
+    pause 0.5
+    play sound "Dewdrop_LuanThroatClear" volume 0.9
+    pause 0.5
+    window show
 
     # Luan and Kannika chat
     lu "Your highness. We should return to the castle."
     b "In a bit, Pancake."
     lu "Princess Kannika. It is late. I believe we should be going on our way."
     b "In a bit, {i}Luan.{/i} Mother hardly even notices I’m gone – she won’t care if I’m an hour later than usual."
+    show luan angry
     "{i}Luan’s expression darkens. His hands clench into fists, and his fins rise and flare out slightly.{/i}"
     "{i}He closes his eyes and takes a measured breath, inhaling through his nose and exhaling out his mouth.{/i}"
+    show luan -angry
     lu "Princess. Her Majesty’s patience, while generous, is not infinite."
     lu "The tournament is coming to an end. There are only a handful of bouts remaining."
     lu "Soon you will not have time for these frivolous outings anymore."
     lu "I do not think I need to remind you of the responsibilities you have."
     lu "Not just to your mother, but to your people."
     lu "And to the High Elders."
+    show kannika angry
     "{i}The exasperation on Kannika’s face curdles into barely-repressed rage. It passes in an instant, vanishing behind a practiced mask of pleasant ambivalence.{/i}"
+    show kannika -angry
     "{i}She sets down her cup and smoothly rises from her seat.{/i}"
     b "Your point is made, Pancake. We shall take our leave."
     b "Thank you, Kari."
+    show kannika smile
     "{i}The mask cracks as she smiles at you. You can see a deep and genuine gratitude in her eyes, and you wonder how long it’s been since she last talked like this to another person.{/i}"
-    mc "..."
+    show kannika -smile
 
     # Kari response menu
     window hide
@@ -272,33 +301,39 @@ label chapter2:
             b "It means a lot."
         "Thank you too, Kannika.":
             window show
+            show kannika smile
             "{i}She beams at you. As she turns to leave, her movements seem to have a little more pep.{/i}"
+            show kannika -smile
     "{i}Luan holds out an arm as Kannika lightly rests a hand on it. As he begins to escort her away, she turns to look over her shoulder at you and the cafe, catching one last glimpse before she disappears into the night.{/i}"
 
     # Kannika turns to luan then back to kari
-    show kannika:
+    window hide
+    show kannika neutral:
         xzoom -1
     pause 1.0
-    show kannika:
+    show kannika neutral:
         xzoom 1
-    pause 0.5
+    pause 1.0
 
     # Kannika and Luan leave
-    window hide
-    show kannika:
-        xzoom -1
     show luan neutral:
         xzoom -1
-    show kannika at offscreenleft
-    with MoveTransition(1.0)
+    pause 0.25
+    show kannika neutral:
+        xzoom -1
+    pause 0.25
     show luan neutral at offscreenleft
-    with easeoutleft
+    with MoveTransition(0.75)
+    pause 0.25
+    show kannika neutral at offscreenleft
+    with MoveTransition(0.75)
 
+    # Outro
+    window show
     "{i}You slump forward, leaning against the counter, mind reeling with everything that’s happened in the past two days. You think about the stories you told Kannika, and wonder how you’ll ever manage to sum up your time in the Naga Kingdom.{/i}"
     "{i}A princess! A real, actual princess was sitting at your humble little cafe, drinking the tea you made for her.{/i}"
     "{i}Still buzzing with a thousand different trains of thought, you absentmindedly go about cleaning the counter and getting ready to wash the cups. You step outside to put the chairs away – and stop dead in your tracks.{/i}"
     "{i}Kannika’s parasol is still resting against the front of the counter.{/i}"
-    mc "..."
 
     # Forgotten parasol part 2 menu
     window hide
@@ -320,11 +355,13 @@ label chapter2:
             "{i}Maybe Kannika will be among them...{/i}"
 
     # Kari takes center stage
+    window hide
     show kari at center
     with MoveTransition(0.75)
     window show
     mc "..."
     window hide
+    pause 0.5
 
     scene black
     with fade
@@ -365,7 +402,33 @@ label cattailcitrustree:
             b "Let's just say I much prefer your tea."
             mc "Aw, I'm glad you like it so much!"
             "{i}Humming to yourself, you put the finishing touches on the cattail citrus and place the softly steaming glass in front of Kannika. {/i}"
+
+            # Kari makes drink for Kannika
+            window hide
+            show kari:
+                xzoom -1.0
+                align (1.1, 0.5)
+            with move
+            pause 0.25
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+            with Fade(0.5, 0.5, 0.5)
+            pause 0.25
+            show kari:
+                xzoom 1.0
+                align (1.0, 0.5)
+            with move
+
+            # Kannika enjoys drink
+            show kannika smile
+            window show
             "{i}Her face immediately lights up as she blows on it before sipping delicately.{/i}"
+            window hide
+            show kannika -smile
+            pause 0.25
+            play sound "Dewdrop_Sip.mp3" volume 0.75
+            pause 1.0
+
+            window show
             mc "So were {i}all{/i} of your meals prepared by chefs? Your mom never made anything for you?"
             b "Such is the way of nobility, I'm afraid."
             b "Besides, my mother is much too busy to do anything as nice as that."
@@ -374,41 +437,44 @@ label cattailcitrustree:
             mc "Sorry. I know how tough that can be."
             b "It’s alright."
             b "We just… disagree on how some things are, and how some things should be."
-            mc "..."
             window hide
 
             # Discussing Kannika and her mom menu
             menu:
-                "At the end of the day, all that matters is that she loves you, right?":
+                #"At the end of the day, " cut
+                "All that matters is that she loves you, right?":
                     window show
                     mc "That’s what parents are for."
                     mc "At least, that’s what they should be for."
                     b "I… Yes, you’re right."
                     b "Our disagreements don’t revolve around purely personal issues, however."
                     b "There’s not much room for any motherly affection to factor in when it comes to royal tradition."
-                "Sometimes it can be hard to see, but I’m sure she has your best interests at heart.":
+                #"Sometimes it can be hard to see, " cut
+                "I’m sure she has your best interests at heart.":
                     window show
                     mc "Sure, she’s a queen, but she’s also your mom. That’s gotta count for something, right?"
                     b "Usually, it would."
                     b "However, our most recent disagreements aren’t quite as… domestic."
                     b "I’m not just fighting her, but generations of royal tradition as well."
-                "Hold on. This isn’t, like, disagreements over government policies, right?":
+                #"Hold on. " cut
+                "This isn’t, like, disagreements over government policies, right?":
                     window show
                     mc "Er, I guess they would be “royal decrees” here instead."
                     b "Somewhat, I suppose you could say."
                     b "Although I must admit that I have a personal issue with an admittedly impersonal tradition."
-            mc "..."
 
             # Kari consoles Kannika menu
             window hide
             menu:
                 "Eesh, that’s tough.":
+                    window show
                     "Kannika stares flatly at you. Her eyes flit across your face, seemingly searching for something."
                     "Then she sighs and slumps forward, elbows on the counter."
                     b "I guess this isn’t exactly something you can relate to after all…"
                     mc "No, really."
                     mc "That sort of thing can be really difficult to deal with."
                 "I know exactly what you mean.":
+                    window show
                     b "It’s okay if you don’t. I’m really just venting."
                     mc "No, I’m serious."
                     mc "I was in a really similar situation at one point."
@@ -439,6 +505,7 @@ label cattailcitrustree:
                     mc "Newspapers, pamphlets, posters, they make all sorts of things there. Lots of government materials, too."
                     mc "My dad did an inspection there once, and he brought back one of the little letter stamps for me."
                     mc "I think I still have it somewhere in here…"
+                    window hide
                     jump pdrc
                 "(Focus on the geography)" if not pdrctree["geography"]:
                     $ pdrctree["geography"] = True
@@ -447,23 +514,28 @@ label cattailcitrustree:
                     mc "We had this amazing view of the ocean from our house. When I was a kit, my dad would make little paper warships for me to stick to the window and pretend like they were actual ships on the bay."
                     mc "There are a lot of mountains, too. They protect the PDRC from its enemies."
                     mc "Apparently there used to be big forests, but they got cut down to make room for more factories."
+                    window hide
                     jump pdrc
                 "(Focus on the government)" if not pdrctree["government"]:
                     $ pdrctree["government"] = True
+                    $ askedaboutgovernment = True
                     window show
                     mc "My dad works for the Committee for Cultural Autonomy and Technology. Basically, his job is making sure nothing bad is being smuggled into the country, particularly when it comes to new inventions from other nations."
                     mc "Like when our city’s first telegraph line got set up, he was in charge of making sure it couldn’t be tampered with by foreign agents."
                     mc "There’s a bunch of different branches in the government. Sometimes it’s hard to keep track of all of them."
                     mc "The Ministry of Education, Order, and Welfare… The Peaceful United Resource Reallocation Department… The Council of Law, Authority, and Warfare…"
                     mc "The PDRC has a lot of moving parts, but day-to-day life is pretty normal overall. "
+                    window hide
                     jump pdrc
                 "(Focus on the few happy memories you have)":
                     window show
+                    show kari smile
                     mc "I remember my mom and my dad taking me down the road to get ice cream at a little shop."
                     mc "I remember swimming in the ocean with my dad."
                     mc "I remember drinking tea with my mom."
                     mc "We would all go and watch the parades together."
                     mc "And then we’d go down to the beach and watch the sunset…"
+                    show kari -smile
                     mc "..."
             b "Those are wonderful memories."
             mc "Yeah, I mean, it's not {i}all{/i} sunshine and catnip."
@@ -540,6 +612,10 @@ label cattailcitrustree:
                                     window show
                             mc "Honestly, it just makes me happy to know that the Dewdrop Cafe is somewhere you can get away from all that."
                             mc "In a lot of ways, it’s the same for me."
+                            mc "But it’s been just about two years since then."
+                            mc "I’ve had plenty of time to think about what happened."
+                            mc "And if there’s anything I can do to help you out with whatever kind of argument you’ve been having with your mom..."
+                            mc "I’m here for you to talk to."
                             b "..."
                     b "Is that why you left home?"
                     b "Fighting with your mom, I mean."
@@ -571,6 +647,7 @@ label cattailcitrustree:
                     b "Not tonight."
                     b "Thank you, though."
                     b "I’d rather pair this exquisite tea with happier conversation topics."
+                    window hide
                     jump talkaboutit
                 "(Change the subject)":
                     window show
@@ -599,7 +676,7 @@ label cattailcitrustree:
     mc "...!"
     mc "Another cattail citrus tea, coming right up!"
     "{i}You make the naga princess her tea and spend the next half-hour regaling her with descriptions of the many places you’ve been.{/i}"
-    "{i}You tell her about your journey and the wonders you’ve seen – the waterways in the City of Swans, the grand domes of the Otterman Empire, the vibrant flower fields of the Sun Bearony, and even the grand parades of your home.{/i}"
+    "{i}You tell her about your journey and the wonders you’ve seen – the waterways in the City of Swans, the grand domes of the Otterman Empire, the vibrant flower fields of the Sun Bearony, and even the magnificent parades of your home.{/i}"
 
     return
 
@@ -680,6 +757,7 @@ label moonjellytree:
             mc "You’re supposed to infuse it with sliced cattail root, but you can’t really taste it in the end."
             mc "It’s mostly citrus."
             mc "At least, that’s the way I learned how to make it."
+            window hide
             jump differentdrinks
         "Humming lavender tea, from the Sun Bearony." if not differentdrinkstree["humming"]:
             $ differentdrinkstree["humming"] = True
@@ -687,13 +765,15 @@ label moonjellytree:
             mc "Bearony flower fields are always humming with bees. Hence the name."
             mc "It’s floral and sweet and it kinda makes you want to just lie down and take a nap somewhere sunny."
             mc "Whether that’s a positive or a negative is up to you."
+            window hide
             jump differentdrinks
         "Otterkish coffee, from the Otterman Empire." if not differentdrinkstree["otterkish"]:
             $ differentdrinkstree["otterkish"] = True
             window show
             mc "Traditionally they bring it to a boil with sand that’s been heated over a fire, but I just use a hotplate."
             mc "Oh, and they add a pinch of sea salt."
-            mc "I’m not a huge coffee person, but otterkish coffee is pretty good."
+            mc "I’m not a huge coffee person, but Otterkish coffee is pretty good."
+            window hide
             jump differentdrinks
         "Affogato al signo, from the City of Swans." if not differentdrinkstree["affogato"]:
             $ differentdrinkstree["affogato"] = True
@@ -701,7 +781,10 @@ label moonjellytree:
             mc "It’s a scoop of gelato in a cup of espresso! How genius is that?!"
             mc "I honestly can’t decide if it’s a drink or if it’s a dessert."
             mc "Don’t tell anyone, but when I first tried it I was definitely having it for the gelato and not for the coffee."
+            window hide
             jump differentdrinks
+    pause 0.25
+    window show
     mc "Any of those appeal to you?"
     b "Those all sound incredible."
     b "If I pick one, will you tell me about the place it comes from?"

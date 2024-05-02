@@ -312,7 +312,7 @@ label start:
             hide moon jelly with dissolve
             hide drink bg with dissolve
     bquestionmark "Thank you."
-    "{i}You watch contentedly as Kannika sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}"
+    "{i}You watch contentedly as the naga sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}"
 
     # Luan returns (off-screen) with reinforcements
     "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
