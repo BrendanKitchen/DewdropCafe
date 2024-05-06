@@ -32,3 +32,11 @@ image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
 image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
 image cg_ch1_1 = im.Scale("CG/chapter1/photo_frame.png", 1920, 1080)
+image black bg = "../gui/black_bg.png"
+
+# Chapter Card
+image ch1 = "../gui/chapter_cards/chapter_1.png"
+image ch2 = "../gui/chapter_cards/chapter_2.png"
+image ch3 = "../gui/chapter_cards/chapter_3.png"
+image ch4 = "../gui/chapter_cards/chapter_4.png"
+image ch5 = "../gui/chapter_cards/chapter_5.png"

@@ -10,15 +10,28 @@ define persistent.ch4 = False
 define persistent.ch5 = False
 define karihelpedkannika = False
 
-define dark_transform = Transform(matrixcolor=TintMatrix("#00000060"))
-define normal_transform = Transform(matrixcolor=TintMatrix("#00000000"))
+# define dark_transform = Transform(matrixcolor=TintMatrix("#00000060"))
+# define normal_transform = Transform(matrixcolor=TintMatrix("#00000000"))
 
 label start:
     $ persistent.ch1 = True
+    $ pickedcitrus = False
+    $ pickedlavender = False
+    $ pickedjelly = False
 
     # Intro - Kari enters scene, sets up cafe
     play music "Pas de Deuxdrop.mp3"
-    pause 0.75
+
+    # Chapter Card Intro
+    window hide
+    $ quick_menu = False
+    scene black bg
+    show ch1 with fade:
+        align (0.5, 0.5)
+    pause 2
+    hide ch1 with fade
+    $ quick_menu = True
+
     window show
     mc "Phew!" 
     mc "Alright, I think that looks good."
@@ -56,7 +69,7 @@ label start:
     play sound "Dewdrop_Splash.mp3" volume 0.7
     pause 1
     window show
-    "{i}You hear a splash in the darkness behind your cafe.{/i}"
+    n "{i}You hear a splash in the darkness behind your cafe.{/i}"
     window hide
     pause 0.5
     
@@ -80,7 +93,7 @@ label start:
             pause 0.25
             play sound "Dewdrop_Splash.mp3" volume 1.0
             pause 0.5
-            "{i}- louder than the first.{/i}"
+            n "{i}- louder than the first.{/i}"
             mc "{i}Uh. That was definitely closer than the last one.{/i}"
     window hide
 
@@ -411,16 +424,16 @@ label start:
         with fade
         pause 0.5
         window show
-        "{i}The rest of your stay in the Naga Kingdom is pleasant and uneventful, if a bit too humid for your tastes. Eventually, that old itch in the back of your mind returns – it’s time to move on.{/i}"
-        "{i}You pack up your cafe and set off on the road once again. No one is waiting to see you off. No one begs for you to stay. You are alone, just as you have been since you left your home almost two years ago.{/i}"
-        "{i}Soon, your memories of this place will fade into pretty pastels and wistful impressions.{/i}"
-        "{i}The City of Swans, the Otterman Empire, the Naga Kingdom… all just names on a map, a blurred collection of faces and sounds and smells, bleeding together like watercolors in the rain.{/i}"
-        "{i}You never did see that naga woman again. You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently.{/i}"
-        "{i}Time moves ever-forward, however. You have little choice but to turn your thoughts to the road ahead, rather than linger on what you might have left by the wayside.{/i}"
-        "{i}Eventually, even she will evaporate into faint recollections of swamp water on a countertop.{/i}"
-        "{i}Your travels will have you meet many new people, experience many new things. This little kingdom will be just another chapter in your tales to tell when you’re sitting at a table with people who love you. {/i}"
-        "{i}Right now, however, you are alone. Just you, the road, and whatever the future has in store for you.{/i}"
-        "{i}Maybe it’s better this way.{/i}"
+        n "{i}The rest of your stay in the Naga Kingdom is pleasant and uneventful, if a bit too humid for your tastes. Eventually, that old itch in the back of your mind returns – it’s time to move on.{/i}"
+        n "{i}You pack up your cafe and set off on the road once again. No one is waiting to see you off. No one begs for you to stay. You are alone, just as you have been since you left your home almost two years ago.{/i}"
+        n "{i}Soon, your memories of this place will fade into pretty pastels and wistful impressions.{/i}"
+        n "{i}The City of Swans, the Otterman Empire, the Naga Kingdom… all just names on a map, a blurred collection of faces and sounds and smells, bleeding together like watercolors in the rain.{/i}"
+        n "{i}You never did see that naga woman again. You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently.{/i}"
+        n "{i}Time moves ever-forward, however. You have little choice but to turn your thoughts to the road ahead, rather than linger on what you might have left by the wayside.{/i}"
+        n "{i}Eventually, even she will evaporate into faint recollections of swamp water on a countertop.{/i}"
+        n "{i}Your travels will have you meet many new people, experience many new things. This little kingdom will be just another chapter in your tales to tell when you’re sitting at a table with people who love you. {/i}"
+        n "{i}Right now, however, you are alone. Just you, the road, and whatever the future has in store for you.{/i}"
+        n "{i}Maybe it’s better this way.{/i}"
         window hide
         pause 1.0
         $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))

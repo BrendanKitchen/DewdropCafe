@@ -235,8 +235,8 @@ style choice_button is default:
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
-    yalign 0.1
-    size 27
+    yalign 0.15
+    size 24
 
 
 ## Quick Menu screen ###########################################################
@@ -681,7 +681,7 @@ screen about():
 
             hbox:
                 style_prefix "additional_credits"
-                xpos 200
+                xpos 190
                 text _("Auto Highlight Ren'Py Module by {color=#4DE5BA}{a=https://wattson.itch.io/renpy-auto-highlight}Daniel Westfall{/a}{/color}")
             
             # label "[config.name!t]"

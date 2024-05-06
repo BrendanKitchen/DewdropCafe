@@ -1,6 +1,16 @@
 label chapter3:
     $ persistent.ch3 = True
-    scene black
+
+    # Chapter Card Intro
+    window hide
+    $ quick_menu = False
+    scene black bg
+    show ch3 with fade:
+        align (0.5, 0.5)
+    pause 2
+    hide ch3 with fade
+    $ quick_menu = True
+    window show
 
     # Several days later
     "{i}The cafe is bustling. News of a strange shop serving exotic beverages travels swiftly, and more and more curious customers have been finding their way to the Dewdrop Cafe.{/i}"

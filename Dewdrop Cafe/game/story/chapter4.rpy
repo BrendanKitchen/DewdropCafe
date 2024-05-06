@@ -1,5 +1,18 @@
 label chapter4:
     $ persistent.ch4 = True
+
+    # Chapter Card Intro
+    window hide
+    $ quick_menu = False
+    scene black bg
+    show ch4 with fade:
+        align (0.5, 0.5)
+    pause 2
+    hide ch4 with fade
+    $ quick_menu = True
+    window show
+
+
     show night bg
     with dissolve
     show kari neutral:
