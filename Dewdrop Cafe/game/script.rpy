@@ -10,6 +10,9 @@ define persistent.ch4 = False
 define persistent.ch5 = False
 define karihelpedkannika = False
 
+define dark_transform = Transform(matrixcolor=TintMatrix("#00000060"))
+define normal_transform = Transform(matrixcolor=TintMatrix("#00000000"))
+
 label start:
     $ persistent.ch1 = True
 
@@ -73,7 +76,7 @@ label start:
             bquestionmark "Shhh! He'll hear you!"
         "(Stay quiet and listen)":
             window show
-            "{i}The night is abuzz with insects and the croaking of frogs. After a few moments, you hear another splash -{/i}"
+            n "{i}The night is abuzz with insects and the croaking of frogs. After a few moments, you hear another splash -{/i}"
             pause 0.25
             play sound "Dewdrop_Splash.mp3" volume 1.0
             pause 0.5
@@ -94,30 +97,32 @@ label start:
     window show
 
     # Surprise visitor jumping over the counter
+    show kannika at sprite_highlight("kannika")
+    show kari at sprite_highlight("kari")
     bquestionmark "You need to help me. I need a place to hide."
     mc "What? Who are you?"
     bquestionmark "No time. Move over."
-    "{i}You watch, stunned, as the naga begins to pull herself over the counter and into your cafe.{/i}"
+    n "{i}You watch, stunned, as the naga begins to pull herself over the counter and into your cafe.{/i}"
     show kari -surprised
     window hide
     menu:
         "Wh- Just hold on a second and tell me what's going on!":
             window show
             bquestionmark "Later. Don't let him know I'm here."
-            "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}"
-            "{i}She meets your eyes and puts a finger to her lips.{/i}"
+            nn "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}" (cb_name = "kannika")
+            nn "{i}She meets your eyes and puts a finger to her lips.{/i}" (cb_name = "kannika")
         "(Try and stop her from climbing over the counter)":
             window show
-            "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}"
-            "{i}She smoothly redirects your shove and you end up spinning around in place as she curls her tail around herself and hides beneath the counter.{/i}"
+            nn "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}" (cb_name = "kannika")
+            nn "{i}She smoothly redirects your shove and you end up spinning around in place as she curls her tail around herself and hides beneath the counter.{/i}" (cb_name = "kannika")
         "(Help her climb over the counter)":
             window show
-            "{i}As soon as you make contact with the strange naga, you instantly know she doesn't even need your help. With just her arms, she pulls herself over the counter and curls up beneath it, wrapping her tail around herself."
-            "{i}You see the trail of swamp water left behind and quickly grab a towel to blot it up. You glance down and smile reassuringly. She meets your eyes with a look of gratitude and smiles back. {/i}"
+            nn "{i}As soon as you make contact with the strange naga, you instantly know she doesn't even need your help. With just her arms, she pulls herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}" (cb_name="kannika")
+            nn "{i}You see the trail of swamp water left behind and quickly grab a towel to blot it up. You glance down and smile reassuringly. She meets your eyes with a look of gratitude and smiles back. {/i}" (cb_name="kannika")
             $ karihelpedkannika = True
         "Uh. Okay. Sure. Yeah.":
             window show
-            "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself. She meets your eyes and puts a finger to her lips.{/i}"
+            nn "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself. She meets your eyes and puts a finger to her lips.{/i}" (cb_name="kannika")
     window hide
     hide kannika with easeoutbottom
     pause 0.75
@@ -125,14 +130,14 @@ label start:
 
     # Luan arrives
     window show
-    "{i}Just as she does so, another figure emerges from the swamp.{/i}"
-    show luan neutral at left
+    n "{i}Just as she does so, another figure emerges from the swamp.{/i}"
+    show luan neutral at left, sprite_highlight("luan")
     with easeinleft
-    "{i}Another naga – a man clad in armor and blue finery, an emblem emblazoned across one shoulder. An elegant sword is sheathed at his waist.{/i}"
+    n "{i}Another naga – a man clad in armor and blue finery, an emblem emblazoned across one shoulder. An elegant sword is sheathed at his waist.{/i}"
     g "You there. Foreigner. Have you seen a lady around here?"
     g "Pink hair, blue tail, holding a parasol..."
     if karihelpedkannika == False:
-        "{i}The guard glances down, noticing the swamp water still puddled on the countertop.{/i}"
+        n "{i}The guard glances down, noticing the swamp water still puddled on the countertop.{/i}"
 
     # Have you seen this woman menu
     window hide
@@ -170,7 +175,7 @@ label start:
     mc "..."
     mc "I think he's gone. You can come out now."
     window hide
-    show kannika neutral at left
+    show kannika neutral at left, sprite_highlight("kannika")
     with easeinbottom
     window show 
     bquestionmark "Thank you. I’m glad you were here."
@@ -227,8 +232,8 @@ label start:
     bquestionmark "...it completes the fit."
     show kannika smile
     show kari smile
-    "{i}You and the naga dissolve into a fit of giggles.{/i}"
-    "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
+    n "{i}You and the naga dissolve into a fit of giggles.{/i}"
+    n "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
     show kannika -smile
     show kari -smile
 
@@ -250,8 +255,8 @@ label start:
     mc "As long as it’s tea."
     bquestionmark "Which one’s your favorite? I’ll have that one."
     mc "Excellent choice, madam."
-    "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
-    "{i}The naga holds the cup between her hands, feeling its warmth.{/i}"
+    n "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
+    nn "{i}The naga holds the cup between her hands, feeling its warmth.{/i}" (cb_name="kannika")
     window hide
     pause 0.5
     play sound "Dewdrop_Sip.mp3" volume 0.8
@@ -312,14 +317,14 @@ label start:
             hide moon jelly with dissolve
             hide drink bg with dissolve
     bquestionmark "Thank you."
-    "{i}You watch contentedly as the naga sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}"
+    nn "{i}You watch contentedly as the naga sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}" (cb_name="kannika")
 
     # Luan returns (off-screen) with reinforcements
-    "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
+    nn "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
     bquestionmark "Hm. It seems that he's brought reinforcements."
     bquestionmark "I should be going. I don’t want my own issues to bring you any more trouble."
-    "{i}The voices draw closer. The naga woman places her cup back on the counter – there’s still a little left – and glances back at you.{/i}" 
-    "{i}She holds your gaze for a heartbeat before pushing away from the counter and disappearing into the darkness.{/i}"
+    nn "{i}The voices draw closer. The naga woman places her cup back on the counter – there’s still a little left – and glances back at you.{/i}" (cb_name="kannika")
+    nn"{i}She holds your gaze for a heartbeat before pushing away from the counter and disappearing into the darkness.{/i}" (cb_name="kannika")
     show kari surprised
 
     # Kannika leaves the scene
@@ -332,7 +337,7 @@ label start:
 
     # Forgotten parasol
     pause 0.25
-    show kari at center
+    show kari at center, sprite_highlight("kari")
     with MoveTransition(0.75)
     window show
     mc "Wait, You forgot your-"
@@ -344,16 +349,16 @@ label start:
     mc "...parasol."
 
     # Outro
-    "{i}Just as suddenly as she appeared, the naga is gone. The voices grow more distant until all you can hear are the sounds of the swamp around you.{/i}"
-    "{i}You can faintly smell the sea on the wind, but it’s a foreign one, nothing like the ocean of your childhood.{/i}"
-    "{i}Once again, you’re alone.{/i}"
+    n "{i}Just as suddenly as she appeared, the naga is gone. The voices grow more distant until all you can hear are the sounds of the swamp around you.{/i}"
+    n "{i}You can faintly smell the sea on the wind, but it’s a foreign one, nothing like the ocean of your childhood.{/i}"
+    n "{i}Once again, you’re alone.{/i}"
     show kari -surprised
     mc "..."
     mc "Running away from home, huh..."
     mc "At least she has people looking after her."
     mc "People who want her to come home."
-    "{i}You take the frilly parasol and run your fingers across it.{/i}"
-    "{i}It’s wonderfully made – the quality is far beyond anything you’ve seen before, even in your extensive travels.{/i}"
+    n "{i}You take the frilly parasol and run your fingers across it.{/i}"
+    n "{i}It’s wonderfully made – the quality is far beyond anything you’ve seen before, even in your extensive travels.{/i}"
     mc "..."
     mc "Souvenirs! Aw, they’d love stuff like this. I’ve gotta get my hands on one of these…"
     mc "Other than this one, I mean. I should probably give this back."
@@ -366,14 +371,14 @@ label start:
 
     # leaving this here in case of a bug
     # but it shouldn't play at all if there are no bugs
-    "{i}to be continued{/i}"
+    n "{i}to be continued{/i}"
     # return to main menu
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
     #BAD ENDING
     label badending:
         pause 0.25
-        show kannika neutral
+        show kannika neutral at center, sprite_highlight("kannika")
         with easeinbottom
         show kannika surprised
         pause 0.25
@@ -382,13 +387,13 @@ label start:
         g "My lady. Enough of these games."
         g "You are far too old to be acting this childish."
         bquestionmark "..."
-        "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}"
+        nn "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}" (cb_name="kannika")
         show kannika -surprised
         show kannika angry
-        "{i}She looks at you with an expression as cold as ice.{/i}"
+        nn "{i}She looks at you with an expression as cold as ice.{/i}" (cb_name="kannika")
         bquestionmark "It seems a little trust was too much to ask for."
         bquestionmark "Goodbye."
-        "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
+        n "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
         window hide
         show luan:
             xzoom -1.0

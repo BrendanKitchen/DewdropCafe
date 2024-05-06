@@ -643,7 +643,8 @@ screen about():
 
         vbox:
             style_prefix "credits"
-            xpos 250
+            spacing 20
+            xpos 270
             xmaximum 1000
 
             hbox:
@@ -677,6 +678,11 @@ screen about():
             hbox:
                 label _("Ashley Lu")
                 text _("UI Artist & Designer, Programmer, Voice Actor")
+
+            hbox:
+                style_prefix "additional_credits"
+                xpos 200
+                text _("Auto Highlight Ren'Py Module by {color=#4DE5BA}{a=https://wattson.itch.io/renpy-auto-highlight}Daniel Westfall{/a}{/color}")
             
             # label "[config.name!t]"
             # text _("Version [config.version!t]\n")
@@ -834,10 +840,6 @@ style about_label_text:
     font "fonts/Vintage Culture.otf"
     size 75
 
-
-style credits_hbox:
-    top_padding 20
-
 style credits_label is gui_label:
     xsize 500
     right_padding 30
@@ -852,6 +854,11 @@ style credits_text is gui_text:
     color "#CFFFD9"
     size 30
     yalign 0.2
+
+style additional_credits_text:
+    xalign 0.1
+    textalign 0.5
+    size 25
 
     
 
