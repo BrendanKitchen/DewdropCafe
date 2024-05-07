@@ -270,11 +270,17 @@ label chapter3:
     mc "What about your mom? Have you talked to her about this?"
     b "My mother and I have spoken at length on this subject, and she has made her position clear."
     b "The legitimacy of her reign depends on the support of the nobility and the High Elders, and by extension the observance of traditions such as this one."
+
+    # Check to see if Kannika knows Kari's familial ties to the PDRC's government
+    if askedaboutgovernment:
+        b "You mentioned your father worked for your government. I’m sure you know as well as I do what happens when other responsibilities take priority over parenting."
+        b "That’s how my mother is."
+
     b "She is a ruler first and foremost. Motherhood is a distant second."
 
     # High elders menu code
     window hide
-    $ highelderstree = {"elders": False}
+    $ highelderstree = {"elders": False, "marry": False}
     menu highelders:
         "Real quick, who are these “High Elders”?" if not highelderstree["elders"]:
             $ highelderstree["elders"] = True
@@ -286,31 +292,207 @@ label chapter3:
             mc "I can’t say I’ve met many dragons before, but I think I get the gist."
             window hide
             jump highelders
+        "What about the guy you’re going to marry?" if not highelderstree["marry"]:
+            $ highelderstree["marry"] = True
+            window show
+            mc "Could you convince him to call it off after he wins?"
+            mc "Actually, wait, do you even know who it’s going to be?"
+            b "I do. There are only a handful of bouts left in the tournament, and the victor is all but certain."
+            b "But it’s not about him, just as it’s not about me. It’s about the balance of power between the nobility, the monarchy, and the High Elders."
+            b "Not that I can imagine any of the contestants objecting to this tradition."
+            window hide
+            jump highelders
+        "Maybe we can convince your mom to listen to you.":
+            window show
+            mc "Sure, she’s a queen, but she’s still your mom."
+            mc "If you can find a time to just sit down with her and talk it out, heart-to-heart, I’m sure she’d understand where you’re coming from."
+            b "But I {i}have.{/i} I’ve {i}tried.{/i}"
+            b "It’s not that she doesn’t understand me. It’s that she won’t listen to me."
+            b "To her, I’m still a naive little girl who doesn’t understand how the world works."
+            b "And it would be unthinkable for a naive little girl to dare to contradict the queen."
+            b "So I hope you can understand why I have such a difficult time believing that another talk is all I need."
+            mc "But you can’t just do nothing, right?"
+            mc "I really do think you should try to explain how you’re feeling to her, just one more time."
+            mc "Because if you can’t even talk to her…"
         "I think your mom’s just trying to look out for you.":
             window show
-            mc "Maybe she’s just having a hard time saying it right, but... (pending dialogue)"
+            mc "She might be having a hard time showing it, but I’m sure she has your best interests at heart."
+            mc "Yeah. Yeah! She’s just looking out for you in the long run."
+            show kannika angry
+            b "{i}Looking out for me?{/i}"
+            b "Maybe she’s looking out for Kannika, the future queen."
+            b "But in doing so, she is turning a blind eye to the current Kannika."
+            b "To {i}me.{/i}"
+            b "Just as she has been doing my entire life. Her kingdom takes priority. Her daughter can wait."
+            b "She’s shown me that, time and time again."
+            b "So it’s very difficult for me to share your optimism about her."
+            mc "She probably just has a different perspective than you."
+            mc "I’m sure she cares about you."
+            mc "You need to trust her, because if you don’t…"
+    
+    # Kannika wants to run away from home
+    mc "What else is there to do? What else {i}can{/i} you do?"
+    show kannika -angry
+    b "I can leave."
+    show kari surprised
+    b "Just like you did, Kari."
+    "{i}You freeze in shock. You had a sneaking suspicion this was where the conversation was headed, but to hear her say it out loud…{/i}"
+    "{i}When she says those words, a torrent of memories and emotions wash over you.{/i}"
+    "{i}The anguish and anxiety that consumed you in the days before you made the choice to leave.{/i}"
+    "{i}The simultaneous frustration and catharsis as you wrote that farewell note to your parents{/i}"
+    "{i}The paranoia as you stole a magic briefcase from your dad’s collection of confiscated foreign items.{/i}"
+    "{i}The bittersweet uncertainty of your first night in the cold, sleeping under the stars.{/i}"
 
-    b "It seems that, in the coming days, I will not be able to visit you as freely as I have been."
-    b "In fact, it may be quite a while before I am able to leave the castle."
-    b "You might move on by then, so…"
-    b "I wanted to see you at least once more before then."
-    mc "What?!"
-
+    # Kari warns Kannika menu
     window hide
     menu:
-        "Hold on. Start from the beginning.":
+        "Are you serious?":
             window show
-            "(Dialogue pending)"
-        "(Option pending)":
+            show kari -surprised
+            mc "That’s a big decision to make."
+            b "I know. I’ve been thinking about it a lot."
+            b "It’s what you did, right? When you had no other option, you left."
+            b "And look where you are now."
+            mc "Kannika… It’s not that simple."
+            b "What do you mean? It {i}is{/i} that simple."
+            mc "It’s not."
+            mc "Where will you go? How will you get by?"
+            mc "Will you go back? Or are you leaving forever?"
+            mc "Are you okay with never seeing your mom again?"
+            mc "I know when I talked about it, I made it sound simple."
+            mc "But it wasn’t."
+            mc "It wasn’t easy to make the decision, and it wasn’t easy to make it to the point I’m at now."
+            b "I can’t believe this."
+            b "I thought you’d support my choice in this."
+            mc "Kannika, I support {i}you.{/i}"
+            mc "I just want to make sure you know what making this choice will mean."
+            b "I know that staying will change nothing."
+            mc "Right, but just packing up and leaving is…"
+            b "Is what, Kari? Not that simple?"
+            b "Because it seems pretty simple to me."
+        "There has to be another option.":
             window show
-            "(Dialogue pending)"
+            show kari -surprised
+            mc "We can figure something out. Together."
+            b "Another option?"
+            b "I don’t {i}have{/i} any other options."
+            b "My mother won’t do anything. The High Elders would never make an exception. The nobility won’t care."
+            b "The only two people who {i}do{/i} care, it seems, are you and me."
+            b "Your only choice was to leave. It’s the same for me."
+            mc "There’s gotta be {i}something{/i} you can do."
+            show kannika angry
+            b "Like {i}what,{/i} Kari?"
 
-    # kannika leaves the scene
+            # Kari ideas menu
+            window hide
+            $ ideastree = {"mom": False, "nobility": False, "rebellion": False}
+            menu ideas:
+                "We could talk to your mom together." if not ideastree["mom"]:
+                    $ ideastree["mom"] = True
+                    window show
+                    mc "Maybe if I’m there to help explain, she’ll understand how much this means to you."
+                    b "You would never be granted an audience with her! I’m not even supposed to be coming out to see you!"
+                    b "I keep telling you, there’s nothing we can do to make her change her mind."
+                    jump ideas
+                "What if you got the nobility to support you?" if not ideastree["nobility"]:
+                    $ ideastree["nobility"] = True
+                    show kannika surprised
+                    window show
+                    mc "If they’re this interested in gaining power and influence, maybe you could offer them something for when you do take the throne."
+                    b "Take the throne?!"
+                    show kannika -surprised
+                    b "Kari, this place is {i}suffocating me.{/i} I can’t stand it here."
+                    b "And who knows how long it would take to convince the noble houses to do something? Weeks? Months?"
+                    b "I only have days."
+                    jump ideas
+                "Start a rebellion." if not ideastree["rebellion"]:
+                    $ ideastree["rebellion"] = True
+                    window show
+                    mc "The system sucks, right? Just throw out the system."
+                    b "Are you even taking this seriously?"
+                    b "My only ounce of authority comes from my mother and the fact that the High Elders approve of her rule."
+                    b "There is nothing I can do to change the way things are."
+                    jump ideas
+                "I don’t know.":
+                    window show
+                    mc "I just…"
+                    mc "Clearly you can’t stay."
+                    mc "But you can’t just leave."
+                    mc "There’s gotta be another way…"
+                    
+        "Don’t. You’d be making a big mistake.":
+            window show
+            show kari -surprised
+            mc "What about your mom? Are you just going to leave her behind?"
+            b "Why shouldn’t I? She hasn’t been a mother to me. Why should I need to be a daughter for her?"
+            mc "Kannika, please. Listen to what you’re saying."
+            mc "You only get one family. Are you willing to throw all that away right now?"
+            b "I can’t believe this."
+            b "Out of all the people who would try and convince me to stay in this… this {i}cage…{/i}"
+            mc "I know it’s hard, Kannika. I know."
+            mc "But just because it’s worked out for me so far doesn’t mean it’s what you should do, too."
+            mc "There are people here who are depending on you. The people of this kingdom, but also your mom."
+            b "If this turns into a lecture about responsibility, I am going to lose my mind."
+            mc "No, what I’m trying to say is that when I decided to leave home, I didn’t have to worry about an entire nation falling into chaos when I left!"
+            b "I’m just a symbol. A figurehead. If I’m not there, the High Elders will find someone else to sit on the throne."
+            mc "But your mom–"
+            b "I don’t care."
+
+    # Kannika is NOT having it
+    "{i}With a clatter, Kannika stands up and pushes away from the counter. Her skin is flushed, brow furrowed and fins flared, and her shoulders are hunched as if bracing for a blow.{/i}"
+    "{i}She meets your eyes for just a moment, but in those orange pools you see frustration, betrayal, and a hint of desperation. The princess turns away from you, hugging her arms around herself.{/i}"
+    b "This is going nowhere."
+    b "I had hoped coming here would bring me some clarity."
+    b "Or, at the very least, I would be reassured that I’m not alone."
+    mc "Kannika, I–"
+    b "Thank you for the drink."
+
+    # Kannika leaves the scene
+    pause 0.5
     show kannika:
         xzoom -1
     show kannika at offscreenleft
     with MoveTransition(2.0)
+    pause 0.5
+    show kari surprised
+    "{i}Kannika storms off and dives into the water. Luan spares you only a quick glance before following behind her.{/i}"
+    "{i}You are alone.{/i}"
+    show kari -surprised
 
+    # Kari takes center stage
+    window hide
+    show kari at center
+    with MoveTransition(0.75)
+    window show
+    mc "..."
+    window hide
+    pause 0.5
+
+    # Kari depression menu
+    menu:
+        "(Close up early)":
+            window show
+            "{i}Almost in a daze, you go about closing up the Dewdrop Cafe for the day.{/i}"
+            "{i}Your mind lingers on the conversation you just had, replaying those moments over and over.{/i}"
+        "(Go about the rest of your day as normal)":
+            window show
+            "{i}You pull yourself together and keep on going. You have a cafe to run, after all.{/i}"
+            "{i}Eventually customers return, and soon you lose yourself in the comfortable chaos of taking orders and making drinks.{/i}"
+            "{i}But in the slower moments between rushes, you catch your mind lingering on the conversation with Kannika.{/i}"
+
+    # Kari thinks about what she's done
+    "{i}You keep seeing the expression Kannika had on her face before she left. The betrayal.{/i}"
+    "{i}Why couldn’t you just support her decision to run away? It’s what you did, isn’t it?{/i}"
+    "{i}You think about your family. Your mom, your dad. Their smiling faces at the door, welcoming you home after all these years.{/i}"
+    "{i}Everything going back to normal.{/i}"
+    "{i}You’ve never even considered the possibility that things can’t go back to normal. That the bonds of family, once broken, might not ever heal.{/i}"
+    "{i}Kannika likely hasn’t thought about it like that. You were just looking out for her.{/i}"
+    "{i}She’ll understand you had the best intentions.{/i}"
+    "{i}You hope she’ll understand.{/i}"
+    "{i}For now…{/i}"
+    "{i}You are alone.{/i}"
+
+    # Fade out
     scene black
     with fade
     # hide kari with dissolve

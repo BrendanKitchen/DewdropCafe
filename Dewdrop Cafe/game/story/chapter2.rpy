@@ -257,7 +257,7 @@ label chapter2:
     with easeinleft
     play sound "Dewdrop_Slither.mp3" volume 0.7
     pause 0.5
-    play sound "Dewdrop_LuanThroatClear" volume 0.9
+    play sound "Dewdrop_LuanThroatClear.mp3" volume 0.9
     pause 0.5
     window show
 
