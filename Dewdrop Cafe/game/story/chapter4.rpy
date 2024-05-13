@@ -5,10 +5,14 @@ label chapter4:
     window hide
     $ quick_menu = False
     scene black bg
-    show ch4 with fade:
+    show ch overlay
+    show ch4:
         align (0.5, 0.5)
+    with fade
     pause 2
-    hide ch4 with fade
+    hide ch4
+    hide ch overlay
+    with fade
     $ quick_menu = True
     window show
 

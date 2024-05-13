@@ -26,10 +26,14 @@ label start:
     window hide
     $ quick_menu = False
     scene black bg
-    show ch1 with fade:
+    show ch overlay
+    show ch1:
         align (0.5, 0.5)
+    with fade
     pause 2
-    hide ch1 with fade
+    hide ch1
+    hide ch overlay
+    with fade
     $ quick_menu = True
 
     window show
