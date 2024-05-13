@@ -5,3 +5,5 @@ default pickedlavender = False
 default pickedjelly = False
 default karihelpedkannika = False
 default askedaboutgovernment = False
+default pink = False
+default luandrink = False
