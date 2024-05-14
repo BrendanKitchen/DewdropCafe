@@ -25,23 +25,23 @@ label chapter4:
     # Scene set up
     show night bg
     with dissolve
-    show kari neutral at right:
+    show kari neutral at right, sprite_highlight("kari"):
         xzoom 1
     with easeinright
 
     # Narration
     window show
-    "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
-    "{i}As night falls and you begin to put the chairs away, you hear now-familiar rustling in the bushes. Could it be…?{/i}"
+    n "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
+    n "{i}As night falls and you begin to put the chairs away, you hear now-familiar rustling in the bushes. Could it be…?{/i}"
     window hide
 
     # Luan arrives
-    show luan neutral at left
+    show luan neutral at left, sprite_highlight("luan")
     with easeinleft
     pause 0.5
 
     window show
-    "{i}No frills or parasols in sight. Instead, you see Luan, looking as stern and proper as always.{/i}"
+    n "{i}No frills or parasols in sight. Instead, you see Luan, looking as stern and proper as always.{/i}"
 
     # Greeting Luan menu
     window hide
@@ -49,17 +49,17 @@ label chapter4:
         "...Oh. It's you.":
             window show
             lu "Yes, drink-peddler. It's me."
-            "{i}Luan slithers forward to take a seat at the counter of the cafe. He eyes you up and down, studying your face, but he doesn’t seem to find what he’s looking for.{/i}"
-            "{i}He sighs, posture relaxing, and leans forward to rest his crossed arms on the countertop.{/i}"
+            nn "{i}Luan slithers forward to take a seat at the counter of the cafe. He eyes you up and down, studying your face, but he doesn’t seem to find what he’s looking for.{/i}" (cb_name="luan")
+            nn "{i}He sighs, posture relaxing, and leans forward to rest his crossed arms on the countertop.{/i}" (cb_name="luan")
         "...Hi, Luan.":
             window show
             lu "Kari."
-            "{i}Luan nods in greeting before slithering forward to sit at the counter of the cafe. As soon as he settles onto the barstool his entire posture relaxes.{/i}"
-            "{i}The naga leans forward to rest his crossed arms on the countertop with a sigh.{/i}"
+            nn "{i}Luan nods in greeting before slithering forward to sit at the counter of the cafe. As soon as he settles onto the barstool his entire posture relaxes.{/i}" (cb_name="luan")
+            nn "{i}The naga leans forward to rest his crossed arms on the countertop with a sigh.{/i}" (cb_name="luan")
         "...Hi, Pancake.":
             window show
-            "{i}Luan stares flatly at you. You half expect him to turn around and leave.{/i}"
-            "{i}Instead, he sighs and shakes his head before slithering forward to take a seat at the counter of the cafe.{/i}"
+            nn "{i}Luan stares flatly at you. You half expect him to turn around and leave.{/i}" (cb_name="luan")
+            nn "{i}Instead, he sighs and shakes his head before slithering forward to take a seat at the counter of the cafe.{/i}" (cb_name="luan")
     mc "What's up?"
 
     # Follow-up questions menu
@@ -72,7 +72,7 @@ label chapter4:
         "Are you finally interested in getting a drink?":
             $ luandrink = True
             window show
-            "{i}He actually seems to consider it. His eyes flit across the menu at the back of the cafe.{/i}"
+            nn "{i}He actually seems to consider it. His eyes flit across the menu at the back of the cafe.{/i}" (cb_name="luan")
             lu "A traveling minstrel once compared the color of a land drink to the queen’s hair, praising its vibrancy and hue."
             lu "I can’t recall the name of the drink, but I remember he hailed from the Bahamacaws…"
             mc "Hmm… I haven’t been there yet…"
@@ -80,9 +80,9 @@ label chapter4:
             lu "Some kind of brewed beverage with pink flowers and sliced apples."
             lu "And ice. It also had ice."
             mc "I’ll give it my best shot."
-            "{i}You get to work gathering ingredients – partially because you’re excited that Luan wants a drink, and partially to take your mind off of how strange it feels to see him here without Kannika.{/i}"
-            "{i}Finally, you set a glass down in front of the naga. The drink is a soft, warm pink that seems to almost glow in the light of the setting sun.{/i}"
-            "{i}It reminds you of the way the light danced across Kannika’s scales when you first met her.{/i}"
+            n "{i}You get to work gathering ingredients – partially because you’re excited that Luan wants a drink, and partially to take your mind off of how strange it feels to see him here without Kannika.{/i}"
+            n "{i}Finally, you set a glass down in front of the naga. The drink is a soft, warm pink that seems to almost glow in the light of the setting sun.{/i}"
+            n "{i}It reminds you of the way the light danced across Kannika’s scales when you first met her.{/i}"
             mc "Here it is! Hibiscus iced tea with apple."
             lu "This color… It’s strikingly accurate."
             lu "What is it called?"
@@ -108,16 +108,20 @@ label chapter4:
                     lu "……"
                     lu "The… The pink…"
                     lu "The pink… lady?"
-                    "{i}You have to stifle a giggle at the sight of Luan’s face, brow furrowed and cheeks reddening as he stumbles his way through naming this drink.{/i}"
-                    "{i}His embarrassment soon fades, however, and he allows himself a polite chuckle.{/i}"
+                    show kari smile
+                    nn "{i}You have to stifle a giggle at the sight of Luan’s face, brow furrowed and cheeks reddening as he stumbles his way through naming this drink.{/i}" (cb_name="kari")
+                    nn "{i}His embarrassment soon fades, however, and he allows himself a polite chuckle.{/i}" (cb_name="luan")
+                    show kari -smile
                     lu "I am clearly unpracticed at this."
                     mc "No, no – pink lady’s a great name."
                     mc "You mind if I add it to the menu?"
                     lu "Not at all."
 
             # Luan sip
-            "{i}Luan picks up the glass and tentatively takes a sip through the straw.{/i}"
-            "{i}His eyes go wide as he savors the taste, but he quickly regains his composure and carefully sets the drink back down on the counter.{/i}"
+            nn "{i}Luan picks up the glass and tentatively takes a sip through the straw.{/i}" (cb_name="luan")
+            show luan surprised
+            nn "{i}His eyes go wide as he savors the taste, but he quickly regains his composure and carefully sets the drink back down on the counter.{/i}" (cb_name="luan")
+            show luan -surprised
             mc "How is it?"
             lu "…It’s… good."
             lu "But we should turn to more pressing matters."
@@ -135,10 +139,11 @@ label chapter4:
     lu "Princess Kannika will soon be completely occupied by her royal obligations, as I’m sure she’s told you."
     lu "The queen is no longer willing to overlook her nightly escapades. Nor does she overlook her fraternization with a commoner."
     lu "As such…"
-    "{i}Luan produces a stack of abalone shells strung together on a length of twine. There’s something carved into the shells – writing, though you can’t make heads or tails of it.{/i}"
-    "{i}Luan clears his throat and begins to read from the shells.{/i}"
+    nn "{i}Luan produces a stack of abalone shells strung together on a length of twine. There’s something carved into the shells – writing, though you can’t make heads or tails of it.{/i}" (cb_name="luan")
+    nn "{i}Luan clears his throat and begins to read from the shells.{/i}" (cb_name="luan")
     lu "The queen has ordered your banishment from the Naga Kingdom."
     lu "You have until the end of the week to leave our borders, and you may not return to Naga Kingdom lands for a year and a day."
+    show kari surprised
     mc "What?! Why??"
     lu "She has decided that you are too much of a distraction for the young princess, and her attention is better directed towards more important matters."
     lu "…"
@@ -287,7 +292,7 @@ label chapter4:
     lu "Only in passing."
     lu "His name is Rawi. He’s kind-hearted… if a bit simple."
     lu "He is a powerful fighter, but I know for certain he is taking part in the Dance of Ribbons out of no ambition or desire of his own."
-    "{i}Luan glances around before leaning in and lowering his voice. He whispers conspiratorially, almost drowned out by the sounds of the swamp’s creatures.{/i}"
+    nn "{i}Luan glances around before leaning in and lowering his voice. He whispers conspiratorially, almost drowned out by the sounds of the swamp’s creatures.{/i}" (cb_name="luan")
     lu "The nobility are the ones who take advantage of these tournaments to siphon influence from each other. And the High Elders are more than happy to let them continue with their games of politics."
     mc "So what you’re saying is, both you and Rawi are just pawns on a chess board. You’re being swept along by things outside of your control…"
     lu "…And so is the princess."
@@ -338,10 +343,12 @@ label chapter4:
     menu:
         "Thank you, Luan.":
             window show
-            "{i}Luan smiles at you, a deep gratitude in his eyes. In the light of the cafe you can almost see a weight being lifted off his shoulders just from talking to you.{/i}"
+            show luan smile
+            nn "{i}Luan smiles at you, a deep gratitude in his eyes. In the light of the cafe you can almost see a weight being lifted off his shoulders just from talking to you.{/i}" (cb_name="luan")
+            show luan -smile
         "Thank you, Pancake.":
             window show
-            "{i}Luan sighs, but it soon turns into a soft chuckle. He shakes his head, and you can see that an invisible weight has been lifted from his shoulders after talking to you.{/i}"
+            nn "{i}Luan sighs, but it soon turns into a soft chuckle. He shakes his head, and you can see that an invisible weight has been lifted from his shoulders after talking to you.{/i}" (cb_name="luan")
     
     # Will Kari see Kannika again?
     mc "Am I gonna be able to see her again?"
@@ -353,7 +360,7 @@ label chapter4:
         lu "Thank you for the drink. Truly."
         lu "The next time you visit the Naga Kingdom, I hope you can make it for me again."
 
-    "{i}Luan turns and disappears into the night.{/i}"
+    nn "{i}Luan turns and disappears into the night.{/i}" (cb_name="luan")
     window hide
 
     # Luan leaves
@@ -362,7 +369,7 @@ label chapter4:
     show luan at offscreenleft
     with easeoutleft
     pause 0.5
-    "{i}You’re left alone with your thoughts, cleaning glasses and folding up chairs as you prepare to tuck in for the night.{/i}"
+    n "{i}You’re left alone with your thoughts, cleaning glasses and folding up chairs as you prepare to tuck in for the night.{/i}"
 
     # Fade out
     scene black
@@ -371,17 +378,18 @@ label chapter4:
 
     # Outro
     window show
-    "{i}You mull over Luan’s words. Ideas and possibilities tumble around in your head in a dizzying swirl of color.{/i}"
-    "{i}You keep thinking about Kannika. About how her scales reflected the light when you first met her. About how tears beaded at the corners of her eyes when you last saw her.{/i}"
-    "{i}Will the next time you see her be your last chance to fix things? Will you even be able to fix things?{/i}"
-    "{i}You toss and turn as you try to fall asleep, plagued with memories of the night you left your own home.{/i}"
-    "{i}Was it really worth it? Are you really better off now than you were then?{/i}"
-    "{i}How long have you been telling yourself that you can go home whenever you want?{/i}"
-    "{i}Eventually, exhaustion overtakes you, and you plunge into the smothering grasp of sleep.{/i}"
+    n "{i}You mull over Luan’s words. Ideas and possibilities tumble around in your head in a dizzying swirl of color.{/i}"
+    n "{i}You keep thinking about Kannika. About how her scales reflected the light when you first met her. About how tears beaded at the corners of her eyes when you last saw her.{/i}"
+    n "{i}Will the next time you see her be your last chance to fix things? Will you even be able to fix things?{/i}"
+    n "{i}You toss and turn as you try to fall asleep, plagued with memories of the night you left your own home.{/i}"
+    n "{i}Was it really worth it? Are you really better off now than you were then?{/i}"
+    n "{i}How long have you been telling yourself that you can go home whenever you want?{/i}"
+    n "{i}Eventually, exhaustion overtakes you, and you plunge into the smothering grasp of sleep.{/i}"
 
     jump chapter5
 
 label badendingleft:
+    show kari angry
     mc "Clearly, I… I’ve caused Kannika a lot of trouble."
     mc "I don’t want to make things harder for her."
     mc "Saying goodbye is never easy, so…"
@@ -397,6 +405,7 @@ label badendingleft:
             lu "…"
         "Tell her I’ll come back some day.":
             window show
+            show kari -angry
             mc "My exile’s not forever, right?"
             mc "I’ll come back someday."
             mc "I’m sure I will."
@@ -426,7 +435,7 @@ label badendingleft:
     if luandrink:
         lu "The drink you made me… I will remember it."
         lu "Just as the princess will remember you."
-    "{i}Without waiting for a response, Luan turns and disappears into the night.{/i}"
+    nn "{i}Without waiting for a response, Luan turns and disappears into the night.{/i}" (cb_name="luan")
     window hide
 
     # Luan leaves
@@ -443,19 +452,19 @@ label badendingleft:
 
     # Outro
     window show
-    "{i}As that now-familiar numbness settles back into the core of your being, you go about packing up the cafe.{/i}"
-    "{i}You disassemble the tables and fold up the chairs. You take down the signs and the decorations. You pack up your cups and ingredients.{/i}"
-    "{i}Just as you have done so many times now, you take out your magic briefcase and unlatch it.{/i}"
-    "{i}With a rushing whirlwind of pastels your quaint cafe folds into itself over and over and disappears into the depths of the briefcase.{/i}"
-    "{i}It snaps shut with a solemn finality and settles onto the ground, waiting for you to pick it up and continue your journey.{/i}"
-    "{i}You travel quickly – it’s certainly not the first time you’ve had to leave a place in a hurry.{/i}"
-    "{i}Soon, you’re out of the swamp and into rolling hills rippling with tall grass. The salty sea air fades away as you leave the Naga Kingdom behind.{/i}"
-    "{i}You can only wonder at what will happen to Princess Kannika.{/i}"
-    "{i}Will she accept her mother’s wishes and become the ruler she was meant to be? Will she do as you once did and leave her home under the cover of night, carving her own path?{/i}"
-    "{i}You don’t know. Perhaps you’ll find out; perhaps you never will.{/i}"
-    "{i}Perhaps she’ll seek you out, and the two of you will travel the world together.{/i}"
-    "{i}Right now, however, you are alone. Just you, the road, and whatever awaits you on your journey.{/i}"
-    "{i}Maybe it’s better this way.{/i}"
+    n "{i}As that now-familiar numbness settles back into the core of your being, you go about packing up the cafe.{/i}"
+    n "{i}You disassemble the tables and fold up the chairs. You take down the signs and the decorations. You pack up your cups and ingredients.{/i}"
+    n "{i}Just as you have done so many times now, you take out your magic briefcase and unlatch it.{/i}"
+    n "{i}With a rushing whirlwind of pastels your quaint cafe folds into itself over and over and disappears into the depths of the briefcase.{/i}"
+    n "{i}It snaps shut with a solemn finality and settles onto the ground, waiting for you to pick it up and continue your journey.{/i}"
+    n "{i}You travel quickly – it’s certainly not the first time you’ve had to leave a place in a hurry.{/i}"
+    n "{i}Soon, you’re out of the swamp and into rolling hills rippling with tall grass. The salty sea air fades away as you leave the Naga Kingdom behind.{/i}"
+    n "{i}You can only wonder at what will happen to Princess Kannika.{/i}"
+    n "{i}Will she accept her mother’s wishes and become the ruler she was meant to be? Will she do as you once did and leave her home under the cover of night, carving her own path?{/i}"
+    n "{i}You don’t know. Perhaps you’ll find out; perhaps you never will.{/i}"
+    n "{i}Perhaps she’ll seek you out, and the two of you will travel the world together.{/i}"
+    n "{i}Right now, however, you are alone. Just you, the road, and whatever awaits you on your journey.{/i}"
+    n "{i}Maybe it’s better this way.{/i}"
     window hide
     pause 1.0
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))

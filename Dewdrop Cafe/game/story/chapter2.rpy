@@ -15,7 +15,7 @@ label chapter2:
     with fade
     pause 2
     hide ch2
-    hide overlay
+    hide ch overlay
     with fade
     $ quick_menu = True
     window show

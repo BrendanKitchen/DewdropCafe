@@ -17,19 +17,19 @@ label chapter3:
     window show
 
     # Several days later
-    "{i}The cafe is bustling. News of a strange shop serving exotic beverages travels swiftly, and more and more curious customers have been finding their way to the Dewdrop Cafe.{/i}"
-    "{i}You’ve been whisked away by the frenzy of recent activity, and each night you collapse into bed exhausted and satisfied.{/i}"
-    "{i}Kannika hasn’t stopped by since that night. Every evening as you close up shop and take inventory, you catch yourself glancing towards the line where the water and the mud bleed into one another, looking for a glimpse of pearlescent scales.{/i}"
-    "{i}The closest you’ve gotten was a brief visit from Luan, who came to retrieve the princess’ forgotten parasol.{/i}"
-    "{i}Your questions and attempts at polite conversation were met with terse responses, though he seemed much less hostile than he was during your previous interactions.{/i}"
-    "{i}You don’t have too much time to dwell on these thoughts, however. The endless tide of eager patrons ebbs and flows, but rarely stops.{/i}"
-    "{i}The few moments you have in between rushes are spent scrambling to and from the back of the cafe, cleaning dishes and restocking ingredients.{/i}"
+    n "{i}The cafe is bustling. News of a strange shop serving exotic beverages travels swiftly, and more and more curious customers have been finding their way to the Dewdrop Cafe.{/i}"
+    n "{i}You’ve been whisked away by the frenzy of recent activity, and each night you collapse into bed exhausted and satisfied.{/i}"
+    n "{i}Kannika hasn’t stopped by since that night. Every evening as you close up shop and take inventory, you catch yourself glancing towards the line where the water and the mud bleed into one another, looking for a glimpse of pearlescent scales.{/i}"
+    n "{i}The closest you’ve gotten was a brief visit from Luan, who came to retrieve the princess’ forgotten parasol.{/i}"
+    n "{i}Your questions and attempts at polite conversation were met with terse responses, though he seemed much less hostile than he was during your previous interactions.{/i}"
+    n "{i}You don’t have too much time to dwell on these thoughts, however. The endless tide of eager patrons ebbs and flows, but rarely stops.{/i}"
+    n "{i}The few moments you have in between rushes are spent scrambling to and from the back of the cafe, cleaning dishes and restocking ingredients.{/i}"
     window hide
 
     # Switch to Kari
     show day bg with fade
     pause 0.5
-    show kari neutral at right
+    show kari neutral at right, sprite_highlight("kari")
     with easeinright
     pause 0.5
 
@@ -38,20 +38,20 @@ label chapter3:
     mc "For a kingdom that’s mostly underwater, these people sure are thirsty…"
     play audio "Dewdrop_Bell_Mashing.mp3" volume 0.7
     show kari surprised
-    "{i}Your momentary respite is shattered by the frantic ringing of the counter bell.{/i}"
+    n "{i}Your momentary respite is shattered by the frantic ringing of the counter bell.{/i}"
     mc "...!"
     mc "Coming! One moment, I’ll be right with you."
-    "{i}You rush to the front of the cafe to see a pair of familiar faces waiting for you.{/i}"
+    n "{i}You rush to the front of the cafe to see a pair of familiar faces waiting for you.{/i}"
 
     # Kannika and Luan arrive
     window hide
     show kari -surprised
     with move
-    show kannika neutral zorder 1:
+    show kannika neutral zorder 1 at sprite_highlight("kannika"):
         xzoom 1.0
         align (0.2, 0.5)
     with easeinleft
-    show luan neutral zorder 2:
+    show luan neutral zorder 2 at sprite_highlight("luan"):
         xzoom 1.0
         align (-0.1, 1.0)
     with easeinleft
@@ -71,24 +71,24 @@ label chapter3:
         "(Glance around at the other patrons)" if not whatdotree["patrons"]:
             $ whatdotree["patrons"] = True
             window show
-            "{i}Your regulars have retreated to the periphery of the clearing in which you’ve set up shop. They seem surprised at Kannika’s presence – their postures are torn between deference and wariness.{/i}"
-            "{i}Perhaps they fear a breach of conduct for being too close to the princess. Perhaps they simply wish to give her some space.{/i}"
-            "{i}Regardless of the reason, they are quietly slipping away – drinks left half-finished on the tables.{/i}"
+            n "{i}Your regulars have retreated to the periphery of the clearing in which you’ve set up shop. They seem surprised at Kannika’s presence – their postures are torn between deference and wariness.{/i}"
+            n "{i}Perhaps they fear a breach of conduct for being too close to the princess. Perhaps they simply wish to give her some space.{/i}"
+            n "{i}Regardless of the reason, they are quietly slipping away – drinks left half-finished on the tables.{/i}"
             window hide
             jump whatdo
         "(Look more closely at Kannika and Luan)" if not whatdotree["kandl"]:
             $ whatdotree["kandl"] = True
             window show
-            "{i}Kannika’s face is once again that practiced mask of regal neutrality you’ve seen her don before. Her jaw is clenched and her posture is stiff, though both seem to be relaxing as she speaks to you.{/i}"
-            "{i}Luan, meanwhile, seems to be the same as when you last saw him.{/i}"
-            "{i}His expression is a blend of suspicion, imperiousness, and mild disdain, all aimed at you as if they were polished blades – more of a reminder than a threat.{/i}"
+            nn "{i}Kannika’s face is once again that practiced mask of regal neutrality you’ve seen her don before. Her jaw is clenched and her posture is stiff, though both seem to be relaxing as she speaks to you.{/i}" (cb_name="kannika")
+            nn "{i}Luan, meanwhile, seems to be the same as when you last saw him.{/i}" (cb_name="luan")
+            nn "{i}His expression is a blend of suspicion, imperiousness, and mild disdain, all aimed at you as if they were polished blades – more of a reminder than a threat.{/i}" (cb_name="luan")
             window hide
             jump whatdo
         "(Offer the pretty lady a drink)":
             window show
     mc "Anyways, can I get you something to drink?"
     b "Please."
-    "{i}You busy yourself with beverage creation. Kannika sits stiffly at the counter, watching you work. It’s clear there’s something on her mind.{/i}"
+    n "{i}You busy yourself with beverage creation. Kannika sits stiffly at the counter, watching you work. It’s clear there’s something on her mind.{/i}"
 
     # Kari is uncomfortable menu
     window hide
@@ -138,7 +138,7 @@ label chapter3:
             mc "You’re missing out, you know."
     b "Actually, there’s something I wish to speak with you about, Kari."
     b "Panc– …Luan, could we have some privacy, please?"
-    "{i}Luan gives a long, hard look at you before bowing and retreating away from the cafe. He’s still in sight, but mostly out of earshot. You and Kannika are alone together.{/i}"
+    n "{i}Luan gives a long, hard look at you before bowing and retreating away from the cafe. He’s still in sight, but mostly out of earshot. You and Kannika are alone together.{/i}"
 
     # Luan leaves 
     window hide
@@ -147,7 +147,7 @@ label chapter3:
     play sound "Dewdrop_Slither.mp3" volume 0.7
 
     # Adjust Kannika placement
-    show kannika neutral at left
+    show kannika neutral at left, sprite_highlight("kannika")
     with MoveTransition(0.75)
 
     # Kari and Kannika chat in private *blush*
@@ -158,9 +158,10 @@ label chapter3:
     b "I don’t really have anyone else I can talk to about this."
     b "It would mean a lot to me if you could hear me out. Please."
     mc "I would love to, Kannika."
-    "{i}You walk out from behind the counter and place a mug of warm hot chocolate – it seemed right for the situation – in front of Kannika. She looks at you with gratitude as you sit next to her and smile reassuringly at her.{/i}"
+    nn "{i}You walk out from behind the counter and place a mug of warm hot chocolate – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
+    nn "{i}She looks at you with gratitude as you sit next to her and smile reassuringly at her.{/i}" (cb_name="kannika")
     mc "Whenever you're ready."
-    "{i}Kannika takes a deep breath and begins to speak.{/i}"
+    nn "{i}Kannika takes a deep breath and begins to speak.{/i}" (cb_name="kannika")
 
     # Cattail Citrus or no Cattail Citrus branch
     if not pickedcitrus:
@@ -340,12 +341,12 @@ label chapter3:
     b "I can leave."
     show kari surprised
     b "Just like you did, Kari."
-    "{i}You freeze in shock. You had a sneaking suspicion this was where the conversation was headed, but to hear her say it out loud…{/i}"
-    "{i}When she says those words, a torrent of memories and emotions wash over you.{/i}"
-    "{i}The anguish and anxiety that consumed you in the days before you made the choice to leave.{/i}"
-    "{i}The simultaneous frustration and catharsis as you wrote that farewell note to your parents{/i}"
-    "{i}The paranoia as you stole a magic briefcase from your dad’s collection of confiscated foreign items.{/i}"
-    "{i}The bittersweet uncertainty of your first night in the cold, sleeping under the stars.{/i}"
+    nn "{i}You freeze in shock. You had a sneaking suspicion this was where the conversation was headed, but to hear her say it out loud…{/i}" (cb_name="kari")
+    nn "{i}When she says those words, a torrent of memories and emotions wash over you.{/i}" (cb_name="kari")
+    nn "{i}The anguish and anxiety that consumed you in the days before you made the choice to leave.{/i}" (cb_name="kari")
+    nn "{i}The simultaneous frustration and catharsis as you wrote that farewell note to your parents.{/i}" (cb_name="kari")
+    nn "{i}The paranoia as you stole a magic briefcase from your dad’s collection of confiscated foreign items.{/i}" (cb_name="kari")
+    nn "{i}The bittersweet uncertainty of your first night in the cold, sleeping under the stars.{/i}" (cb_name="kari")
 
     # Kari warns Kannika menu
     window hide
@@ -366,8 +367,10 @@ label chapter3:
             mc "I know when I talked about it, I made it sound simple."
             mc "But it wasn’t."
             mc "It wasn’t easy to make the decision, and it wasn’t easy to make it to the point I’m at now."
+            show kannika angry
             b "I can’t believe this."
             b "I thought you’d support my choice in this."
+            show kari surprised
             mc "Kannika, I support {i}you.{/i}"
             mc "I just want to make sure you know what making this choice will mean."
             b "I know that staying will change nothing."
@@ -378,13 +381,14 @@ label chapter3:
             window show
             show kari -surprised
             mc "We can figure something out. Together."
+            show kannika angry
             b "Another option?"
             b "I don’t {i}have{/i} any other options."
             b "My mother won’t do anything. The High Elders would never make an exception. The nobility won’t care."
             b "The only two people who {i}do{/i} care, it seems, are you and me."
             b "Your only choice was to leave. It’s the same for me."
+            show kari surprised
             mc "There’s gotta be {i}something{/i} you can do."
-            show kannika angry
             b "Like {i}what,{/i} Kari?"
 
             # Kari ideas menu
@@ -397,25 +401,30 @@ label chapter3:
                     mc "Maybe if I’m there to help explain, she’ll understand how much this means to you."
                     b "You would never be granted an audience with her! I’m not even supposed to be coming out to see you!"
                     b "I keep telling you, there’s nothing we can do to make her change her mind."
+                    window hide
                     jump ideas
                 "What if you got the nobility to support you?" if not ideastree["nobility"]:
                     $ ideastree["nobility"] = True
-                    show kannika surprised
+                    show kari -surprised
                     window show
                     mc "If they’re this interested in gaining power and influence, maybe you could offer them something for when you do take the throne."
+                    show kannika surprised
                     b "Take the throne?!"
-                    show kannika -surprised
+                    # show kannika -surprised
                     b "Kari, this place is {i}suffocating me.{/i} I can’t stand it here."
                     b "And who knows how long it would take to convince the noble houses to do something? Weeks? Months?"
                     b "I only have days."
+                    window hide
                     jump ideas
                 "Start a rebellion." if not ideastree["rebellion"]:
                     $ ideastree["rebellion"] = True
                     window show
                     mc "The system sucks, right? Just throw out the system."
+                    show kannika surprised
                     b "Are you even taking this seriously?"
                     b "My only ounce of authority comes from my mother and the fact that the High Elders approve of her rule."
                     b "There is nothing I can do to change the way things are."
+                    window hide
                     jump ideas
                 "I don’t know.":
                     window show
@@ -443,8 +452,10 @@ label chapter3:
             b "I don’t care."
 
     # Kannika is NOT having it
-    "{i}With a clatter, Kannika stands up and pushes away from the counter. Her skin is flushed, brow furrowed and fins flared, and her shoulders are hunched as if bracing for a blow.{/i}"
-    "{i}She meets your eyes for just a moment, but in those orange pools you see frustration, betrayal, and a hint of desperation. The princess turns away from you, hugging her arms around herself.{/i}"
+    show kannika angry
+    show kari surprised
+    nn "{i}With a clatter, Kannika stands up and pushes away from the counter. Her skin is flushed, brow furrowed and fins flared, and her shoulders are hunched as if bracing for a blow.{/i}" (cb_name="kannika")
+    nn "{i}She meets your eyes for just a moment, but in those orange pools you see frustration, betrayal, and a hint of desperation. The princess turns away from you, hugging her arms around herself.{/i}" (cb_name="kannika")
     b "This is going nowhere."
     b "I had hoped coming here would bring me some clarity."
     b "Or, at the very least, I would be reassured that I’m not alone."
@@ -453,15 +464,17 @@ label chapter3:
 
     # Kannika leaves the scene
     pause 0.5
+    window hide
     show kannika:
         xzoom -1
     show kannika at offscreenleft
     with MoveTransition(2.0)
     pause 0.5
+    window show
     show kari surprised
-    "{i}Kannika storms off and dives into the water. Luan spares you only a quick glance before following behind her.{/i}"
-    "{i}You are alone.{/i}"
-    show kari -surprised
+    n "{i}Kannika storms off and dives into the water. Luan spares you only a quick glance before following behind her.{/i}"
+    n "{i}You are alone.{/i}"
+    # show kari -surprised
 
     # Kari takes center stage
     window hide
@@ -476,25 +489,26 @@ label chapter3:
     menu:
         "(Close up early)":
             window show
-            "{i}Almost in a daze, you go about closing up the Dewdrop Cafe for the day.{/i}"
-            "{i}Your mind lingers on the conversation you just had, replaying those moments over and over.{/i}"
+            n "{i}Almost in a daze, you go about closing up the Dewdrop Cafe for the day.{/i}"
+            n "{i}Your mind lingers on the conversation you just had, replaying those moments over and over.{/i}"
         "(Go about the rest of your day as normal)":
             window show
-            "{i}You pull yourself together and keep on going. You have a cafe to run, after all.{/i}"
-            "{i}Eventually customers return, and soon you lose yourself in the comfortable chaos of taking orders and making drinks.{/i}"
-            "{i}But in the slower moments between rushes, you catch your mind lingering on the conversation with Kannika.{/i}"
+            n "{i}You pull yourself together and keep on going. You have a cafe to run, after all.{/i}"
+            n "{i}Eventually customers return, and soon you lose yourself in the comfortable chaos of taking orders and making drinks.{/i}"
+            n "{i}But in the slower moments between rushes, you catch your mind lingering on the conversation with Kannika.{/i}"
 
     # Kari thinks about what she's done
-    "{i}You keep seeing the expression Kannika had on her face before she left. The betrayal.{/i}"
-    "{i}Why couldn’t you just support her decision to run away? It’s what you did, isn’t it?{/i}"
-    "{i}You think about your family. Your mom, your dad. Their smiling faces at the door, welcoming you home after all these years.{/i}"
-    "{i}Everything going back to normal.{/i}"
-    "{i}You’ve never even considered the possibility that things can’t go back to normal. That the bonds of family, once broken, might not ever heal.{/i}"
-    "{i}Kannika likely hasn’t thought about it like that. You were just looking out for her.{/i}"
-    "{i}She’ll understand you had the best intentions.{/i}"
-    "{i}You hope she’ll understand.{/i}"
-    "{i}For now…{/i}"
-    "{i}You are alone.{/i}"
+    n "{i}You keep seeing the expression Kannika had on her face before she left. The betrayal.{/i}"
+    n "{i}Why couldn’t you just support her decision to run away? It’s what you did, isn’t it?{/i}"
+    n "{i}You think about your family. Your mom, your dad. Their smiling faces at the door, welcoming you home after all these years.{/i}"
+    n "{i}Everything going back to normal.{/i}"
+    n "{i}You’ve never even considered the possibility that things can’t go back to normal. That the bonds of family, once broken, might not ever heal.{/i}"
+    n "{i}Kannika likely hasn’t thought about it like that. You were just looking out for her.{/i}"
+    n "{i}She’ll understand you had the best intentions.{/i}"
+    n "{i}You hope she’ll understand.{/i}"
+    n "{i}For now…{/i}"
+    n "{i}You are alone.{/i}"
+    window hide
 
     # Fade out
     scene black
@@ -547,6 +561,7 @@ label longversion:
             $ anythingtree["no"] = True
             window show
             mc "You’re the princess, right? Can’t you just do what you want?"
+            show kannika angry
             b "Kari, I don’t even have the dignity of deciding what I eat for breakfast."
             b "These traditions have been like this for generations. Trying to fight them would be like trying to fight the tides themselves."
             window hide
