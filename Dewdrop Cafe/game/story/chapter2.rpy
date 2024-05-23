@@ -236,11 +236,11 @@ label chapter2:
                 "Hmm..."
                 # Next line: "What other kinds of drinks do you serve?"
     if pickedcitrus:
-        call cattailcitrustree
+        call cattailcitrustree from _call_cattailcitrustree
     if pickedlavender:
-        call humminglavendertree
+        call humminglavendertree from _call_humminglavendertree
     if pickedjelly:
-        call moonjellytree
+        call moonjellytree from _call_moonjellytree
     
     # Fade to black for the passing of time
     window hide

@@ -247,7 +247,7 @@ label chapter3:
     window hide
     menu longorshort:
         "The long version.":
-            call longversion
+            call longversion from _call_longversion
         "The short version.":
             window show
             mc "You seem pretty stressed, so let’s get straight to the important stuff"
@@ -268,7 +268,7 @@ label chapter3:
                     mc "And who is this {i}guy{/i} you’re supposed to get engaged with?"
                     b "Sorry, this is my first time ever really… explaining this situation I’m in."
                     b "Where should I even begin?"
-                    call longversion
+                    call longversion from _call_longversion_1
                 "I'm so sorry.":
                     window show
                     mc "Is there anything you can do? Any way to stop it?"
