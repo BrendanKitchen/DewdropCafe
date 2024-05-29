@@ -1,6 +1,9 @@
 label chapter3:
     $ persistent.ch3 = True
 
+    # Play music
+    play music "Dewdrop_Forlorn.mp3"
+
     # Chapter Card Intro
     window hide
     $ quick_menu = False
@@ -14,7 +17,6 @@ label chapter3:
     hide ch overlay
     with fade
     $ quick_menu = True
-    window show
 
     # Several days later
     n "{i}The cafe is bustling. News of a strange shop serving exotic beverages travels swiftly, and more and more curious customers have been finding their way to the Dewdrop Cafe.{/i}"
