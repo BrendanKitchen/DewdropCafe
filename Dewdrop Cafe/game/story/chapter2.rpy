@@ -2,7 +2,7 @@
 label chapter2: 
     $ persistent.ch2 = True
 
-    # Intro - Kari's finishing up the day at the cafe
+    # Play music
     play music "Pas de Deuxdrop.mp3"
 
     # Chapter Card Intro
@@ -18,8 +18,11 @@ label chapter2:
     hide ch overlay
     with fade
     $ quick_menu = True
-    window show
 
+    # Intro - Kari's finishing up the day at the cafe
+    pause 0.25
+    window show
+    
     n "{i}The following day...{/i}"
     window hide
     pause 0.5
@@ -92,7 +95,10 @@ label chapter2:
             show luan -angry
         "Uh, hello, strange woman whom I have never met before.":
             window show
-            nn "{i}The woman coughs into her hand. The guard just sighs, a look of mild disappointment on his face.{/i}" (cb_name=["kannika", "luan"])
+            play sound "Dewdrop_KannikaClearThroat.mp3" volume 0.7
+            nn "{i}The woman coughs into her hand.{/i}" 
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
+            nn "{i}The guard just sighs, a look of mild disappointment on his face.{/i}" (cb_name=["kannika", "luan"])
         "Officer, I think I found the person you're looking for.":
             window show
             show kannika angry at sprite_highlight("kannika")
@@ -122,7 +128,7 @@ label chapter2:
     play sound "Dewdrop_Slither.mp3" volume 0.7
 
     # Adjust Kannika placement
-
+    
     show kannika neutral at left, sprite_highlight("kannika")
     with MoveTransition(0.75)
 
@@ -168,7 +174,7 @@ label chapter2:
             jump princessdiscussion
         "You know what, let's just start over.":
             window show
-            mc "Hi! I'm Kari."
+            mc "Hi! I'm Kari. Welcome to the Dewdrop Cafe!"
             princess "It's wonderful to meet you, Kari. My name is Kannika."
             mc "Princess Kannika?"
             b "Please, just Kannika."
@@ -324,10 +330,10 @@ label chapter2:
     window hide
     show kannika neutral:
         xzoom -1
-    pause 1.0
+    pause 0.5
     show kannika neutral:
         xzoom 1
-    pause 1.0
+    pause 0.5
 
     # Kannika and Luan leave
     show luan neutral:
@@ -338,7 +344,6 @@ label chapter2:
     pause 0.25
     show luan neutral at offscreenleft
     with MoveTransition(0.75)
-    pause 0.25
     show kannika neutral at offscreenleft
     with MoveTransition(0.75)
 
@@ -354,6 +359,7 @@ label chapter2:
     menu:
         "Again?!":
             window show
+            play sound "Dewdrop_KariLaugh.mp3" volume 0.7
             n "{i}You chuckle to yourself at the forgetfulness of this princess. You’ll just have to hold onto the parasol until you see her again.{/i}"
             n "{i}Hopefully, you won’t have to wait too long...{/i}"
         "She must’ve really been in a hurry...":
@@ -411,7 +417,7 @@ label cattailcitrustree:
             mc "You know, I was wondering about that."
             b "The ocean isn't very conducive to tea-making, sadly."
             b "Most of our finer traditional drinks are brines or layered oil jiggers."
-            mc "Did you say 'layered oil'??"
+            mc "Did you say 'layered oil??'"
             b "Yes. We layer different kinds of oil - infused with other flavors - in a sort of inverted shot glass. It looks pretty, but actually drinking it..."
             b "Let's just say I much prefer your tea."
             mc "Aw, I'm glad you like it so much!"
@@ -483,6 +489,7 @@ label cattailcitrustree:
                 "Eesh, that’s tough.":
                     window show
                     "Kannika stares flatly at you. Her eyes flit across your face, seemingly searching for something."
+                    play sound "Dewdrop_KannikaSigh.mp3"
                     "Then she sighs and slumps forward, elbows on the counter."
                     b "I guess this isn’t exactly something you can relate to after all…"
                     mc "No, really."
@@ -570,7 +577,7 @@ label cattailcitrustree:
             show kannika smile
             nn "{i}Over the course of the story, Kannika’s expression changes from bemusement to uncontrollable laughter. She unsuccessfully tries to cover her mouth with her hands to restrain her giggles before they burst out of her as entirely un-princesslike guffaws.{/i}" (cb_name="kannika")
             nn "{i}She wipes the tears from the corners of her eyes just in time to see you place a cup of softly steaming cattail citrus tea in front of her.{/i}" (cb_name="kannika")
-            mc "Kari: Here you go! One cattail citrus tea."
+            mc "Here you go! One cattail citrus tea."
             b "This is… truly incredible. Thank you."
             mc "What a coincidence! Whenever my mom drank that “tea” I made for her, she would say exactly the same thing."
             b "She sounds like a wonderful mother."
@@ -617,12 +624,13 @@ label cattailcitrustree:
                             b "I leave the castle to get away from that feeling. I came {i}here{/i} to get away from that feeling."
                             b "It’s not fair of me to drag you into those feelings with me."
                             mc "No, it’s not your fault."
-                            mc "You couldn’t have known."
+                            mc "It’s really not that big of a deal, either."
                             b "At the very least, I shouldn’t have grabbed you like that."
                             window hide
                             menu:
                                 "I didn't mind it.":
                                     window show
+                                    play sound "Dewdrop_KannikaClearThroat.mp3" volume 0.7
                                     "{i}Flustered, Kannika coughs into her hand.{/i}"
                                 "Hey. It's okay.":
                                     window show
@@ -675,7 +683,7 @@ label cattailcitrustree:
             mc "Instead, whenever I feel down or homesick, I make myself something from one of the places I’ve traveled through."
             mc "They help me think of the good parts of my journey, instead of the bad ones."
             mc "They remind me of all the amazing experiences I’ve had because I left home."
-    n "{i}As the memories recede, you blink back to the present. Kannika is watching you with keen interest.{/i}" 
+    n "{i}As the memories recede, you blink back to the present. Kannika is watching you with keen interest.{/i}"
     n "{i}You blush slightly as you realize just how much you’d been rambling. How long have you been talking for??{/i}"
     b "More, please."
     mc "..."
@@ -814,6 +822,7 @@ label moonjellytree:
     mc "Of course!"
     b "One of each, then."
     b "I’m looking forward to hearing these stories."
+    play sound "Dewdrop_KariLaugh.mp3" volume 0.7
     mc "Ha! You got me!"
     mc "It’s a good thing I can talk while I work."
     mc "One of everything, coming right up!"

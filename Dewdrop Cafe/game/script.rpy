@@ -19,7 +19,7 @@ label start:
     $ pickedlavender = False
     $ pickedjelly = False
 
-    # Intro - Kari enters scene, sets up cafe
+    # Play music
     play music "Pas de Deuxdrop.mp3"
 
     # Chapter Card Intro
@@ -36,6 +36,7 @@ label start:
     with fade
     $ quick_menu = True
 
+    # Intro - Kari enters scene, sets up cafe
     window show
     mc "Phew!" 
     mc "Alright, I think that looks good."
@@ -50,6 +51,8 @@ label start:
     mc "It’s a little damp, but otherwise this is a great spot – right on the waterfront!"
     mc "I hope the chairs don’t sink into the mud…"
     mc "Still gotta finish unpacking... "
+    mc "Man, where would I be without this magic briefcase? Lugging everything around by hand?"
+    mc "Let’s see… Ingredients, cups, utensils, and…"
 
     # Family cutscene
     window hide
@@ -297,6 +300,7 @@ label start:
             pause 1.0
             window show
             mc "Good, isn't it? My mom used to make it for me all the time."
+            play sound "Dewdrop_Sip.mp3" volume 0.7
             bquestionmark "..."
             bquestionmark "It's very good. I can see why it's your favorite."
             hide cattail citrus with dissolve
@@ -313,6 +317,7 @@ label start:
             pause 1.0
             window show
             mc "This was the first drink I learned how to make after I left home. Drinking it is really relaxing, don't you think?"
+            play sound "Dewdrop_Sip.mp3" volume 0.7
             bquestionmark "..."
             bquestionmark "It's very good."
             hide humming lavender with dissolve
@@ -329,6 +334,7 @@ label start:
             pause 1.0
             window show
             mc "Cute, right? I learned how to make it in the City of Swans, but I hear it first originated in this region."
+            play sound "Dewdrop_Sip.mp3" volume 0.7
             bquestionmark "..."
             bquestionmark "It's good."
             hide moon jelly with dissolve

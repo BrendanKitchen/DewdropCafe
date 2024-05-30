@@ -2,6 +2,9 @@
 label chapter4:
     $ persistent.ch4 = True
 
+    # Play music
+    play music "Dewdrop_Forlorn.mp3"
+
     # Chapter Card Intro
     window hide
     $ quick_menu = False
@@ -15,7 +18,6 @@ label chapter4:
     hide ch overlay
     with fade
     $ quick_menu = True
-    window show
 
     # Following day
     window show
@@ -32,6 +34,7 @@ label chapter4:
     # Narration
     window show
     n "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
+    play sound "Dewdrop_BushRustling_2.mp3" volume 0.7
     n "{i}As night falls and you begin to put the chairs away, you hear now-familiar rustling in the bushes. Could it be…?{/i}"
     window hide
 
@@ -50,15 +53,18 @@ label chapter4:
             window show
             lu "Yes, drink-peddler. It's me."
             nn "{i}Luan slithers forward to take a seat at the counter of the cafe. He eyes you up and down, studying your face, but he doesn’t seem to find what he’s looking for.{/i}" (cb_name="luan")
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}He sighs, posture relaxing, and leans forward to rest his crossed arms on the countertop.{/i}" (cb_name="luan")
         "...Hi, Luan.":
             window show
             lu "Kari."
             nn "{i}Luan nods in greeting before slithering forward to sit at the counter of the cafe. As soon as he settles onto the barstool his entire posture relaxes.{/i}" (cb_name="luan")
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}The naga leans forward to rest his crossed arms on the countertop with a sigh.{/i}" (cb_name="luan")
         "...Hi, Pancake.":
             window show
             nn "{i}Luan stares flatly at you. You half expect him to turn around and leave.{/i}" (cb_name="luan")
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}Instead, he sighs and shakes his head before slithering forward to take a seat at the counter of the cafe.{/i}" (cb_name="luan")
     mc "What's up?"
 
@@ -81,14 +87,37 @@ label chapter4:
             lu "And ice. It also had ice."
             mc "I’ll give it my best shot."
             n "{i}You get to work gathering ingredients – partially because you’re excited that Luan wants a drink, and partially to take your mind off of how strange it feels to see him here without Kannika.{/i}"
+
+            # Kari makes drink
+            window hide
+            show kari:
+                xzoom -1.0
+                align (1.1, 0.5)
+            with move
+            pause 0.25
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+            with Fade(0.5, 0.5, 0.5)
+            pause 0.25
+            show kari:
+                xzoom 1.0
+                align (1.0, 0.5)
+            with move
+
+            # Show drink
+            show drink bg:
+                align (0.5, 0.4)
+            show pink lady zorder 3:
+                align (0.5, 0.4)
+            with dissolve
+
             n "{i}Finally, you set a glass down in front of the naga. The drink is a soft, warm pink that seems to almost glow in the light of the setting sun.{/i}"
             n "{i}It reminds you of the way the light danced across Kannika’s scales when you first met her.{/i}"
             mc "Here it is! Hibiscus iced tea with apple."
             lu "This color… It’s strikingly accurate."
             lu "What is it called?"
+            window hide
 
             # Drink naming menu
-            window hide
             menu:
                 "How about “sunset memory?”":
                     window show
@@ -118,11 +147,15 @@ label chapter4:
                     lu "Not at all."
 
             # Luan sip
+            hide pink lady with dissolve
+            hide drink bg with dissolve
+            play sound "Dewdrop_Sip.mp3" volume 0.7
             nn "{i}Luan picks up the glass and tentatively takes a sip through the straw.{/i}" (cb_name="luan")
             show luan surprised
             nn "{i}His eyes go wide as he savors the taste, but he quickly regains his composure and carefully sets the drink back down on the counter.{/i}" (cb_name="luan")
             show luan -surprised
             mc "How is it?"
+            play sound "Dewdrop_LuanThroatClear.mp3" volume 0.7
             lu "…It’s… good."
             lu "But we should turn to more pressing matters."
         "I already told you I don’t have any contraband in here.":
@@ -140,6 +173,7 @@ label chapter4:
     lu "The queen is no longer willing to overlook her nightly escapades. Nor does she overlook her fraternization with a commoner."
     lu "As such…"
     nn "{i}Luan produces a stack of abalone shells strung together on a length of twine. There’s something carved into the shells – writing, though you can’t make heads or tails of it.{/i}" (cb_name="luan")
+    play sound "Dewdrop_LuanThroatClear.mp3" volume 0.7
     nn "{i}Luan clears his throat and begins to read from the shells.{/i}" (cb_name="luan")
     lu "The queen has ordered your banishment from the Naga Kingdom."
     lu "You have until the end of the week to leave our borders, and you may not return to Naga Kingdom lands for a year and a day."
@@ -197,6 +231,7 @@ label chapter4:
             mc "Are you gonna tell me that, actually, this guy she’s gonna have to marry is a pretty swell dude?"
             mc "Or maybe you’ll tell me that this is all {i}my{/i} fault for making Kannika want to run away from home?"
             lu "If you want me to explain, you must first give me a {i}chance{/i} to explain."
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             lu "…"
             lu "Let me start from the beginning."
         "I don't want to hear anything from you right now.":
@@ -348,6 +383,7 @@ label chapter4:
             show luan -smile
         "Thank you, Pancake.":
             window show
+            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}Luan sighs, but it soon turns into a soft chuckle. He shakes his head, and you can see that an invisible weight has been lifted from his shoulders after talking to you.{/i}" (cb_name="luan")
     
     # Will Kari see Kannika again?
@@ -369,8 +405,10 @@ label chapter4:
     show luan at offscreenleft
     with easeoutleft
     pause 0.5
+    window show
     n "{i}You’re left alone with your thoughts, cleaning glasses and folding up chairs as you prepare to tuck in for the night.{/i}"
-
+    window hide
+    
     # Fade out
     scene black
     with fade
@@ -402,6 +440,9 @@ label badendingleft:
         "Tell her I’m sorry.":
             window show
             mc "I didn’t mean for things to turn out like this."
+            mc "And I know it seems really hard, but things’ll get better."
+            mc "And I’m– And I…"
+            mc "There’s so much I wish I could say but I just don’t have the words."
             lu "…"
         "Tell her I’ll come back some day.":
             window show

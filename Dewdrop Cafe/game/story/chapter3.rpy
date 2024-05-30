@@ -289,7 +289,7 @@ label chapter3:
     window hide
     $ highelderstree = {"elders": False, "marry": False}
     menu highelders:
-        "Real quick, who are these “High Elders”?" if not highelderstree["elders"]:
+        "Real quick, who are these “High Elders?”" if not highelderstree["elders"]:
             $ highelderstree["elders"] = True
             window show
             mc "How is your mother the queen if even she has people who can tell her what to do?"
@@ -395,10 +395,11 @@ label chapter3:
 
             # Kari ideas menu
             window hide
-            $ ideastree = {"mom": False, "nobility": False, "rebellion": False}
+            $ ideastree = {"mom": False, "nobility": False, "rebellion": False, "pickedany": False}
             menu ideas:
                 "We could talk to your mom together." if not ideastree["mom"]:
                     $ ideastree["mom"] = True
+                    $ ideastree["pickedany"] = True
                     window show
                     mc "Maybe if I’m there to help explain, she’ll understand how much this means to you."
                     b "You would never be granted an audience with her! I’m not even supposed to be coming out to see you!"
@@ -407,6 +408,7 @@ label chapter3:
                     jump ideas
                 "What if you got the nobility to support you?" if not ideastree["nobility"]:
                     $ ideastree["nobility"] = True
+                    $ ideastree["pickedany"] = True
                     show kari -surprised
                     window show
                     mc "If they’re this interested in gaining power and influence, maybe you could offer them something for when you do take the throne."
@@ -420,6 +422,7 @@ label chapter3:
                     jump ideas
                 "Start a rebellion." if not ideastree["rebellion"]:
                     $ ideastree["rebellion"] = True
+                    $ ideastree["pickedany"] = True
                     window show
                     mc "The system sucks, right? Just throw out the system."
                     show kannika surprised
@@ -428,7 +431,7 @@ label chapter3:
                     b "There is nothing I can do to change the way things are."
                     window hide
                     jump ideas
-                "I don’t know.":
+                "I don’t know." if ideastree["pickedany"]:
                     window show
                     mc "I just…"
                     mc "Clearly you can’t stay."
@@ -485,7 +488,7 @@ label chapter3:
     window show
     mc "..."
     window hide
-    pause 0.5
+    pause 0.25
 
     # Kari depression menu
     menu:

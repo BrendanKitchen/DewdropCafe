@@ -1,6 +1,9 @@
 label chapter5:
     $ persistent.ch5 = True
 
+    # Play music
+    play music "Recollection.mp3"
+
     # Chapter Card Intro
     window hide
     $ quick_menu = False
@@ -14,7 +17,6 @@ label chapter5:
     hide ch overlay
     with fade
     $ quick_menu = True
-    window show
 
     # Intro
     show day bg
