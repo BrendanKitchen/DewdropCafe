@@ -9,33 +9,68 @@
 		"DisplayInfo": "Kari.cdi3.json",
 		"Expressions": [
 			{
-				"Name": "smile",
-				"File": "smile.exp3.json"
-			},
-			{
 				"Name": "angry",
 				"File": "angry.exp3.json"
 			},
 			{
-				"Name": "expression1",
+				"Name": "frown",
 				"File": "frown.exp3.json"
+			},
+			{
+				"Name": "smile",
+				"File": "smile.exp3.json"
 			},
 			{
 				"Name": "surprised",
 				"File": "surprised.exp3.json"
+			},
+			{
+				"Name": "cry",
+				"File": "cry.exp3.json"
+			},
+			{
+				"Name": "sweatdrop",
+				"File": "sweatdrop.exp3.json"
+			},
+			{
+				"Name": "sparkle",
+				"File": "sparkle.exp3.json"
+			},
+			{
+				"Name": "gloom",
+				"File": "gloom.exp3.json"
+			},
+			{
+				"Name": "blush",
+				"File": "blush.exp3.json"
+			},
+			{
+				"Name": "exclamation",
+				"File": "exclamation.exp3.json"
+			},
+			{
+				"Name": "sunglasses",
+				"File": "sunglasses.exp3.json"
+			},
+			{
+				"Name": "speechless",
+				"File": "speechless.exp3.json"
 			}
 		]
 	},
 	"Groups": [
 		{
 			"Target": "Parameter",
-			"Name": "EyeBlink",
+			"Name": "LipSync",
 			"Ids": []
 		},
 		{
 			"Target": "Parameter",
-			"Name": "LipSync",
-			"Ids": []
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
 		}
 	],
 	"HitAreas": []

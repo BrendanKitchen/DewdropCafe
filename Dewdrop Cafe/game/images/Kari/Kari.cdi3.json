@@ -2,6 +2,51 @@
 	"Version": 3,
 	"Parameters": [
 		{
+			"Id": "ParamAngry",
+			"GroupId": "ParamGroup",
+			"Name": "angry"
+		},
+		{
+			"Id": "ParamGloom",
+			"GroupId": "ParamGroup",
+			"Name": "gloom"
+		},
+		{
+			"Id": "ParamBlush",
+			"GroupId": "ParamGroup",
+			"Name": "blush"
+		},
+		{
+			"Id": "ParamSparkle",
+			"GroupId": "ParamGroup",
+			"Name": "sparkle"
+		},
+		{
+			"Id": "ParamStare",
+			"GroupId": "ParamGroup",
+			"Name": "stare"
+		},
+		{
+			"Id": "ParamSunglasses",
+			"GroupId": "ParamGroup",
+			"Name": "sunglasses"
+		},
+		{
+			"Id": "ParamExclamation",
+			"GroupId": "ParamGroup",
+			"Name": "exclamation"
+		},
+		{
+			"Id": "ParamSweatdrop",
+			"GroupId": "ParamGroup",
+			"Name": "sweatdrop"
+		},
+		{
+			"Id": "ParamCry",
+			"GroupId": "ParamGroup",
+			"Name": "cry"
+		},
+		{
 			"Id": "ParamAngleX",
 			"GroupId": "",
 			"Name": "Angle X"
@@ -50,26 +95,6 @@
 			"Id": "ParamEyeSize",
 			"GroupId": "",
 			"Name": "Eye Size"
-		},
-		{
-			"Id": "ParamBrowLY",
-			"GroupId": "",
-			"Name": "BrowL Y"
-		},
-		{
-			"Id": "ParamBrowRY",
-			"GroupId": "",
-			"Name": "BrowR Y"
-		},
-		{
-			"Id": "ParamBrowLX",
-			"GroupId": "",
-			"Name": "BrowL X"
-		},
-		{
-			"Id": "ParamBrowRX",
-			"GroupId": "",
-			"Name": "BrowR X"
 		},
 		{
 			"Id": "ParamBrowLAngle",
@@ -132,6 +157,16 @@
 			"Name": "Breath"
 		},
 		{
+			"Id": "ParamBlinkPhys",
+			"GroupId": "",
+			"Name": "blink physics"
+		},
+		{
+			"Id": "ParamBlinkPhys2",
+			"GroupId": "",
+			"Name": "blink physics 2"
+		},
+		{
 			"Id": "ParamHairFront",
 			"GroupId": "",
 			"Name": "Hair Move Front"
@@ -152,11 +187,21 @@
 			"Name": "Tail Move"
 		}
 	],
-	"ParameterGroups": [],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "Toggles"
+		}
+	],
 	"Parts": [
 		{
 			"Id": "Part",
 			"Name": "Kari"
+		},
+		{
+			"Id": "Part3",
+			"Name": "external stickers"
 		},
 		{
 			"Id": "bangs",
@@ -179,6 +224,18 @@
 			"Name": "ponytail"
 		},
 		{
+			"Id": "sparkles",
+			"Name": "sparkles"
+		},
+		{
+			"Id": "ellipsis",
+			"Name": "ellipsis"
+		},
+		{
+			"Id": "Part4",
+			"Name": "face stickers"
+		},
+		{
 			"Id": "L_eye",
 			"Name": "L_eye"
 		},
@@ -189,6 +246,18 @@
 		{
 			"Id": "mouth",
 			"Name": "mouth"
+		},
+		{
+			"Id": "mouth_inner",
+			"Name": "mouth_inner"
+		},
+		{
+			"Id": "anya",
+			"Name": "anya"
+		},
+		{
+			"Id": "bocchi",
+			"Name": "bocchi"
 		}
 	],
 	"CombinedParameters": [
@@ -203,6 +272,14 @@
 		[
 			"ParamBrowRAngle",
 			"ParamBrowRForm"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
+		],
+		[
+			"ParamBlinkPhys",
+			"ParamBlinkPhys2"
 		]
 	]
 }
