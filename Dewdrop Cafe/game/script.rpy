@@ -20,7 +20,7 @@ label start:
     $ pickedjelly = False
 
     # Play music
-    play music "Pas de Deuxdrop.mp3"
+    play music "Pas de Deuxdrop.mp3" volume 0.7
 
     # Chapter Card Intro
     window hide
@@ -252,6 +252,7 @@ label start:
     bquestionmark "...it completes the fit."
     show kannika smile
     show kari smile
+    play sound "Dewdrop_Giggles.mp3" volume 0.7
     n "{i}You and the naga dissolve into a fit of giggles.{/i}"
     n "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
     show kannika -smile
@@ -275,6 +276,7 @@ label start:
     mc "As long as it’s tea."
     bquestionmark "Which one’s your favorite? I’ll have that one."
     mc "Excellent choice, madam."
+    play sound "Dewdrop_TeaKettle.mp3" volume 0.7
     n "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
     nn "{i}The naga holds the cup between her hands, feeling its warmth.{/i}" (cb_name="kannika")
     window hide

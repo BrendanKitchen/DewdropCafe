@@ -3,7 +3,7 @@ label chapter2:
     $ persistent.ch2 = True
 
     # Play music
-    play music "Pas de Deuxdrop.mp3"
+    play music "Pas de Deuxdrop.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
@@ -22,7 +22,6 @@ label chapter2:
     # Intro - Kari's finishing up the day at the cafe
     pause 0.25
     window show
-    
     n "{i}The following day...{/i}"
     window hide
     pause 0.5
@@ -128,7 +127,7 @@ label chapter2:
     play sound "Dewdrop_Slither.mp3" volume 0.7
 
     # Adjust Kannika placement
-    
+
     show kannika neutral at left, sprite_highlight("kannika")
     with MoveTransition(0.75)
 
@@ -278,6 +277,7 @@ label chapter2:
     b "In a bit, {i}Luan.{/i} Mother hardly even notices I’m gone – she won’t care if I’m an hour later than usual."
     show luan angry at sprite_highlight("luan")
     nn "{i}Luan’s expression darkens. His hands clench into fists, and his fins rise and flare out slightly.{/i}" (cb_name="luan")
+    play sound "Dewdrop_LuanSigh.mp3" volume 0.7
     nn "{i}He closes his eyes and takes a measured breath, inhaling through his nose and exhaling out his mouth.{/i}" (cb_name="luan")
     show luan -angry
     lu "Princess. Her Majesty’s patience, while generous, is not infinite."
@@ -344,6 +344,7 @@ label chapter2:
     pause 0.25
     show luan neutral at offscreenleft
     with MoveTransition(0.75)
+    pause 0.25
     show kannika neutral at offscreenleft
     with MoveTransition(0.75)
 
@@ -575,6 +576,7 @@ label cattailcitrustree:
             mc "So my mom would come into the kitchen to see me in the middle of a huge mess, holding two cups of cold, sugary water."
             mc "With just a hint of citrus."
             show kannika smile
+            play sound "Dewdrop_KannikaLaugh.mp3" volume 0.7
             nn "{i}Over the course of the story, Kannika’s expression changes from bemusement to uncontrollable laughter. She unsuccessfully tries to cover her mouth with her hands to restrain her giggles before they burst out of her as entirely un-princesslike guffaws.{/i}" (cb_name="kannika")
             nn "{i}She wipes the tears from the corners of her eyes just in time to see you place a cup of softly steaming cattail citrus tea in front of her.{/i}" (cb_name="kannika")
             mc "Here you go! One cattail citrus tea."
@@ -612,10 +614,12 @@ label cattailcitrustree:
                             b "Kari–"
                             mc "Hey, check out this cool birthmark I’ve got on my–"
                             b "KARI."
+                            play sound "Dewdrop_Clatter.mp3" volume 0.7
                             n "{i}Cups clatter against the countertop. You blink to see that Kannika has stood up from her seat to grab your shoulder, snapping you out of your deflection spiral.{/i}"
                             n "{i}You become immediately aware of how close she is to you, the warmth of her hand through your shirt, somehow both firm and gentle.{/i}"
                             nn "{i}Your eyes refocus on hers – vibrant orange like cups of honey, lit by lamplight and fireflies.{/i}" (cb_name="kannika")
                             n "{i}Kannika blushes and takes her hand off your shoulder. The two of you stand awkwardly on opposite sides of the counter, not quite making eye contact.{/i}"
+                            play sound "Dewdrop_Sip.mp3" volume 0.7
                             n "{i}After a few moments, Kannika gently sits back in her chair and picks up her cup, bringing it to her lips and sipping deeply.{/i}"
                             b "I'm sorry."
                             mc "It's okay-"
