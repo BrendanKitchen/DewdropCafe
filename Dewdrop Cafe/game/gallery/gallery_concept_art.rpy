@@ -23,7 +23,8 @@ screen gallery_concept_art:
         textbutton "Character Concepts" action SetScreenVariable("curpage", "character_concepts_1")
         textbutton "Cafe Concepts" action SetScreenVariable("curpage", "cafe_concepts_1")
         textbutton "Prototype Drinks" action SetScreenVariable("curpage", "prototype_drinks_1")
-        textbutton "Character Fanart" action SetScreenVariable("curpage", "character_fanart_1")
+        textbutton "Character Fanart (1)" action SetScreenVariable("curpage", "character_fanart_1")
+        textbutton "Character Fanart (2)" action SetScreenVariable("curpage", "character_fanart_2")
         
         
 
@@ -45,15 +46,22 @@ screen gallery_concept_art:
             add gallery.make_button("drink_concepts", im.Scale("concept_art/thumbnails/issy_drink_concepts.png", 384, 216), tooltip="Cafe drink concept art by {color=#4DE5BA}Issy Wong{/color}")
 
         if curpage == "prototype_drinks_1":
-            add gallery.make_button("betta_drink", im.Scale("BettaDrink.png",384,216), tooltip="Betta drink by {color=#4DE5BA}Issy Wong{/color}")
-            add gallery.make_button("starfruit_sunset", im.Scale("BettaDrink2.png",384,216), tooltip="Starfruit Sunset {color=#4DE5BA}Issy Wong{/color}")
-            add gallery.make_button("pink_lady", im.Scale("pink_lady.png",384,216), tooltip="Pink Lady by {color=#4DE5BA}Issy Wong{/color}")
+            # add gallery.make_button("betta_drink", im.Scale("BettaDrink.png",384,216), tooltip="Betta drink by {color=#4DE5BA}Issy Wong{/color}")
+            add gallery.make_button("prototype_tea", im.Scale("prototype_tea.png",384,216), tooltip="Prototype Tea by {color=#4DE5BA}Issy Wong{/color}")
+            # add gallery.make_button("pink_lady", im.Scale("pink_lady.png",384,216), tooltip="Pink Lady by {color=#4DE5BA}Issy Wong{/color}")
 
         if curpage == "character_fanart_1":
             add gallery.make_button("ash_kari", "fanart/thumbnails/ash_kari.PNG", tooltip="Kari fanart by {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("ash_kannika", "fanart/thumbnails/ash_kannika.PNG", tooltip="Kannika fanart by {color=#4DE5BA}Ashley Lu{/color}")
             add gallery.make_button("el_kannikari", "fanart/thumbnails/el_kannikari.png", tooltip="Kannika and Kari fanart by {color=#4DE5BA}Elizabeth Liao{/color}")
             add gallery.make_button("issy_kannika", "fanart/thumbnails/issy_kannika.png", tooltip="Kannika fanart by {color=#4DE5BA}Issy Wong{/color}")
+            add gallery.make_button("issy_kannika2", "fanart/thumbnails/issy_kannika2.png", tooltip="Kannika fanart by {color=#4DE5BA}Issy Wong{/color}")
             add gallery.make_button("issy_luan", "fanart/thumbnails/issy_luan.png", tooltip="Luan fanart by {color=#4DE5BA}Issy Wong{/color}")
+
+        if curpage == "character_fanart_2":
+            add gallery.make_button("issy_kannikari", "fanart/thumbnails/issy_kannikari.png", tooltip="Kannika and Kari fanart by {color=#4DE5BA}Issy Wong{/color}")
+            add gallery.make_button("issy_luan2", "fanart/thumbnails/issy_luan2.png", tooltip="Luan fanart by {color=#4DE5BA}Issy Wong{/color}")
+
 
 style gallery_concept_art_label:
     ypos 51

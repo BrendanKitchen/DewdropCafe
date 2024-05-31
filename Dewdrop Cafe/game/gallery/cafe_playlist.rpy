@@ -28,21 +28,22 @@ screen cafe_playlist:
         style_prefix "track"
         yalign 0.9
         xalign 0.66
-        spacing 20
+        spacing 15
         # playlist
         add "gui/gallery_assets/album_cover.png":
-            zoom 1.3
+            zoom 1.2
             xalign 0.5
         vbox:
             style_prefix "playlist"
-            xalign 0.0
             # box_reverse True
             textbutton "Main Theme" action music.Play("Main Menu Theme.mp3")
             textbutton "Pas de Deuxdrop" action music.Play("Pas de Deuxdrop.mp3")
+            textbutton "Forlorn" action music.Play("Dewdrop_Forlorn.mp3")
             textbutton "Recollection" action music.Play("Recollection.mp3")
-        text "Connor Green"
+        text "by Connor Green"
         add "gui/gallery_assets/track_bar.png":
             xzoom 0.8
+            xalign 0.5
         hbox: # controls
             xalign 0.6
             spacing 50

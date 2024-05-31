@@ -26,14 +26,9 @@ init python:
     # ------------------------
 
     # PROTOTYPE DRINKS
-    gallery.button("betta_drink")
-    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("BettaDrink.png", 1920,1080))
+    gallery.button("prototype_tea")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("prototype_tea.png", 1920,1080))
 
-    gallery.button("starfruit_sunset")
-    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("BettaDrink2.png", 1920,1080))
-
-    gallery.button("pink_lady")
-    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("pink_lady.png", 1920,1080))
 
     # CAFE CONCEPTS
     gallery.button("night_background_concept")
@@ -68,14 +63,26 @@ init python:
     gallery.button("ash_kari")
     gallery.image("../gui/overlay/plain_overlay.png", im.Scale("fanart/ash_kari.PNG", 1080, 1080))
 
+    gallery.button("ash_kannika")
+    gallery.image("../gui/overlay/plain_overlay.png", im.Scale("fanart/ash_kannika.PNG", 1080, 1080))
+
     gallery.button("el_kannikari")
     gallery.image("../gui/overlay/plain_overlay.png", "fanart/el_kannikari.png")
 
     gallery.button("issy_kannika")
     gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannika.png")
 
+    gallery.button("issy_kannika2")
+    gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannika2.png")
+
     gallery.button("issy_luan")
     gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_luan.png")
+
+    gallery.button("issy_luan2")
+    gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_luan2.png")
+
+    gallery.button("issy_kannikari")
+    gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannikari.png")
 
 
 
@@ -88,7 +95,35 @@ init python:
     gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("cattail_citrus.png", 1920,1080))
     gallery.unlock("cattail citrus") # the condiiton for unlocking - aka if cattail citrus is true
 
+    gallery.button("moonjelly_tea")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("moonjelly.png", 1920,1080))
+    gallery.unlock("moon jelly")
 
+    gallery.button("affogato_al_signo")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("affogato_al_signo.png", 1920,1080))
+    gallery.unlock("affogato al signo")
+
+    gallery.button("otterkish_coffee")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("otterkish_coffee.png", 1920,1080))
+    gallery.unlock("otterkish coffee")
+
+    gallery.button("humming_lavender")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("humming_lavender.png", 1920,1080))
+    gallery.unlock("humming lavender")
+
+    gallery.button("pink_lady")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("pink_lady.png", 1920,1080))
+    gallery.unlock("pink lady")
+
+    gallery.button("starfruit_sunset")
+    gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("starfruit_sunset.png", 1920,1080))
+    gallery.unlock("starfruit sunset")
+
+
+    # ------ INGREDIENTS -------
+    # ------------------------
+    # ------------------------
+    # ------------------------
     gallery.button("seamelon_button")
     gallery.image("../gui/overlay/plain_overlay.png", "../gui/gallery_assets/gallery_drink_bg.png", im.Scale("seamelon.png", 1920,1080))
     gallery.unlock("seamelon")
