@@ -20,7 +20,7 @@ label start:
     $ pickedjelly = False
 
     # Play music
-    play music "Pas de Deuxdrop.mp3" volume 0.7
+    play music "Pas de Deuxdrop.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
@@ -367,9 +367,9 @@ label start:
     window show
     mc "Wait, You forgot your-"
     window hide
-    pause 0.5
+    pause 0.25
     play sound "Dewdrop_Splash.mp3" volume 0.7
-    pause 1.0
+    pause 0.5
     window show
     mc "...parasol."
 
