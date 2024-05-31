@@ -3,7 +3,7 @@ label chapter4:
     $ persistent.ch4 = True
 
     # Play music
-    play music "Dewdrop_Forlorn.mp3"
+    play music "Dewdrop_Forlorn.mp3" volume 0.7
 
     # Chapter Card Intro
     window hide
