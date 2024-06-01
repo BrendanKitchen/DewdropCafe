@@ -2,7 +2,7 @@ label chapter3:
     $ persistent.ch3 = True
 
     # Play music
-    play music "Dewdrop_Forlorn.mp3"
+    play music "Dewdrop_Forlorn.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
@@ -163,6 +163,7 @@ label chapter3:
     nn "{i}You walk out from behind the counter and place a mug of warm hot chocolate – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
     nn "{i}She looks at you with gratitude as you sit next to her and smile reassuringly at her.{/i}" (cb_name="kannika")
     mc "Whenever you're ready."
+    play sound "Dewdrop_KannikaSigh.mp3" volume 0.7
     nn "{i}Kannika takes a deep breath and begins to speak.{/i}" (cb_name="kannika")
 
     # Cattail Citrus or no Cattail Citrus branch
@@ -459,6 +460,7 @@ label chapter3:
     # Kannika is NOT having it
     show kannika angry
     show kari surprised
+    play sound "Dewdrop_Clatter.mp3" volume 0.7
     nn "{i}With a clatter, Kannika stands up and pushes away from the counter. Her skin is flushed, brow furrowed and fins flared, and her shoulders are hunched as if bracing for a blow.{/i}" (cb_name="kannika")
     nn "{i}She meets your eyes for just a moment, but in those orange pools you see frustration, betrayal, and a hint of desperation. The princess turns away from you, hugging her arms around herself.{/i}" (cb_name="kannika")
     b "This is going nowhere."
@@ -477,7 +479,10 @@ label chapter3:
     pause 0.5
     window show
     show kari surprised
+    play sound "Dewdrop_Splash.mp3" volume 0.7
     n "{i}Kannika storms off and dives into the water. Luan spares you only a quick glance before following behind her.{/i}"
+    play sound "Dewdrop_Splash.mp3" volume 0.7
+    pause 0.5
     n "{i}You are alone.{/i}"
     # show kari -surprised
 

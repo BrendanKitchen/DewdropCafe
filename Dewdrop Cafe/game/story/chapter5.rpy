@@ -2,7 +2,7 @@ label chapter5:
     $ persistent.ch5 = True
 
     # Play music
-    play music "Recollection.mp3"
+    play music "Recollection.mp3" volume 0.7
 
     # Chapter Card Intro
     window hide
