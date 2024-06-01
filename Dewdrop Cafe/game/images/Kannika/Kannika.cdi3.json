@@ -2,6 +2,56 @@
 	"Version": 3,
 	"Parameters": [
 		{
+			"Id": "angry",
+			"GroupId": "ParamGroup",
+			"Name": "angry"
+		},
+		{
+			"Id": "gloom",
+			"GroupId": "ParamGroup",
+			"Name": "gloom"
+		},
+		{
+			"Id": "Paramblush",
+			"GroupId": "ParamGroup",
+			"Name": "blush"
+		},
+		{
+			"Id": "sparkle",
+			"GroupId": "ParamGroup",
+			"Name": "sparkle"
+		},
+		{
+			"Id": "stare",
+			"GroupId": "ParamGroup",
+			"Name": "stare"
+		},
+		{
+			"Id": "ParamSunglasses",
+			"GroupId": "ParamGroup",
+			"Name": "sunglasses"
+		},
+		{
+			"Id": "ParamMustache",
+			"GroupId": "ParamGroup",
+			"Name": "mustache"
+		},
+		{
+			"Id": "paramExclamation",
+			"GroupId": "ParamGroup",
+			"Name": "exclamation"
+		},
+		{
+			"Id": "ParamSweatdrop",
+			"GroupId": "ParamGroup",
+			"Name": "sweatdrop"
+		},
+		{
+			"Id": "ParamCry",
+			"GroupId": "ParamGroup",
+			"Name": "cry"
+		},
+		{
 			"Id": "ParamAngleX",
 			"GroupId": "",
 			"Name": "Angle X"
@@ -45,6 +95,16 @@
 			"Id": "ParamEyeBallY",
 			"GroupId": "",
 			"Name": "Eyeball Y"
+		},
+		{
+			"Id": "ParamEyeHighlightPhys1",
+			"GroupId": "",
+			"Name": "Eye highlight phys 1"
+		},
+		{
+			"Id": "ParamEyeHighlightPhys2",
+			"GroupId": "",
+			"Name": "Eye highlight phys 2"
 		},
 		{
 			"Id": "ParamBrowLY",
@@ -127,6 +187,11 @@
 			"Name": "Hair Move Front"
 		},
 		{
+			"Id": "ParamTailPhys",
+			"GroupId": "",
+			"Name": "tail physics"
+		},
+		{
 			"Id": "ParamFinPhysics",
 			"GroupId": "",
 			"Name": "fin physics"
@@ -142,11 +207,21 @@
 			"Name": "Eye Size"
 		}
 	],
-	"ParameterGroups": [],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "toggles"
+		}
+	],
 	"Parts": [
 		{
 			"Id": "Part",
 			"Name": "character"
+		},
+		{
+			"Id": "Part2",
+			"Name": "external stickers"
 		},
 		{
 			"Id": "head",
@@ -157,8 +232,28 @@
 			"Name": "hair"
 		},
 		{
+			"Id": "sparkles",
+			"Name": "sparkles"
+		},
+		{
+			"Id": "Part3",
+			"Name": "ellipsis"
+		},
+		{
+			"Id": "Part4",
+			"Name": "face stickers Copy"
+		},
+		{
 			"Id": "face",
 			"Name": "face"
+		},
+		{
+			"Id": "anya",
+			"Name": "anya"
+		},
+		{
+			"Id": "bocchi",
+			"Name": "bocchi"
 		},
 		{
 			"Id": "L_eye",
@@ -171,12 +266,20 @@
 		{
 			"Id": "mouth",
 			"Name": "mouth"
+		},
+		{
+			"Id": "mouth_inner",
+			"Name": "mouth_inner"
 		}
 	],
 	"CombinedParameters": [
 		[
 			"ParamEyeBallX",
 			"ParamEyeBallY"
+		],
+		[
+			"ParamEyeHighlightPhys1",
+			"ParamEyeHighlightPhys2"
 		]
 	]
 }

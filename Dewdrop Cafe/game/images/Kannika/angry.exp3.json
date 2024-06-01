@@ -52,6 +52,11 @@
 			"Id": "ParamEyeBallX",
 			"Value": 0.012,
 			"Blend": "Add"
+		},
+		{
+			"Id": "angry",
+			"Value": 1,
+			"Blend": "Add"
 		}
 	]
 }
