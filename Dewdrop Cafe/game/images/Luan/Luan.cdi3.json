@@ -2,19 +2,9 @@
 	"Version": 3,
 	"Parameters": [
 		{
-			"Id": "ParamAngleX",
+			"Id": "ParamBlush",
 			"GroupId": "",
-			"Name": "Angle X"
-		},
-		{
-			"Id": "ParamAngleY",
-			"GroupId": "",
-			"Name": "Angle Y"
-		},
-		{
-			"Id": "ParamAngleZ",
-			"GroupId": "",
-			"Name": "Angle Z"
+			"Name": "blush"
 		},
 		{
 			"Id": "ParamEyeLOpen",
@@ -67,16 +57,6 @@
 			"Name": "BrowR Y"
 		},
 		{
-			"Id": "ParamBrowLX",
-			"GroupId": "",
-			"Name": "BrowL X"
-		},
-		{
-			"Id": "ParamBrowRX",
-			"GroupId": "",
-			"Name": "BrowR X"
-		},
-		{
 			"Id": "ParamBrowRForm",
 			"GroupId": "",
 			"Name": "BrowR Form"
@@ -107,26 +87,6 @@
 			"Name": "Mouth Form"
 		},
 		{
-			"Id": "ParamMouthOpenY",
-			"GroupId": "",
-			"Name": "Mouth Open"
-		},
-		{
-			"Id": "ParamBodyAngleX",
-			"GroupId": "",
-			"Name": "Body X"
-		},
-		{
-			"Id": "ParamBodyAngleY",
-			"GroupId": "",
-			"Name": "Body Y"
-		},
-		{
-			"Id": "ParamBodyAngleZ",
-			"GroupId": "",
-			"Name": "Body Z"
-		},
-		{
 			"Id": "ParamBreath",
 			"GroupId": "",
 			"Name": "Breath"
@@ -145,6 +105,26 @@
 			"Id": "ParamArmorShine",
 			"GroupId": "",
 			"Name": "Armor Shine"
+		},
+		{
+			"Id": "ParamTailMove",
+			"GroupId": "",
+			"Name": "tail move`"
+		},
+		{
+			"Id": "Paramtailmove2",
+			"GroupId": "",
+			"Name": "tail move 2"
+		},
+		{
+			"Id": "Paramblinkphys1",
+			"GroupId": "",
+			"Name": "blink phys 1"
+		},
+		{
+			"Id": "Paramblinkphys2",
+			"GroupId": "",
+			"Name": "blink phys2"
 		}
 	],
 	"ParameterGroups": [],
@@ -176,12 +156,24 @@
 	],
 	"CombinedParameters": [
 		[
+			"ParamEyeBallX",
+			"ParamEyeBallY"
+		],
+		[
 			"ParamBrowRForm",
 			"ParamBrowRAngle"
 		],
 		[
 			"ParamBrowLForm",
 			"ParamBrowLAngle"
+		],
+		[
+			"ParamTailMove",
+			"Paramtailmove2"
+		],
+		[
+			"Paramblinkphys1",
+			"Paramblinkphys2"
 		]
 	]
 }

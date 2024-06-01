@@ -9,6 +9,10 @@
 		"DisplayInfo": "Luan.cdi3.json",
 		"Expressions": [
 			{
+				"Name": "sad",
+				"File": "sad.exp3.json"
+			},
+			{
 				"Name": "smile",
 				"File": "smile.exp3.json"
 			},
@@ -21,24 +25,28 @@
 				"File": "angry.exp3.json"
 			},
 			{
-				"Name": "sad",
-				"File": "sad.exp3.json"
+				"Name": "blush",
+				"File": "blush.exp3.json"
 			},
 			{
 				"Name": "frown",
 				"File": "frown.exp3.json"
+			},
+			{
+				"Name": "glance_down",
+				"File": "glance_down.exp3.json"
 			}
 		]
 	},
 	"Groups": [
 		{
 			"Target": "Parameter",
-			"Name": "EyeBlink",
+			"Name": "LipSync",
 			"Ids": []
 		},
 		{
 			"Target": "Parameter",
-			"Name": "LipSync",
+			"Name": "EyeBlink",
 			"Ids": []
 		}
 	],

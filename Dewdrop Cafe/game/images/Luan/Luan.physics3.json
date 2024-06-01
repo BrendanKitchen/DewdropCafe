@@ -3,7 +3,7 @@
 	"Meta": {
 		"PhysicsSettingCount": 2,
 		"TotalInputCount": 3,
-		"TotalOutputCount": 3,
+		"TotalOutputCount": 7,
 		"VertexCount": 5,
 		"Fps": 60,
 		"EffectiveForces": {
@@ -63,6 +63,28 @@
 					"Weight": 100,
 					"Type": "Angle",
 					"Reflect": false
+				},
+				{
+					"Destination": {
+						"Target": "Parameter",
+						"Id": "ParamTailMove"
+					},
+					"VertexIndex": 2,
+					"Scale": 1,
+					"Weight": 100,
+					"Type": "Angle",
+					"Reflect": true
+				},
+				{
+					"Destination": {
+						"Target": "Parameter",
+						"Id": "Paramtailmove2"
+					},
+					"VertexIndex": 2,
+					"Scale": 1,
+					"Weight": 100,
+					"Type": "Angle",
+					"Reflect": true
 				}
 			],
 			"Vertices": [
@@ -137,6 +159,28 @@
 					"Destination": {
 						"Target": "Parameter",
 						"Id": "ParamFinPhysics"
+					},
+					"VertexIndex": 1,
+					"Scale": 1,
+					"Weight": 100,
+					"Type": "Angle",
+					"Reflect": false
+				},
+				{
+					"Destination": {
+						"Target": "Parameter",
+						"Id": "Paramblinkphys1"
+					},
+					"VertexIndex": 1,
+					"Scale": 1,
+					"Weight": 100,
+					"Type": "Angle",
+					"Reflect": false
+				},
+				{
+					"Destination": {
+						"Target": "Parameter",
+						"Id": "Paramblinkphys2"
 					},
 					"VertexIndex": 1,
 					"Scale": 1,
