@@ -54,8 +54,8 @@ label chapter2:
     window show
     n "{i}A pair of splashes announces the arrival of two more customers. It’s only moments before you hear the ring of the counter bell.{/i}"
     show kari -smile
-    show kari surprised
     play sound "Dewdrop_Bell.mp3" 
+    show kari exclamation
     bquestionmark "Excuse me, are you still open?"
     show kari -surprised
     show kari smile
@@ -64,8 +64,7 @@ label chapter2:
     mc "Coming! What can I get for-"
 
     # KANNIKA AND LUAN ENTER THE SCENE
-    show kari -smile
-    show kari surprised at right, sprite_highlight("kari")
+    show kari at right, sprite_highlight("kari")
     with move
     show kannika neutral zorder 1 at sprite_highlight("kannika"):
         xzoom 1.0
@@ -75,6 +74,7 @@ label chapter2:
         xzoom 1.0
         align (-0.1, 1.0)
     with easeinleft
+    show kari surprised
     mc "Oh!"
     show kari -surprised
 
@@ -85,7 +85,10 @@ label chapter2:
             window show
             show kannika smile at sprite_highlight("kannika")
             nn "{i}The woman flashes you a quick smile.{/i}" (cb_name="kannika")
+            show luan neutral
+            show luan glance_down
             g "..."
+            show luan -glance_down
         "You came back!":
             window show
             show kannika smile at sprite_highlight("kannika")
@@ -95,14 +98,20 @@ label chapter2:
         "Uh, hello, strange woman whom I have never met before.":
             window show
             play sound "Dewdrop_KannikaClearThroat.mp3" volume 0.7
-            nn "{i}The woman coughs into her hand.{/i}" 
+            show kannika neutral
+            show kannika speechless
+            nn "{i}The woman coughs into her hand.{/i}" (cb_name="kannika")
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
+            show luan neutral
+            show luan frown
             nn "{i}The guard just sighs, a look of mild disappointment on his face.{/i}" (cb_name=["kannika", "luan"])
+            show luan -frown
+            show kannika -speechless
         "Officer, I think I found the person you're looking for.":
             window show
-            show kannika angry at sprite_highlight("kannika")
+            show kannika speechless at sprite_highlight("kannika")
             nn "{i}The woman looks at you with an expression of mock outrage. The guard stares flatly at you, unamused.{/i}" (cb_name=["kannika", "luan"])
-            show kannika -angry
+            show kannika -speechless
     
     # Drink peddler?? Luan is a meanie ;(
     g "Drink-peddler. My lady says she misplaced her parasol somewhere around here last night."
@@ -117,7 +126,10 @@ label chapter2:
     princess "This woman was willing to offer aid to a complete stranger in an unfamiliar land. The least she deserves is respect."
     lu "...Forgive me, your highness."
     lu "..."
+    show luan neutral
+    show luan glance_down
     nn "{i}Luan looks you up and down. After a moment, he gives you a very shallow bow – more of a nod, really – and moves back.{/i}" (cb_name="luan")
+    show luan -glance_down
     show kannika -angry
 
     # Luan leaves 
@@ -143,6 +155,7 @@ label chapter2:
             princess "Yes. He did."
             mc "...And?"
             princess "And what?"
+            show kari surprised
             mc "Are you? An actual princess, I mean."
             princess "Yes. I am."
             mc "..."

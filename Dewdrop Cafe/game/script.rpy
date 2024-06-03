@@ -380,7 +380,7 @@ label start:
             hide drink bg with dissolve
     show kannika smile
     bquestionmark "Thank you."
-    play sound "Dewdrop_Sip.mp3" volume 0.7
+    # play sound "Dewdrop_Sip.mp3" volume 0.7
     nn "{i}You watch contentedly as the naga sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}" (cb_name="kannika")
     show kannika -smile
 
@@ -388,6 +388,7 @@ label start:
     nn "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
     show kannika frown
     bquestionmark "Hm. It seems that he's brought reinforcements."
+    play sound "Dewdrop_KannikaSigh.mp3" volume 0.7
     bquestionmark "I should be going. I don’t want my own issues to bring you any more trouble."
     play sound "Dewdrop_Clatter.mp3" volume 0.7
     show kannika -frown
@@ -459,6 +460,7 @@ label start:
         bquestionmark "Wh-?!"
         show kannika surprised
         show luan frown
+        play sound "Dewdrop_LuanThroatClear.mp3" volume 0.7
         g "My lady. Enough of these games."
         g "You are far too old to be acting this childish."
         show kannika speechless
@@ -466,6 +468,7 @@ label start:
         nn "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}" (cb_name="kannika")
         show kannika angry
         nn "{i}She looks at you with an expression as cold as ice.{/i}" (cb_name="kannika")
+        play sound "Dewdrop_KannikaAggressiveSigh.mp3" volume 0.7
         bquestionmark "It seems a little trust was too much to ask for."
         bquestionmark "Goodbye."
         n "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
