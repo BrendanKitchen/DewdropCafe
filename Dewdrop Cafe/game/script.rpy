@@ -83,12 +83,13 @@ label start:
     # Back to Kari - What was that?
     show night bg with fade
     show kari neutral
-    show kari surprised
+    show kari exclamation
     with easeinright
     window show
     play sound "Dewdrop_KannikaPanting.mp3" volume 0.7
     mc "...!"
     mc "What was that?"
+    show kari surprised
     window hide
     menu:
         "Hello? Is someone there?":
@@ -99,20 +100,23 @@ label start:
             n "{i}The night is abuzz with insects and the croaking of frogs. After a few moments, you hear another splash -{/i}"
             pause 0.25
             play sound "Dewdrop_Splash.mp3" volume 1.0
+            show kari exclamation
             pause 0.5
             n "{i}- louder than the first.{/i}"
+            show kari sweatdrop
             mc "{i}Uh. That was definitely closer than the last one.{/i}"
+            show kari -sweatdrop
     window hide
 
     # Kannika enters scene
-    show kari:
+    show kari surprised:
         xzoom -1.0
         align (1.0, 0.5)
     with MoveTransition(0.75)
     show kari:
         xzoom 1.0
     show kannika neutral
-    show kannika surprised at left
+    show kannika disguise at left
     with easeinleft
     window show
 
@@ -122,8 +126,9 @@ label start:
     bquestionmark "You need to help me. I need a place to hide."
     mc "What? Who are you?"
     bquestionmark "No time. Move over."
+    show kari exclamation
     n "{i}You watch, stunned, as the naga begins to pull herself over the counter and into your cafe.{/i}"
-    show kari -surprised
+    show kari surprised
     window hide
     menu:
         "Wh- Just hold on a second and tell me what's going on!":
@@ -157,22 +162,29 @@ label start:
     g "You there. Foreigner. Have you seen a lady around here?"
     g "Pink hair, blue tail, holding a parasol..."
     if karihelpedkannika == False:
+        show luan glance_down
         n "{i}The guard glances down, noticing the swamp water still puddled on the countertop.{/i}"
+        show luan -glance_down
 
     # Have you seen this woman menu
     window hide
     menu:
         "Uh, nope! No sir, haven’t seen anyone like that.":
             window show
+            show kari smile
             mc "I've actually been setting up all day. Welcome to the Dewdrop Cafe!"
             g "..."
         "(Distract him)":
             window show
+            show kari smile
             mc "No, but I do have some drinks with little umbrellas in them!"
             mc "Welcome to the Dewdrop Cafe - tonight's our grand opening, and, uh, you're our first customer! Yay!"
+            show luan frown
             g "..."
             mc "So, uh, anything I can get for you?"
+            show luan glance_down
             g "..."
+            show luan frown
             g "No, thank you."
             g "There are more pressing matters at hand."
         # JUMP TO BAD ENDING
@@ -180,6 +192,7 @@ label start:
             jump badending
     show luan frown
     g "If you do see her, contact a member of the Halfmoon Guard as soon as you can. It’s dangerous for her to be out alone."
+    show kari neutral
     mc "Yessir. I will definitely do that."
 
     # Luan leaves
@@ -198,11 +211,12 @@ label start:
     show kannika neutral at left, sprite_highlight("kannika")
     with easeinbottom
     window show 
+    show kannika smile
     bquestionmark "Thank you. I’m glad you were here."
+    show kari surprised
     mc "What was that about? Are you okay?"
-    show kannika surprised
+    show kannika frown
     bquestionmark "Yes, I am, it’s… somewhat complicated. I’m…"
-    show kannika -surprised
 
     # Running away from home menu
     $ runningtree = {"hideandseek": False, "foreignagent": False}
@@ -212,16 +226,19 @@ label start:
             window show
             show kannika surprised
             bquestionmark "..."
-            show kannika -surprised
             bquestionmark "How did you know?"
+            show kari -surprised
             mc "Just a hunch."
+            show kannika -surprised
         "...playing a really intense game of hide-and-seek?" if not runningtree["hideandseek"]:
             $ runningtree["hideandseek"] = True
             window show
             bquestionmark "Ha. I wish."
+            show kannika -frown
             bquestionmark "I guess it's somewhat similar, though it's much less exciting."
             bquestionmark "A futile game."
             mc "Well, I'm glad you're not in danger."
+            show kari -surprised
             mc "Okay are you actually..."
             window hide
             jump runningaway
@@ -229,55 +246,73 @@ label start:
             $ runningtree["foreignagent"] = True
             window show
             mc "...and threaten the hegemonic authority of a glorious regime?"
-            show kannika surprised
+            show kannika speechless
             bquestionmark "...what?"
+            show kari smile
             mc "Sorry. When I was a kid we used to hear about that kind of stuff all the time."
             mc "Everybody liked to guess which of our teachers were secretly spies, but I don't think I've ever actually met one."
             mc "Not that I'd turn you in if you {i}did{/i} happen to be a spy, of course."
             mc "I'm no snitch."
+            show kannika sweatdrop
             bquestionmark "...Thank...you?"
+            show kannika -sweatdrop
             mc "You're welcome!"
-            show kannika -surprised
+            show kari -smile
             mc "Alright. Are you maybe..."
             window hide
             jump runningaway
 
     # Outfit joke w/ giggles
     mc "That's a pretty intense outfit to be running away from home in."
+    show kannika surprised
     bquestionmark "What do you mean?"
+    show kari sweatdrop
     mc "All that silk and ribbons and frills… Shouldn’t you have worn something, I dunno, less flashy?"
     bquestionmark "Less flashy? This is the most subtle clothing I have."
     bquestionmark "I’m not joking. My closet looks like a kelp forest made of lace and jewelry."
     mc "Okay, sure, but the parasol?"
+    show kannika sparkle
     bquestionmark "...it completes the fit."
-    show kannika smile
-    show kari smile
+    show kannika blush
+    show kari blush
     play sound "Dewdrop_Giggles.mp3" volume 0.7
     n "{i}You and the naga dissolve into a fit of giggles.{/i}"
     n "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
-    show kannika -smile
-    show kari -smile
+    show kannika -blush
+    show kari -blush
 
     # Dewdrop Cafe name drop
+    show kannika smile
     bquestionmark "So... a cafe."
     bquestionmark "It's quite charming."
+    show kari smile
     mc "Aw, thank you! It's the grand opening of the Dewdrop Cafe!"
+    show kari sweatdrop
     mc "Well, not actually the grand opening. That'll be tomorrow."
     mc "..."
 
     # First customer + as long as it's tea
+    show kari blush
     mc "You know what? You should be my first customer!"
     show kannika surprised
     bquestionmark "Really? I-"
+    show kari smile
     mc "And don't worry about the cost, this one's on the house! Pick any drink you want."
     mc "As long as it's tea. My other ingredients are still packed away."
-    show kannika -surprised
+    show kannika blush
     bquestionmark "Any drink, as long as it’s tea."
+    show kari blush
     mc "As long as it’s tea."
+    show kannika -blush
+    show kari -blush
+    show kannika smile
     bquestionmark "Which one’s your favorite? I’ll have that one."
+    show kari smile
     mc "Excellent choice, madam."
     play sound "Dewdrop_TeaKettle.mp3" volume 0.7
-    n "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
+    show kari -smile
+    show kannika -smile
+    nn "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
     nn "{i}The naga holds the cup between her hands, feeling its warmth.{/i}" (cb_name="kannika")
     window hide
     pause 0.5
@@ -304,6 +339,7 @@ label start:
             mc "Good, isn't it? My mom used to make it for me all the time."
             play sound "Dewdrop_Sip.mp3" volume 0.7
             bquestionmark "..."
+            show kannika sparkle
             bquestionmark "It's very good. I can see why it's your favorite."
             hide cattail citrus with dissolve
             hide drink bg with dissolve
@@ -321,6 +357,7 @@ label start:
             mc "This was the first drink I learned how to make after I left home. Drinking it is really relaxing, don't you think?"
             play sound "Dewdrop_Sip.mp3" volume 0.7
             bquestionmark "..."
+            show kannika smile
             bquestionmark "It's very good."
             hide humming lavender with dissolve
             hide drink bg with dissolve
@@ -341,20 +378,26 @@ label start:
             bquestionmark "It's good."
             hide moon jelly with dissolve
             hide drink bg with dissolve
+    show kannika smile
     bquestionmark "Thank you."
+    play sound "Dewdrop_Sip.mp3" volume 0.7
     nn "{i}You watch contentedly as the naga sips her drink. Her fins and scales shine in the lights from your cafe, glimmering with iridescent hues.{/i}" (cb_name="kannika")
+    show kannika -smile
 
     # Luan returns (off-screen) with reinforcements
     nn "{i}This cozy moment is interrupted by the faint sound of shouting. Loud voices, far off but approaching, calling out to each other.{/i}"
+    show kannika frown
     bquestionmark "Hm. It seems that he's brought reinforcements."
     bquestionmark "I should be going. I don’t want my own issues to bring you any more trouble."
+    play sound "Dewdrop_Clatter.mp3" volume 0.7
+    show kannika -frown
     nn "{i}The voices draw closer. The naga woman places her cup back on the counter – there’s still a little left – and glances back at you.{/i}" (cb_name="kannika")
+    show kannika blush
     nn"{i}She holds your gaze for a heartbeat before pushing away from the counter and disappearing into the darkness.{/i}" (cb_name="kannika")
     show kari surprised
 
     # Kannika leaves the scene
     window hide
-    show kannika -smile
     show kannika:
         xzoom -1.0
     show kannika at offscreenleft
@@ -365,7 +408,9 @@ label start:
     show kari at center, sprite_highlight("kari")
     with MoveTransition(0.75)
     window show
+    show kari exclamation
     mc "Wait, You forgot your-"
+    show kari surprised
     window hide
     pause 0.25
     play sound "Dewdrop_Splash.mp3" volume 0.7
@@ -377,7 +422,7 @@ label start:
     n "{i}Just as suddenly as she appeared, the naga is gone. The voices grow more distant until all you can hear are the sounds of the swamp around you.{/i}"
     n "{i}You can faintly smell the sea on the wind, but it’s a foreign one, nothing like the ocean of your childhood.{/i}"
     n "{i}Once again, you’re alone.{/i}"
-    show kari -surprised
+    show kari frown
     mc "..."
     mc "Running away from home, huh..."
     mc "At least she has people looking after her."
@@ -386,7 +431,9 @@ label start:
     n "{i}It’s wonderfully made – the quality is far beyond anything you’ve seen before, even in your extensive travels.{/i}"
     mc "..."
     mc "Souvenirs! Aw, they’d love stuff like this. I’ve gotta get my hands on one of these…"
+    show kari sweatdrop
     mc "Other than this one, I mean. I should probably give this back."
+    show kari -sweatdrop
     mc "I hope I get to give it back to her…"
     window hide
     scene black
@@ -403,17 +450,20 @@ label start:
     #BAD ENDING
     label badending:
         pause 0.25
+        show kari frown
         show kannika neutral at center, sprite_highlight("kannika")
         with easeinbottom
-        show kannika surprised
+        show kannika exclamation
         pause 0.25
         window show
         bquestionmark "Wh-?!"
+        show kannika surprised
+        show luan frown
         g "My lady. Enough of these games."
         g "You are far too old to be acting this childish."
+        show kannika speechless
         bquestionmark "..."
         nn "{i}The woman stands up from behind the counter. Her face is a roiling mixture of frustration, embarrassment, and betrayal.{/i}" (cb_name="kannika")
-        show kannika -surprised
         show kannika angry
         nn "{i}She looks at you with an expression as cold as ice.{/i}" (cb_name="kannika")
         bquestionmark "It seems a little trust was too much to ask for."

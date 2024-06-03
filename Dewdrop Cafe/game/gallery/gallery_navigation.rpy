@@ -28,14 +28,3 @@ screen gallery_navigation:
         imagebutton auto "gui/gallery_buttons/concept_art_%s.png" action ShowMenu("gallery_concept_art")
         
         # textbutton "Chapter Select" action (ShowMenu("chapter_select"))
-
-    $ tooltip = GetTooltip()
-
-    if tooltip:
-        add "../gui/gallery_assets/tooltip_bg.png":
-            xalign 0.5
-            yalign 0.96
-        text "[tooltip]":
-            xalign 0.5
-            yalign 0.95
-            color "#FFF7E8"

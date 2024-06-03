@@ -13,6 +13,17 @@ screen gallery_concept_art:
         yalign 1.0
         xalign 1.04
 
+    $ tooltip = GetTooltip()
+
+    if tooltip:
+        add "../gui/gallery_assets/tooltip_bg.png":
+            xalign 0.5
+            yalign 0.96
+        text "[tooltip]":
+            xalign 0.5
+            yalign 0.95
+            color "#FFF7E8"
+
     label "Concept Art"
 
     default curpage = "character_concepts_1" # code reference: https://lemmasoft.renai.us/forums/viewtopic.php?t=17059
@@ -25,7 +36,6 @@ screen gallery_concept_art:
         textbutton "Prototype Drinks" action SetScreenVariable("curpage", "prototype_drinks_1")
         textbutton "Character Fanart (1)" action SetScreenVariable("curpage", "character_fanart_1")
         textbutton "Character Fanart (2)" action SetScreenVariable("curpage", "character_fanart_2")
-        
         
 
     use gallery_navigation

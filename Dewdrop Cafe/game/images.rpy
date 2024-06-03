@@ -4,18 +4,21 @@
 # image mc neutral: 
 #     im.Scale("mc_neutral.png", 732, 1035)
 image kari = Live2D("images/Kari", top=-0.037, base=1.0, default_fade=0.0, loop=True)
+# angry, frown, smile, surprised, cry, sweatdrop, sparkle, gloom, blush, exclamation, sunglasses, speechless
 
 #Betta Fish portraits
 # image betta fish neutral:
 #     im.Scale("betta_fish_neutral.png", 1061, 1501)
 #     yoffset(300)
 image kannika = Live2D("images/Kannika", top=0.075, base=0.825, default_fade=0.0, loop=True)
+# smile, sparkle, surprised, sweatdrop, angry, blush, cry, frown, gloom, exclamation, sunglasses, disguise, speechless
 
 #Guard portraits
 #image guard neutral:
 #    im.Scale("kingdom_guard.png", 944, 1334)
 #    yoffset(300)
 image luan = Live2D("images/Luan", top=-0.01, base=0.75, default_fade=0.0, loop=True)
+# sad, smile, surprised, angry, blush, frown, glance_down
 
 #Food images
 image starfruit sunset = im.Scale("starfruit_sunset.png", 960, 540)

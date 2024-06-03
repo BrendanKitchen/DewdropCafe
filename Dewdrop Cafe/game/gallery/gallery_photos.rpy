@@ -12,6 +12,17 @@ screen gallery_photos:
         # xzoom -1.0
         yalign 1.0
         xalign 1.04
+
+    $ tooltip = GetTooltip()
+
+    if tooltip:
+        add "../gui/gallery_assets/tooltip_bg.png":
+            xalign 0.5
+            yalign 0.96
+        text "[tooltip]":
+            xalign 0.5
+            yalign 0.95
+            color "#FFF7E8"
     
     label "Gallery"
 
