@@ -49,7 +49,7 @@ label chapter2:
     # More splashes
     window hide
     pause 0.25
-    play sound "Dewdrop_DoubleSplash.mp3" volume 0.8
+    play sound "Dewdrop_DoubleSplash.mp3" volume 0.7
     pause 0.5
     window show
     n "{i}A pair of splashes announces the arrival of two more customers. It’s only moments before you hear the ring of the counter bell.{/i}"
@@ -165,10 +165,12 @@ label chapter2:
             mc "Honestly, I kinda expected him to be a little more intense."
             princess "...More intense?"
             mc "Yeah. He didn't ask for my identification papers. He didn’t accuse me of being an enemy of the state."
+            show kannika surprised
             mc "He didn’t even search my cafe for any seditious writings or materials that would threaten the security or moral character of the nation."
             mc "Not that I have anything like that in here."
             mc "Nope. No siree."
             princess "I'm not even going to try to unpack all of that right now."
+            show kannika -surprised
             window hide
             jump princessdiscussion
         "You know what, let's just start over.":
@@ -191,6 +193,7 @@ label chapter2:
     menu:
         "Oh, and what about you, Luan? Would you like a drink?":
             window hide
+            pause 0.25
             show luan neutral zorder 2 at sprite_highlight("luan"):
                 xzoom 1.0
                 align (-0.1, 1.0)
@@ -233,12 +236,12 @@ label chapter2:
             "Humming lavender.":
                 $ pickedlavender = True
                 window show
-                "Yes."
+                b "Yes."
                 # Next line: "The tea you gave me last night was quite nice."
             "Moon jelly tea.":
                 $ pickedjelly = True
                 window show
-                "Hmm..."
+                b "Hmm..."
                 # Next line: "What other kinds of drinks do you serve?"
     if pickedcitrus:
         call cattailcitrustree from _call_cattailcitrustree
@@ -246,28 +249,26 @@ label chapter2:
         call humminglavendertree from _call_humminglavendertree
     if pickedjelly:
         call moonjellytree from _call_moonjellytree
-    
-    # Fade to black for the passing of time
-    window hide
-    with Fade(0.5, 0.5, 0.5)
 
-    window show
+    play sound "Dewdrop_Giggles.mp3" volume 0.7
     n "{i}The moon crawls higher in the sky. The night sounds of the swamp have returned in full force, though they now must compete with the lively chatter and laughter emanating from the Dewdrop Cafe.{/i}"
     n "{i}Eventually, Luan clears his throat and steps (or rather, slithers) forward.{/i}"
 
     # Luan enters the scene
     window hide
-    show kannika zorder 1 at sprite_highlight("kannika"):
+    show night bg
+    show kannika neutral zorder 1 at sprite_highlight("kannika"):
         align (0.2, 0.5)
-    with move
+    show kari neutral zorder 1 at sprite_highlight("kari"), right
+    with fade
+    play sound "Dewdrop_Slither.mp3" volume 0.7
     show luan neutral zorder 2 at sprite_highlight("luan"):
         xzoom 1
         align (-0.1, 1.0)
     with easeinleft
-    play sound "Dewdrop_Slither.mp3" volume 0.7
-    pause 0.5
+    pause 1.25
     play sound "Dewdrop_LuanThroatClear.mp3" volume 0.9
-    pause 0.5
+    pause 0.75
     window show
 
     # Luan and Kannika chat
@@ -439,6 +440,16 @@ label cattailcitrustree:
                 align (1.0, 0.5)
             with move
 
+            # Show Cattail Citrus
+            show drink bg:
+                align (0.5, 0.4)
+            show cattail citrus:
+                align (0.5, 0.4)
+            pause 1.0
+            hide cattail citrus with dissolve
+            hide drink bg with dissolve
+            pause 0.25
+
             # Kannika enjoys drink
             show kannika smile
             window show
@@ -589,7 +600,7 @@ label cattailcitrustree:
                     window show
                 "(Smile, but stay silent)":
                     window show
-                "Yeah. Even when we get into our little disagreements, I know she’ll come around in the end.":
+                "Even when we get into our little disagreements, I know she’ll come around in the end.":
                     window show
                     b "You’re very lucky, to have a parent so understanding."
                     mc "..."
@@ -689,6 +700,7 @@ label cattailcitrustree:
             mc "They remind me of all the amazing experiences I’ve had because I left home."
     n "{i}As the memories recede, you blink back to the present. Kannika is watching you with keen interest.{/i}"
     n "{i}You blush slightly as you realize just how much you’d been rambling. How long have you been talking for??{/i}"
+    show kannika smile
     b "More, please."
     mc "..."
     window hide
@@ -704,6 +716,16 @@ label cattailcitrustree:
     b "I want to hear about everywhere you’ve gone to."
     mc "...!"
     mc "Another cattail citrus tea, coming right up!"
+    window hide
+
+    # Fade out
+    pause 0.25
+    scene black
+    with fade
+    pause 0.25
+    show kannika -smile
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+    window show
     n "{i}You make the naga princess her tea and spend the next half-hour regaling her with descriptions of the many places you’ve been.{/i}"
     n "{i}You tell her about your journey and the wonders you’ve seen – the waterways in the City of Swans, the grand domes of the Otterman Empire, the vibrant flower fields of the Sun Bearony, and even the magnificent parades of your home.{/i}"
 
@@ -766,9 +788,18 @@ label humminglavendertree:
     b "Please, none of those honorifics while I’m here."
     b "I have to be a princess all day. Right now, I just want to enjoy some tea from fantastical, far-off lands."
     mc "One glass of fantastical, coming right up!"
+    window hide
+
+    # Fade out
+    pause 0.25
+    scene black
+    with fade
+    pause 0.25
+
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+    window show
     n "{i}You spend the next half-hour mixing various drinks for the naga princess, treating her to a medley of beverages from your travels across the land.{/i}"
     n "{i}You tell her about your journey and the wonders you’ve seen – the waterways in the City of Swans, the grand domes of the Otterman Empire, and many more.{/i}"
-
     return
     
 # Moon jelly branching dialogue
@@ -784,42 +815,61 @@ label moonjellytree:
 
     # Drinks from different places menu
     window hide
-    $ differentdrinkstree = {"cattail": False, "humming": False, "otterkish": False, "affogato": False}
+    $ differentdrinkstree = {"cattail": False, "humming": False, "otterkish": False, "affogato": False, "lastone": 0}
     menu differentdrinks:
         "Cattail citrus tea, from my home country." if not differentdrinkstree["cattail"]:
             $ differentdrinkstree["cattail"] = True
+            $ differentdrinkstree["lastone"] += 1
             window show
             mc "You’re supposed to infuse it with sliced cattail root, but you can’t really taste it in the end."
             mc "It’s mostly citrus."
             mc "At least, that’s the way I learned how to make it."
-            window hide
+
+            # Check to see if this is the last drink
+            if differentdrinkstree["lastone"] != 4:
+                window hide
+
             jump differentdrinks
         "Humming lavender tea, from the Sun Bearony." if not differentdrinkstree["humming"]:
             $ differentdrinkstree["humming"] = True
+            $ differentdrinkstree["lastone"] += 1
             window show
             mc "Bearony flower fields are always humming with bees. Hence the name."
             mc "It’s floral and sweet and it kinda makes you want to just lie down and take a nap somewhere sunny."
             mc "Whether that’s a positive or a negative is up to you."
-            window hide
+
+            # Check to see if this is the last drink
+            if differentdrinkstree["lastone"] != 4:
+                window hide
+            
             jump differentdrinks
         "Otterkish coffee, from the Otterman Empire." if not differentdrinkstree["otterkish"]:
             $ differentdrinkstree["otterkish"] = True
+            $ differentdrinkstree["lastone"] += 1
             window show
             mc "Traditionally they bring it to a boil with sand that’s been heated over a fire, but I just use a hotplate."
             mc "Oh, and they add a pinch of sea salt."
             mc "I’m not a huge coffee person, but Otterkish coffee is pretty good."
-            window hide
+
+            # Check to see if this is the last drink
+            if differentdrinkstree["lastone"] != 4:
+                window hide
+            
             jump differentdrinks
         "Affogato al signo, from the City of Swans." if not differentdrinkstree["affogato"]:
             $ differentdrinkstree["affogato"] = True
+            $ differentdrinkstree["lastone"] += 1
             window show
             mc "It’s a scoop of gelato in a cup of espresso! How genius is that?!"
             mc "I honestly can’t decide if it’s a drink or if it’s a dessert."
             mc "Don’t tell anyone, but when I first tried it I was definitely having it for the gelato and not for the coffee."
-            window hide
+
+            # Check to see if this is the last drink
+            if differentdrinkstree["lastone"] != 4:
+                window hide
+            
             jump differentdrinks
-    pause 0.25
-    window show
+
     mc "Any of those appeal to you?"
     b "Those all sound incredible."
     b "If I pick one, will you tell me about the place it comes from?"
@@ -830,6 +880,16 @@ label moonjellytree:
     mc "Ha! You got me!"
     mc "It’s a good thing I can talk while I work."
     mc "One of everything, coming right up!"
+    window hide
+
+    # Fade out
+    pause 0.25
+    scene black
+    with fade
+    pause 0.25
+
+    play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+    window show
     n "{i}You spend the next half-hour mixing various drinks for the naga princess, treating her to a medley of beverages from your travels across the land.{/i}"
     n "{i}You tell her about your journey and the wonders you’ve seen – the grand parades of your home country, the vibrant flower fields of the Sun Bearony, and many more.{/i}"
     return

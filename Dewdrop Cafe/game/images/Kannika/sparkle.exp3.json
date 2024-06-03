@@ -1,11 +1,16 @@
 {
 	"Type": "Live2D Expression",
-	"FadeInTime": 0.15,
-	"FadeOutTime": 0.2,
+	"FadeInTime": 0.35,
+	"FadeOutTime": 0.35,
 	"Parameters": [
 		{
+			"Id": "sparkle",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
 			"Id": "ParamMouthForm",
-			"Value": -0.459,
+			"Value": 1,
 			"Blend": "Add"
 		},
 		{
@@ -15,22 +20,17 @@
 		},
 		{
 			"Id": "ParamBrowLAngle",
-			"Value": 0.882,
+			"Value": 0.85,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLForm",
-			"Value": 0.482,
+			"Value": 0.25,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRForm",
-			"Value": 0.082,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamEyeSize",
-			"Value": -1,
+			"Value": 0.025,
 			"Blend": "Add"
 		}
 	]
