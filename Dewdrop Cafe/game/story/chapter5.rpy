@@ -2,7 +2,7 @@ label chapter5:
     $ persistent.ch5 = True
 
     # Play music
-    play music "Recollection.mp3" volume 0.7
+    play music "Recollection.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
@@ -88,21 +88,23 @@ label chapter5:
 
 
             # [IF SWAMP WATER WAS NOT WIPED UP]
-            # show water stained counter
-            show kari frown
-            n "{i}Everything, that is, save for a stubborn water stain right across the middle of the countertop.{/i}"
-            n "{i}You hardly notice it at first, but it quickly becomes such an eyesore it jars you out of your morning-prep flow state.{/i}"
-            n "{i}You scrub at it to no effect. Maybe you should get a tablecloth to cover it up with…{/i}"
-            n "{i}Or maybe it’ll be a keepsake. A reminder of this place and the people you met.{/i}"
-            n "{i}…{/i}"
+            if karihelpedkannika == False:
+                # show water stained counter
+                show kari frown
+                n "{i}Everything, that is, save for a stubborn water stain right across the middle of the countertop.{/i}"
+                n "{i}You hardly notice it at first, but it quickly becomes such an eyesore it jars you out of your morning-prep flow state.{/i}"
+                n "{i}You scrub at it to no effect. Maybe you should get a tablecloth to cover it up with…{/i}"
+                n "{i}Or maybe it’ll be a keepsake. A reminder of this place and the people you met.{/i}"
+                n "{i}…{/i}"
 
             # [IF SWAMP WATER WAS WIPED UP]
-            n "{i}Of course, now the only thing left to do is wait.{/i}"
-            n "{i}You look around your humble cafe, thinking of all the new faces you’ve seen since you arrived in the Naga Kingdom.{/i}"
-            n "{i}Your eyes linger on the countertop as you remember wiping up a puddle of swamp water left in the wake of a runaway princess.{/i}"
-            n "{i}You remember the lithe strength with which she pulled herself over the counter.{/i}"
-            n" {i}You remember the shimmering of her scales in the lamplight, and the warm glow of her eyes as she held your gaze.{/i}"
-            n "{i}…{/i}"
+            if karihelpedkannika:
+                n "{i}Of course, now the only thing left to do is wait.{/i}"
+                n "{i}You look around your humble cafe, thinking of all the new faces you’ve seen since you arrived in the Naga Kingdom.{/i}"
+                n "{i}Your eyes linger on the countertop as you remember wiping up a puddle of swamp water left in the wake of a runaway princess.{/i}"
+                n "{i}You remember the lithe strength with which she pulled herself over the counter.{/i}"
+                n" {i}You remember the shimmering of her scales in the lamplight, and the warm glow of her eyes as she held your gaze.{/i}"
+                n "{i}…{/i}"
 
             call passdaytime
             # -------- Refer to passdaytime ---------
@@ -119,10 +121,13 @@ label chapter5:
             mc "Okay, Kari, focus up."
             mc "I’ve just gotta help a princess make a decision that will shape the rest of her life."
             mc "Simple."
-            mc "…"
+
+            # kannikaplantree menu
+            $ kannikaplantree = {"clearly": False, "obviously": False}
             window hide
-            menu: 
-                "Clearly, she should get out of here.":
+            menu kannikaplan: 
+                "Clearly, she should get out of here." if not kannikaplan["clearly"]:
+                    $ kannikaplan["clearly"] = True
                     window show
                     mc "She’s not happy here. She can’t be herself."
                     mc "I mean, she can’t even figure out who she is if she stays here."
@@ -135,8 +140,8 @@ label chapter5:
                     window hide
                     menu:
                         "Right.":
+                            window show
                             # continue
-                            ""
                         "Hm… maybe not.":
                             window show
                             mc "Being alone on the road is really hard."
@@ -145,9 +150,11 @@ label chapter5:
                             mc "I bet her mom would be furious. She might not even let Kannika come back home."
                             mc "…"
                             mc "Well, with that in mind…"
+                            jump kannikaplan
                             # back
 
-                "Obviously, she should stay.":
+                "Obviously, she should stay." if not kannikaplan["obviously"]:
+                    $ kannikaplan["obviously"] = True
                     window show
                     mc "I know it’s tough, but like… it could be a lot worse."
                     mc "I’m sure Kannika and her mom would be able to find some common ground eventually if she stayed and talked it out."
@@ -160,7 +167,7 @@ label chapter5:
                     window hide
                     menu:
                         "Yeah. Definitely the best outcome overall.":
-                            ""
+                            window show
                             #continue
                         "…Maybe it is pretty bad.":
                             window show
@@ -201,13 +208,13 @@ label chapter5:
     # Kannika appears
     play sound ["Dewdrop_Splash.mp3", "Dewdrop_Slither.mp3"] volume 0.7
     n "{i}A tell-tale splash announces her arrival. Kannika slithers up to the Dewdrop Cafe – alone.{/i}"
-
     b "…Hey."
-    mc "…"
     
+    $ suptree = {"sup": False, "beenluan": False}
     window hide
-    menu:
-        "‘Sup.": # hide this option if any other option has been chosen
+    menu sup:
+        "‘Sup." if not suptree["sup"]: # hide this option if any other option has been chosen
+            $ suptree["sup"] = True
             window show
             b "…"
             mc "…"
@@ -218,6 +225,8 @@ label chapter5:
             mc "Well, it’s gotten me into plenty of trouble in the past."
             mc "Glad you like it, though."
             mc "…"
+            window hide
+            jump sup
             # back
         "…I’m sorry.":
             window show
@@ -230,7 +239,9 @@ label chapter5:
             b "…Thank you. Truly."
             b "I wanted to apologize as well."
             # continue
-        "How’ve you been doing?": # michael wants to make this mutally exclusive with #4 -- if #3 is chosen, no option to choose #4 and vice versa
+        "How’ve you been doing?" if not suptree["beenluan"]:
+            $ suptree["sup"] = True
+            $ suptree["beenluan"] = True
             window show
             b "…It’s been difficult recently."
             b "My mother grows more and more strict as the final bout approaches."
@@ -242,8 +253,12 @@ label chapter5:
             b "I can claim that I ran away and Luan was simply coming to find me."
             mc "Oh."
             mc "…"
+            window hide
+            jump sup
             # back
-        "Where’s Luan?":  # michael wants to make this mutally exclusive with #3 -- if #4 is chosen, no option to choose #3 and vice versa
+        "Where’s Luan?" if not suptree["beenluan"]:
+            $ suptree["sup"] = True
+            $ suptree["beenluan"] = True
             window show
             b "He’s nearby, just out of sight. I asked him to give us some space."
             b "Neither of us are supposed to be here in the first place. In fact, Luan is supposed to be accompanying me on a stroll through the royal coral gardens."
@@ -251,8 +266,10 @@ label chapter5:
             b "It’s another reason as to why I had him stay out of sight. If anyone sees me I can say that I ran away and Luan was just trying to find me."
             mc "Oh."
             mc "…"
+            window hide
+            jump sup
             # back
-        "Thank you for coming here.":
+        "Thank you for coming here." if suptree["beenluan"]:
             window show
             mc "Really. It means a lot to me."
             mc "I didn’t want to leave things off the way we did the other day… and I especially didn’t want to leave you to face all of this alone."
@@ -271,8 +288,7 @@ label chapter5:
     b "I know that any objection of yours has a good reason behind it. I trust you."
     b "Sometimes more than I trust myself."
     b "I won’t get mad. I won’t storm off."
-    b "What do you think I should do, Kari?"
-    mc "…"
+    b "What do {i}you{/i} think I should do, Kari?"
     window hide
     menu: 
         "I think you should leave.":
@@ -404,7 +420,6 @@ label rejecttradition:
     mc "What do you mean, you trust me more than you trust yourself?"
     b "I mean exactly what it sounds like. I may sneak out of the castle every now and then, but you’ve been living on the road for years now."
     b "By definition, you are the expert."
-    mc "…"
     window hide
     menu: 
         "I can’t make that decision for you.":
@@ -417,7 +432,6 @@ label rejecttradition:
             b "That may be so. However, I believe your advice will help me choose what is right for me."
     b "Please, Kari."
     b "Tell me what you truly think."
-    mc "…"
     window hide
     menu: 
         "I think you should leave.":
@@ -428,7 +442,6 @@ label rejecttradition:
             pass
     window show
     b "I wish there was, but there isn’t."
-    mc "…"
     window hide
     menu: 
         "I think you should leave.":
@@ -440,7 +453,6 @@ label rejecttradition:
     window show
     b "Because we cannot change things."
     b "I can’t stand up to the High Elders. I can’t even stand up to my own mother."
-    mc "…"
     window hide
     menu:
         "I think you should leave.":
@@ -456,7 +468,6 @@ label rejecttradition:
     b "But you’re just one person. You don’t have a rank or title. You don’t have a powerful backer."
     b "This kingdom will always dance at the whims of the High Elders. It always has."
     b "A single person has no hope of changing such a thing."
-    mc "…"
     window hide
     menu:
         "I think you should leave.":
