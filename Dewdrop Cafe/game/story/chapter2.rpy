@@ -85,28 +85,27 @@ label chapter2:
             window show
             show kannika smile at sprite_highlight("kannika")
             nn "{i}The woman flashes you a quick smile.{/i}" (cb_name="kannika")
-            show luan neutral
-            show luan glance_down
+            show luan glance_down at sprite_highlight("luan")
             g "..."
             show luan -glance_down
+            show kannika -smile
         "You came back!":
             window show
             show kannika smile at sprite_highlight("kannika")
             show luan angry at sprite_highlight("luan")
             nn "{i}The woman smiles at you. The guard’s jaw clenches as he stares coldly at you, but he closes his eyes and takes a deep breath before he speaks.{/i}" (cb_name=["kannika", "luan"])
             show luan -angry
+            show kannika -smile
         "Uh, hello, strange woman whom I have never met before.":
             window show
             play sound "Dewdrop_KannikaClearThroat.mp3" volume 0.7
-            show kannika neutral
-            show kannika speechless
+            show kannika sweatdrop at sprite_highlight("kannika")
             nn "{i}The woman coughs into her hand.{/i}" (cb_name="kannika")
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
-            show luan neutral
-            show luan frown
-            nn "{i}The guard just sighs, a look of mild disappointment on his face.{/i}" (cb_name=["kannika", "luan"])
+            show luan frown at sprite_highlight("luan")
+            nn "{i}The guard just sighs, a look of mild disappointment on his face.{/i}" (cb_name="luan")
             show luan -frown
-            show kannika -speechless
+            show kannika -sweatdrop
         "Officer, I think I found the person you're looking for.":
             window show
             show kannika speechless at sprite_highlight("kannika")
@@ -115,7 +114,6 @@ label chapter2:
     
     # Drink peddler?? Luan is a meanie ;(
     g "Drink-peddler. My lady says she misplaced her parasol somewhere around here last night."
-    show kannika -smile
     bquestionmark "Pancake, please. It’s past sundown, there’s no one else around – I can speak for myself."
     pancake "Princess, it’s a miracle already that your mother is willing to, for the most part, overlook your escapades."
     pancake "It is my duty to act as your sword and veil, so you do not have to stoop so low so as to speak to these commoners."
@@ -160,7 +158,9 @@ label chapter2:
             princess "Yes. I am."
             mc "..."
             princess "..."
+            show kari smile
             mc "Cool!"
+            show kari -smile
             window hide
             jump princessdiscussion
         "Wait, is his name Pancake or Luan?" if not princesstree["wait"]:
@@ -169,36 +169,54 @@ label chapter2:
             princess "It's Luan. Pancake is a nickname I gave him when I was a small child."
             princess "You can call him Pancake too, if you want."
             princess "I'm sure he wouldn't mind."
+            show kari speechless
             mc "If you say so..."
+            show kari -speechless
             window hide
             jump princessdiscussion
         "Oh, the 'foreigner' stuff? It's okay, I get it." if not princesstree["foreigner"]:
             window show
             $ princesstree["foreigner"] = True
             mc "Honestly, I kinda expected him to be a little more intense."
+            show kannika exclamation
             princess "...More intense?"
             mc "Yeah. He didn't ask for my identification papers. He didn’t accuse me of being an enemy of the state."
-            show kannika surprised
+            show kari smile
             mc "He didn’t even search my cafe for any seditious writings or materials that would threaten the security or moral character of the nation."
+            show kari sunglasses
             mc "Not that I have anything like that in here."
             mc "Nope. No siree."
+            show kari smile
+            show kannika speechless
             princess "I'm not even going to try to unpack all of that right now."
-            show kannika -surprised
+            show kannika -speechless
+            show kari -smile
             window hide
             jump princessdiscussion
         "You know what, let's just start over.":
             window show
+            show kari smile
             mc "Hi! I'm Kari. Welcome to the Dewdrop Cafe!"
+            show kannika smile
             princess "It's wonderful to meet you, Kari. My name is Kannika."
             mc "Princess Kannika?"
+            show kannika blush
             b "Please, just Kannika."
+            show kannika -blush
+            show kari -smile
 
     # Parasol discussion
+    show kari exclamation
     mc "Oh! Right! Your parasol..."
+    show kari surprised
     mc "Wait a minute. You have a parasol right now."
     b "..."
+    show kannika sweatdrop
     b "This is my backup parasol."
+    show kari speechless
     mc "Uh huh..."
+    show kari -speechless
+    show kannika -sweatdrop
     mc "Anyways, can I get you anything to drink?"
 
     # Kari chooses whether or not to call Luan "Pancake"
@@ -207,7 +225,7 @@ label chapter2:
         "Oh, and what about you, Luan? Would you like a drink?":
             window hide
             pause 0.25
-            show luan neutral zorder 2 at sprite_highlight("luan"):
+            show luan neutral zorder 2:
                 xzoom 1.0
                 align (-0.1, 1.0)
             with MoveTransition(0.75)
@@ -221,14 +239,17 @@ label chapter2:
             window show
         "Oh, and what about you, Pancake? Would you like a drink?":
             window hide
-            show luan neutral zorder 2 at sprite_highlight("luan"):
+            show luan neutral zorder 2:
                 xzoom 1.0
                 align (-0.1, 1.0)
             with MoveTransition(0.75)
             pause 0.25
             window show
+            show luan glance_down
             lu "..."
+            show luan -glance_down
             lu "No."
+
             window hide
             show luan neutral at offscreenleft
             with MoveTransition(0.75)
@@ -410,17 +431,25 @@ label cattailcitrustree:
 
     # Intro
     b "I couldn't stop thinking about the tea you gave me last night."
+    show kannika sparkle
     b "Could I have that again? Please?"
+    show kari blush
     mc "Oh, I'm so glad you liked it!"
     mc "One cattail citrus tea, coming right up."
+    show kannika blush
     b "I'd never tasted anything quite like it."
+    show kannika smile
+    show kari smile
     b "I was quite sad that I wasn't able to finish my cup from last night..."
     b "It was delicious."
     mc "If you think this is good, you should try the one my mom makes."
     mc "I used to ask her for it all the time as a kit. Probably drove her crazy..."
+    show kannika frown
+    show kari -smile
     b "..."
-    n "{i}As you work on putting together another cattail citrus tea, a flash of melancholy crosses the naga princess’ face. She opens her mouth as if to say something, but stops herself, instead looking out into the night.{/i}"
+    nn "{i}As you work on putting together another cattail citrus tea, a flash of melancholy crosses the naga princess’ face. She opens her mouth as if to say something, but stops herself, instead looking out into the night.{/i}" (cb_name="kannika")
     nn "{i}Her scales and eyes shine in the light from your cafe, glimmering and iridescent.{/i}" (cb_name="kannika")
+    show kannika -frown
 
     # Opening of discussion with Kannika about life
     window hide
@@ -432,15 +461,20 @@ label cattailcitrustree:
             mc "You know, I was wondering about that."
             b "The ocean isn't very conducive to tea-making, sadly."
             b "Most of our finer traditional drinks are brines or layered oil jiggers."
+            show kari exclamation
             mc "Did you say 'layered oil??'"
+            show kari surprised
             b "Yes. We layer different kinds of oil - infused with other flavors - in a sort of inverted shot glass. It looks pretty, but actually drinking it..."
+            show kannika speechless
             b "Let's just say I much prefer your tea."
+            show kari smile
+            show kannika -speechless
             mc "Aw, I'm glad you like it so much!"
             n "{i}Humming to yourself, you put the finishing touches on the cattail citrus and place the softly steaming glass in front of Kannika. {/i}"
 
             # Kari makes drink for Kannika
             window hide
-            show kari:
+            show kari neutral:
                 xzoom -1.0
                 align (1.1, 0.5)
             with move
@@ -456,31 +490,34 @@ label cattailcitrustree:
             # Show Cattail Citrus
             show drink bg:
                 align (0.5, 0.4)
-            show cattail citrus:
+            show cattail citrus zorder 3:
                 align (0.5, 0.4)
-            pause 1.0
-            hide cattail citrus with dissolve
-            hide drink bg with dissolve
-            pause 0.25
+            with dissolve
 
             # Kannika enjoys drink
-            show kannika smile
+            show kannika sparkle
             window show
             nn "{i}Her face immediately lights up as she blows on it before sipping delicately.{/i}" (cb_name="kannika")
             window hide
-            show kannika -smile
             pause 0.25
             play sound "Dewdrop_Sip.mp3" volume 0.75
             pause 1.0
+            hide cattail citrus
+            hide drink bg
+            with dissolve
+            show kannika -sparkle
 
             window show
+            show kari -smile at sprite_highlight("kari")
             mc "So were {i}all{/i} of your meals prepared by chefs? Your mom never made anything for you?"
             b "Such is the way of nobility, I'm afraid."
             b "Besides, my mother is much too busy to do anything as nice as that."
             mc "I take it the two of you aren’t on the best of terms, then?"
             b "…not as such, no."
+            show kari frown
             mc "Sorry. I know how tough that can be."
             b "It’s alright."
+            show kannika frown
             b "We just… disagree on how some things are, and how some things should be."
             window hide
 
@@ -531,9 +568,11 @@ label cattailcitrustree:
             mc "I’m sure they’ll understand my side of things once I go back home."
             mc "But for now, I’m just taking a little break from all of that."
             b "..."
+            show kannika -frown
             b "What was your home like?"
             b "My knowledge of the purrson nation is only superficial."
             b "The Purrsons’ Democratic Republic of Catistan, yes?"
+            show kari -frown
             mc "Most people just call it the PDRC."
             mc "But yeah, sure, I can tell you about it."
 
@@ -546,18 +585,24 @@ label cattailcitrustree:
                     window show
                     mc "It’s super modernized. Almost every major city has plumbing, and the streets are all paved."
                     mc "The market districts are fully patrolled, so there’s no crime."
+                    show kari sparkle
                     mc "I wish I could show you the fish markets, they’re so fun to shop in!"
+                    show kari smile
                     mc "Oh, and the city I grew up in has the biggest printing house in the country."
                     mc "Newspapers, pamphlets, posters, they make all sorts of things there. Lots of government materials, too."
                     mc "My dad did an inspection there once, and he brought back one of the little letter stamps for me."
                     mc "I think I still have it somewhere in here…"
+                    show kari -smile
                     window hide
                     jump pdrc
                 "(Focus on the geography)" if not pdrctree["geography"]:
                     $ pdrctree["geography"] = True
                     window show
                     mc "I grew up on the coast, so there were lots of ships going in and out all the time."
-                    mc "We had this amazing view of the ocean from our house. When I was a kit, my dad would make little paper warships for me to stick to the window and pretend like they were actual ships on the bay."
+                    mc "We had this amazing view of the ocean from our house."
+                    show kari blush
+                    mc "When I was a kit, my dad would make little paper warships for me to stick to the window and pretend like they were actual ships on the bay."
+                    show kari -blush
                     mc "There are a lot of mountains, too. They protect the PDRC from its enemies."
                     mc "Apparently there used to be big forests, but they got cut down to make room for more factories."
                     window hide
@@ -569,43 +614,61 @@ label cattailcitrustree:
                     mc "My dad works for the Committee for Cultural Autonomy and Technology. Basically, his job is making sure nothing bad is being smuggled into the country, particularly when it comes to new inventions from other nations."
                     mc "Like when our city’s first telegraph line got set up, he was in charge of making sure it couldn’t be tampered with by foreign agents."
                     mc "There’s a bunch of different branches in the government. Sometimes it’s hard to keep track of all of them."
-                    mc "The Ministry of Education, Order, and Welfare… The Peaceful United Resource Reallocation Department… The Council of Law, Authority, and Warfare…"
+                    mc "The {color=#48B5A1}M{/color}inistry of {color=#48B5A1}E{/color}ducation, {color=#48B5A1}O{/color}rder, and {color=#48B5A1}W{/color}elfare… The {color=#48B5A1}P{/color}eaceful {color=#48B5A1}U{/color}nited {color=#48B5A1}R{/color}esource {color=#48B5A1}R{/color}eallocation {color=#48B5A1}D{/color}epartment… The {color=#48B5A1}C{/color}ouncil of {color=#48B5A1}L{/color}aw, {color=#48B5A1}A{/color}uthority, and {color=#48B5A1}W{/color}arfare…"
                     mc "The PDRC has a lot of moving parts, but day-to-day life is pretty normal overall. "
                     window hide
                     jump pdrc
                 "(Focus on the few happy memories you have)":
                     window show
-                    show kari smile
+                    show kari blush
                     mc "I remember my mom and my dad taking me down the road to get ice cream at a little shop."
                     mc "I remember swimming in the ocean with my dad."
                     mc "I remember drinking tea with my mom."
                     mc "We would all go and watch the parades together."
                     mc "And then we’d go down to the beach and watch the sunset…"
-                    show kari -smile
+                    show kari -blush
                     mc "..."
             b "Those are wonderful memories."
             mc "Yeah, I mean, it's not {i}all{/i} sunshine and catnip."
+            show kari frown
             mc "The people there are… pretty set in their ways."
             mc "New ideas usually come across as ridiculous at best."
             mc "At worst… dangerous."
             mc "It was hard to see back then, but once I started traveling I realized how different things can be."
             mc "I’ll go home eventually."
+            show kari -frown
             mc "But for now, I’m planning on seeing all the amazing things this world has to offer, things that I never could have even imagined if I had stayed home."
         "You know, that’s probably what got me into making drinks in the first place.":
             window show
             mc "Sometimes, if Mom was busy, I’d try and make cattail citrus for the two of us."
+            show kari sweatdrop
             mc "Except I wasn’t tall enough to put the kettle on the stove."
             mc "And I had no clue how to properly steep the tea."
             mc "And I would always add too much sugar."
+            show kari blush
             mc "So my mom would come into the kitchen to see me in the middle of a huge mess, holding two cups of cold, sugary water."
             mc "With just a hint of citrus."
-            show kannika smile
+            show kannika blush
             play sound "Dewdrop_KannikaLaugh.mp3" volume 0.7
             nn "{i}Over the course of the story, Kannika’s expression changes from bemusement to uncontrollable laughter. She unsuccessfully tries to cover her mouth with her hands to restrain her giggles before they burst out of her as entirely un-princesslike guffaws.{/i}" (cb_name="kannika")
             nn "{i}She wipes the tears from the corners of her eyes just in time to see you place a cup of softly steaming cattail citrus tea in front of her.{/i}" (cb_name="kannika")
+            show kari smile
+            show kannika smile
             mc "Here you go! One cattail citrus tea."
+            window hide
+            show drink bg:
+                align (0.5, 0.4)
+            show cattail citrus zorder 3:
+                align (0.5, 0.4)
+            with dissolve
+            pause 1.5
+            hide drink bg
+            hide cattail citrus
+            with dissolve
+            pause 0.25
             b "This is… truly incredible. Thank you."
             mc "What a coincidence! Whenever my mom drank that “tea” I made for her, she would say exactly the same thing."
+            show kannika blush
             b "She sounds like a wonderful mother."
             window hide
             menu:
@@ -616,10 +679,11 @@ label cattailcitrustree:
                 "Even when we get into our little disagreements, I know she’ll come around in the end.":
                     window show
                     b "You’re very lucky, to have a parent so understanding."
+                    show kari -smile
                     mc "..."
                     mc "Yeah."
                     mc "Understanding."
-                    show kannika -smile
+                    show kannika -blush
                     b "I’m sorry, I didn’t mean to bring up any bad memories."
                     mc "No, no, it's okay."
                     b "..."
@@ -634,18 +698,28 @@ label cattailcitrustree:
                         "Wow, the swamp is really swampy tonight!":
                             window show
                             b "It’s oka–"
+                            show kari sweatdrop
                             mc "Craaazy weather we’ve been having, huh?"
+                            show kannika surprised
                             b "Kari–"
+                            show kari sunglasses
                             mc "Hey, check out this cool birthmark I’ve got on my–"
+                            show kannika gloom
                             b "KARI."
+                            show kari exclamation
                             play sound "Dewdrop_Clatter.mp3" volume 0.7
                             n "{i}Cups clatter against the countertop. You blink to see that Kannika has stood up from her seat to grab your shoulder, snapping you out of your deflection spiral.{/i}"
+                            show kari surprised
+                            show kannika frown
                             n "{i}You become immediately aware of how close she is to you, the warmth of her hand through your shirt, somehow both firm and gentle.{/i}"
-                            nn "{i}Your eyes refocus on hers – vibrant orange like cups of honey, lit by lamplight and fireflies.{/i}" (cb_name="kannika")
+                            n "{i}Your eyes refocus on hers – vibrant orange like cups of honey, lit by lamplight and fireflies.{/i}"
+                            show kannika surprised
                             n "{i}Kannika blushes and takes her hand off your shoulder. The two of you stand awkwardly on opposite sides of the counter, not quite making eye contact.{/i}"
                             play sound "Dewdrop_Sip.mp3" volume 0.7
                             n "{i}After a few moments, Kannika gently sits back in her chair and picks up her cup, bringing it to her lips and sipping deeply.{/i}"
+                            show kannika frown
                             b "I'm sorry."
+                            show kari frown
                             mc "It's okay-"
                             b "No, it's not."
                             b "I know how it feels to fight with a parent."
@@ -659,30 +733,39 @@ label cattailcitrustree:
                                 "I didn't mind it.":
                                     window show
                                     play sound "Dewdrop_KannikaClearThroat.mp3" volume 0.7
-                                    "{i}Flustered, Kannika coughs into her hand.{/i}"
+                                    show kannika exclamation
+                                    n "{i}Flustered, Kannika coughs into her hand.{/i}"
+                                    show kannika -exclamation
                                 "Hey. It's okay.":
                                     window show
+                            show kari -frown
                             mc "Honestly, it just makes me happy to know that the Dewdrop Cafe is somewhere you can get away from all that."
                             mc "In a lot of ways, it’s the same for me."
                             mc "But it’s been just about two years since then."
                             mc "I’ve had plenty of time to think about what happened."
                             mc "And if there’s anything I can do to help you out with whatever kind of argument you’ve been having with your mom..."
                             mc "I’m here for you to talk to."
+                            show kannika -frown
                             b "..."
                     b "Is that why you left home?"
                     b "Fighting with your mom, I mean."
                     mc "My mom and my dad – both of them."
+                    show kari frown
                     mc "And it wasn’t a fight! We just… couldn’t see eye to eye, I guess."
                     mc "I had to get out of the house for a bit."
+                    show kari sweatdrop
                     mc "So I decided… might as well start a cafe, right?"
+                    show kannika surprised
                     b "Just like that? You just walked away?"
                     mc "I mean, yeah, kind of."
                     mc "It’s not like I’ll be gone forever."
                     mc "Just, y’know… until they come around to things."
                     b "Do you think that’s possible?"
+                    show kari smile
                     mc "Of course!"
+                    show kari -smile
                     mc "It might just take some time, that’s all."
-            show kannika -smile
+            show kannika frown
             b "I wish I could say the same for my own mother."
             nn "{i}Kannika sips her tea, gazing into its warm floral depths. The light from the evening’s fireflies dances along her lashes and the scales on her neck.{/i}" (cb_name="kannika")
             nn "{i}In this moment it’s easy to forget that she’s a princess. All you see in front of you is a melancholic young woman finding momentary solace in a warm cup of tea.{/i}" (cb_name="kannika")
@@ -712,8 +795,9 @@ label cattailcitrustree:
             mc "They help me think of the good parts of my journey, instead of the bad ones."
             mc "They remind me of all the amazing experiences I’ve had because I left home."
     n "{i}As the memories recede, you blink back to the present. Kannika is watching you with keen interest.{/i}"
+    show kari blush
     n "{i}You blush slightly as you realize just how much you’d been rambling. How long have you been talking for??{/i}"
-    show kannika smile
+    show kannika blush
     b "More, please."
     mc "..."
     window hide
@@ -724,10 +808,13 @@ label cattailcitrustree:
             window show
         "(Blink in confusion)":
             window show
-    n "{i}You glance down and realize that Kannika has finished off her cup of tea. She nudges the empty cup towards you, smiling.{/i}" (cb_name="kannika")
+    show kari exclamation
+    n "{i}You glance down and realize that Kannika has finished off her cup of tea. She nudges the empty cup towards you, smiling.{/i}"
+    show kari surprised
     b "More, please. Both the tea and the stories."
     b "I want to hear about everywhere you’ve gone to."
     mc "...!"
+    show kari blush
     mc "Another cattail citrus tea, coming right up!"
     window hide
 
@@ -736,7 +823,7 @@ label cattailcitrustree:
     scene black
     with fade
     pause 0.25
-    show kannika -smile
+    show kannika smile with dissolve
     play sound "Dewdrop_MakeDrink.mp3" volume 0.7
     window show
     n "{i}You make the naga princess her tea and spend the next half-hour regaling her with descriptions of the many places you’ve been.{/i}"
@@ -750,11 +837,15 @@ label humminglavendertree:
     # Intro
     b "The tea you gave me last night was quite nice."
     b "Where did you learn to make it?"
+    show kari smile
     mc "Oh, the humming lavender? That’s a drink from the Sun Bearony!"
     mc "They’re famous for their gigantic beehives, and they plant these huge fields of flowers..."
     mc "In the spring, it’s just bright colors as far as you can see in every direction."
+    show kannika blush
     b "That sounds breathtaking."
+    show kannika smile
     b "My tutors often speak of other countries, but I don’t recall the Sun Bearony among them."
+    show kari -smile
     mc "..."
 
     # Sun Bearony menu
@@ -764,13 +855,17 @@ label humminglavendertree:
             window show
             mc "More of a city state, really. It’s mostly farms and orchards."
             b "The tea alone makes me want to learn more."
+            show kari smile
             mc "You have quite the discerning palate, my lady."
+            show kari -smile
         "Maybe if they try some of this humming lavender, they’ll add it to your curriculum.":
             window show
+            show kannika -smile
             b "Would that it were so simple."
             b "Those fusty old crabs do everything by the books."
             b "Except those books were written a few hundred years ago."
             mc "That’s terrible! Think of all the wonderful drinks that the history books have tragically overlooked..."
+            show kannika smile
             b "You’ll have to start catching me up to speed."
             mc "It would be my honor to do so, my lady."
         "Really? You should visit sometime!":
@@ -796,6 +891,7 @@ label humminglavendertree:
             mc "Good heavens! My lady, how scandalous!"
             show kannika -smile
             show kari -smile
+    show kannika -smile
     nn "{i}Something passes across Kannika’s face like a cloud on an otherwise clear day. Her posture stiffens, and her dimpled grin fades to a practiced close-lipped smile.{/i}" (cb_name="kannika")
     nn "{i}After a moment she seems to realize you were speaking in exaggerated formality as a joke, and she forces a chuckle.{/i}" (cb_name="kannika")
     b "Please, none of those honorifics while I’m here."

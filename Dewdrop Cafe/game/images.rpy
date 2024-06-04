@@ -34,6 +34,9 @@ image affogato = im.Scale("affogato_al_signo.png", 960, 540)
 #Backgrounds
 image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
+image inside bg water = im.Scale("inside_background_water.png", 1920, 1080)
+image inside bg stain = im.Scale("inside_background_stain.png", 1920, 1080)
+image inside bg kannika = im.Scale("inside_background_kannika.png", 1920, 1080)
 image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
 image cg_ch1_1 = im.Scale("CG/chapter1/photo_frame.png", 1920, 1080)
 image black bg = "../gui/black_bg.png"
