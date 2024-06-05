@@ -18,20 +18,22 @@ label chapter5:
     with fade
     $ quick_menu = True
 
+    # Kari dreams of electric Kannikas
     window show
     n "{i}You blink awake.{/i}"
     n "{i}The warm humidity of the swamp envelops you like a muggy blanket. Bits and pieces of the previous two days flutter through your mind as you get out of bed and start your day.{/i}"
     n "{i}Perhaps this will be one of your last days in the Naga Kingdom. It’s far from the first time you’ve said goodbye to a strange land like this, and it definitely won’t be the last.{/i}" 
     n "{i}But this time the excitement that normally accompanies the prospect of traveling somewhere new is muted, tinted gray. You can’t help but think of…{/i}"
+    window hide
     show kannika neutral 
     show kannika blush at center
-    with dissolve
+    with easeinright
+    window show
     n "{i}Kannika. Emotions well up in your chest. What will you say to her? What will she say to you? Your stomach turns in anxiety and anticipation.{/i}"
     n "{i}She’ll probably come by later tonight. But until then…{/i}"
-
-    hide kannika
     window hide
-    with dissolve
+    show kannika neutral at offscreenleft
+    with easeoutleft
 
     # Intro
     show day bg
@@ -39,8 +41,6 @@ label chapter5:
     show kari neutral zorder 2 at center, sprite_highlight("kari")
     show kari frown
     with dissolve
-    mc "…"
-    window hide
     menu:
         "It’ll all work out.":
             window show
@@ -81,6 +81,7 @@ label chapter5:
             
             show kari zorder 2:
                 xzoom -1.0
+            play sound "Dewdrop_KariHum.mp3" volume 0.7
             n "{i}Humming absentmindedly, you lose yourself in the morning preparations for the Dewdrop Cafe.{/i}"
             n "{i}The tables sparkle in the sunlight.{/i}"
             n "{i}The sign out front is freshly polished.{/i}"
@@ -106,7 +107,7 @@ label chapter5:
                 n" {i}You remember the shimmering of her scales in the lamplight, and the warm glow of her eyes as she held your gaze.{/i}"
                 n "{i}…{/i}"
 
-            call passdaytime
+            call passdaytime from _call_passdaytime
             # -------- Refer to passdaytime ---------
             # It isn’t long before the first of today’s customers arrive, bringing an end to your introspection. Drinks pour, glasses clink, and the sun moves across the sky.
             # Distracting yourself with the cafe works almost too well. Before you know it the sky begins to darken and the last customers of the day wander away. Twilight approaches, and with it comes a very important decision. But unlike so long ago, it isn’t one that you’ll be making.
@@ -126,8 +127,8 @@ label chapter5:
             $ kannikaplantree = {"clearly": False, "obviously": False}
             window hide
             menu kannikaplan: 
-                "Clearly, she should get out of here." if not kannikaplan["clearly"]:
-                    $ kannikaplan["clearly"] = True
+                "Clearly, she should get out of here." if not kannikaplantree["clearly"]:
+                    $ kannikaplantree["clearly"] = True
                     window show
                     mc "She’s not happy here. She can’t be herself."
                     mc "I mean, she can’t even figure out who she is if she stays here."
@@ -150,11 +151,12 @@ label chapter5:
                             mc "I bet her mom would be furious. She might not even let Kannika come back home."
                             mc "…"
                             mc "Well, with that in mind…"
+                            window hide
                             jump kannikaplan
                             # back
 
-                "Obviously, she should stay." if not kannikaplan["obviously"]:
-                    $ kannikaplan["obviously"] = True
+                "Obviously, she should stay." if not kannikaplantree["obviously"]:
+                    $ kannikaplantree["obviously"] = True
                     window show
                     mc "I know it’s tough, but like… it could be a lot worse."
                     mc "I’m sure Kannika and her mom would be able to find some common ground eventually if she stayed and talked it out."
@@ -175,6 +177,8 @@ label chapter5:
                             mc "It might be a bit much to ask her to just deal with it until she’s established herself as queen."
                             mc "Even if it means jeopardizing her relationship with her mom."
                             mc "Hm. In that case…"
+                            window hide
+                            jump kannikaplan
                             # back
 
                 "She should totally… um… uh…":
@@ -208,6 +212,25 @@ label chapter5:
     # Kannika appears
     play sound ["Dewdrop_Splash.mp3", "Dewdrop_Slither.mp3"] volume 0.7
     n "{i}A tell-tale splash announces her arrival. Kannika slithers up to the Dewdrop Cafe – alone.{/i}"
+    window hide
+
+    show kari:
+        xzoom -1.0
+        align (1.0, 0.5)
+    with MoveTransition(0.75)
+    pause 0.25
+    show kari:
+        xzoom 1.0
+    show kannika frown zorder 1 at left
+    with easeinleft
+
+    # Spright highlights
+    show kannika at sprite_highlight("kannika")
+    show kari at sprite_highlight("kari")
+
+    pause 0.5
+    window show
+    pause 0.25
     b "…Hey."
     
     $ suptree = {"sup": False, "beenluan": False}
@@ -220,11 +243,12 @@ label chapter5:
             mc "…"
             mc "So…"
             mc "You come here often?"
+            show kannika smile
+            show kari smile
             n "{i}Kannika’s mouth twitches into a hint of a smile. You crack a grin in return, and you can feel some of the tension leave the air.{/i}"
             b "I must admit I find your irreverence quite refreshing."
             mc "Well, it’s gotten me into plenty of trouble in the past."
             mc "Glad you like it, though."
-            mc "…"
             window hide
             jump sup
             # back
@@ -252,7 +276,6 @@ label chapter5:
             b "I asked him to stay out of sight. Partially to give us some space to talk, and partially as a precaution if anyone else spots me."
             b "I can claim that I ran away and Luan was simply coming to find me."
             mc "Oh."
-            mc "…"
             window hide
             jump sup
             # back
@@ -265,7 +288,6 @@ label chapter5:
             b "He’s risking quite a bit just by letting me leave the castle. If my mother ever found out he let me come see you…"
             b "It’s another reason as to why I had him stay out of sight. If anyone sees me I can say that I ran away and Luan was just trying to find me."
             mc "Oh."
-            mc "…"
             window hide
             jump sup
             # back
@@ -362,6 +384,11 @@ label runaway:
 
     n "{i}Together.{/i}"
 
+    n "{b}THE END.{/b}"
+    window hide
+    pause 1.0
+    $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
+
 
 label arrangedmarriage:
     mc "It’s tough, I know. But there are a lot of people here who are relying on you."
@@ -414,6 +441,11 @@ label arrangedmarriage:
     n "{i}The people you meet are simply too numerous. Their faces bleed together in your memories like charcoal smudged with a finger.{/i}"
 
     n "{i}But you doubt you’ll ever forget the people you met here. Rawi, Luan… and a princess with a parasol.{/i}"
+
+    n "{b}THE END.{/b}"
+    window hide
+    pause 1.0
+    $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 
 label rejecttradition:
@@ -484,7 +516,13 @@ label rejecttradition:
     mc "We can figure something out if we put our heads together."
     mc "But let me tell you, thanks to my dad’s line of work I happen to know quite a bit about combating cultural hegemonies…"
 
+    window hide
+    scene black
+    with dissolve
+    pause 1.0
+
     # REJECT TRADITION CUTSCENE
+    window show
     n "{i}Defying decades-old tradition and the will of an immortal council of dragons isn’t exactly a walk in the park.{/i}"
     n "{i}It’ll take cunning, subtlety, and guerilla cafe propaganda.{/i}"
 
@@ -512,5 +550,9 @@ label rejecttradition:
     #   jump sloppystyle
 
     n "{i}And who knows what else the future has in store for you?{/i}"
+    n "{b}THE END.{/b}"
+    window hide
+    pause 1.0
+    $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 label sloppystyle:
