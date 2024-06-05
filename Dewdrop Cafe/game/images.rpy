@@ -36,6 +36,9 @@ image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
 image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
 image cg_ch1_1 = im.Scale("CG/chapter1/photo_frame.png", 1920, 1080)
+image badending1 = im.Scale("CG/chapter1/luanarrestskannika.jpg", 1920, 1080)
+image badending2 = im.Scale("CG/chapter1/pensivekari.jpg", 1920, 1080)
+image badending3 = im.Scale("", 1920, 1080)
 image black bg = "../gui/black_bg.png"
 image overlay = "../gui/overlay/plain_overlay.png"
 

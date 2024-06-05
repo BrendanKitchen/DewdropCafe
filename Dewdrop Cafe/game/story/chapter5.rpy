@@ -249,6 +249,8 @@ label chapter5:
             b "I must admit I find your irreverence quite refreshing."
             mc "Well, it’s gotten me into plenty of trouble in the past."
             mc "Glad you like it, though."
+            show kannika -smile
+            show kari -smile
             window hide
             jump sup
             # back
@@ -357,6 +359,11 @@ label runaway:
     b "When I leave, I won’t be alone."
     n "{i}She smiles widely at you and squeezes your hand. You can’t help but smile back.{/i}"
 
+    window hide
+    scene black
+    with dissolve
+    pause 1.0
+
     # RUNAWAY CUTSCSENE
     n "{i}The two of you waste no time.{/i}"
     n "{i}Kannika returns to the palace with Luan to pack some keepsakes and traveling clothes, as well as to write a note to her mother explaining why she’s choosing to leave the kingdom.{/i}"
@@ -418,6 +425,11 @@ label arrangedmarriage:
     b "An exchange. I’ll play the part of a proper princess – on the condition that I can add you to my personal retinue."
     mc "You’d do that… for me?"
     b "You’re the one who first showed me the wonders of the world, Kari. If I won’t be seeing them myself, I’ll simply have you continue to show them to me."
+
+    window hide
+    scene black
+    with dissolve
+    pause 1.0
 
     # ARRANGED MARRIAGE CUTSCENE
     n "{i}The day comes soon enough.{/i}"
