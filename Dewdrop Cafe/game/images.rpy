@@ -34,13 +34,24 @@ image affogato = im.Scale("affogato_al_signo.png", 960, 540)
 #Backgrounds
 image night bg = im.Scale("night_background.png", 1920, 1080)
 image inside bg = im.Scale("inside_background.png", 1920, 1080)
+image inside bg water = im.Scale("inside_background_water.png", 1920, 1080)
+image inside bg stain = im.Scale("inside_background_stain.png", 1920, 1080)
+image inside bg kannika = im.Scale("inside_background_kannika.png", 1920, 1080)
 image day bg = im.Scale("dewdrop_day_background.png", 1920, 1080)
 image cg_ch1_1 = im.Scale("CG/chapter1/photo_frame.png", 1920, 1080)
-image badending1 = im.Scale("CG/chapter1/luanarrestskannika.jpg", 1920, 1080)
-image badending2 = im.Scale("CG/chapter1/pensivekari.jpg", 1920, 1080)
-image badending3 = im.Scale("", 1920, 1080)
 image black bg = "../gui/black_bg.png"
 image overlay = "../gui/overlay/plain_overlay.png"
+
+# Bad Ending
+image badending1 = im.Scale("CG/chapter1/luanarrestskannika.jpg", 1920, 1080)
+image badending2 = im.Scale("CG/chapter1/pensivekari.jpg", 1920, 1080)
+image badending3 = im.Scale("CG/chapter1/badending3.png", 1920, 1080)
+
+# Run Away Ending
+image runaway1 = im.Scale("CG/run_away_ending/runaway1.png", 1920, 1080)
+image runaway2 = im.Scale("CG/run_away_ending/runaway2.png", 1920, 1080)
+image runaway3 = im.Scale("CG/run_away_ending/runaway3.png", 1920, 1080)
+
 
 # Chapter Card
 image ch1 = "../gui/chapter_cards/chapter_1.png"
@@ -49,3 +60,4 @@ image ch3 = "../gui/chapter_cards/chapter_3.png"
 image ch4 = "../gui/chapter_cards/chapter_4.png"
 image ch5 = "../gui/chapter_cards/chapter_5.png"
 image ch overlay = "../gui/chapter_cards/ch_overlay.png"
+image ending card = "../gui/chapter_cards/ending_card.png"

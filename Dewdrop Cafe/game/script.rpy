@@ -20,7 +20,7 @@ label start:
     $ pickedjelly = False
 
     # Play music
-    play music "Pas de Deuxdrop.mp3" volume 0.6
+    play music "Dewdrop_NewBeginnings.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
@@ -138,27 +138,99 @@ label start:
         "Wh- Just hold on a second and tell me what's going on!":
             window show
             bquestionmark "Later. Don't let him know I'm here."
-            nn "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}" (cb_name = "kannika")
-            nn "{i}She meets your eyes and puts a finger to her lips.{/i}" (cb_name = "kannika")
+            n "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}"
+            # Kannika hiding transition
+            $ quick_menu = False
+            window hide
+            hide kannika with easeoutbottom
+            pause 0.5
+            play sound "Dewdrop_Splash.mp3" volume 0.7
+            # Kannika peeking
+            show inside bg kannika with dissolve
+            pause 1.5
+            $ quick_menu = True
+            window show
+            n "{i}She meets your eyes and puts a finger to her lips.{/i}"
+            $ quick_menu = False
+            window hide
+            pause 1
+            hide inside bg kannika with dissolve
         "(Try and stop her from climbing over the counter)":
             window show
-            nn "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}" (cb_name = "kannika")
-            nn "{i}She smoothly redirects your shove and you end up spinning around in place as she curls her tail around herself and hides beneath the counter.{/i}" (cb_name = "kannika")
+            n "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}"
+
+            # Kannika hiding transition
+            $ quick_menu = False
+            window hide
+            hide kannika with easeoutbottom
+            pause 0.5
+            play sound "Dewdrop_Splash.mp3" volume 0.7
+            # Kannika peeking from under
+            pause 0.5
+            show inside bg kannika with dissolve
+            pause 1
+            $ quick_menu = True
+            window show
+            n "{i}She smoothly redirects your shove and you end up spinning around in place as she curls her tail around herself and hides beneath the counter.{/i}"
+            $ quick_menu = False
+            window hide
+            pause 1
+            hide inside bg kannika with dissolve
+
         "(Help her climb over the counter)":
             window show
             nn "{i}As soon as you make contact with the strange naga, you instantly know she doesn't even need your help. With just her arms, she pulls herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}" (cb_name="kannika")
-            nn "{i}You see the trail of swamp water left behind and quickly grab a towel to blot it up. You glance down and smile reassuringly. She meets your eyes with a look of gratitude and smiles back. {/i}" (cb_name="kannika")
+            
+            # Kannika hiding transition
+            $ quick_menu = False
+            window hide
+            hide kannika with easeoutbottom
+            pause 0.5
+            play sound "Dewdrop_Splash.mp3" volume 0.7
+            # show stain
+            show inside bg water with dissolve
+            pause 1
+            $ quick_menu = True
+            window show
+            n "{i}You see the trail of swamp water left behind and quickly grab a towel to blot it up.{/i}"
+            $ quick_menu = False
+            window hide
+            pause 0.8
+            # begone stain
+            show inside bg stain with dissolve
+            pause 1
+            $ quick_menu = True
+            window show
+            n "{i}You glance down and smile reassuringly. She meets your eyes with a look of gratitude and smiles back. {/i}"
+            window hide
+            hide inside bg stain with dissolve
+
             $ karihelpedkannika = True
         "Uh. Okay. Sure. Yeah.":
             window show
-            nn "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself. She meets your eyes and puts a finger to her lips.{/i}" (cb_name="kannika")
-    window hide
-    hide kannika with easeoutbottom
-    pause 0.75
-    play sound "Dewdrop_Splash.mp3" volume 0.7
+            n "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}"
+
+            # Kannika hiding transition
+            $ quick_menu = False
+            window hide
+            hide kannika with easeoutbottom
+            pause 0.5
+            play sound "Dewdrop_Splash.mp3" volume 0.7
+            # Kannika peeking
+            show inside bg kannika with dissolve
+            pause 1.5
+            $ quick_menu = True
+            window show
+            n "{i}She meets your eyes and puts a finger to her lips.{/i}"
+            $ quick_menu = False
+            window hide
+            pause 1
+            hide inside bg kannika with dissolve
+    
 
     # Luan arrives
     window show
+    $ quick_menu = True
     n "{i}Just as she does so, another figure emerges from the swamp.{/i}"
     show luan neutral at left, sprite_highlight("luan")
     with easeinleft
@@ -498,28 +570,83 @@ label start:
         play sound "Dewdrop_KannikaAggressiveSigh.mp3" volume 0.7
         bquestionmark "It seems a little trust was too much to ask for."
         bquestionmark "Goodbye."
-        window hide
-        pause 0.25
-        show kannika -angry
-        show badending1 with dissolve
-        pause 2.0
-        window show
-        n "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
+
+        # Cutscenes
+        play music "Dewdrop_Forlorn.mp3" volume 0.6
+        # Bad Ending 1
+        scene black with dissolve
+        $ quick_menu = False
         window hide
         pause 0.5
-        show badending2 with dissolve
+        show badending1 with dissolve
         pause 2.0
+        $ quick_menu = True
         window show
+
+        n "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
+
+        # Bad Ending 2
+        $ quick_menu = False
+        window hide
+        pause 1.5
+        show badending2 with dissolve
+        pause 1.0
+        $ quick_menu = True
+        window show
+
         n "{i}The rest of your stay in the Naga Kingdom is pleasant and uneventful, if a bit too humid for your tastes. Eventually, that old itch in the back of your mind returns – it’s time to move on.{/i}"
-        n "{i}You pack up your cafe and set off on the road once again. No one is waiting to see you off. No one begs for you to stay. You are alone, just as you have been since you left your home almost two years ago.{/i}"
+        n "{i}You pack up your cafe and set off on the road once again.{/i}"
+
+        # Bad Ending 3
+        $ quick_menu = False
+        window hide
+        pause 1.0
+        show badending3 with dissolve
+        pause 1.0
+        $ quick_menu = True
+        window show
+
+        n "{i}No one is waiting to see you off.{/i}"
+        n "{i}No one begs for you to stay.{/i}"
+        n "{i}You are alone, just as you have been since you left your home almost two years ago.{/i}"
+
+        $ quick_menu = False
+        window hide
+        pause 1.5
+        scene black with dissolve
+        $ quick_menu = True
+        window show
+
         n "{i}Soon, your memories of this place will fade into pretty pastels and wistful impressions.{/i}"
         n "{i}The City of Swans, the Otterman Empire, the Naga Kingdom… all just names on a map, a blurred collection of faces and sounds and smells, bleeding together like watercolors in the rain.{/i}"
-        n "{i}You never did see that naga woman again. You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently.{/i}"
+        n "{i}You never did see that naga woman again.{/i}"
+        n "{i}You never even got her name. Sometimes you think about that night, that odd encounter, and wonder what might have happened if things went differently.{/i}"
         n "{i}Time moves ever-forward, however. You have little choice but to turn your thoughts to the road ahead, rather than linger on what you might have left by the wayside.{/i}"
         n "{i}Eventually, even she will evaporate into faint recollections of swamp water on a countertop.{/i}"
         n "{i}Your travels will have you meet many new people, experience many new things. This little kingdom will be just another chapter in your tales to tell when you’re sitting at a table with people who love you. {/i}"
-        n "{i}Right now, however, you are alone. Just you, the road, and whatever the future has in store for you.{/i}"
+        # Bad Ending 3
+        $ quick_menu = False
+        window hide
+        pause 0.5
+        show badending3 with dissolve
+        pause 0.5
+        $ quick_menu = True
+        window show
+        n "{i}Right now, however, you are alone.{/i}"
+        n "{i}Just you, the road, and whatever the future has in store for you.{/i}"
         n "{i}Maybe it’s better this way.{/i}"
         window hide
         pause 1.0
+        # Ending Card Outro
+        window hide
+        $ quick_menu = False
+        scene black bg
+        show ch overlay
+        show ending card:
+            align (0.5, 0.5)
+        with fade
+        pause 2
+        hide ending card
+        hide ch overlay
+        with fade
         $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))

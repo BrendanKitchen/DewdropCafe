@@ -342,9 +342,12 @@ label runaway:
     mc "Every night I considered turning around and going right back home."
     mc "Because… even if I was miserable, at least I wouldn’t be alone."
     mc "…"
+    show kari smile
     mc "But every morning I would be glad I left."
     mc "I got to discover myself, figure out what kind of person I really wanted to be."
+    show kari sparkle
     mc "I got to see new things, try new foods. I learned how to make drinks. I opened a cafe!"
+    show kari -sparkle
     mc "And I know it looks like I’ve got everything figured out now, but I’m still kinda making it up as I go."
     mc "It was hard at first. But that first step is the hardest part."
     mc "You just gotta keep going."
@@ -354,9 +357,12 @@ label runaway:
     b "I need to live for myself. Not for my mother, or for the High Elders."
     b "For me."
     b "…"
+    show kannika -frown
     b "Although there is one thing that will be different this time."
     mc "What’s that?"
+    show kannika blush
     b "When I leave, I won’t be alone."
+    show kari blush
     n "{i}She smiles widely at you and squeezes your hand. You can’t help but smile back.{/i}"
 
     window hide
@@ -365,23 +371,56 @@ label runaway:
     pause 1.0
 
     # RUNAWAY CUTSCSENE
+    scene black
+    $ quick_menu = True
     n "{i}The two of you waste no time.{/i}"
     n "{i}Kannika returns to the palace with Luan to pack some keepsakes and traveling clothes, as well as to write a note to her mother explaining why she’s choosing to leave the kingdom.{/i}"
 
     n "{i}You’ve already stowed your belongings and folded your cafe back up into your magic briefcase.{/i}"
     n "{i}You wait anxiously at the meeting point, memories of a similar fateful night swirling around your head.{/i}"
+    play sound "Dewdrop_KannikaPanting.mp3" volume 0.7
     n "{i}Kannika appears, shrouded in a cloak and shawl, panting in fear and exertion.{/i}"
+
+    # Run Away 1
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show runaway1 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
+    
+
     n "{i}She hurriedly explains that her mother caught wind of her intent to leave and ordered the Halfmoon Guard to stop her.{/i}"
     n "{i}Luan stood in their way to buy her time so that she – and you – could flee.{/i}"
+
+    # Run Away 2
+    window hide
+    $ quick_menu = False
+    pause 0.5
+    show runaway2 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
 
     n "{i}You grab her hand and lead her away.{/i}"
     n "{i}Away from her kingdom and its suffocating decorum.{/i}"
     n "{i}Away from her mother and her uncompromising expectations.{/i}"
     n "{i}Away from a life that would have seen her grow dull and faded, nothing more than an ornament in a gilded cage.{/i}"
 
+    scene black with dissolve
     n "{i}Soon enough, you leave the brackish waters of the Naga Kingdom behind.{/i}"
     n "{i}Mud and roots give way to rippling plains of tall grass.{/i}"
     n "{i}The two of you stop for a moment to catch your breath, glancing at each other and laughing as the tension of escape fades away.{/i}"
+
+    # Run Away 3
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show runaway3 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
 
     n "{i}The night sky above you shines with countless stars. You both look up and marvel at them.{/i}"
     n "{i}You look at Kannika and see those very stars reflected in her eyes.{/i}"
@@ -391,9 +430,22 @@ label runaway:
 
     n "{i}Together.{/i}"
 
-    n "{b}THE END.{/b}"
+    $ quick_menu = False
     window hide
     pause 1.0
+
+    # Ending Card Outro
+    window hide
+    $ quick_menu = False
+    scene black bg
+    show ch overlay
+    show ending card:
+        align (0.5, 0.5)
+    with fade
+    pause 2
+    hide ending card
+    hide ch overlay
+    with fade
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 
@@ -454,9 +506,18 @@ label arrangedmarriage:
 
     n "{i}But you doubt you’ll ever forget the people you met here. Rawi, Luan… and a princess with a parasol.{/i}"
 
-    n "{b}THE END.{/b}"
+    # Ending Card Outro
     window hide
-    pause 1.0
+    $ quick_menu = False
+    scene black bg
+    show ch overlay
+    show ending card:
+        align (0.5, 0.5)
+    with fade
+    pause 2
+    hide ending card
+    hide ch overlay
+    with fade
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 
@@ -562,9 +623,18 @@ label rejecttradition:
     #   jump sloppystyle
 
     n "{i}And who knows what else the future has in store for you?{/i}"
-    n "{b}THE END.{/b}"
+    # Ending Card Outro
     window hide
-    pause 1.0
+    $ quick_menu = False
+    scene black bg
+    show ch overlay
+    show ending card:
+        align (0.5, 0.5)
+    with fade
+    pause 2
+    hide ending card
+    hide ch overlay
+    with fade
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 label sloppystyle:

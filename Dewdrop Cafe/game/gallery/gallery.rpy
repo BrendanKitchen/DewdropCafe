@@ -6,7 +6,7 @@ init python:
     gallery.hover_border = "../gui/gallery_assets/gallery_border_hover.png"
     gallery.idle_border = "../gui/gallery_assets/gallery_border_idle.png"
 
-    # -------- COMMON --------
+    # -------- ILLUSTRATIONS --------
     # ------------------------
     # ------------------------
     # ------------------------
@@ -18,6 +18,41 @@ init python:
 
     gallery.button("day_background")
     gallery.unlock_image("day bg")
+
+    # INSIDE BGS
+    gallery.button("inside_bg")
+    gallery.image("inside bg")
+
+    gallery.button("inside_bg_water")
+    gallery.unlock_image("inside bg water")
+    
+    gallery.button("inside_bg_stain")
+    gallery.unlock_image("inside bg stain")
+
+    gallery.button("inside_bg_kannika")
+    gallery.unlock_image("inside bg kannika")
+
+
+    # BAD ENDING CUTSCENES
+    gallery.button("badending1")
+    gallery.unlock_image("badending1")
+
+    gallery.button("badending2")
+    gallery.unlock_image("badending2")
+
+    gallery.button("badending3")
+    gallery.unlock_image("badending3")
+
+    # RUN AWAY ENDING CUTSCENES
+    gallery.button("runaway1")
+    gallery.unlock_image("runaway1")
+
+    gallery.button("runaway2")
+    gallery.unlock_image("runaway2")
+
+    gallery.button("runaway3")
+    gallery.unlock_image("runaway3")
+
 
 
     # - CONCEPT ART & DRAFTS -
