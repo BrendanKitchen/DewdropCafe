@@ -471,23 +471,16 @@ label start:
         play sound "Dewdrop_KannikaAggressiveSigh.mp3" volume 0.7
         bquestionmark "It seems a little trust was too much to ask for."
         bquestionmark "Goodbye."
+        window hide
+        pause 0.25
+        show badending1 with dissolve
+        pause 2.0
+        window show
         n "{i}The guard escorts her away, and the two disappear into the darkness of the night.{/i}"
         window hide
-        show luan:
-            xzoom -1.0
-        show luan at offscreenleft
-        with MoveTransition(0.75)
-        pause 0.25
-        show kannika:
-            xzoom -1.0
-        show kannika at offscreenleft
-        with MoveTransition(0.75)
-        show kari neutral at center 
-        with move
         pause 0.5
-        scene black
-        with fade
-        pause 0.5
+        show badending2 with dissolve
+        pause 2.0
         window show
         n "{i}The rest of your stay in the Naga Kingdom is pleasant and uneventful, if a bit too humid for your tastes. Eventually, that old itch in the back of your mind returns – it’s time to move on.{/i}"
         n "{i}You pack up your cafe and set off on the road once again. No one is waiting to see you off. No one begs for you to stay. You are alone, just as you have been since you left your home almost two years ago.{/i}"
