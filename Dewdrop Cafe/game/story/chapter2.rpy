@@ -263,7 +263,7 @@ label chapter2:
 
             window hide
             show luan:
-                xzoom: -1.0
+                xzoom -1.0
             show luan at offscreenleft
             with MoveTransition(0.75)
             pause 0.25

@@ -146,7 +146,7 @@ label start:
             pause 0.5
             play sound "Dewdrop_Splash.mp3" volume 0.7
             # Kannika peeking
-            show inside bg kannika with dissolve
+            show inside bg water with dissolve
             pause 1.5
             $ quick_menu = True
             window show
@@ -154,7 +154,7 @@ label start:
             $ quick_menu = False
             window hide
             pause 1
-            hide inside bg kannika with dissolve
+            hide inside bg water with dissolve
         "(Try and stop her from climbing over the counter)":
             window show
             n "{i}As soon as you make contact with the strange naga, you instantly know you're no match.{/i}"
@@ -167,7 +167,7 @@ label start:
             play sound "Dewdrop_Splash.mp3" volume 0.7
             # Kannika peeking from under
             pause 0.5
-            show inside bg kannika with dissolve
+            show inside bg water with dissolve
             pause 1
             $ quick_menu = True
             window show
@@ -175,7 +175,7 @@ label start:
             $ quick_menu = False
             window hide
             pause 1
-            hide inside bg kannika with dissolve
+            hide inside bg water with dissolve
 
         "(Help her climb over the counter)":
             window show
@@ -217,7 +217,7 @@ label start:
             pause 0.5
             play sound "Dewdrop_Splash.mp3" volume 0.7
             # Kannika peeking
-            show inside bg kannika with dissolve
+            show inside bg water with dissolve
             pause 1.5
             $ quick_menu = True
             window show
@@ -225,7 +225,7 @@ label start:
             $ quick_menu = False
             window hide
             pause 1
-            hide inside bg kannika with dissolve
+            hide inside bg water with dissolve
     
 
     # Luan arrives
@@ -355,12 +355,13 @@ label start:
     show kannika sparkle
     bquestionmark "...it completes the fit."
     show kari -sweatdrop
+    window hide
     show kari speechless
-    pause 0.5
-    show kari -speechless
+    pause 2.0
     show kannika blush
     show kari blush
     play sound "Dewdrop_Giggles.mp3" volume 0.7
+    window show
     n "{i}You and the naga dissolve into a fit of giggles.{/i}"
     n "{i}Laughter weaves through the humid night air, not quite drowned out by the chirps and calls of the swamp's other denizens.{/i}"
     show kannika -blush
@@ -403,6 +404,7 @@ label start:
     show kari -smile
     show kannika -smile
     nn "{i}Before long, the whistle of a teakettle joins the chorus of bugs and frogs in the night.{/i}"
+    show kannika blush
     nn "{i}The naga holds the cup between her hands, feeling its warmth.{/i}" (cb_name="kannika")
     window hide
     pause 0.5
@@ -410,6 +412,7 @@ label start:
     pause 1.0
     window show
     "{i}She takes her time as she sips it, savoring the taste.{/i}"
+    show kannika -blush
     bquestionmark "What is this?"
 
     # Drink choice menu
@@ -504,10 +507,11 @@ label start:
     window show
     show kari -surprised
     show kari exclamation
-    mc "Wait, You forgot your-"
+    mc "Wait, you forgot your-"
     show kari surprised
     window hide
-    pause 0.25
+    play sound "Dewdrop_Slither.mp3" volume 0.7
+    pause 2.0
     play sound "Dewdrop_Splash.mp3" volume 0.7
     pause 0.5
     window show
