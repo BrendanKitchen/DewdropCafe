@@ -672,16 +672,16 @@ screen about():
                 text _("Lead Writer, Voice Actor")
 
             hbox:
-                label _("Nicholas Chong")
-                text _("Concept Writer")
-
-            hbox:
                 label _("Ashley Lu")
                 text _("UI Artist & Designer, Cutscene Art, Programmer, Voice Actor")
 
             hbox:
                 label _("Elijah Parmley")
                 text _("QA Tester")
+
+            hbox:
+                label _("Nicholas Chong")
+                text _("Concept Writer")
 
             hbox:
                 style_prefix "additional_credits"
