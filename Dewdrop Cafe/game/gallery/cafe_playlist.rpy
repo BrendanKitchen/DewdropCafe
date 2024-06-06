@@ -4,15 +4,24 @@ screen cafe_playlist:
 
     if main_menu:
         add "gui/menu_bg.png"
-        add "gui/menu_kari.png"
         add "gui/menu_decor.png" 
     add "gui/overlay/plain_overlay.png" 
+    add "gui/gallery_assets/album_cover.png":
+            zoom 0.5
+            yalign 0.66
+            xalign 0.7
+
+    # add "gui/gallery_assets/music_chibis.png":
+    #     zoom 0.5
+    #     # xzoom -1.0
+    #     yalign 1.0
+    #     xalign 1.06
 
     add "gui/gallery_assets/music_chibis.png":
         zoom 0.5
-        # xzoom -1.0
+        xzoom -1.0
         yalign 1.0
-        xalign 1.06
+        xalign 0.0
 
     # hbox:
     #     xalign 0.5
@@ -30,13 +39,11 @@ screen cafe_playlist:
         xalign 0.66
         spacing 15
         # playlist
-        add "gui/gallery_assets/album_cover.png":
-            zoom 1.2
-            xalign 0.5
         vbox:
             style_prefix "playlist"
             # box_reverse True
             textbutton "Main Theme" action music.Play("Main Menu Theme.mp3")
+            textbutton "New Beginnings" action music.Play("Dewdrop_NewBeginnings.mp3")
             textbutton "Pas de Deuxdrop" action music.Play("Pas de Deuxdrop.mp3")
             textbutton "Forlorn" action music.Play("Dewdrop_Forlorn.mp3")
             textbutton "Recollection" action music.Play("Recollection.mp3")
