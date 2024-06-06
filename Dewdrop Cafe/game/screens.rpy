@@ -653,7 +653,7 @@ screen about():
 
             hbox:
                 label _("Brendan Kitchen")
-                text _("Producer, Programmer")
+                text _("Producer, Lead Programmer")
 
             hbox:
                 label _("Elizabeth Liao")
@@ -669,15 +669,19 @@ screen about():
 
             hbox:
                 label _("Michael Rhee")
-                text _("Lead Narrative Writer")
+                text _("Lead Writer, Voice Actor")
 
             hbox:
                 label _("Nicholas Chong")
-                text _("Narrative Writer")
+                text _("Concept Writer")
 
             hbox:
                 label _("Ashley Lu")
-                text _("UI Artist & Designer, Programmer, Voice Actor")
+                text _("UI Artist & Designer, Cutscene Art, Programmer, Voice Actor")
+
+            hbox:
+                label _("Elijah Parmley")
+                text _("QA Tester")
 
             hbox:
                 style_prefix "additional_credits"
