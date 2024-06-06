@@ -20,7 +20,7 @@ label start:
     $ pickedjelly = False
 
     # Play music
-    play music "Pas de Deuxdrop.mp3" volume 0.6
+    play music "Dewdrop_NewBeginnings.mp3" volume 0.6
 
     # Chapter Card Intro
     window hide
