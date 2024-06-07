@@ -658,17 +658,20 @@ label chapter3:
     show kannika at offscreenleft
     with easeoutleft
     pause 0.25
-    show kari exclamation at center
+    show kari exclamation at center, sprite_highlight("kari")
     with move
     play sound "Dewdrop_Splash.mp3" volume 0.7
     window show
     n "{i}Kannika storms off and dives into the water. Luan spares you only a quick glance before following behind her.{/i}"
+    window hide
     play sound "Dewdrop_Splash.mp3" volume 0.7
     pause 0.5
     show kari frown
+    window show
     n "{i}You are alone.{/i}"
 
     # Fade out
+    window hide
     scene black
     with fade
 

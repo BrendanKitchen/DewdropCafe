@@ -36,12 +36,14 @@ label chapter4:
     play sound "Dewdrop_KariLaugh.mp3" volume 0.7
     n "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
     play sound "Dewdrop_Splash.mp3" volume 0.7
+    show kari exclamation
     n "{i}As night falls and you begin to put the chairs away, you hear now-familiar splashes coming from just out of sightrustling in the bushes.{/i}"
     play sound "Dewdrop_Slither.mp3" volume 0.7
+    show kari surprised
     n "{i}Could it be…?{/i}"
     window hide
 
-    show kari neutral at right, sprite_highlight("kari")
+    show kari at right, sprite_highlight("kari")
     with move
 
     # Luan arrives

@@ -362,9 +362,10 @@ label chapter2:
     menu:
         "Of course!":
             window show
-            show kari blush at sprite_highlight("kari")
+            show kari blush
             mc "Hope I see you again soon!"
             show kari -blush
+            show kari neutral
             mc "Oh, uh, you too..."
 
             # Luan or Pancake menu part 2
@@ -384,11 +385,13 @@ label chapter2:
             b "I appreciate you keeping the shop open for me."
             b "It means a lot."
             show kannika -blush
+            show kari neutral
         "Thank you too, Kannika.":
             window show
             show kannika smile
             nn "{i}She beams at you. As she turns to leave, her movements seem to have a little more pep.{/i}" (cb_name="kannika")
             show kannika -smile
+            show kari neutral
     nn "{i}Luan holds out an arm as Kannika lightly rests a hand on it. As he begins to escort her away, she turns to look over her shoulder at you and the cafe, catching one last glimpse before she disappears into the night.{/i}" (cb_name=["kannika", "luan"])
 
     # Kannika turns to luan then back to kari
@@ -410,6 +413,8 @@ label chapter2:
     with MoveTransition(0.75)
     show kannika neutral at offscreenleft
     with MoveTransition(0.75)
+    show kari at center
+    with move
 
     # Outro
     window show

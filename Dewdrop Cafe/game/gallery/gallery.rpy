@@ -21,7 +21,7 @@ init python:
 
     # INSIDE BGS
     gallery.button("inside_bg")
-    gallery.image("inside bg")
+    gallery.unlock_image("inside bg water")
 
     gallery.button("inside_bg_water")
     gallery.unlock_image("inside bg water")
@@ -109,6 +109,9 @@ init python:
 
     gallery.button("character_concepts")
     gallery.image("../gui/overlay/plain_overlay.png", "concept_art/el_character_concepts.jpg")
+
+    gallery.button("rawi_concept")
+    gallery.image("../gui/overlay/plain_overlay.png", "concept_art/issy_rawi.jpg")
     
     # -------- FANART -------
     # ------------------------
