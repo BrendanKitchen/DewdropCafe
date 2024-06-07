@@ -48,6 +48,7 @@ screen gallery_concept_art:
             add gallery.make_button("kari_concepts", im.Scale("concept_art/thumbnails/el_kari_concepts.jpg", 384, 216), tooltip="Kari concept art by {color=#4DE5BA}Elizabeth Liao{/color}")
             add gallery.make_button("kannika_concept", im.Scale("concept_art/thumbnails/el_kannika_concept.jpg",384,216), tooltip="Kannika concept art by {color=#4DE5BA}Elizabeth Liao{/color}")
             add gallery.make_button("character_concepts", im.Scale("concept_art/thumbnails/el_character_concepts.jpg",384,216), tooltip="Character concepts by {color=#4DE5BA}Elizabeth Liao{/color}")
+            add gallery.make_button("rawi_concept", im.Scale("concept_art/thumbnails/issy_rawi.jpg",384,216), tooltip="Rawi concept by {color=#4DE5BA}Issy Wong{/color}")
         
         if curpage == "cafe_concepts_1":
             add gallery.make_button("night_background_concept", im.Scale("concept_art/issy_cafe_night_bg_concept.png", 384, 216), tooltip="Cafe at night concept art by {color=#4DE5BA}Issy Wong{/color}")
