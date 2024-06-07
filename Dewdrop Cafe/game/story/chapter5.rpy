@@ -40,16 +40,20 @@ label chapter5:
     show kari neutral zorder 2 at center, sprite_highlight("kari")
     show kari frown
     with dissolve
+    pause 0.25
     menu:
         "It’ll all work out.":
             window show
+            show kari smile
             mc "Yeah. Yeah, it’ll all be okay."
             show kari:
                 xzoom -1.0
             n "{i}You repeat these reassurances to yourself as you start prepping ingredients for the day.{/i}"
             n "{i}Unwavering optimism has served you well for most of your life, and it never hurts to hope for the best.{/i}"
+            show kari sweatdrop
             n "{i}But… what is “the best” in this situation?"
             n "{i}Is it what’s best for Kannika? Best for the kingdom? Something in between?{/i}"
+            show kari frown
             n "{i}Maybe it’d be easier if you weren’t involved.{/i}"
             n "{i}Maybe it’d be better if you weren’t around to influence Kannika’s decisions.{/i}"
             n "{i}Maybe you should leave now, and–{/i}"
