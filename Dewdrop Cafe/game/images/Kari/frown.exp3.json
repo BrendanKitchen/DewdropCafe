@@ -1,6 +1,7 @@
 {
 	"Type": "Live2D Expression",
 	"FadeInTime": 0.35,
+	"FadeOutTime": 0.35,
 	"Parameters": [
 		{
 			"Id": "ParamBrowLAngle",
