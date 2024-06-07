@@ -56,7 +56,7 @@ label chapter2:
     play sound "Dewdrop_Bell.mp3" 
     show kari exclamation
     bquestionmark "Excuse me, are you still open?"
-    show kari -surprised
+    show kari -exclamation
     show kari smile
     show kari:
         xzoom 1.0
@@ -90,6 +90,7 @@ label chapter2:
             g "..."
             show luan -glance_down
             show kannika -smile
+            show kari -smile
         "You came back!":
             show kari -surprised
             show kari smile
@@ -99,6 +100,7 @@ label chapter2:
             nn "{i}The woman smiles at you. The guard’s jaw clenches as he stares coldly at you, but he closes his eyes and takes a deep breath before he speaks.{/i}" (cb_name=["kannika", "luan"])
             show luan -angry
             show kannika -smile
+            show kari -smile
         "Uh, hello, strange woman whom I have never met before.":
             show kari -surprised
             window show
@@ -151,12 +153,12 @@ label chapter2:
     window show
     show kannika frown
     princess "My apologies. Pancake is... very diligent. He means no personal offense."
+    show kannika -frown
     window hide
     menu princessdiscussion:
         "Uh huh. Sorry, did he call you {i}princess{/i}??" if not princesstree["sorry"]:
             window show
             $ princesstree["sorry"] = True
-            show kannika -frown
             princess "Yes. He did."
             mc "...And?"
             princess "And what?"
@@ -165,6 +167,7 @@ label chapter2:
             princess "Yes. I am."
             mc "..."
             princess "..."
+            show kari -surprised
             show kari smile
             mc "Cool!"
             show kari -smile
@@ -173,21 +176,21 @@ label chapter2:
         "Wait, is his name Pancake or Luan?" if not princesstree["wait"]:
             window show
             $ princesstree["wait"] = True
-            show kannika -frown
             princess "It's Luan. Pancake is a nickname I gave him when I was a small child."
             show kannika smile
             princess "You can call him Pancake too, if you want."
             princess "I'm sure he wouldn't mind."
             show kari speechless
+            pause 0.5
             mc "If you say so..."
             show kari -speechless
+            show kannika -smile
             window hide
             jump princessdiscussion
         "Oh, the 'foreigner' stuff? It's okay, I get it." if not princesstree["foreigner"]:
             window show
             $ princesstree["foreigner"] = True
             mc "Honestly, I kinda expected him to be a little more intense."
-            show kannika -frown
             show kannika surprised
             princess "...More intense?"
             mc "Yeah. He didn't ask for my identification papers. He didn’t accuse me of being an enemy of the state."
@@ -204,7 +207,6 @@ label chapter2:
             jump princessdiscussion
         "You know what, let's just start over.":
             window show
-            show kannika -frown
             show kari smile
             mc "Hi! I'm Kari. Welcome to the Dewdrop Cafe!"
             show kannika smile
@@ -218,11 +220,13 @@ label chapter2:
     # Parasol discussion
     show kari exclamation
     mc "Oh! Right! Your parasol..."
+    show kari -exclamation
     show kari surprised
     mc "Wait a minute. You have a parasol right now."
     b "..."
     show kannika sweatdrop
     b "This is my backup parasol."
+    show kari -surprised
     show kari speechless
     mc "Uh huh..."
     show kari -speechless
@@ -243,6 +247,8 @@ label chapter2:
             window show
             lu "No, thank you."
             window hide
+            show luan:
+                xzoom -1.0
             show luan at offscreenleft
             with MoveTransition(0.75)
             pause 0.25
@@ -261,6 +267,8 @@ label chapter2:
             lu "No."
 
             window hide
+            show luan:
+                xzoom -1.0
             show luan at offscreenleft
             with MoveTransition(0.75)
             pause 0.25
@@ -407,8 +415,10 @@ label chapter2:
     show kari blush
     n "{i}A princess! A real, actual princess was sitting at your humble little cafe, drinking the tea you made for her.{/i}"
     n "{i}Still buzzing with a thousand different trains of thought, you absentmindedly go about cleaning the counter and getting ready to wash the cups.{/i}"
+    show kari -blush
     show kari surprised
     n "{i}You step outside to put the chairs away – and stop dead in your tracks.{/i}"
+    show kari -surprised
     show kari exclamation
     n "{i}Kannika’s parasol is still resting against the front of the counter.{/i}"
 
@@ -465,12 +475,15 @@ label cattailcitrustree:
     mc "One cattail citrus tea, coming right up."
     show kannika blush
     b "I'd never tasted anything quite like it."
+    show kannika -blush
     show kannika smile
+    show kari -blush
     show kari smile
     b "I was quite sad that I wasn't able to finish my cup from last night..."
     b "It was delicious."
     mc "If you think this is good, you should try the one my mom makes."
     mc "I used to ask her for it all the time as a kit. Probably drove her crazy..."
+    show kannika -smile
     show kannika frown
     show kari -smile
     b "..."
@@ -493,6 +506,7 @@ label cattailcitrustree:
             b "Most of our finer traditional drinks are brines or layered oil jiggers."
             show kari exclamation
             mc "Did you say 'layered oil??'"
+            show kari -exclamation
             show kari surprised
             b "Yes. We layer different kinds of oil - infused with other flavors - in a sort of inverted shot glass. It looks pretty, but actually drinking it..."
             show kannika -gloom
@@ -501,11 +515,10 @@ label cattailcitrustree:
             show kari smile
             mc "Aw, I'm glad you like it so much!"
             show kari -smile
-            n "{i}Humming to yourself, you put the finishing touches on the cattail citrus and place the softly steaming glass in front of Kannika. {/i}"
 
             # Kari makes drink for Kannika
             window hide
-            show kari neutral:
+            show kari:
                 xzoom -1.0
                 align (1.1, 0.5)
             with move
@@ -518,6 +531,7 @@ label cattailcitrustree:
                 align (1.0, 0.5)
             with move
 
+            n "{i}Humming to yourself, you put the finishing touches on the cattail citrus and place the softly steaming glass in front of Kannika. {/i}"
             # Show Cattail Citrus
             show drink bg:
                 align (0.5, 0.4)
@@ -539,13 +553,12 @@ label cattailcitrustree:
             show kannika -sparkle
 
             window show
-            show kari -smile at sprite_highlight("kari")
             mc "So were {i}all{/i} of your meals prepared by chefs? Your mom never made anything for you?"
             b "Such is the way of nobility, I'm afraid."
             b "Besides, my mother is much too busy to do anything as nice as that."
             mc "I take it the two of you aren’t on the best of terms, then?"
             b "…not as such, no."
-            show kari frown
+            show kari frown at sprite_highlight("kari")
             mc "Sorry. I know how tough that can be."
             b "It’s alright."
             show kannika frown
@@ -556,6 +569,7 @@ label cattailcitrustree:
             menu:
                 #"At the end of the day, " cut
                 "All that matters is that she loves you, right?":
+                    show kari -frown
                     window show
                     mc "That’s what parents are for."
                     mc "At least, that’s what they should be for."
@@ -564,6 +578,7 @@ label cattailcitrustree:
                     b "There’s not much room for any motherly affection to factor in when it comes to royal tradition."
                 #"Sometimes it can be hard to see, " cut
                 "I’m sure she has your best interests at heart.":
+                    show kari -frown
                     window show
                     mc "Sure, she’s a queen, but she’s also your mom. That’s gotta count for something, right?"
                     b "Usually, it would."
@@ -571,6 +586,7 @@ label cattailcitrustree:
                     b "I’m not just fighting her, but generations of royal tradition as well."
                 #"Hold on. " cut
                 "This isn’t, like, disagreements over government policies, right?":
+                    show kari -frown
                     window show
                     mc "Er, I guess they would be “royal decrees” here instead."
                     b "Somewhat, I suppose you could say."
@@ -603,11 +619,9 @@ label cattailcitrustree:
             mc "I’m sure they’ll understand my side of things once I go back home."
             mc "But for now, I’m just taking a little break from all of that."
             b "..."
-            show kannika -frown
             b "What was your home like?"
             b "My knowledge of the purrson nation is only superficial."
             b "The Purrsons’ Democratic Republic of Catistan, yes?"
-            show kari -frown
             mc "Most people just call it the PDRC."
             mc "But yeah, sure, I can tell you about it."
 
@@ -622,6 +636,7 @@ label cattailcitrustree:
                     mc "The market districts are fully patrolled, so there’s no crime."
                     show kari sparkle
                     mc "I wish I could show you the fish markets, they’re so fun to shop in!"
+                    show kari -sparkle
                     show kari smile
                     mc "Oh, and the city I grew up in has the biggest printing house in the country."
                     mc "Newspapers, pamphlets, posters, they make all sorts of things there. Lots of government materials, too."
@@ -677,7 +692,6 @@ label cattailcitrustree:
             show kari -smile
         "You know, that’s probably what got me into making drinks in the first place.":
             window show
-            show kannika -frown
             show kari smile
             mc "Sometimes, if Mom was busy, I’d try and make cattail citrus for the two of us."
             show kari -smile
@@ -687,18 +701,19 @@ label cattailcitrustree:
             show kari gloom
             mc "And I had no clue how to properly steep the tea."
             mc "And I would always add too much sugar."
+            show kari -gloom
             show kari blush
             mc "So my mom would come into the kitchen to see me in the middle of a huge mess, holding two cups of cold, sugary water."
             mc "With just a hint of citrus."
             show kannika blush
             play sound "Dewdrop_KannikaLaugh.mp3" volume 0.7
-            show kari -gloom
+            show kari -blush
             show kari smile
             nn "{i}Over the course of the story, Kannika’s expression changes from bemusement to uncontrollable laughter. She unsuccessfully tries to cover her mouth with her hands to restrain her giggles before they burst out of her as entirely un-princesslike guffaws.{/i}" (cb_name="kannika")
             show kari -smile
             play sound "Dewdrop_SetGlass2.mp3" volume 0.7
             nn "{i}She wipes the tears from the corners of her eyes just in time to see you place a cup of softly steaming cattail citrus tea in front of her.{/i}" (cb_name="kannika")
-            show kari smile
+            show kannika -blush
             show kannika smile
             mc "Here you go! One cattail citrus tea."
             window hide
@@ -715,17 +730,18 @@ label cattailcitrustree:
             window show
             b "This is… truly incredible. Thank you."
             mc "What a coincidence! Whenever my mom drank that “tea” I made for her, she would say exactly the same thing."
+            show kannika -smile
             show kannika blush
             b "She sounds like a wonderful mother."
             window hide
             menu:
                 "She really is.":
                     show kari smile
-                    show kannika -smile
+                    show kannika -blush
                     window show
                 "(Smile, but stay silent)":
                     show kari smile
-                    show kannika -smile
+                    show kannika -blush
                     window show
                 "Yeah. Even when we disagree on things, I know she’ll come around in the end.":
                     show kari smile
@@ -758,24 +774,29 @@ label cattailcitrustree:
                             mc "Craaazy weather we’ve been having, huh?"
                             show kannika surprised
                             b "Kari–"
+                            show kari -sweatdrop
                             show kari sparkle
                             mc "Hey, check out this cool birthmark I’ve got on my–"
-                            show kannika gloom
+                            show kannika -surprised
                             b "KARI."
+                            show kari -sparkle
                             show kari exclamation
                             play sound "Dewdrop_Clatter.mp3" volume 0.7
                             n "{i}Cups clatter against the countertop. You blink to see that Kannika has stood up from her seat to grab your shoulder, snapping you out of your deflection spiral.{/i}"
+                            show kari -exclamation
                             show kari surprised
                             show kannika frown
                             n "{i}You become immediately aware of how close she is to you, the warmth of her hand through your shirt, somehow both firm and gentle.{/i}"
                             nn "{i}Your eyes refocus on hers – vibrant orange like cups of honey, lit by lamplight and fireflies.{/i}" (cb_name="kannika")
+                            show kannika -frown
                             show kannika blush
-                            show kari frown
                             n "{i}Kannika blushes and takes her hand off your shoulder. The two of you stand awkwardly on opposite sides of the counter, not quite making eye contact.{/i}"
                             play sound "Dewdrop_Sip.mp3" volume 0.7
+                            show kannika -blush
                             show kannika frown
                             n "{i}After a few moments, Kannika gently sits back in her chair and picks up her cup, bringing it to her lips and sipping deeply.{/i}"
                             b "I'm sorry."
+                            show kari -surprised
                             show kari frown
                             mc "It's okay-"
                             b "No, it's not."
@@ -804,7 +825,6 @@ label cattailcitrustree:
                             mc "I’ve had plenty of time to think about what happened."
                             mc "And if there’s anything I can do to help you out with whatever kind of argument you’ve been having with your mom..."
                             mc "I’m here for you to talk to."
-                            show kannika -frown
                             b "..."
                     b "Is that why you left home?"
                     b "Fighting with your mom, I mean."
@@ -812,18 +832,19 @@ label cattailcitrustree:
                     show kari frown
                     mc "And it wasn’t a fight! We just… couldn’t see eye to eye, I guess."
                     mc "I had to get out of the house for a bit."
+                    show kari -frown
                     show kari sweatdrop
                     mc "So I decided… might as well start a cafe, right?"
                     show kannika surprised
+                    show kari -sweatdrop
                     b "Just like that? You just walked away?"
                     mc "I mean, yeah, kind of."
                     mc "It’s not like I’ll be gone forever."
                     mc "Just, y’know… until they come around to things."
-                    show kannika -frown
+                    show kannika -surprised
                     b "Do you think that’s possible?"
                     show kari smile
                     mc "Of course!"
-                    show kari -smile
                     mc "It might just take some time, that’s all."
             show kannika frown
             b "I wish I could say the same for my own mother."
@@ -845,12 +866,14 @@ label cattailcitrustree:
                     b "..."
                     b "Not tonight."
                     b "Thank you, though."
+                    show kannika -frown
                     show kannika smile
                     b "I’d rather pair this exquisite tea with happier conversation topics."
                     show kannika -smile
                     window hide
                     jump talkaboutit
                 "(Change the subject)":
+                    show kannika -frown
                     window show
             mc "You know, when I first started traveling, I used to make cattail citrus for myself a lot."
             mc "Whenever I drink it, I think of home."
@@ -875,12 +898,15 @@ label cattailcitrustree:
             window show
         "(Blink in confusion)":
             window show
+    show kari -surprised
     show kari exclamation
     n "{i}You glance down and realize that Kannika has finished off her cup of tea. She nudges the empty cup towards you, smiling.{/i}"
+    show kari -exclamation
     show kari surprised
     b "More, please. Both the tea and the stories."
     b "I want to hear about everywhere you’ve gone to."
     mc "...!"
+    show kari -surprised
     show kari blush
     mc "Another cattail citrus tea, coming right up!"
     window hide

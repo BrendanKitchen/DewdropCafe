@@ -516,12 +516,14 @@ label arrangedmarriage:
     b "Thinking about spending every day in that castle listening to the noble matriarchs gossip and scheme…"
     n "{i}Kannika looks wistfully around the cafe. One finger idly trails across the polished wooden countertop.{/i}"
     b "I’ll miss this place."
+    show kari frown
     n "{i}You remember what Luan said about your banishment and nod sadly.{/i}"
     n "{i}The two of you share a quiet moment reminiscing on the time you shared here, from the first moment you met till now.{/i}"
     show kannika -frown
     show kannika sparkle
     n "{i}Suddenly, Kannika’s eyes light up. Her fins flare in excitement as she meets your gaze and grabs your hand.{/i}"
     b "What if you stayed here?"
+    show kari -frown
     show kari surprised
     mc "I mean, I’d love to, but Luan said that–"
     show kannika -sparkle
