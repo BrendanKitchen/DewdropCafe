@@ -56,12 +56,12 @@ screen gallery_photos:
             add gallery.make_button("runaway3", im.Scale("CG/run_away_ending/runaway3.jpg",384,216), tooltip="Kannika is free by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
             
         if curpage == "ill3":
-            add gallery.make_button("marriage1", im.Scale("CG/chapter1/marriage1.jpg",384,216), tooltip="After Rawi is crowned champion, he proposes to Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("reject1", im.Scale("CG/run_away_ending/reject1.jpg",384,216), tooltip="It begins with a pamphlet by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("marriage2", im.Scale("CG/chapter1/marriage2.jpg",384,216), tooltip="Rawi and Kari bonding over protein shakes by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("reject2", im.Scale("CG/run_away_ending/reject2.jpg",384,216), tooltip="Kannika confronts her mother by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("marriage3", im.Scale("CG/chapter1/marriage3.jpg",384,216), tooltip="Kari moves on to the next chapter by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("reject3", im.Scale("CG/run_away_ending/reject3.jpg",384,216), tooltip="Kari stands proud alongside Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage1", im.Scale("CG/arranged_marriage_ending/marriage1.jpg",384,216), tooltip="After Rawi is crowned champion, he proposes to Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject1", im.Scale("CG/reject_tradition_ending/reject1.jpg",384,216), tooltip="It begins with a pamphlet by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage2", im.Scale("CG/arranged_marriage_ending/marriage2.jpg",384,216), tooltip="Rawi and Kari bonding over protein shakes by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject2", im.Scale("CG/reject_tradition_ending/reject2.jpg",384,216), tooltip="Kannika confronts her mother by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage3", im.Scale("CG/arranged_marriage_ending/marriage3.jpg",384,216), tooltip="Kari moves on to the next chapter by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject3", im.Scale("CG/reject_tradition_ending/reject3.jpg",384,216), tooltip="Kari stands proud alongside Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
 
 style gallery_photos_label:
     ypos 51
