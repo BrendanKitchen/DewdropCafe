@@ -314,7 +314,9 @@ label chapter3:
             window show
             mc "Sure, she’s a queen, but she’s still your mom."
             mc "If you can find a time to just sit down with her and talk it out, heart-to-heart, I’m sure she’d understand where you’re coming from."
+            show kannika angry
             b "But I {i}have.{/i} I’ve {i}tried.{/i}"
+            show kannika -angry
             b "It’s not that she doesn’t understand me. It’s that she won’t listen to me."
             b "To her, I’m still a naive little girl who doesn’t understand how the world works."
             b "And it would be unthinkable for a naive little girl to dare to contradict the queen."
@@ -547,9 +549,11 @@ label longversion:
             b "It is a contest of martial prowess. Two skilled fighters trading blows, striving to outlast the other in an artful dance of combat."
             b "Its name – the Dance of Ribbons – refers to the flowing garments worn by the warriors."
             b "At the start of a bout, both are adorned in pure white fabric. By the end, their outfits will be stained multicolored hues from each other’s blood and war paint."
+            show kari gloom
             mc "That’s a lot more violent than I expected."
             b "They used to be to-the-death, but these days the matches end when one fighter yields."
             b "These sorts of competitions are central to many of our oldest traditions, and skill in combat is expected of anyone in the nobility."
+            show kari -gloom
             mc "Does that mean you can fight too?"
             b "My mother had me trained in wrestling, tail-boxing, and dueling spears."
             mc "What if you joined the tournament as your own champion? Could that work?"
