@@ -21,13 +21,13 @@ label chapter4:
 
     # Following day
     window show
-    "{i}The following day...{/i}"
+    n "{i}The following day...{/i}"
     window hide
 
     # Scene set up
     show night bg
     with dissolve
-    show kari neutral at right, sprite_highlight("kari"):
+    show kari neutral at center:
         xzoom 1
     with easeinright
 
@@ -35,8 +35,13 @@ label chapter4:
     window show
     n "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
     play sound "Dewdrop_Splash.mp3" volume 0.7
-    n "{i}As night falls and you begin to put the chairs away, you hear now-familiar splashes coming from just out of sightrustling in the bushes. Could it be…?{/i}"
+    n "{i}As night falls and you begin to put the chairs away, you hear now-familiar splashes coming from just out of sightrustling in the bushes.{/i}"
+    play sound "Dewdrop_Slither.mp3" volume 0.7
+    n "{i}Could it be…?{/i}"
     window hide
+
+    show kari neutral at right, sprite_highlight("kari")
+    with move
 
     # Luan arrives
     show luan neutral at left, sprite_highlight("luan")
@@ -52,37 +57,49 @@ label chapter4:
         "...Oh. It's you.":
             window show
             lu "Yes, drink-peddler. It's me."
-            nn "{i}Luan slithers forward to take a seat at the counter of the cafe. He eyes you up and down, studying your face, but he doesn’t seem to find what he’s looking for.{/i}" (cb_name="luan")
+            nn "{i}Luan slithers forward to take a seat at the counter of the cafe.{/i}" (cb_name="luan")
+            show luan glance_down
+            nn "{i}He eyes you up and down, studying your face, but he doesn’t seem to find what he’s looking for.{/i}" (cb_name="luan")
+            show luan sad
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}He sighs, posture relaxing, and leans forward to rest his crossed arms on the countertop.{/i}" (cb_name="luan")
         "...Hi, Luan.":
             window show
             lu "Kari."
+            show luan glance_down
             nn "{i}Luan nods in greeting before slithering forward to sit at the counter of the cafe. As soon as he settles onto the barstool his entire posture relaxes.{/i}" (cb_name="luan")
+            show luan sad
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}The naga leans forward to rest his crossed arms on the countertop with a sigh.{/i}" (cb_name="luan")
         "...Hi, Pancake.":
             window show
+            show luan frown
             nn "{i}Luan stares flatly at you. You half expect him to turn around and leave.{/i}" (cb_name="luan")
+            show luan sad
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
             nn "{i}Instead, he sighs and shakes his head before slithering forward to take a seat at the counter of the cafe.{/i}" (cb_name="luan")
+    show kari frown
     mc "What's up?"
 
     # Follow-up questions menu
     window hide
     menu:
         "How's Kannika?":
+            show kari cry
             window show
             mc "Is she doing okay? Last night, things got a little…"
             lu "That’s actually part of why I’m here."
         "Are you finally interested in getting a drink?":
             $ luandrink = True
             window show
+            show luan frown
             nn "{i}He actually seems to consider it. His eyes flit across the menu at the back of the cafe.{/i}" (cb_name="luan")
             lu "A traveling minstrel once compared the color of a land drink to the queen’s hair, praising its vibrancy and hue."
             lu "I can’t recall the name of the drink, but I remember he hailed from the Bahamacaws…"
+            show kari -frown
             mc "Hmm… I haven’t been there yet…"
             mc "Do you remember the ingredients?"
+            show luan -frown
             lu "Some kind of brewed beverage with pink flowers and sliced apples."
             lu "And ice. It also had ice."
             mc "I’ll give it my best shot."
@@ -110,11 +127,15 @@ label chapter4:
                 align (0.5, 0.4)
             with dissolve
 
+            play sound "Dewdrop_SetGlass1.mp3" volume 0.7
             n "{i}Finally, you set a glass down in front of the naga. The drink is a soft, warm pink that seems to almost glow in the light of the setting sun.{/i}"
             n "{i}It reminds you of the way the light danced across Kannika’s scales when you first met her.{/i}"
+            show kari blush at sprite_highlight("kari")
             mc "Here it is! Hibiscus iced tea with apple."
+            show luan surprised
             lu "This color… It’s strikingly accurate."
             lu "What is it called?"
+            show kari smile
             window hide
 
             # Drink naming menu
@@ -122,11 +143,15 @@ label chapter4:
                 "How about “sunset memory?”":
                     window show
                     mc "Seems fitting, right?"
+                    show luan -surprised
                     lu "Hm. Quite."
                 "“Luan’s First Drink?” I dunno, man.":
                     window show
+                    show kari -smile
                     lu "…"
+                    show luan glance_down
                     lu "That works for now, I suppose."
+                    show luan -glance_down
                 "Why don’t you pick the name?":
                     $ pink = True
                     window show
@@ -134,35 +159,52 @@ label chapter4:
                     lu "…"
                     lu "Its name…"
                     lu "…shall be…"
+                    show luan glance_down
                     lu "……"
+                    show luan -glance_down
                     lu "The… The pink…"
+                    show luan blush
                     lu "The pink… lady?"
-                    show kari smile
-                    nn "{i}You have to stifle a giggle at the sight of Luan’s face, brow furrowed and cheeks reddening as he stumbles his way through naming this drink.{/i}" (cb_name="kari")
+                    show kari blush
+                    play sound "Dewdrop_KariLaugh.mp3" volume 0.7
+                    show luan frown
+                    n "{i}You have to stifle a giggle at the sight of Luan’s face, brow furrowed and cheeks reddening as he stumbles his way through naming this drink.{/i}"
                     play sound "Dewdrop_LuanLaugh.mp3"
+                    show luan smile
                     nn "{i}His embarrassment soon fades, however, and he allows himself a polite chuckle.{/i}" (cb_name="luan")
-                    show kari -smile
+                    show kari smile
+                    show luan -smile
                     lu "I am clearly unpracticed at this."
                     mc "No, no – pink lady’s a great name."
                     mc "You mind if I add it to the menu?"
+                    show luan smile
                     lu "Not at all."
 
             # Luan sip
+            window hide
             hide pink lady with dissolve
             hide drink bg with dissolve
-            play sound "Dewdrop_Sip.mp3" volume 0.7
+            window show
             nn "{i}Luan picks up the glass and tentatively takes a sip through the straw.{/i}" (cb_name="luan")
+            window hide
+            play sound "Dewdrop_Sip.mp3" volume 0.7
+            pause 0.5
             show luan surprised
+            pause 0.5
+            window show
             nn "{i}His eyes go wide as he savors the taste, but he quickly regains his composure and carefully sets the drink back down on the counter.{/i}" (cb_name="luan")
+            play sound "Dewdrop_SetGlass1.mp3"
             show luan -surprised
             mc "How is it?"
             play sound "Dewdrop_LuanThroatClear.mp3" volume 0.7
             lu "…It’s… good."
             lu "But we should turn to more pressing matters."
+            show kari -smile
         "I already told you I don’t have any contraband in here.":
             window show
             mc "Especially not any Great Danish infographics about the tyranny and violence of autocratic systems of governance."
             mc "Nope. None of that here, officer."
+            show luan frown
             lu "…"
             lu "I will never understand foreign comedy."
             mc "Okay but seriously, what’s up? You don’t seem like the type to just pop in for a friendly chat."
@@ -178,10 +220,13 @@ label chapter4:
     nn "{i}Luan clears his throat and begins to read from the shells.{/i}" (cb_name="luan")
     lu "The queen has ordered your banishment from the Naga Kingdom."
     lu "You have until the end of the week to leave our borders, and you may not return to Naga Kingdom lands for a year and a day."
-    show kari surprised
+    show kari exclamation
     mc "What?! Why??"
+    show kari surprised
+    show luan frown
     lu "She has decided that you are too much of a distraction for the young princess, and her attention is better directed towards more important matters."
     lu "…"
+    show luan sad
     lu "I’m sorry."
 
     # Kari coping menu
@@ -191,20 +236,24 @@ label chapter4:
             window show
             lu "Her Majesty has made up her mind. And the High Elders have been urging her to be more strict with the princess for some time now."
             lu "It is out of our hands."
+            show kari frown
             mc "Then why are you here?"
         "Does Kannika know about this?":
             window show
             lu "She does."
             lu "She argued quite fiercely against it."
             lu "It’s because of her that you have until the end of the week."
+            show kari frown
             mc "Did she send you here?"
             lu "She… did not."
             mc "Then… Why {i}are{/i} you here?"
         "Take me to the queen right now.":
             window show
+            show kari angry at sprite_highlight("kari")
             mc "I’ll give her a piece of my mind myself."
             lu "You know that I cannot do that."
             mc "Then why did you even come here?"
+            show kari frown
 
     mc "Was it just to tell me this? That I’m being deported? Er, banished, I guess."
     lu "No. I wanted to thank you."
@@ -226,14 +275,18 @@ label chapter4:
             lu "I do. I see how much she’s going through, and how difficult it is for her."
             lu "I see that better than anyone."
             lu "…"
+            show luan -sad
             lu "Let me start from the beginning."
         "Well you'd better start explaining.":
             window show
+            show kari angry
             mc "Are you gonna tell me that, actually, this guy she’s gonna have to marry is a pretty swell dude?"
             mc "Or maybe you’ll tell me that this is all {i}my{/i} fault for making Kannika want to run away from home?"
             lu "If you want me to explain, you must first give me a {i}chance{/i} to explain."
             play sound "Dewdrop_LuanSigh.mp3" volume 0.7
+            show kari frown
             lu "…"
+            show luan -sad
             lu "Let me start from the beginning."
         "I don't want to hear anything from you right now.":
             window show
@@ -247,10 +300,12 @@ label chapter4:
             menu:
                 "Leave? I’m not leaving.":
                     window show
+                    show kari angry
                     mc "I {i}can’t{/i} let things end like this."
                     lu "That isn’t an option."
                     lu "Fraternization is one thing, but openly defying a royal decree…"
                     lu "That {i}will{/i} get you thrown in jail. Or worse."
+                    show kari frown
                     mc "Argh, I know, I know! But I can’t– I can’t just…"
                     mc "…At least let me talk to Kannika again."
                     mc "I have until the end of the week, right? I’ll be here until then."
@@ -259,6 +314,7 @@ label chapter4:
                     lu "…I’ll see what I can do."
 
                     # Luan leaves
+                    window hide
                     show luan at offscreenleft
                     with easeoutleft
                     pause 0.5
@@ -320,7 +376,9 @@ label chapter4:
             lu "Before all of that, I was a champion."
 
     # HOL UP
+    show kari exclamation
     mc "Wait, hold on. {i}You{/i} were a champion?"
+    show kari surprised
     lu "I’m not familiar with how elite warriors are selected in your home country, but almost all of the Halfmoon Guard are noble-born warriors who proved themselves in one of these tournaments."
     lu "I – like many others – begin our training when we are very young. The noble matriarchs select the most promising sons to become warriors, fighting to earn acclaim and power for their house."
     lu "In fact, the soon-to-be-champion is a warrior from the very house that raised me."
@@ -328,9 +386,12 @@ label chapter4:
     lu "Only in passing."
     lu "His name is Rawi. He’s kind-hearted… if a bit simple."
     lu "He is a powerful fighter, but I know for certain he is taking part in the Dance of Ribbons out of no ambition or desire of his own."
+    show luan glance_down
     nn "{i}Luan glances around before leaning in and lowering his voice. He whispers conspiratorially, almost drowned out by the sounds of the swamp’s creatures.{/i}" (cb_name="luan")
+    show luan -glance_down
     lu "The nobility are the ones who take advantage of these tournaments to siphon influence from each other. And the High Elders are more than happy to let them continue with their games of politics."
     mc "So what you’re saying is, both you and Rawi are just pawns on a chess board. You’re being swept along by things outside of your control…"
+    show luan frown
     lu "…And so is the princess."
     lu "To a certain extent, I believe the queen is subject to this as well."
 
@@ -341,9 +402,14 @@ label chapter4:
         "We have to overthrow the nobility." if not crazyideastree["overthrow"]:
             $ crazyideastree["overthrow"] = True
             window show
+            show luan surprised
             lu "What?! No, I didn’t say that."
+            show kari speechless
             mc "Are you sure? I mean, I may or may not have some relevant pamphlets I could start distributing…"
+            show luan angry
             lu "No. Causing wanton chaos would help no one, least of all the princess."
+            show kari frown
+            show luan frown
             mc "Well, then…"
             window hide
             jump crazyideas
@@ -362,6 +428,7 @@ label chapter4:
 
     # Luan cannot get over the fact that Kari is a foreigner
     lu "Because you’re a foreigner."
+    show kari frown
     mc "Back to this bit, huh?"
     lu "No, I’m serious."
     lu "I’m telling you this so that you have context for how things work here."
@@ -379,21 +446,30 @@ label chapter4:
     menu:
         "Thank you, Luan.":
             window show
+            show kari smile
             show luan smile
+            play sound "Dewdrop_LuanLaugh.mp3" volume 0.7
             nn "{i}Luan smiles at you, a deep gratitude in his eyes. In the light of the cafe you can almost see a weight being lifted off his shoulders just from talking to you.{/i}" (cb_name="luan")
-            show luan -smile
+
         "Thank you, Pancake.":
             window show
-            play sound "Dewdrop_LuanSigh.mp3" volume 0.7
+            show kari smile
+            show luan smile
+            play sound ["Dewdrop_LuanSigh.mp3", "Dewdrop_LuanLaugh.mp3"] volume 0.7
             nn "{i}Luan sighs, but it soon turns into a soft chuckle. He shakes his head, and you can see that an invisible weight has been lifted from his shoulders after talking to you.{/i}" (cb_name="luan")
-    
+
+
     # Will Kari see Kannika again?
+    show luan -smile
+    show kari frown
     mc "Am I gonna be able to see her again?"
     mc "Before the end of the tournament, I mean."
+    show luan frown
     lu "I’ll see what I can do."
 
     # Luan drink conditional dialogue
     if luandrink:
+        show luan smile
         lu "Thank you for the drink. Truly."
         lu "The next time you visit the Naga Kingdom, I hope you can make it for me again."
 
@@ -406,6 +482,10 @@ label chapter4:
     show luan at offscreenleft
     with easeoutleft
     pause 0.5
+
+    show kari at center, sprite_highlight("kari")
+    with move
+
     window show
     n "{i}You’re left alone with your thoughts, cleaning glasses and folding up chairs as you prepare to tuck in for the night.{/i}"
     window hide
@@ -428,7 +508,6 @@ label chapter4:
     jump chapter5
 
 label badendingleft:
-    show kari angry
     mc "Clearly, I… I’ve caused Kannika a lot of trouble."
     mc "I don’t want to make things harder for her."
     mc "Saying goodbye is never easy, so…"
@@ -439,6 +518,7 @@ label badendingleft:
     window hide
     menu:
         "Tell her I’m sorry.":
+            show kari cry
             window show
             mc "I didn’t mean for things to turn out like this."
             mc "And I know it seems really hard, but things’ll get better."
@@ -447,18 +527,21 @@ label badendingleft:
             lu "…"
         "Tell her I’ll come back some day.":
             window show
-            show kari -angry
+            show kari -frown
             mc "My exile’s not forever, right?"
             mc "I’ll come back someday."
             mc "I’m sure I will."
 
             # Pink Lady conditional dialogue
             if pink:
+                show kari smile
                 mc "And when I do, the three of us can share some nice, refreshing pink ladies!"
             if not pink:
+                show kari smile
                 mc "And when I do, I’m sure I’ll have some brand new drinks to share with you two!"
 
             lu "…"
+            show kari -smile
 
         "No. Just tell her I was already gone.":
             window show
@@ -475,16 +558,17 @@ label badendingleft:
 
     # Luan Drink conditional dialogue
     if luandrink:
-        lu "The drink you made me… I will remember it."
+        lu "The drink you made me…"
+        pause 0.5
+        lu "I will remember it."
         lu "Just as the princess will remember you."
-    nn "{i}Without waiting for a response, Luan turns and disappears into the night.{/i}" (cb_name="luan")
+    n "{i}Without waiting for a response, Luan turns and disappears into the night.{/i}"
     window hide
 
     # Luan leaves
     show luan:
         xzoom -1
-    show luan at offscreenleft
-    with easeoutleft
+    show luan at offscreenleft with easeoutleft
     pause 0.5
 
     # Fade out
@@ -495,20 +579,61 @@ label badendingleft:
     # Outro
     window show
     n "{i}As that now-familiar numbness settles back into the core of your being, you go about packing up the cafe.{/i}"
+
+    # Kari and the cafe
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show pensivekari with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
+
     n "{i}You disassemble the tables and fold up the chairs. You take down the signs and the decorations. You pack up your cups and ingredients.{/i}"
     n "{i}Just as you have done so many times now, you take out your magic briefcase and unlatch it.{/i}"
     n "{i}With a rushing whirlwind of pastels your quaint cafe folds into itself over and over and disappears into the depths of the briefcase.{/i}"
     n "{i}It snaps shut with a solemn finality and settles onto the ground, waiting for you to pick it up and continue your journey.{/i}"
+
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    scene black with dissolve
+    $ quick_menu = True
+    window show
+
     n "{i}You travel quickly – it’s certainly not the first time you’ve had to leave a place in a hurry.{/i}"
+
+    # Kari Walking away
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show badending3 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
+
     n "{i}Soon, you’re out of the swamp and into rolling hills rippling with tall grass. The salty sea air fades away as you leave the Naga Kingdom behind.{/i}"
     n "{i}You can only wonder at what will happen to Princess Kannika.{/i}"
-    n "{i}Will she accept her mother’s wishes and become the ruler she was meant to be? Will she do as you once did and leave her home under the cover of night, carving her own path?{/i}"
+    n "{i}Will she accept her mother’s wishes and become the ruler she was meant to be?{/i}"
+    n "{i}Will she do as you once did and leave her home under the cover of night, carving her own path?{/i}"
     n "{i}You don’t know. Perhaps you’ll find out; perhaps you never will.{/i}"
     n "{i}Perhaps she’ll seek you out, and the two of you will travel the world together.{/i}"
     n "{i}Right now, however, you are alone. Just you, the road, and whatever awaits you on your journey.{/i}"
     n "{i}Maybe it’s better this way.{/i}"
+
+
+    # Ending Card Outro
     window hide
-    pause 1.0
+    $ quick_menu = False
+    scene black bg
+    show ch overlay
+    show ending card:
+        align (0.5, 0.5)
+    with fade
+    pause 2
+    hide ending card
+    hide ch overlay
+    with fade
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 # Player item user input unused code
