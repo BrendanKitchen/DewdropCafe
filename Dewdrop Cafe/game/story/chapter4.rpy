@@ -33,6 +33,7 @@ label chapter4:
 
     # Narration
     window show
+    play sound "Dewdrop_KariLaugh.mp3" volume 0.7
     n "{i}A healthy flow of thirsty customers helps wash away the lingering thoughts about your conversation with Kannika last night. You smile and laugh, but on the inside you feel cold and exhausted.{/i}"
     play sound "Dewdrop_Splash.mp3" volume 0.7
     n "{i}As night falls and you begin to put the chairs away, you hear now-familiar splashes coming from just out of sightrustling in the bushes.{/i}"
@@ -49,7 +50,9 @@ label chapter4:
     pause 0.5
 
     window show
+    show kari sweatdrop
     n "{i}No frills or parasols in sight. Instead, you see Luan, looking as stern and proper as always.{/i}"
+    show kari -sweatdrop
 
     # Greeting Luan menu
     window hide
@@ -380,7 +383,7 @@ label chapter4:
     mc "Wait, hold on. {i}You{/i} were a champion?"
     show kari surprised
     lu "I’m not familiar with how elite warriors are selected in your home country, but almost all of the Halfmoon Guard are noble-born warriors who proved themselves in one of these tournaments."
-    lu "I – like many others – begin our training when we are very young. The noble matriarchs select the most promising sons to become warriors, fighting to earn acclaim and power for their house."
+    lu "I – like many others – began my training when I was very young. The noble matriarchs select the most promising sons to become warriors, fighting to earn acclaim and power for their house."
     lu "In fact, the soon-to-be-champion is a warrior from the very house that raised me."
     mc "You know him?"
     lu "Only in passing."
