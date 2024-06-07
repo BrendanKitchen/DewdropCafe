@@ -45,13 +45,22 @@ image overlay = "../gui/overlay/plain_overlay.png"
 # Bad Ending
 image badending1 = im.Scale("CG/chapter1/luanarrestskannika.jpg", 1920, 1080)
 image badending2 = im.Scale("CG/chapter1/pensivekari.jpg", 1920, 1080)
-image badending3 = im.Scale("CG/chapter1/badending3.png", 1920, 1080)
+image badending3 = im.Scale("CG/chapter1/badending3.jpg", 1920, 1080)
 
 # Run Away Ending
-image runaway1 = im.Scale("CG/run_away_ending/runaway1.png", 1920, 1080)
-image runaway2 = im.Scale("CG/run_away_ending/runaway2.png", 1920, 1080)
-image runaway3 = im.Scale("CG/run_away_ending/runaway3.png", 1920, 1080)
+image runaway1 = im.Scale("CG/run_away_ending/runaway1.jpg", 1920, 1080)
+image runaway2 = im.Scale("CG/run_away_ending/runaway2.jpg", 1920, 1080)
+image runaway3 = im.Scale("CG/run_away_ending/runaway3.jpg", 1920, 1080)
 
+# Arranged Marriage Ending
+image marriage1 = im.Scale("CG/run_away_ending/marriage1.jpg", 1920, 1080)
+image marriage2 = im.Scale("CG/run_away_ending/marriage2.jpg", 1920, 1080)
+image marriage3 = im.Scale("CG/run_away_ending/marriage3.jpg", 1920, 1080)
+
+# Reject Tradition Ending
+image reject1 = im.Scale("CG/run_away_ending/reject1.jpg", 1920, 1080)
+image reject2 = im.Scale("CG/run_away_ending/reject2.jpg", 1920, 1080)
+image reject3 = im.Scale("CG/run_away_ending/reject3.jpg", 1920, 1080)
 
 # Chapter Card
 image ch1 = "../gui/chapter_cards/chapter_1.png"
