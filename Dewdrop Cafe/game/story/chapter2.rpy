@@ -139,6 +139,8 @@ label chapter2:
 
     # Luan leaves 
     window hide
+    show luan:
+        xzoom -1.0
     show luan at offscreenleft
     with easeoutleft
     play sound "Dewdrop_Slither.mp3" volume 0.7
