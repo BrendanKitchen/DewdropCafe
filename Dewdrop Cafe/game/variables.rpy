@@ -7,3 +7,4 @@ default karihelpedkannika = False
 default askedaboutgovernment = False
 default pink = False
 default luandrink = False
+default alreadysurprised = False
