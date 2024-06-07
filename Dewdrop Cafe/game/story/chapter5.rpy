@@ -485,18 +485,51 @@ label arrangedmarriage:
 
     # ARRANGED MARRIAGE CUTSCENE
     n "{i}The day comes soon enough.{/i}"
+    # Arranged Marriage 1
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show marriage1 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
     n "{i}The warrior Rawi is crowned champion, and for his boon of choice he asks for Kannika’s hand in marriage – as is his right.{/i}"
     n "{i}Kannika formally recognizes his prowess and grants his request, and everything begins to fall into place.{/i}"
+
+    window hide
+    scene black with dissolve
 
     n "{i}As the Naga Kingdom readies itself for the transfer of power to a new pair of regents, Kannika convinces her mother to rescind your banishment.{/i}"
     n "{i}Shortly thereafter, you receive an invitation to become the royal barista, a personal advisor and provider of refreshments to the soon-to-be queen.{/i}"
 
     n "{i}High society takes some getting used to, but soon your drinks are all the rage among the nobility of the kingdom.{/i}"
     n "{i}You spend many months in the Naga Kingdom, watching as Kannika grows into her own as a ruler and quietly supporting her from behind your counter.{/i}"
+    
+    # Arranged Marriage 2
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show marriage2 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
+
     n "{i}Oh, and you end up getting along quite well with Rawi – especially after you introduce him to the marvels of protein shakes.{/i}"
+
+    window hide
+    scene black with dissolve
 
     n "{i}You always knew you couldn’t stay here forever.{/i}"
     n "{i}Eventually that familiar sense of restlessness stirs in your chest, and you say your farewells to the friends you’ve made in your time here.{/i}"
+
+    # Arranged Marriage 3
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show marriage3 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
 
     n "{i}Perhaps you’ll return to this place. Perhaps not. Kannika faced her family and found peace with her future – perhaps you can do the same.{/i}"
 
@@ -599,21 +632,54 @@ label rejecttradition:
     n "{i}Defying decades-old tradition and the will of an immortal council of dragons isn’t exactly a walk in the park.{/i}"
     n "{i}It’ll take cunning, subtlety, and guerilla cafe propaganda.{/i}"
 
+    # Reject Tradition 1
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show reject1 with dissolve
+    pause 1.0
+    $ quick_menu = True
+    window show
+
     n "{i}With some helpful tip-offs from Luan, you evade the Halfmoon Guard and operate a thriving pop-up drink stand.{/i}"
     n "{i}Every coffee or tea comes with a complementary pamphlet outlining the injustice in the current balance of power and advocating for a more equal distribution of authority.{/i}"
     n "{i}Soon, even the nobles are whispering about the infamous “Dark Barista” whose ideas are as bewitching as her beverages.{/i}"
 
+    window hide
+    scene black with dissolve
+
     n "{i}Meanwhile, Kannika throws herself into court politics.{/i}"
     n "{i}She meets with the matriarchs of the noble houses, pulling strings and making deals to sway them to her side.{/i}"
     n "{i}The matriarchs are all too eager to claim more scraps of influence for themselves, and though many still subscribe to the traditions Kannika manages to garner a significant amount of support.{/i}"
+
+    # Reject Tradition 2
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show reject2 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
 
     n "{i}The queen is quick to see the trajectory of this daring plan.{/i}"
     n "{i}Kannika meets with her not as her daughter, but as a soon-to-be monarch – with the political power to back up her words with action.{/i}"
     n "{i}Her mother has no choice but to acknowledge the shifting tides of power.{/i}"
     n "{i}Kannika hopes that once the kingdom’s future becomes more stable, the two of them will be able to connect as mother and daughter once again.{/i}"
 
+    window hide
+    scene black with dissolve
+
     n "{i}The final round of the Dance of Ribbons is delayed because of boycotting from several major noble houses.{/i}"
     n "{i}Both the nobility and the public begin calling for a reexamination of the near-absolute authority the High Elders have over the royal family.{/i}" 
+
+    # Reject Tradition 3
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show reject3 with dissolve
+    pause 2.0
+    $ quick_menu = True
+    window show
 
     n "{i}Kannika is about to give a speech to a massive crowd.{/i}"
     n "{i}She glances at you, a hint of anxiety on her face, and you squeeze her hand reassuringly.{/i}"
