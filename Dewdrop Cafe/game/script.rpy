@@ -8,6 +8,7 @@ define persistent.ch2 = False
 define persistent.ch3 = False
 define persistent.ch4 = False
 define persistent.ch5 = False
+define persistent.sloppy_style = False
 define karihelpedkannika = False
 
 # define dark_transform = Transform(matrixcolor=TintMatrix("#00000060"))
@@ -206,6 +207,7 @@ label start:
             hide inside bg stain with dissolve
 
             $ karihelpedkannika = True
+            $ persistent.sloppy_style = True
         "Uh. Okay. Sure. Yeah.":
             window show
             n "{i}The strange naga heaves herself over the counter and curls up beneath it, wrapping her tail around herself.{/i}"

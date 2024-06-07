@@ -756,10 +756,14 @@ label rejecttradition:
     n "{i}She glances at you, a hint of anxiety on her face, and you squeeze her hand reassuringly.{/i}"
     n "{i}The two of you stand there for a moment, together, shoulder-to-shoulder, looking out at a changing kingdom and a brighter future.{/i}"
 
+    n "{i}And who knows what else the future has in store for you?{/i}"
+
     # if player helped kannika over counter:
     #   jump sloppystyle
 
-    n "{i}And who knows what else the future has in store for you?{/i}"
+    if persistent.sloppy_style == True:
+        call sloppystyle
+
     # Ending Card Outro
     window hide
     $ quick_menu = False
@@ -775,3 +779,12 @@ label rejecttradition:
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 label sloppystyle:
+    $ quick_menu = False
+    window hide
+    pause 0.5
+    show sloppy style with dissolve
+    pause 3.0
+    $ quick_menu = True
+    window show
+
+    n "{i}You can now view this in the Gallery.{/i}"

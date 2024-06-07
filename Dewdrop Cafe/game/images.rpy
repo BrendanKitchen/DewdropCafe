@@ -62,6 +62,9 @@ image reject1 = im.Scale("CG/reject_tradition_ending/reject1.jpg", 1920, 1080)
 image reject2 = im.Scale("CG/reject_tradition_ending/reject2.jpg", 1920, 1080)
 image reject3 = im.Scale("CG/reject_tradition_ending/reject3.jpg", 1920, 1080)
 
+# Sloppy Style
+image sloppy style = im.Scale("fanart/issy_kannikari2.jpg", 1920, 1080)
+
 # Chapter Card
 image ch1 = "../gui/chapter_cards/chapter_1.png"
 image ch2 = "../gui/chapter_cards/chapter_2.png"

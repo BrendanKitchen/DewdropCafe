@@ -138,7 +138,9 @@ init python:
     gallery.button("issy_kannikari")
     gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannikari.png")
 
-
+    gallery.button("sloppy_style")
+    gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannikari2.jpg")
+    gallery.unlock("sloppy style")
 
 
     # ------ CAFE MENU -------
