@@ -49,19 +49,19 @@ screen gallery_photos:
             add gallery.make_button("inside_bg_kannika", im.Scale("inside_background_kannika.png",384,216), tooltip="Inside of the cafe with a special guest by {color=#4DE5BA}Talia Yaser{/color}")
         if curpage == "ill2":
             add gallery.make_button("badending1", im.Scale("CG/chapter1/luanarrestskannika.jpg",384,216), tooltip="Kannika is taken back to the Naga Kingdom by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("runaway1", im.Scale("CG/run_away_ending/runaway1.jpg",384,216), tooltip="Luan protects Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
             add gallery.make_button("badending2", im.Scale("CG/chapter1/pensivekari.jpg",384,216), tooltip="Kari thinks about her actions by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("badending3", im.Scale("CG/chapter1/badending3.png",384,216), tooltip="Kari moves on by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("runaway1", im.Scale("CG/run_away_ending/runaway1.png",384,216), tooltip="Luan protects Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("runaway2", im.Scale("CG/run_away_ending/runaway2.png",384,216), tooltip="Kari guides Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("runaway3", im.Scale("CG/run_away_ending/runaway3.png",384,216), tooltip="Kannika is free by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("runaway2", im.Scale("CG/run_away_ending/runaway2.jpg",384,216), tooltip="Kari guides Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("badending3", im.Scale("CG/chapter1/badending3.jpg",384,216), tooltip="Kari moves on by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("runaway3", im.Scale("CG/run_away_ending/runaway3.jpg",384,216), tooltip="Kannika is free by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
             
         if curpage == "ill3":
-            add gallery.make_button(name="night_background", unlocked=im.Scale("CG/thumbnail/night_bg_thumbnail.jpg",384,216), tooltip="Night cafe background by {color=#4DE5BA}Talia Yaser{/color}")
-            add gallery.make_button("day_background", im.Scale("CG/thumbnail/day_bg_thumbnail.jpg",384,216), tooltip="Day cafe background by {color=#4DE5BA}Talia Yaser{/color}")
-            add gallery.make_button("ch1_1", im.Scale("CG/thumbnail/ch1_1_thumbnail.jpg",384,216), tooltip="Kari's memory by {color=#4DE5BA}Issy Wong{/color}")
-            add gallery.make_button("badending1", im.Scale("CG/chapter1/luanarrestskannika.jpg",384,216), tooltip="Kannika is taken back to the Naga Kingdom, by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("badending2", im.Scale("CG/chapter1/pensivekari.jpg",384,216), tooltip="Kari thinks about her actions, by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
-            add gallery.make_button("badending3", im.Scale("",384,216), tooltip="Kari's memory by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage1", im.Scale("CG/chapter1/marriage1.jpg",384,216), tooltip="After Rawi is crowned champion, he proposes to Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject1", im.Scale("CG/run_away_ending/reject1.jpg",384,216), tooltip="It begins with a pamphlet by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage2", im.Scale("CG/chapter1/marriage2.jpg",384,216), tooltip="Rawi and Kari bonding over protein shakes by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject2", im.Scale("CG/run_away_ending/reject2.jpg",384,216), tooltip="Kannika confronts her mother by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("marriage3", im.Scale("CG/chapter1/marriage3.jpg",384,216), tooltip="Kari moves on to the next chapter by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
+            add gallery.make_button("reject3", im.Scale("CG/run_away_ending/reject3.jpg",384,216), tooltip="Kari stands proud alongside Kannika by {color=#4DE5BA}Issy Wong{/color} and {color=#4DE5BA}Ashley Lu{/color}")
 
 style gallery_photos_label:
     ypos 51

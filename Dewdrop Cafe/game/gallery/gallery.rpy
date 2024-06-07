@@ -53,6 +53,25 @@ init python:
     gallery.button("runaway3")
     gallery.unlock_image("runaway3")
 
+    # ARRANGED MARRAIGE ENDING CUTSCENES
+    gallery.button("marriage1")
+    gallery.unlock_image("marriage1")
+
+    gallery.button("marriage2")
+    gallery.unlock_image("marriage2")
+
+    gallery.button("marriage3")
+    gallery.unlock_image("marriage3")
+
+    # REJECT TRADITION ENDING CUTSCENES
+    gallery.button("reject1")
+    gallery.unlock_image("reject1")
+
+    gallery.button("reject2")
+    gallery.unlock_image("reject2")
+
+    gallery.button("reject3")
+    gallery.unlock_image("reject3")
 
 
     # - CONCEPT ART & DRAFTS -

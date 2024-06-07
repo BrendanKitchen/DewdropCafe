@@ -649,7 +649,7 @@ screen about():
 
             hbox:
                 label _("Issy Wong")
-                text _("Creative Lead, Food & Cutscene Art, Voice Actor")
+                text _("Creative Lead, Food & Cutscene Artist, Voice Actor")
 
             hbox:
                 label _("Brendan Kitchen")
@@ -673,7 +673,7 @@ screen about():
 
             hbox:
                 label _("Ashley Lu")
-                text _("UI Artist & Designer, Cutscene Art, Programmer, Voice Actor")
+                text _("UI Artist & Designer, Cutscene Artist, Programmer, Voice Actor")
 
             hbox:
                 label _("Elijah Parmley")
