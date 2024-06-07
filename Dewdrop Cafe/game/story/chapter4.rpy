@@ -139,6 +139,7 @@ label chapter4:
                     lu "The pink… lady?"
                     show kari smile
                     nn "{i}You have to stifle a giggle at the sight of Luan’s face, brow furrowed and cheeks reddening as he stumbles his way through naming this drink.{/i}" (cb_name="kari")
+                    play sound "Dewdrop_LuanLaugh.mp3"
                     nn "{i}His embarrassment soon fades, however, and he allows himself a polite chuckle.{/i}" (cb_name="luan")
                     show kari -smile
                     lu "I am clearly unpracticed at this."
