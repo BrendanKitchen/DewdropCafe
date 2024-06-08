@@ -538,6 +538,7 @@ label cattailcitrustree:
                 align (1.0, 0.5)
             with move
 
+            play sound "Dewdrop_KariHum.mp3" volume 0.7
             n "{i}Humming to yourself, you put the finishing touches on the cattail citrus and place the softly steaming glass in front of Kannika. {/i}"
             # Show Cattail Citrus
             show drink bg:
@@ -934,17 +935,17 @@ label cattailcitrustree:
 label humminglavendertree:
 
     # Intro
-    show kannika smile
+    show kannika smile at sprite_highlight("kannika")
     b "The tea you gave me last night was quite nice."
     b "Where did you learn to make it?"
     show kannika -smile
-    show kari smile
+    show kari smile at sprite_highlight("kari")
     mc "Oh, the humming lavender? That’s a drink from the Sun Bearony!"
     mc "They’re famous for their gigantic beehives, and they plant these huge fields of flowers..."
     show kari sparkle
     mc "In the spring, it’s just bright colors as far as you can see in every direction."
     show kari -sparkle
-    show kannika blush
+    show kannika blush  at sprite_highlight("kannika")
     b "That sounds breathtaking."
     show kannika smile
     b "My tutors often speak of other countries, but I don’t recall the Sun Bearony among them."
@@ -955,9 +956,9 @@ label humminglavendertree:
     menu:
         "To be fair, it’s not a particularly important country in the first place.":
             window show
-            show kari sweatdrop
+            show kari sweatdrop at sprite_highlight("kari")
             mc "More of a city state, really. It’s mostly farms and orchards."
-            show kannika smile
+            show kannika smile at sprite_highlight("kannika")
             b "The tea alone makes me want to learn more."
             show kari smile
             mc "You have quite the discerning palate, my lady."
@@ -965,23 +966,23 @@ label humminglavendertree:
             show kannika -smile
         "Maybe if they try some of this humming lavender, they’ll add it to your curriculum.":
             window show
-            show kannika gloom
+            show kannika gloom at sprite_highlight("kannika")
             b "Would that it were so simple."
             b "Those fusty old crabs do everything by the books."
             b "Except those books were written a few hundred years ago."
             mc "That’s terrible! Think of all the wonderful drinks that the history books have tragically overlooked..."
             show kannika smile
             b "You’ll have to start catching me up to speed."
-            show kari blush
+            show kari blush at sprite_highlight("kari")
             mc "It would be my honor to do so, my lady."
             show kari -blush
         "Really? You should visit sometime!":
             window show
-            show kari sparkle
+            show kari sparkle at sprite_highlight("kari")
             mc "Genuine Sun Bearony honeycomb is {i}the best.{/i}"
             show kari -sparkle
             b "I would love to travel..."
-            show kannika frown
+            show kannika frown at sprite_highlight("kannika")
             b "Unfortunately, I have many duties as an heiress."
             show kannika -frown
             show kannika smile
@@ -990,8 +991,8 @@ label humminglavendertree:
             show kannika -smile
         "Dozing off in class, eh? Some things are the same no matter where you travel.":
             window show
-            show kari smile
-            show kannika exclamation
+            show kari smile at sprite_highlight("kari")
+            show kannika exclamation at sprite_highlight("kannika")
             b "I– What–"
             b "I don’t doze off in class! I–"
             mc "I’m joking, I’m joking."

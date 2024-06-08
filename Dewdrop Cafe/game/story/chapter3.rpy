@@ -20,15 +20,11 @@ label chapter3:
 
     # Several days later
     n "{i}The cafe is bustling. News of a strange shop serving exotic beverages travels swiftly, and more and more curious customers have been finding their way to the Dewdrop Cafe.{/i}"
-    play sound "Dewdrop_KariSigh.mp3" volume 0.7
     n "{i}You’ve been whisked away by the frenzy of recent activity, and each night you collapse into bed exhausted and satisfied.{/i}"
     n "{i}Kannika hasn’t stopped by since that night. Every evening as you close up shop and take inventory, you catch yourself glancing towards the line where the water and the mud bleed into one another, looking for a glimpse of pearlescent scales.{/i}"
-    play sound "Dewdrop_LuanThroatClear.mp3" volume 0.7
     n "{i}The closest you’ve gotten was a brief visit from Luan, who came to retrieve the princess’ forgotten parasol.{/i}"
-    play sound "Dewdrop_LuanSigh.mp3" volume 0.7
     n "{i}Your questions and attempts at polite conversation were met with terse responses, though he seemed much less hostile than he was during your previous interactions.{/i}"
     n "{i}You don’t have too much time to dwell on these thoughts, however. The endless tide of eager patrons ebbs and flows, but rarely stops.{/i}"
-    play sound "Dewdrop_Clatter.mp3" volume 0.7
     n "{i}The few moments you have in between rushes are spent scrambling to and from the back of the cafe, cleaning dishes and restocking ingredients.{/i}"
     window hide
 
@@ -296,7 +292,6 @@ label chapter3:
                 show kari sweatdrop at sprite_highlight("kari")
                 mc "I… My parents and I had a bit of a disagreement."
                 mc "Things were really tense and uncomfortable and I…"
-                show kari gloom
                 mc "I just had to get out of the house for a little bit."
                 show kari frown
                 mc "I felt like I couldn’t be myself. I couldn’t be my own person."
@@ -337,7 +332,6 @@ label chapter3:
                 mc "..."
                 mc "It’s actually not that simple."
                 mc "Ever since I was a kit, I knew who I wanted to be, but…"
-                show kari gloom
                 mc "My parents had their own idea of who I was supposed to be."
                 show kari frown
                 mc "That’s the real reason why I left home."
@@ -452,9 +446,7 @@ label chapter3:
             window show
             mc "Could you convince him to call it off after he wins?"
             mc "Actually, wait, do you even know who it’s going to be?"
-            show kannika gloom
             b "I do. There are only a handful of bouts left in the tournament, and the victor is all but certain."
-            show kannika frown
             b "But it’s not about him, just as it’s not about me. It’s about the balance of power between the nobility, the monarchy, and the High Elders."
             b "Not that I can imagine any of the contestants objecting to this tradition."
             window hide
@@ -467,7 +459,6 @@ label chapter3:
             mc "If you can find a time to just sit down with her and talk it out, heart-to-heart, I’m sure she’d understand where you’re coming from."
             show kannika angry
             b "But I {i}have.{/i} I’ve {i}tried.{/i}"
-            show kannika gloom
             b "It’s not that she doesn’t understand me. It’s that she won’t listen to me."
             show kannika frown
             b "To her, I’m still a naive little girl who doesn’t understand how the world works."
@@ -506,13 +497,11 @@ label chapter3:
     show kari surprised
     nn "{i}You freeze in shock. You had a sneaking suspicion this was where the conversation was headed, but to hear her say it out loud…{/i}" (cb_name="kari")
     nn "{i}When she says those words, a torrent of memories and emotions wash over you.{/i}" (cb_name="kari")
-    show kari gloom
     nn "{i}The anguish and anxiety that consumed you in the days before you made the choice to leave.{/i}" (cb_name="kari")
     show kari angry
     nn "{i}The simultaneous frustration and catharsis as you wrote that farewell note to your parents.{/i}" (cb_name="kari")
     show kari sweatdrop
     nn "{i}The paranoia as you stole a magic briefcase from your dad’s collection of confiscated foreign items.{/i}" (cb_name="kari")
-    show kari smile
     nn "{i}The bittersweet uncertainty of your first night in the cold, sleeping under the stars.{/i}" (cb_name="kari")
     show kari frown
 
@@ -608,7 +597,6 @@ label chapter3:
                 "I don’t know." if ideastree["pickedany"]:
                     window show
                     mc "I just…"
-                    show kari gloom
                     mc "Clearly you can’t stay."
                     show kari frown
                     mc "But you can’t just leave."
@@ -759,7 +747,6 @@ label longversion:
             mc "You’re the princess, right? Can’t you just do what you want?"
             show kannika angry
             b "Kari, I don’t even have the dignity of deciding what I eat for breakfast."
-            show kannika gloom
             b "These traditions have been like this for generations. Trying to fight them would be like trying to fight the tides themselves."
             show kannika frown
             window hide

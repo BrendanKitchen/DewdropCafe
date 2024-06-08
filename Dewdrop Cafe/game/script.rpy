@@ -331,7 +331,7 @@ label start:
             show kannika speechless
             bquestionmark "...what?"
             show kari smile
-            mc "Sorry. When I was a kid we used to hear about that kind of stuff all the time."
+            mc "Sorry. When I was a kit we used to hear about that kind of stuff all the time."
             mc "Everybody liked to guess which of our teachers were secretly spies, but I don't think I've ever actually met one."
             mc "Not that I'd turn you in if you {i}did{/i} happen to be a spy, of course."
             mc "I'm no snitch."

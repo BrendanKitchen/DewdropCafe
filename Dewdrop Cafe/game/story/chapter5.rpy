@@ -380,7 +380,7 @@ label runaway:
     mc "When I first left home, I barely had a plan. I hitchhiked, I foraged for food, I slept on benches."
     show kari -frown
     show kari sweatdrop
-    mc "And my suitcase made it possible for me to carry all my things. Without it… I’d probably just have my clothes and a couple keepsakes."
+    mc "And my briefcase made it possible for me to carry all my things. Without it… I’d probably just have my clothes and a couple keepsakes."
     show kari -sweatdrop
     mc "It’s really hard at first. And every night I wondered if I was doing the right thing."
     mc "Every night I considered turning around and going right back home."
@@ -516,7 +516,7 @@ label arrangedmarriage:
     b "Thinking about spending every day in that castle listening to the noble matriarchs gossip and scheme…"
     n "{i}Kannika looks wistfully around the cafe. One finger idly trails across the polished wooden countertop.{/i}"
     b "I’ll miss this place."
-    show kari frown
+    show kari frown at sprite_highlight("kari")
     n "{i}You remember what Luan said about your banishment and nod sadly.{/i}"
     n "{i}The two of you share a quiet moment reminiscing on the time you shared here, from the first moment you met till now.{/i}"
     show kannika -frown
