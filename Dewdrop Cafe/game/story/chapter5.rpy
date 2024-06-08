@@ -44,35 +44,47 @@ label chapter5:
     menu:
         "It’ll all work out.":
             window show
-            show kari smile
+            show kari -frown
             mc "Yeah. Yeah, it’ll all be okay."
             show kari:
                 xzoom -1.0
             n "{i}You repeat these reassurances to yourself as you start prepping ingredients for the day.{/i}"
+            window hide
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+            pause 2.0
+            show kari at center:
+                xzoom 1.0
+            window show
             n "{i}Unwavering optimism has served you well for most of your life, and it never hurts to hope for the best.{/i}"
-            show kari sweatdrop
+            show kari frown
             n "{i}But… what is “the best” in this situation?"
             n "{i}Is it what’s best for Kannika? Best for the kingdom? Something in between?{/i}"
-            show kari frown
+            show kari:
+                xzoom -1.0
             n "{i}Maybe it’d be easier if you weren’t involved.{/i}"
             n "{i}Maybe it’d be better if you weren’t around to influence Kannika’s decisions.{/i}"
             n "{i}Maybe you should leave now, and–{/i}"
             #show kari zorder 2:
-            show kari:
-                xzoom 1.0
             n "{i}...{i}"
-            show kari -frown
+            show kari angry:
+                xzoom 1.0
             mc "No."
+            show kari frown
             mc "I’m not gonna just abandon her."
             mc "I want to help her however I can."
+            show kari -frown
             mc "If she was there back then… I think she’d do the same."
 
             label passdaytime:
-                play sound ["Dewdrop_MakeDrink.mp3", "Dewdrop_Clatter.mp3"] volume 0.7
+                play sound ["Dewdrop_MakeDrink.mp3", "Dewdrop_Clatter.mp3", "Dewdrop_Bell.mp3"] volume 0.7
                 n "{i}It isn’t long before the first of today’s customers arrive, bringing an end to your introspection. Drinks pour, glasses clink, and the sun moves across the sky.{/i}"
                 n "{i}Distracting yourself with the cafe works almost too well.{/i}"
                 n "{i}Before you know it the sky begins to darken and the last customers of the day wander away.{/i}"
+                window hide
+                pause 0.25
                 show night bg zorder 1 with dissolve
+                pause 0.25
+                window show
                 n "{i}Twilight approaches, and with it comes a very important decision. But unlike so long ago, it isn’t one that you’ll be making.{/i}"
                 n "{i}Ultimately, it will all be up to her.{/i}"
 
@@ -81,13 +93,23 @@ label chapter5:
             show kari -frown
             mc "I’ve got a cafe to run. I owe it to my patrons to make the best drinks I can give them."
             mc "Can’t exactly do that if I’m stuck in my own head about this stuff."
+            show kari frown
             mc "Whatever happens… happens." 
             mc "And I’m sure it’ll be fine no matter how things turn out."
             
-            show kari zorder 2:
+            show kari -frown
+            window hide
+            show kari zorder 2 at right:
                 xzoom -1.0
+            with move
             play sound "Dewdrop_KariHum.mp3" volume 0.7
+            window show
             n "{i}Humming absentmindedly, you lose yourself in the morning preparations for the Dewdrop Cafe.{/i}"
+            window hide
+            show kari at center:
+                xzoom 1.0
+            with move
+            window show
             n "{i}The tables sparkle in the sunlight.{/i}"
             n "{i}The sign out front is freshly polished.{/i}"
             n "{i}Everything is ready for another day of delicious drinks.{/i}"
@@ -114,14 +136,12 @@ label chapter5:
                 n "{i}You look around your humble cafe, thinking of all the new faces you’ve seen since you arrived in the Naga Kingdom.{/i}"
                 n "{i}Your eyes linger on the countertop as you remember wiping up a puddle of swamp water left in the wake of a runaway princess.{/i}"
                 n "{i}You remember the lithe strength with which she pulled herself over the counter.{/i}"
+                show kari blush
                 n" {i}You remember the shimmering of her scales in the lamplight, and the warm glow of her eyes as she held your gaze.{/i}"
+                show kari -blush
                 n "{i}…{/i}"
 
             call passdaytime from _call_passdaytime
-            # -------- Refer to passdaytime ---------
-            # It isn’t long before the first of today’s customers arrive, bringing an end to your introspection. Drinks pour, glasses clink, and the sun moves across the sky.
-            # Distracting yourself with the cafe works almost too well. Before you know it the sky begins to darken and the last customers of the day wander away. Twilight approaches, and with it comes a very important decision. But unlike so long ago, it isn’t one that you’ll be making.
-            # Ultimately, it will all be up to her.
 
         "I’m too anxious to even think about running the cafe…":
             show kari gloom
@@ -142,6 +162,7 @@ label chapter5:
                 "Clearly, she should get out of here." if not kannikaplantree["clearly"]:
                     $ kannikaplantree["clearly"] = True
                     window show
+                    show kari frown
                     mc "She’s not happy here. She can’t be herself."
                     mc "I mean, she can’t even figure out who she is if she stays here."
                     mc "Not with everyone telling her who she has to be. Telling her that she isn’t allowed to be herself."
@@ -149,12 +170,10 @@ label chapter5:
                     mc "Waking up every morning and looking in the mirror and seeing a stranger, knowing that she’s lying to herself to keep everyone else happy because they expect her to be someone she’s not."
                     mc "I mean, anyone would try and get out of a situation like that, right?"
                     mc "Even if it means leaving behind family and friends and everyone you’ve ever known."
-                    show kari frown
                     mc "…Right?"
                     window hide
                     menu:
                         "Right.":
-                            show kari -frown
                             pause 0.5
                             window show
                             # continue
@@ -174,11 +193,13 @@ label chapter5:
                 "Obviously, she should stay." if not kannikaplantree["obviously"]:
                     $ kannikaplantree["obviously"] = True
                     window show
+                    show kari frown
                     mc "I know it’s tough, but like… it could be a lot worse."
                     mc "I’m sure Kannika and her mom would be able to find some common ground eventually if she stayed and talked it out."
                     mc "She has her family, she has Luan, and I’m sure she has other friends."
                     mc "If she stays, she won’t be fighting with her mom anymore, and the High Elders will be happy."
                     mc "In fact, the whole kingdom would be happy. And I bet she’d make an amazing queen."
+                    show kari sweatdrop
                     mc "Yeah. Yeah! And once she’s fully inherited the throne, she’ll probably be able to do things in more of her own style again!"
                     mc "All she has to do is go through with the arranged marriage and wait for however many years it takes, all while playing the part of a responsible princess."
                     show kari frown
@@ -186,7 +207,6 @@ label chapter5:
                     window hide
                     menu:
                         "Yeah. Definitely the best outcome overall.":
-                            show kari -frown
                             pause 0.5
                             window show
                             #continue
@@ -203,56 +223,84 @@ label chapter5:
 
                 "She should totally… um… uh…":
                     window show
+                    show kari gloom
                     mc "…"
+                    show kari sweatdrop
                     mc "Okay, maybe not so simple."
                     show kari frown
                     mc "I can’t just tell her to stay here. She’s clearly unhappy."
                     mc "And it’s going to get a lot harder before it ever gets easier."
                     mc "But I can’t just tell her to leave. Sure, it worked for me, but her situation is so different from mine."
                     mc "I just don’t want her to do something she’ll end up regretting…"
-                    show kari -frown
+        
 
             n "{i}You continue to mull over your thoughts as you work.{/i}" 
-            show kari:
+
+            # Sad drink making
+            window hide
+            show kari at right
+            with move
+            play sound "Dewdrop_MakeDrink.mp3" volume 0.7
+            pause 1.5
+            show kari at center:
                 xzoom 1.0
+            with move
+            play sound "Dewdrop_SetGlass1.mp3" volume 0.7
+            pause 0.25
+            window show
+            play sound "Dewdrop_Bell.mp3" volume 0.7
             n "{i}Soon enough, the cafe is as packed-up as it’ll get. All you have to do is put the magic briefcase on the ground and unlatch it, and the whole cafe will fold up and disappear.{/i}"
+
             n "{i}You can leave whenever you want.{/i}"
 
             n "{i}But this time, you can’t leave just yet.{/i}"
             n "{i}You’re waiting for someone.{/i}" 
             n "{i}None of your previous departures were like this, and you find yourself antsy as you sit in your empty cafe, silent save for the sounds of insects and frogs.{/i}"
 
+            show kari:
+                xzoom -1.0
+
             n "{i}Any attempts to distract yourself or pass the time eventually return to thoughts of Kannika.{/i}" 
             n "{i}What’s the right answer?{/i}" 
             n "{i}Is there even a right answer?{/i}"
 
             n "{i}After what feels like an eternity the sky finally begins to darken.{/i}" 
+            window hide
+            pause 0.25
             show night bg zorder 1 with dissolve
+            pause 0.25
+            window show
             n "{i}Twilight approaches, and with it comes a very important decision. But unlike so long ago, it isn’t one that you’ll be making.{/i}"
 
             n "{i}Ultimately, it will all be up to her.{/i}"
 
 
     # Kannika appears
-    play sound ["Dewdrop_Splash.mp3", "Dewdrop_Slither.mp3"] volume 0.7
+    window hide
+    play sound "Dewdrop_Splash.mp3" volume 0.7
+    show kari exclamation:
+        xzoom 1.0
+    pause 1.0
+    window show
     n "{i}A tell-tale splash announces her arrival. Kannika slithers up to the Dewdrop Cafe – alone.{/i}"
+    show kari surprised
     window hide
 
-    show kari:
+    pause 0.25
+    play sound "Dewdrop_Slither.mp3" volume 0.7
+    pause 0.5
+    show kari neutral at sprite_highlight("kari"):
         align (1.0, 0.5)
     with MoveTransition(0.75)
-    pause 0.25
-    show kannika neutral
+    show kannika neutral at sprite_highlight("kannika")
     show kannika frown zorder 1 at left
     with easeinleft
 
-    # Spright highlights
+    # Sprite highlights
     show kannika at sprite_highlight("kannika")
-    show kari at sprite_highlight("kari")
 
     pause 0.5
     window show
-    pause 0.25
     b "…Hey."
     
     $ suptree = {"sup": False, "beenluan": False}
@@ -262,12 +310,16 @@ label chapter5:
             $ suptree["sup"] = True
             window show
             b "…"
+            show kari -surprised
+            show kari frown
             mc "…"
             mc "So…"
-            show kari smile
+            show kari -frown
+            show kari neutral at sprite_highlight("kari")
             mc "You come here often?"
             show kannika -frown
             show kannika smile
+            show kari smile
             n "{i}Kannika’s mouth twitches into a hint of a smile. You crack a grin in return, and you can feel some of the tension leave the air.{/i}"
             b "I must admit I find your irreverence quite refreshing."
             mc "Well, it’s gotten me into plenty of trouble in the past."
@@ -288,10 +340,9 @@ label chapter5:
             mc "I want to make it right."
             show kari -frown
             mc "That’s why tonight I’m going to do everything I can to support you. You don’t have to face this alone."
-            show kannika smile
+            show kannika blush
             b "…Thank you. Truly."
-            show kannika -smile
-            show kannika frown
+            show kannika -blush
             b "I wanted to apologize as well."
             # continue
         "How’ve you been doing?" if not suptree["beenluan"]:
@@ -306,15 +357,17 @@ label chapter5:
             b "Yes. He’s risking quite a bit just by letting me leave the castle. If my mother ever found out he let me come see you…"
             b "I asked him to stay out of sight. Partially to give us some space to talk, and partially as a precaution if anyone else spots me."
             b "I can claim that I ran away and Luan was simply coming to find me."
+            show kari sweatdrop
             mc "Oh."
+            show kari -sweatdrop
             window hide
             jump sup
             # back
         "Where’s Luan?" if not suptree["beenluan"]:
             $ suptree["sup"] = True
             $ suptree["beenluan"] = True
-            window show
             show kannika -frown
+            window show
             b "He’s nearby, just out of sight. I asked him to give us some space."
             show kannika frown
             b "Neither of us are supposed to be here in the first place. In fact, Luan is supposed to be accompanying me on a stroll through the royal coral gardens."
@@ -326,7 +379,11 @@ label chapter5:
             # back
         "Thank you for coming here." if suptree["beenluan"]:
             window show
+            show kari -surprised
+            show kari neutral
+            show kari smile
             mc "Really. It means a lot to me."
+            show kari -smile
             show kari frown
             mc "I didn’t want to leave things off the way we did the other day… and I especially didn’t want to leave you to face all of this alone."
             show kari -frown
@@ -337,7 +394,7 @@ label chapter5:
             show kannika frown
             b "And I… wanted to apologize."
             # continue
-
+    show kannika frown
     b "The other day, when I told you I was thinking about running away from the kingdom… I had expected you to be enthusiastic about it. Perhaps even excited."
     b "I didn’t expect you to have reservations. It caught me off-guard."
     b "So I snapped at you."
@@ -349,7 +406,7 @@ label chapter5:
     show kannika -frown
     b "I won’t get mad. I won’t storm off."
     b "What do {i}you{/i} think I should do, Kari?"
-    show kari surprised
+    show kari neutral at sprite_highlight("kari")
     window hide
     menu: 
         "I think you should leave.":
@@ -365,9 +422,9 @@ label chapter5:
     $ renpy.full_restart(transition=Fade(0.5,0.5,0.25))
 
 label runaway:
-    show kari -surprised
     show kannika surprised
     mc "It doesn’t have to be forever. In fact, I think you should definitely plan on coming back here eventually."
+    show kari frown
     mc "But with things like this… You shouldn’t have to put yourself through that."
     b "Do you really think I should leave? I thought you were against it."
     mc "No, no, it’s just…"
@@ -376,7 +433,6 @@ label runaway:
     mc "It’s a really big decision to make, especially for someone in your position."
     mc "Leaving means saying goodbye to everyone and everything you’ve known your whole life."
     mc "It means severing ties, maybe forever. It means being alone in a strange land."
-    show kari frown
     mc "When I first left home, I barely had a plan. I hitchhiked, I foraged for food, I slept on benches."
     show kari -frown
     show kari sweatdrop
@@ -386,7 +442,7 @@ label runaway:
     mc "Every night I considered turning around and going right back home."
     mc "Because… even if I was miserable, at least I wouldn’t be alone."
     mc "…"
-    show kari smile
+    show kari blush
     mc "But every morning I would be glad I left."
     mc "I got to discover myself, figure out what kind of person I really wanted to be."
     show kari sparkle
@@ -395,8 +451,10 @@ label runaway:
     mc "And I know it looks like I’ve got everything figured out now, but I’m still kinda making it up as I go."
     mc "It was hard at first. But that first step is the hardest part."
     mc "You just gotta keep going."
+    show kannika frown
     b "…I understand."
     b "You’re right. It isn’t as simple of a decision as I initially thought it was."
+    show kannika -frown
     b "I know it won’t be easy. But I also know that it’s something I need to do."
     b "I need to live for myself. Not for my mother, or for the High Elders."
     b "For me."
@@ -412,14 +470,15 @@ label runaway:
     show kari blush
     n "{i}She smiles widely at you and squeezes your hand. You can’t help but smile back.{/i}"
 
+    $ quick_menu = False
     window hide
     scene black
     with dissolve
-    pause 1.0
+    pause 1.5
 
     # RUNAWAY CUTSCSENE
-    scene black
     $ quick_menu = True
+    window show
     n "{i}The two of you waste no time.{/i}"
     n "{i}Kannika returns to the palace with Luan to pack some keepsakes and traveling clothes, as well as to write a note to her mother explaining why she’s choosing to leave the kingdom.{/i}"
 
@@ -508,16 +567,15 @@ label arrangedmarriage:
     b "I… hadn’t really thought about it like that."
     b "I’ve spent all these years sneaking out of the castle at night to go explore the town or the reef, but it was always easy enough to be back in time for a new day."
     b "But if I truly left the kingdom…"
-    mc "It’s a serious commitment."
     show kari frown
+    mc "It’s a serious commitment."
     mc "And it’s definitely not as fun as I make it seem. Not at first, anyways."
-    show kari -frown
     b "I just… I’m not sure if I’ll be able to be happy here."
     b "Thinking about spending every day in that castle listening to the noble matriarchs gossip and scheme…"
-    n "{i}Kannika looks wistfully around the cafe. One finger idly trails across the polished wooden countertop.{/i}"
+    nn "{i}Kannika looks wistfully around the cafe. One finger idly trails across the polished wooden countertop.{/i}" (cb_name="kannika")
     b "I’ll miss this place."
     show kari frown at sprite_highlight("kari")
-    n "{i}You remember what Luan said about your banishment and nod sadly.{/i}"
+    nn "{i}You remember what Luan said about your banishment and nod sadly.{/i}" (cb_name="kari")
     n "{i}The two of you share a quiet moment reminiscing on the time you shared here, from the first moment you met till now.{/i}"
     show kannika -frown
     show kannika sparkle
@@ -534,29 +592,31 @@ label arrangedmarriage:
     show kari exclamation
     mc "Wait, really? How?"
     show kannika -smile
-    show kannika sunglasses
-    b "I’ll bargain with her. If she wants me to be a politician, then I’ll start by negotiating a deal with her."
-    show kannika -sunglasses
-    b "An exchange. I’ll play the part of a proper princess – on the condition that I can add you to my personal retinue."
-    show kari -exclamation
+    show kannika sparkle
     show kari surprised
+    b "I’ll bargain with her. If she wants me to be a politician, then I’ll start by negotiating a deal with her."
+    show kannika -sparkle
+    b "An exchange. I’ll play the part of a proper princess – on the condition that I can add you to my personal retinue."
     mc "You’d do that… for me?"
     show kannika blush
     b "You’re the one who first showed me the wonders of the world, Kari. If I won’t be seeing them myself, I’ll simply have you continue to show them to me."
 
+    $ quick_menu = False
     window hide
     scene black
     with dissolve
-    pause 1.0
+    pause 1.5
 
     # ARRANGED MARRIAGE CUTSCENE
+    $ quick_menu = True
+    window show
     n "{i}The day comes soon enough.{/i}"
     # Arranged Marriage 1
     $ quick_menu = False
     window hide
     pause 0.5
     show marriage1 with dissolve
-    pause 2.0
+    pause 1.5
     $ quick_menu = True
     window show
     n "{i}The warrior Rawi is crowned champion, and for his boon of choice he asks for Kannika’s hand in marriage – as is his right.{/i}"
@@ -699,12 +759,14 @@ label rejecttradition:
     show kari sunglasses
     mc "But let me tell you, thanks to my dad’s line of work I happen to know quite a bit about combating cultural hegemonies…"
 
+    $ quick_menu = False
     window hide
     scene black
     with dissolve
-    pause 1.0
+    pause 1.5
 
     # REJECT TRADITION CUTSCENE
+    $ quick_menu = True
     window show
     n "{i}Defying decades-old tradition and the will of an immortal council of dragons isn’t exactly a walk in the park.{/i}"
     n "{i}It’ll take cunning, subtlety, and guerilla cafe propaganda.{/i}"
