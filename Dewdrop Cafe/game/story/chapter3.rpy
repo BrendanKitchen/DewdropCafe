@@ -206,17 +206,17 @@ label chapter3:
     with MoveTransition(0.75)
 
     # Kari and Kannika chat in private *blush*
-    show kari exclamation
+    show kari exclamation at sprite_highlight("kari")
     mc "...Is this serious? Are you in danger?"
     show kari surprised
     b "Not quite that serious."
     b "But it’s something that’s been weighing heavily on me for a while now."
     b "You’ve been nothing but kind to me, and you have an outsider’s perspective on this, and..."
-    show kannika frown
+    show kannika frown at sprite_highlight("kannika")
     b "I don’t really have anyone else I can talk to about this."
     show kannika -frown
     b "It would mean a lot to me if you could hear me out. Please."
-    show kari blush
+    show kari blush at sprite_highlight("kari")
     mc "I would love to, Kannika."
     show kari -blush
 
@@ -226,9 +226,9 @@ label chapter3:
         nn "{i}You walk out from behind the counter and place a freshly-steeped cup of cattail citrus tea – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
         show kari smile
         play sound "Dewdrop_SetGlass1.mp3" volume 0.7
-        show drink bg:
+        show drink bg zorder 2:
             align (0.5, 0.4)
-        show cattail citrus:
+        show cattail citrus zorder 3:
             align (0.5, 0.4)
         with dissolve
         pause 2.0
@@ -240,9 +240,9 @@ label chapter3:
         nn "{i}You walk out from behind the counter and place a cup of humming lavender with honey – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
         show kari smile
         play sound "Dewdrop_SetGlass1.mp3" volume 0.7
-        show drink bg:
+        show drink bg zorder 2:
             align (0.5, 0.4)
-        show humming lavender:
+        show humming lavender zorder 3:
             align (0.5, 0.4)
         with dissolve
         pause 2.0
@@ -254,9 +254,9 @@ label chapter3:
         nn "{i}You walk out from behind the counter and place a hot cup of otterkish coffee – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
         show kari smile
         play sound "Dewdrop_SetGlass1.mp3" volume 0.7
-        show drink bg:
+        show drink bg zorder 2:
             align (0.5, 0.4)
-        show otterkish coffee:
+        show otterkish coffee zorder 3:
             align (0.5, 0.4)
         with dissolve
         pause 2.0
@@ -268,9 +268,9 @@ label chapter3:
         nn "{i}You walk out from behind the counter and place an affogato al signo – it seemed right for the situation – in front of Kannika.{/i}" (cb_name="kari")
         show kari smile
         play sound "Dewdrop_SetGlass1.mp3" volume 0.7
-        show drink bg:
+        show drink bg zorder 2:
             align (0.5, 0.4)
-        show affogato:
+        show affogato zorder 3:
             align (0.5, 0.4)
         with dissolve
         pause 2.0
@@ -293,7 +293,7 @@ label chapter3:
         menu:
             "(Tell the truth)":
                 window show
-                show kari sweatdrop
+                show kari sweatdrop at sprite_highlight("kari")
                 mc "I… My parents and I had a bit of a disagreement."
                 mc "Things were really tense and uncomfortable and I…"
                 show kari gloom
@@ -306,7 +306,7 @@ label chapter3:
                 mc "We all needed some space. Me {i}and{/i} them."
             "(Tell a partial truth)":
                 window show
-                show kari sparkle
+                show kari sparkle at sprite_highlight("kari")
                 mc "I wanted to see the world."
                 show kari -sparkle
                 mc "My home – the PDRC, I mean – always felt a little… I dunno, stifling?"
@@ -324,7 +324,7 @@ label chapter3:
                 show kari -sweatdrop
             "(Lie)":
                 window show
-                show kari sparkle
+                show kari sparkle at sprite_highlight("kari")
                 mc "It’s always been my dream!"
                 mc "I get to make delicious drinks, see amazing sights…"
                 mc "And I get to meet amazing people."
@@ -354,7 +354,7 @@ label chapter3:
         menu:
             "No, not at all!":
                 window show
-                show kari sparkle
+                show kari sparkle at sprite_highlight("kari")
                 mc "I love the Dewdrop Cafe!"
                 mc "Getting to travel and see the world, getting to meet amazing people and make drinks for them…"
                 mc "It’s a dream come true."
@@ -377,7 +377,7 @@ label chapter3:
     # Branches over, back to intimate convo
     b "That’s a very brave thing to do."
     b "With how things have been going, I have half a mind to do the same."
-    show kari exclamation
+    show kari exclamation at sprite_highlight("kari")
     mc "What do you mean? Kannika, what’s going on?"
     show kari surprised
     b "Would you prefer the short version or the long version?"
@@ -391,7 +391,7 @@ label chapter3:
             window show
             mc "You seem pretty stressed, so let’s get straight to the important stuff."
             b "Very well."
-            show kannika frown
+            show kannika frown at sprite_highlight("kannika")
             b "In short, I am all but betrothed to a man whom I have never spoken to."
             show kari exclamation
             $ alreadysurprised = True
@@ -419,9 +419,7 @@ label chapter3:
                     show kari frown
                     mc "Is there anything you can do? Any way to stop it?"
     mc "What about your mom? Have you talked to her about this?"
-    show kannika gloom
     b "My mother and I have spoken at length on this subject, and she has made her position clear."
-    show kannika frown
     b "The legitimacy of her reign depends on the support of the nobility and the High Elders, and by extension the observance of traditions such as this one."
 
     # Check to see if Kannika knows Kari's familial ties to the PDRC's government
@@ -673,6 +671,7 @@ label chapter3:
     with fade
 
     # Kari depression menu
+    window hide
     menu:
         "(Close up early)":
             window show
