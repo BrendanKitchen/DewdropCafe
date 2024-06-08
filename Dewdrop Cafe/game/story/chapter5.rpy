@@ -766,7 +766,7 @@ label rejecttradition:
     #   jump sloppystyle
 
     if persistent.sloppy_style == True:
-        call sloppystyle
+        call sloppystyle from _call_sloppystyle
 
     # Ending Card Outro
     window hide
