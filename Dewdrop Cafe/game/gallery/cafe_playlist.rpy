@@ -34,7 +34,7 @@ screen cafe_playlist:
         xalign 1.3
         hbox: 
             spacing 40
-            add "gui/gallery_assets/album_cover.png":
+            add "gui/gallery_assets/album_cover.jpg":
                     zoom 0.3
             vbox:
                 xsize 800

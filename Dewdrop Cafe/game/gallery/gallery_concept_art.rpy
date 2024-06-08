@@ -73,6 +73,8 @@ screen gallery_concept_art:
             add gallery.make_button("issy_kannikari", "fanart/thumbnails/issy_kannikari.png", tooltip="Kannika and Kari fanart by {color=#4DE5BA}Issy Wong{/color}")
             add gallery.make_button("issy_luan", "fanart/thumbnails/issy_luan.png", tooltip="Luan fanart by {color=#4DE5BA}Issy Wong{/color}")
             add gallery.make_button("issy_luan2", "fanart/thumbnails/issy_luan2.png", tooltip="Luan fanart by {color=#4DE5BA}Issy Wong{/color}")
+            add gallery.make_button("album_cover", "fanart/thumbnails/album_cover.jpg", tooltip="Luan album cover by {color=#4DE5BA}Talia Yaser{/color}")
+            add gallery.make_button("ash_kannikari", "fanart/thumbnails/ash_kannikari.jpg", tooltip="Kannika and Kari fanart by {color=#4DE5BA}Ashley Lu{/color}")
 
 
 style gallery_concept_art_label:

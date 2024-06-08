@@ -145,6 +145,12 @@ init python:
     gallery.image("../gui/overlay/plain_overlay.png", "fanart/issy_kannikari2.jpg")
     gallery.unlock("sloppy style")
 
+    gallery.button("album_cover")
+    gallery.image("../gui/overlay/plain_overlay.png", im.Scale("../gui/gallery_assets/album_cover.jpg", 1080, 1080))
+
+    gallery.button("ash_kannikari")
+    gallery.image("../gui/overlay/plain_overlay.png", "fanart/ash_kannikari.jpg")
+
 
     # ------ CAFE MENU -------
     # ------------------------
